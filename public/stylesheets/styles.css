@@ -1,0 +1,499 @@
+/* VARIABLES  */
+:root{
+    /* TIPOGRAFIAS */
+    --fuenteMenu: 'Nunito';
+    --fuenteMenuBtn: 'Nunito';
+    --fuenteSlider: 'Nunito';
+    --fuenteTituloSeccion: 'Poppins';
+    --fuenteCategoriaProducto: 'Poppins';
+    --fuenteTituloProducto: 'Poppins';
+    --fuenteTituloReceta: 'Poppins';
+    --fuenteDescripcionProducto:'Poppins' ;
+    --fuenteMenuFooter: 'Poppins' ;
+    --fuenteSubMenuFooter:'Poppins';
+    --fuenteGeneral: 'Poppins';
+
+    /* TAMAÑOS TIPOGRAFICOS */
+    --fontSizeMenu: 1em;
+    --fontSizeSlider: 2em;
+    --fontSizeTituloSeccion: 1.4em;
+    --fontSizeCategoriaProducto: 'Poppins';
+    --fontSizeTituloProducto: 1.1em;
+    --fontSizeDescripcionProducto:0.8em;
+    --fontSizeTipoReceta:1.5em;
+    --fontSizeTituloReceta:1.8em;
+    --fontPrecioProducto: 1.6em;
+    --fontSizeMenuFooter: 1.1em ;
+    --fontSizeSlider:1.6em;
+    
+
+    /* VARIANTES TIPOGRAFICAS */
+    --fontweightMenu: 700;
+    --fontweightMenuBtn: 700;
+    --fontweightSlider: 500;
+    --fontweightTituloSeccion: 500;
+    --fontweightCategoriaProducto: 500;
+    --fontweightTituloProducto: 500;
+    --fontweightPrecioProducto:700;
+    --fontweightDescripcionProducto:400;
+    --fontweightMenuFooter: 500 ;
+    --fontweightSubMenuFooter:400;
+    
+    /* COLORES */
+    --colorBtnRegister: #6FCF97;
+    --BtnBorderLogin:border: 1px solid #219653 ;
+    --colorMenu: #219653;
+    --colorSeccionInfo: #6FCF97;
+    --colorTituloSeccion: #2b2b2b;
+    --colorTituloGeneral: #2b2b2b;
+    --colorTituloProducto:  #2b2b2b;;
+    --colorDescripcionProducto:  #2b2b2b;;
+    --colorBtnLoginHover:#C3EAD3;
+
+    /* PADDINGS Y MARGENES */
+    --paddingSecciones: 1.5em;
+    --marginSecciones: 1em 0;
+
+}
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+.col-12{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.col-10 {
+    
+    width: 100%;
+}
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+/* */
+body{
+    
+    margin: 0 auto;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* CONTENEDOR */
+.container-fluid{
+
+    padding-right: 0px;
+    padding-left: 0px;
+    width: 100%;
+}
+
+/* ENCABEZADO */ 
+header{
+    
+    margin: 1% 0px;
+    width: 100%;
+}
+/* MENU */
+.navbar-nav{
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+/* ENLACES MENU */
+.navbar-nav a{
+    color: var(--colorMenu);
+    font-family: var(--fuenteMenu);
+    font-size: 1em;
+    font-weight: var(--fontweightMenu);
+    letter-spacing: 0.040em;
+    text-decoration: none;
+    margin-left: 1em;
+    
+}
+/* ENLACES MENU */
+.enlaces{
+    list-style: none;
+    text-align: center;
+    margin: 0.5% 0;
+    
+}
+
+/* ENLACES MENU DESPLEGABLE*/
+.dropdown-menu{
+    border:none;
+}
+/* ENLACES MENU DESPLEGABLE*/
+.navbar-light .navbar-toggler {
+    color: --colorBtnRegister;
+    border-color: #fff;
+}
+
+/* DROPDOWN MENU */
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0px;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;}
+    
+/* MENU HAMBURGUESA */
+  .btn-nav-toggler{
+    margin: 0 auto;
+    background-color: var(--dark-blue);
+  }
+  .menu{
+
+  }
+/* DIV BOTONES REGISTRO | LOGIN */
+  .user{
+    margin: 0.5% 0;
+  }
+
+/* BOTON REGISTRO */
+.user button.register{
+    color:#fff;
+    background: var(--colorBtnRegister);
+    border-radius: 6px;
+    font-family: var(--fuenteMenuBtn);
+    font-size: 0.8em;
+    font-weight: var(--fontweightMenuBtn);
+    margin-left: -1.5%;
+    padding: 2% 4%;
+}
+.user button.register:hover{
+    color:#fff;
+    background: var(--colorMenu);
+    
+}
+
+/* BOTON LOGIN */
+.user button.login{
+    color:#219653;
+    background: #fff;
+    border: 1px solid #219653;
+    border-radius: 6px;
+    font-family: var(--fuenteMenuBtn);
+    font-size: 0.8em;
+    font-weight: var(--fontweightMenuBtn);
+    padding: 2% 4%;
+    position: relative;
+    z-index: 2;
+}
+.user button.login:hover{
+    color:#fff;
+    background:var(--colorBtnLoginHover);
+    
+}
+/* * * * * * SLIDER HOME * * * * * * */
+
+.slider{
+    background: var(--colorBtnRegister);
+    background-image: url(../img/slider1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 200px;
+    width: 100%;
+}
+.epigrafe{
+    color:var(--colorTituloProducto);
+    font-size: var(--fontSizeSlider);
+    font-weight: var(--fontweightSlider);
+    text-align: left;
+}
+.epigrafe-derecho{
+    color:var(--colorTituloProducto);
+    font-size: var(--fontSizeSlider);
+    font-weight: var(--fontweightSlider);
+    text-align: right;
+}
+.epigrafe-oscuro{
+    color:#fff;
+    font-size: var(--fontSizeSlider);
+    font-weight: var(--fontweightSlider);
+    text-align: left;
+}
+
+
+/* * * * * * SECCION INFORMACION * * * * * */
+.info{
+    background: var(--colorSeccionInfo);
+    height: auto;
+    margin-top:0;
+    padding: var(--paddingSecciones);
+    width: 100%;
+
+}
+/* IMAGENES SECCION INFORMACION */
+
+
+/* PÁRRAFO SECCION INFORMACION */
+.info p{
+    font-size: 0.9em;
+
+}
+/* * * * * * SECCION PRODUCTOS DESTACADOS * * * * * */
+.destacados{
+    
+    padding:var(--paddingSecciones);
+    margin: var(--marginSecciones);
+}
+/* DIV PRODUCTO */
+.product-box{
+    margin-bottom: 1em;
+}
+
+/* TÍTULO SECCION DE PRODUCTOS DESTACADOS */
+.TituloDestacados{
+    font-size: var(--fontSizeTituloSeccion);
+    padding-bottom: 1em;
+}
+
+/* PRECIO DEL PRODUCTO */
+.titulo_producto{
+    color: var(--colorTituloProducto);
+    font-size: var(--fontSizeTituloProducto);
+    font-family: var(--fuenteTituloProducto);
+    font-weight: var(--fontweightTituloProducto);
+    margin-bottom: 0px;
+}
+
+/* PRECIO DEL PRODUCTO */
+.precio_producto{
+    color: var(--colorTituloProducto);
+    font-size: var(--fontPrecioProducto);
+    font-family: var(--fuenteTituloProducto);
+    font-weight: var(--fontweightPrecioProducto);
+    
+}
+
+/* DESCRIPCION DEL PRODUCTO */
+.descripcion_producto{
+    color: var(--colorTituloProducto);
+    font-size: var(--fontSizeDescripcionProducto);
+    font-family: var(--fuenteTituloProducto);
+    font-weight: var(--fontweightDescripcionProducto);
+    
+}
+.contenedor-sale{
+    background-image: url(img/sale-19.svg);
+    background: center no-repeat;
+    width: 50px;
+    height: 50px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #5cb85c;
+    position: relative;
+     
+
+}
+.sale{
+    color: #fff;
+    background-image: url(img/sale-19.svg);
+    background: center no-repeat;
+    tex-align
+    font-size: 1.3em;
+    position: absolute;
+    top:0;
+    right: 3px;
+    z-index:3;
+}
+
+
+
+/* BOTON AGREGAR AL CARRITO */
+.btn_producto{
+    color:#fff;
+    background: var(--colorBtnRegister);
+    border-radius: 6px;
+    font-family: var(--fuenteMenuBtn);
+    font-size: 0.8em;
+    font-weight: var(--fontweightMenuBtn);
+    padding: 3% 4%;
+    margin: 0 auto;
+}
+/* * * * * * * RECETAS * * * * * */
+
+/* TIPO DE RECETA */
+.tipo_receta{
+    color: var(--colorTituloProducto);
+    font-size: var(--fontSizeDescripcionProducto);
+    font-family: var(--fuenteTituloProducto);
+    font-weight: var(--fontweightDescripcionProducto);
+    letter-spacing: 0.1em;
+    margin-bottom: 0px;
+}
+
+/* TÍTULO DE RECETA */
+.titulo_receta{
+    color: var(--colorTituloProducto);
+    font-size: var(--fontSizeTituloReceta);
+    font-family: var(--fuenteReceta);
+    font-weight: var(--fontweightPrecioProducto);
+    margin-top: 0px;
+}
+
+/* TÍTULO DE RECETA */
+.descripcion_receta{
+    color: var(--colorTituloProducto);
+    font-size: var(--fontSizeDescripcionProducto);
+    font-family: var(--fuenteTituloProducto);
+    font-weight: var(--fontweightDescripcionProducto);
+}
+
+
+/* BOTON VER MAS RECETA */
+.btn_receta{
+    color:#fff;
+    background: var(--colorBtnRegister);
+    border-radius: 6px;
+    font-family: var(--fuenteMenuBtn);
+    font-size: 0.8em;
+    font-weight: var(--fontweightMenuBtn);
+    padding: 3% 4%;
+   
+}
+/* * * * * * * FOOTER * * * * * */
+footer{
+
+}
+/* TITULOS FOOTER */
+footer h6{
+    color: var(--colorMenu);
+    font-family: var(--fuenteMenu);
+    font-size: .9em;
+    font-weight: var(--fontweightMenu);
+    letter-spacing: 0.040em;
+    text-decoration: none;
+}
+/* ENLACES FOOTER */
+footer li a{
+    font-size: 0.8em;
+    line-height: .2em;
+    text-decoration: none;
+}
+footer p{
+    font-size: 0.8em;
+    text-align:left;
+}
+/* --  LOGO FOOTER -- */
+footer.logofooter{
+
+}
+/* --  SEPARADOR FOOTER -- */
+footer .fila1{
+    border-bottom: solid 1px #2b2b2b;
+}
+/* --  ICONOS REDES FOOTER -- */
+footer .redes{
+    list-style: none;
+    width: 100%;}
+footer .redes ul{
+        list-style: none;
+        width: 100%;
+}
+footer .redes img{
+    
+    width: 75%;
+} 
+
+footer .social{
+    margin: 0px;
+   
+}
+/* --  FOOTER | MENU PRODUCTOS  -- */
+footer .menu-productos{
+    font-weight:var(--fontweightSubMenuFooter);
+}
+footer .menu-productos li{
+    list-style: none;
+}
+footer .menu-productos li a{
+    color: var(--colorTituloGeneral);
+    font-weight:var(--fontweightSubMenuFooter);
+    text-decoration: none;
+    }
+
+/* --  FOOTER | MENU RECETAS  -- */
+footer .menu-recetas{
+
+}
+footer .menu-recetas li{
+    list-style: none;
+}
+footer .menu-recetas li a{
+    color: var(--colorTituloGeneral);
+    font-weight:var(--fontweightSubMenuFooter);
+    text-decoration: none;    
+}
+
+/* --  FOOTER | MENU TIPS  -- */
+footer .menu-tips{
+
+}
+footer .menu-tips li{
+    list-style: none;
+}
+footer .menu-tips li a{
+    color: var(--colorTituloGeneral);
+    font-weight:var(--fontweightSubMenuFooter);
+    text-decoration: none;
+    }
+/* --  FOOTER | MENU NEWSLETTER  -- */
+footer .menu-newsletter{
+
+}
+footer .menu-newsletter input{
+    border: solid 1px #dedede;
+    z-index: 2;
+}
+
+footer .menu-newsletter button{
+    color:#fff;
+    background: var(--colorBtnRegister);
+    border-radius: 0px 6px 6px 0px;
+    font-family: var(--fuenteMenuBtn);
+    font-size: 0.8em;
+    font-weight: var(--fontweightMenuBtn);
+    padding: 2% 2%;
+}
+
+
+/* Media-Queries */
+@media (min-width: 768px) {
+    menu{
+        display: none;
+    }
+    
+    .btn-toggle-navbar {
+        display: none;
+      }
+      .menu-collapse .enlaces ul{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn_receta {
+        margin-left: 50%;
+    }
+}
+@media (min-width: 320px) {
+    .logofooter{
+        margin-bottom: 1.5em;
+    }
+        .copy{
+            order:2;
+        }
+        .redes{
+            order:1;
+        }
+    }
