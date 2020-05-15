@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Detalle de producto</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Bootstrap -->
+
+    <!-- css -->
+    <link rel="stylesheet" href="../public/stylesheets/styles.css">
+    <link rel="stylesheet" href="../public/stylesheets/detail.css">
+    <!-- /css -->
+</head>
+
+<body>
+    <!-- Header -->
+    <!-- LOGO -->
+    <!-- MENU CON BOTONES DE REGISTRO -->
+    <div class="container-fluid">
+
+        <header class="container-fluid">
+            <nav class="navbar navbar-expand-lg">
+                <a href="#" role="button" class="col-2"><img src="/public/images/Logo.svg" alt="marca almazen"
+                        class="navbar-brand"></a>
+                <button class="ml-auto navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <img src="/public/images/toggler_icon.png">
+                    <!--<i class="fa fa-bars"></i>-->
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="ml-auto mb-3 col-12 col-md-12 col-lg-8 col-xl-8 d-flex align-items-center navbar-nav">
+                        <li class="col-12 col-md-12 col-lg-2 align-items-center dropdown enlaces">
+                            <a class="col-12 col-md-3 col-lg-3 dropdown-toggle" href="#" id="navbarDropdown"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                PRODUCTOS
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">PRODUCTO 1</a>
+                                <a class="dropdown-item" href="#">PRODUCTO 2</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">TODOS</a>
+                            </div>
+                        </li>
+                        <li class="col-12 col-lg-2 align-items-center enlaces">
+                            <a class="col-12" href="#">DIETAS</a>
+                        </li>
+                        <li class="col-12 col-lg-3 align-items-center enlaces">
+                            <a class="col-12" href="#">TIPS SALUDABLES</a>
+                        </li>
+                        <li class="col-12 col-lg-2 dropdown align-items-center enlaces">
+                            <a class="col-12 col-lg-3 dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                RECETAS
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Receta 1</a>
+                                <a class="dropdown-item" href="#">Receta 2</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Agregado</a>
+                            </div>
+                        </li>
+                        <li class="col-12 col-lg-1 align-items-center enlaces">
+                            <a href="#" role="button" class="col-12 carrito"><img src="/public/images/cart.svg"
+                                    alt="carrito"></a>
+                        </li>
+
+                    </ul>
+                    <div
+                        class="mb-3 col-12 col-lg-3 col-xl-4 d-flex flex-xs-row align-items-center justify-content-center user">
+                        <button class="col-4 col-lg-5 col-xl-5 login align-items-center justify-content-center"
+                            role="button" type="button">INGRESAR</button>
+                        <button class="col-4 col-lg-5 col-xl-5 register align-items-center justify-content-center"
+                            role="button" type="button">REGISTRAR</button>
+                    </div>
+
+                </div>
+                <a href=""></a>
+            </nav>
+        </header>
+        <!-- /Header -->
+
+
+        <!-- Content -->
+
+        <!-- Container -->
+        <article class="container">
+            <div class="row box-product">
+
+                <figure class="col-12 col-lg-6">
+                    <img src="/public/images/curcuma en polvo.jpg" alt="">
+                </figure>
+
+                <div class="col-12 col-lg-6">
+                    <div class="description-wrapper">
+                        <section class="col-12 product">
+                            <div class="short-description">
+
+                                <h3 class="product-name">Cúrcuma</h3>
+                                <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
+                                    nisi tenetur at neque maiores quo assumenda veritatis, ullam temporibus aut sint
+                                    officia
+                                    dicta, alias
+                                    ratione quam
+                                    architecto repellat vero quia.</p>
+                            </div>
+                            <form action="" class="purchase-form">
+
+                                <div class="row product-price">
+                                    <h3 class="col-6 col-lg-12 price">$200</h3>
+
+                                    <div class="col-6 col-lg-12 box-quantity">
+
+                                        <div class="quantity-selector-text"> Cantidad: </div>
+
+                                        <select class="selectpicker quantity-selector">
+                                            <option class="active">1 unidad</option>
+                                            <option class="option">2 unidades</option>
+                                            <option class="option">3 unidades</option>
+                                            <option class="option">4 unidades</option>
+                                            <option class="option">5 unidades</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="vip-actions-wrapper  vip-actions-wrapper--cart-item">
+                                    <div class="vip-actions item-actions u-clearfix">
+                                        <div class="row vip-action-primary">
+
+                                            <input type="submit" data-js="vip-action-primary" form="productInfo"
+                                                title="curcuma" value="Comprar ahora"
+                                                class="col-12 col-md-5 col-lg-4 primary ui-button ui-button--primary  vip-narrow-button">
+
+                                            <input type="submit" data-js="vip-action-cart" form="productInfo"
+                                                title="curcuma" value="Agregar al carrito"
+                                                class="col-12 col-md-5 col-lg-4 secondary ui-button ui-button--secondary">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- /Container -->
+
+        <!-- /Content -->
+
+
+        <!-- Footet -->
+        <footer class="row container-fluid">
+
+            <div class="col-11 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center flex-wrap">
+                <!-- Logo footer -->
+                <div class="col-12 d-flex justify-content-center col-xl-2 logofooter">
+                    <a href="#" role="button"><img src="/public/images/Logo.svg" alt="marca almazen"></a>
+                </div>
+                <!-- Menu de productos -->
+                <div class="col-6 col-xl-2 menu-productos">
+                    <article>
+                        <h6>PRODUCTOS</h6>
+                        <ul>
+                            <li><a href="">Producto 1</a></li>
+                            <li><a href="">Producto 2</a></li>
+                            <li><a href="">Producto 3</a></li>
+                            <li><a href="">Producto 4</a></li>
+                        </ul>
+                    </article>
+                </div>
+                <!-- Menu Recetas -->
+                <div class="col-6 col-xl-2 menu-recetas">
+                    <article>
+                        <h6>RECETAS</h6>
+                        <ul>
+                            <li><a href="">Producto 1</a></li>
+                            <li><a href="">Producto 2</a></li>
+                            <li><a href="">Producto 3</a></li>
+                            <li><a href="">Producto 4</a></li>
+                        </ul>
+                    </article>
+                </div>
+                <!-- Menu Tips Saludables-->
+                <div class="col-6 col-xl-2 menu-tips">
+                    <article>
+                        <h6>TIPS SALUDABLES</h6>
+                        <ul>
+                            <li><a href="">Producto 1</a></li>
+                            <li><a href="">Producto 2</a></li>
+                            <li><a href="">Producto 3</a></li>
+                            <li><a href="">Producto 4</a></li>
+                        </ul>
+                    </article>
+                </div>
+                <!-- Menu DIETAS-->
+                <div class="col-6 col-xl-2 menu-tips">
+                    <article>
+                        <h6>DIETAS</h6>
+                        <ul>
+                            <li><a href="#">Producto 1</a></li>
+                            <li><a href="">Producto 2</a></li>
+                            <li><a href="">Producto 3</a></li>
+                            <li><a href="">Producto 4</a></li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="col-12 col-lg-2 menu-newsletter">
+                    <h6 class="col-12">NEWSLETTER</h6>
+                    <p class="col-12 justify-content-start">Dejanos tus datos para recibir toda la información y
+                        promociones</p>
+                    <form class="mb-2 col-9 col-lg-12 d-flex">
+                        <input class="col-9" type="email" name="newsletter"><button class="col-3"
+                            type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-8 col-lg-12 row d-flex align-items-center justify-content-center">
+
+                <div class="col-12 col-lg-4 justify-content-center align-items-center">
+                    <h6 class="d-flex justify-content-center copy">© 2020 Almazen. Todos los derechos reservados</h6>
+                </div>
+
+                <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center redes">
+                    <span class="col-5 col-lg-2 d-flex flex-row align-items-center">Seguínos: </span>
+                    <ul class="col-5 col-lg-6 d-flex align-items-center justify-content-start">
+                        <li class="col-3 align-items-center justify-content-center"><a href="" class=""><img
+                                    src="img/SVG/facebook-icon-verde.svg" alt="facebook_icon"></a></li>
+                        <li class="col-3 align-items-center"><a href="" class=""><img
+                                    src="/images/SVG/youtube-icon-verde.svg" alt="facebook_icon" class=""></a></li>
+                        <li class="col-3 align-items-center"><a href="" class=""><img
+                                    src="/images/SVG/instagram-icon-verde.svg" alt="facebook_icon" class=""></a></li>
+                        <li class="col-3 align-items-center"><a href="" class=""><img
+                                    src="/public/SVG/whatsapp-icon-verde.svg" alt="facebook_icon"></a></li>
+                    </ul>
+
+
+                </div>
+            </div>
+
+        </footer>
+        <!-- /Footet -->
+
+
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+        </script>
+        <!-- /Scripts -->
+
+</body>
+
+</html>

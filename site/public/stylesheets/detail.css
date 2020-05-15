@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;1,600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* margen inferior de toda la sección */
+
+.box-product {
+    margin-bottom: 5%;
+}
+
+
+article {
+    padding-top: 60px;
+}
+
+/* imagen de producto */
+
+img {
+    width: 100%;
+    border-radius: 40px;
+    margin-bottom: 1em;
+}
+
+/* nombre y descripción */
+
+.product-name {
+    color: #3d3c3cfd;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.description {
+    text-align: justify;
+}
+
+/* formulario de compra */
+
+.purchase-form {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-price {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 50px 0;
+}
+
+.price {
+    font-family: 'Nunito', sans-serif;
+    font-size: 2.5em;
+    font-weight: 600;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* config de cantidad de producto */
+
+.box-quantity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+}
+
+.quantity-selector-text {
+    font-weight: 700;
+    align-self: auto;
+}
+
+.quantity-selector {
+    margin-left: 15px;
+    float: left;
+    align-self: auto;
+}
+
+select {
+    color: #6ED097;
+    font-weight: bolder;
+    border: none;
+    background-color: transparent;
+}
+
+.option:hover {
+    background-color: lightgray;
+    border: none;
+}
+
+/* botones de compra */
+
+
+input {
+    width: 170px;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 8px;
+    display: block;
+}
+
+.primary {
+    background: #6ED097;
+    border: 1.5px solid #6ED097;
+}
+
+.secondary {
+    background: transparent;
+    border: 1.5px solid #6ED097;
+    color: #6ED097;
+    margin: 10px 0;
+}
+
+/* Estilos tablet */
+
+@media (min-width: 767px) {
+
+    .secondary {
+        margin: 0;
+        padding: 10px 0;
+    }
+
+    .vip-action-primary {
+        justify-content: space-around;
+    }
+
+}
+
+/* Estilos laptop */
+
+@media (min-width: 1023px) {
+
+    .description-wrapper {
+        margin: 0 20px;
+    }
+
+    .short-description {
+        padding-left: 10%;
+    }
+
+    .product-price {
+        margin: 1em 0;
+        margin-bottom: 1em;
+    }
+
+    .price {
+        text-align: right;
+        margin-bottom: .5em;
+    }
+
+    .box-quantity {
+        justify-content: flex-end;
+        margin-bottom: 10px;
+    }
+
+    .vip-action-primary {
+        margin-top: 5em;
+        justify-content: flex-end;
+    }
+
+    .primary {
+        max-width: 170px;
+        margin-right: 10%;
+    }
+
+    .secondary {
+        max-width: 170px;
+    }
+}
