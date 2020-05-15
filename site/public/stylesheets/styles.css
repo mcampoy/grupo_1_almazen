@@ -17,7 +17,7 @@
     --fontSizeMenu: 1em;
     --fontSizeSlider: 2em;
     --fontSizeTituloSeccion: 1.4em;
-    --fontSizeCategoriaProducto: 'Poppins';
+    --fontSizeCategoriaProducto: 0.7em;
     --fontSizeTituloProducto: 1.1em;
     --fontSizeDescripcionProducto:0.8em;
     --fontSizeTipoReceta:1.5em;
@@ -147,9 +147,7 @@ header{
     margin: 0 auto;
     background-color: var(--dark-blue);
   }
-  .menu{
-
-  }
+  
 /* DIV BOTONES REGISTRO | LOGIN */
   .user{
     margin: 0.5% 0;
@@ -193,8 +191,7 @@ header{
 /* * * * * * SLIDER HOME * * * * * * */
 
 .slider{
-    background: var(--colorBtnRegister);
-    background-image: url(../img/slider1.jpg);
+    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -298,7 +295,7 @@ header{
     color: #fff;
     background-image: url(img/sale-19.svg);
     background: center no-repeat;
-    tex-align
+    
     font-size: 1.3em;
     position: absolute;
     top:0;
@@ -361,9 +358,7 @@ header{
    
 }
 /* * * * * * * FOOTER * * * * * */
-footer{
 
-}
 /* TITULOS FOOTER */
 footer h6{
     color: var(--colorMenu);
@@ -384,9 +379,7 @@ footer p{
     text-align:left;
 }
 /* --  LOGO FOOTER -- */
-footer.logofooter{
 
-}
 /* --  SEPARADOR FOOTER -- */
 footer .fila1{
     border-bottom: solid 1px #2b2b2b;
@@ -396,11 +389,10 @@ footer .redes{
     list-style: none;
     width: 100%;}
 footer .redes ul{
-        list-style: none;
-        width: 100%;
+    list-style: none;
+    width: 100%;
 }
 footer .redes img{
-    
     width: 75%;
 } 
 
@@ -422,9 +414,7 @@ footer .menu-productos li a{
     }
 
 /* --  FOOTER | MENU RECETAS  -- */
-footer .menu-recetas{
 
-}
 footer .menu-recetas li{
     list-style: none;
 }
@@ -435,9 +425,7 @@ footer .menu-recetas li a{
 }
 
 /* --  FOOTER | MENU TIPS  -- */
-footer .menu-tips{
 
-}
 footer .menu-tips li{
     list-style: none;
 }
@@ -447,9 +435,7 @@ footer .menu-tips li a{
     text-decoration: none;
     }
 /* --  FOOTER | MENU NEWSLETTER  -- */
-footer .menu-newsletter{
 
-}
 footer .menu-newsletter input{
     border: solid 1px #dedede;
     z-index: 2;
