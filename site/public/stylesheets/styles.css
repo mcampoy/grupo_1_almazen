@@ -1,5 +1,6 @@
 /* VARIABLES  */
-:root{
+
+:root {
     /* TIPOGRAFIAS */
     --fuenteMenu: 'Nunito';
     --fuenteMenuBtn: 'Nunito';
@@ -8,25 +9,22 @@
     --fuenteCategoriaProducto: 'Poppins';
     --fuenteTituloProducto: 'Poppins';
     --fuenteTituloReceta: 'Poppins';
-    --fuenteDescripcionProducto:'Poppins' ;
-    --fuenteMenuFooter: 'Poppins' ;
-    --fuenteSubMenuFooter:'Poppins';
+    --fuenteDescripcionProducto: 'Poppins';
+    --fuenteMenuFooter: 'Poppins';
+    --fuenteSubMenuFooter: 'Poppins';
     --fuenteGeneral: 'Poppins';
-
     /* TAMAÑOS TIPOGRAFICOS */
     --fontSizeMenu: 1em;
     --fontSizeSlider: 2em;
     --fontSizeTituloSeccion: 1.4em;
     --fontSizeCategoriaProducto: 0.7em;
     --fontSizeTituloProducto: 1.1em;
-    --fontSizeDescripcionProducto:0.8em;
-    --fontSizeTipoReceta:1.5em;
-    --fontSizeTituloReceta:1.8em;
+    --fontSizeDescripcionProducto: 0.8em;
+    --fontSizeTipoReceta: 1.5em;
+    --fontSizeTituloReceta: 1.8em;
     --fontPrecioProducto: 1.6em;
-    --fontSizeMenuFooter: 1.1em ;
-    --fontSizeSlider:1.6em;
-    
-
+    --fontSizeMenuFooter: 1.1em;
+    --fontSizeSlider: 1.6em;
     /* VARIANTES TIPOGRAFICAS */
     --fontweightMenu: 700;
     --fontweightMenuBtn: 700;
@@ -34,74 +32,85 @@
     --fontweightTituloSeccion: 500;
     --fontweightCategoriaProducto: 500;
     --fontweightTituloProducto: 500;
-    --fontweightPrecioProducto:700;
-    --fontweightDescripcionProducto:400;
-    --fontweightMenuFooter: 500 ;
-    --fontweightSubMenuFooter:400;
-    
+    --fontweightPrecioProducto: 700;
+    --fontweightDescripcionProducto: 400;
+    --fontweightMenuFooter: 500;
+    --fontweightSubMenuFooter: 400;
     /* COLORES */
     --colorBtnRegister: #6FCF97;
-    --BtnBorderLogin:border: 1px solid #219653 ;
+    --BtnBorderLogin: border: 1px solid #219653;
     --colorMenu: #219653;
     --colorSeccionInfo: #6FCF97;
     --colorTituloSeccion: #2b2b2b;
     --colorTituloGeneral: #2b2b2b;
-    --colorTituloProducto:  #2b2b2b;;
-    --colorDescripcionProducto:  #2b2b2b;;
-    --colorBtnLoginHover:#C3EAD3;
-
+    --colorTituloProducto: #2b2b2b;
+    ;
+    --colorDescripcionProducto: #2b2b2b;
+    ;
+    --colorBtnLoginHover: #C3EAD3;
     /* PADDINGS Y MARGENES */
     --paddingSecciones: 1.5em;
     --marginSecciones: 1em 0;
+}
 
-}
-*{
+* {
     box-sizing: border-box;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
-.col-12{
+
+.col-12 {
     padding-left: 0px;
     padding-right: 0px;
 }
+
 .col-10 {
-    
     width: 100%;
 }
-.row{
+
+.row {
     margin-left: 0;
     margin-right: 0;
 }
+
+
 /* */
-body{
-    
+
+body {
     margin: 0 auto;
     min-height: 100vh;
     width: 100%;
 }
 
-/* CONTENEDOR */
-.container-fluid{
 
+/* CONTENEDOR */
+
+.container-fluid {
     padding-right: 0px;
     padding-left: 0px;
     width: 100%;
 }
 
-/* ENCABEZADO */ 
-header{
-    
+
+/* ENCABEZADO */
+
+header {
     margin: 1% 0px;
     width: 100%;
 }
+
+
 /* MENU */
-.navbar-nav{
+
+.navbar-nav {
     align-items: flex-end;
     justify-content: flex-end;
 }
 
+
 /* ENLACES MENU */
-.navbar-nav a{
+
+.navbar-nav a {
     color: var(--colorMenu);
     font-family: var(--fuenteMenu);
     font-size: 1em;
@@ -109,27 +118,35 @@ header{
     letter-spacing: 0.040em;
     text-decoration: none;
     margin-left: 1em;
-    
 }
+
+
 /* ENLACES MENU */
-.enlaces{
+
+.enlaces {
     list-style: none;
     text-align: center;
     margin: 0.5% 0;
-    
 }
 
+
 /* ENLACES MENU DESPLEGABLE*/
-.dropdown-menu{
-    border:none;
+
+.dropdown-menu {
+    border: none;
 }
+
+
 /* ENLACES MENU DESPLEGABLE*/
+
 .navbar-light .navbar-toggler {
     color: --colorBtnRegister;
     border-color: #fff;
 }
 
+
 /* DROPDOWN MENU */
+
 .dropdown-item {
     display: block;
     width: 100%;
@@ -140,22 +157,29 @@ header{
     text-align: inherit;
     white-space: nowrap;
     background-color: transparent;
-    border: 0;}
-    
+    border: 0;
+}
+
+
 /* MENU HAMBURGUESA */
-  .btn-nav-toggler{
+
+.btn-nav-toggler {
     margin: 0 auto;
     background-color: var(--dark-blue);
-  }
-  
+}
+
+
 /* DIV BOTONES REGISTRO | LOGIN */
-  .user{
+
+.user {
     margin: 0.5% 0;
-  }
+}
+
 
 /* BOTON REGISTRO */
-.user button.register{
-    color:#fff;
+
+.user button.register {
+    color: #fff;
     background: var(--colorBtnRegister);
     border-radius: 6px;
     font-family: var(--fuenteMenuBtn);
@@ -164,15 +188,17 @@ header{
     margin-left: -1.5%;
     padding: 2% 4%;
 }
-.user button.register:hover{
-    color:#fff;
+
+.user button.register:hover {
+    color: #fff;
     background: var(--colorMenu);
-    
 }
 
+
 /* BOTON LOGIN */
-.user button.login{
-    color:#219653;
+
+.user button.login {
+    color: #219653;
     background: #fff;
     border: 1px solid #219653;
     border-radius: 6px;
@@ -183,35 +209,39 @@ header{
     position: relative;
     z-index: 2;
 }
-.user button.login:hover{
-    color:#fff;
-    background:var(--colorBtnLoginHover);
-    
+
+.user button.login:hover {
+    color: #fff;
+    background: var(--colorBtnLoginHover);
 }
+
+
 /* * * * * * SLIDER HOME * * * * * * */
 
-.slider{
-    
+.slider {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     height: 200px;
     width: 100%;
 }
-.epigrafe{
-    color:var(--colorTituloProducto);
+
+.epigrafe {
+    color: var(--colorTituloProducto);
     font-size: var(--fontSizeSlider);
     font-weight: var(--fontweightSlider);
     text-align: left;
 }
-.epigrafe-derecho{
-    color:var(--colorTituloProducto);
+
+.epigrafe-derecho {
+    color: var(--colorTituloProducto);
     font-size: var(--fontSizeSlider);
     font-weight: var(--fontweightSlider);
     text-align: right;
 }
-.epigrafe-oscuro{
-    color:#fff;
+
+.epigrafe-oscuro {
+    color: #fff;
     font-size: var(--fontSizeSlider);
     font-weight: var(--fontweightSlider);
     text-align: left;
@@ -219,41 +249,52 @@ header{
 
 
 /* * * * * * SECCION INFORMACION * * * * * */
-.info{
+
+.info {
     background: var(--colorSeccionInfo);
     height: auto;
-    margin-top:0;
+    margin-top: 0;
     padding: var(--paddingSecciones);
     width: 100%;
-
 }
+
+
 /* IMAGENES SECCION INFORMACION */
 
 
 /* PÁRRAFO SECCION INFORMACION */
-.info p{
-    font-size: 0.9em;
 
+.info p {
+    font-size: 0.9em;
 }
+
+
 /* * * * * * SECCION PRODUCTOS DESTACADOS * * * * * */
-.destacados{
-    
-    padding:var(--paddingSecciones);
+
+.destacados {
+    padding: var(--paddingSecciones);
     margin: var(--marginSecciones);
 }
+
+
 /* DIV PRODUCTO */
-.product-box{
+
+.product-box {
     margin-bottom: 1em;
 }
 
+
 /* TÍTULO SECCION DE PRODUCTOS DESTACADOS */
-.TituloDestacados{
+
+.TituloDestacados {
     font-size: var(--fontSizeTituloSeccion);
     padding-bottom: 1em;
 }
 
+
 /* PRECIO DEL PRODUCTO */
-.titulo_producto{
+
+.titulo_producto {
     color: var(--colorTituloProducto);
     font-size: var(--fontSizeTituloProducto);
     font-family: var(--fuenteTituloProducto);
@@ -261,24 +302,27 @@ header{
     margin-bottom: 0px;
 }
 
+
 /* PRECIO DEL PRODUCTO */
-.precio_producto{
+
+.precio_producto {
     color: var(--colorTituloProducto);
     font-size: var(--fontPrecioProducto);
     font-family: var(--fuenteTituloProducto);
     font-weight: var(--fontweightPrecioProducto);
-    
 }
 
+
 /* DESCRIPCION DEL PRODUCTO */
-.descripcion_producto{
+
+.descripcion_producto {
     color: var(--colorTituloProducto);
     font-size: var(--fontSizeDescripcionProducto);
     font-family: var(--fuenteTituloProducto);
     font-weight: var(--fontweightDescripcionProducto);
-    
 }
-.contenedor-sale{
+
+.contenedor-sale {
     background-image: url(img/sale-19.svg);
     background: center no-repeat;
     width: 50px;
@@ -288,26 +332,24 @@ header{
     border-radius: 50%;
     background: #5cb85c;
     position: relative;
-     
-
 }
-.sale{
+
+.sale {
     color: #fff;
     background-image: url(img/sale-19.svg);
     background: center no-repeat;
-    
     font-size: 1.3em;
     position: absolute;
-    top:0;
+    top: 0;
     right: 3px;
-    z-index:3;
+    z-index: 3;
 }
 
 
-
 /* BOTON AGREGAR AL CARRITO */
-.btn_producto{
-    color:#fff;
+
+.btn_producto {
+    color: #fff;
     background: var(--colorBtnRegister);
     border-radius: 6px;
     font-family: var(--fuenteMenuBtn);
@@ -316,10 +358,14 @@ header{
     padding: 3% 4%;
     margin: 0 auto;
 }
+
+
 /* * * * * * * RECETAS * * * * * */
 
+
 /* TIPO DE RECETA */
-.tipo_receta{
+
+.tipo_receta {
     color: var(--colorTituloProducto);
     font-size: var(--fontSizeDescripcionProducto);
     font-family: var(--fuenteTituloProducto);
@@ -328,8 +374,10 @@ header{
     margin-bottom: 0px;
 }
 
+
 /* TÍTULO DE RECETA */
-.titulo_receta{
+
+.titulo_receta {
     color: var(--colorTituloProducto);
     font-size: var(--fontSizeTituloReceta);
     font-family: var(--fuenteReceta);
@@ -337,8 +385,10 @@ header{
     margin-top: 0px;
 }
 
+
 /* TÍTULO DE RECETA */
-.descripcion_receta{
+
+.descripcion_receta {
     color: var(--colorTituloProducto);
     font-size: var(--fontSizeDescripcionProducto);
     font-family: var(--fuenteTituloProducto);
@@ -347,20 +397,24 @@ header{
 
 
 /* BOTON VER MAS RECETA */
-.btn_receta{
-    color:#fff;
+
+.btn_receta {
+    color: #fff;
     background: var(--colorBtnRegister);
     border-radius: 6px;
     font-family: var(--fuenteMenuBtn);
     font-size: 0.8em;
     font-weight: var(--fontweightMenuBtn);
     padding: 3% 4%;
-   
 }
+
+
 /* * * * * * * FOOTER * * * * * */
 
+
 /* TITULOS FOOTER */
-footer h6{
+
+footer h6 {
     color: var(--colorMenu);
     font-family: var(--fuenteMenu);
     font-size: .9em;
@@ -368,81 +422,105 @@ footer h6{
     letter-spacing: 0.040em;
     text-decoration: none;
 }
+
+
 /* ENLACES FOOTER */
-footer li a{
+
+footer li a {
     font-size: 0.8em;
     line-height: .2em;
     text-decoration: none;
 }
-footer p{
+
+footer p {
     font-size: 0.8em;
-    text-align:left;
+    text-align: left;
 }
+
+
 /* --  LOGO FOOTER -- */
 
+
 /* --  SEPARADOR FOOTER -- */
-footer .fila1{
+
+footer .fila1 {
     border-bottom: solid 1px #2b2b2b;
 }
+
+
 /* --  ICONOS REDES FOOTER -- */
-footer .redes{
-    list-style: none;
-    width: 100%;}
-footer .redes ul{
+
+footer .redes {
     list-style: none;
     width: 100%;
 }
-footer .redes img{
-    width: 75%;
-} 
 
-footer .social{
+footer .redes ul {
+    list-style: none;
+    width: 100%;
+}
+
+footer .redes img {
+    width: 75%;
+}
+
+footer .social {
     margin: 0px;
-   
 }
+
+
 /* --  FOOTER | MENU PRODUCTOS  -- */
-footer .menu-productos{
-    font-weight:var(--fontweightSubMenuFooter);
+
+footer .menu-productos {
+    font-weight: var(--fontweightSubMenuFooter);
 }
-footer .menu-productos li{
+
+footer .menu-productos li {
     list-style: none;
 }
-footer .menu-productos li a{
+
+footer .menu-productos li a {
     color: var(--colorTituloGeneral);
-    font-weight:var(--fontweightSubMenuFooter);
+    font-weight: var(--fontweightSubMenuFooter);
     text-decoration: none;
-    }
+}
+
 
 /* --  FOOTER | MENU RECETAS  -- */
 
-footer .menu-recetas li{
+footer .menu-recetas li {
     list-style: none;
 }
-footer .menu-recetas li a{
+
+footer .menu-recetas li a {
     color: var(--colorTituloGeneral);
-    font-weight:var(--fontweightSubMenuFooter);
-    text-decoration: none;    
+    font-weight: var(--fontweightSubMenuFooter);
+    text-decoration: none;
 }
+
 
 /* --  FOOTER | MENU TIPS  -- */
 
-footer .menu-tips li{
+footer .menu-tips li {
     list-style: none;
 }
-footer .menu-tips li a{
+
+footer .menu-tips li a {
     color: var(--colorTituloGeneral);
-    font-weight:var(--fontweightSubMenuFooter);
+    font-weight: var(--fontweightSubMenuFooter);
     text-decoration: none;
-    }
+}
+
+
 /* --  FOOTER | MENU NEWSLETTER  -- */
 
-footer .menu-newsletter input{
+footer .menu-newsletter input {
     border: solid 1px #dedede;
     z-index: 2;
 }
 
-footer .menu-newsletter button{
-    color:#fff;
+footer .menu-newsletter button {
+    color: #fff;
     background: var(--colorBtnRegister);
     border-radius: 0px 6px 6px 0px;
     font-family: var(--fuenteMenuBtn);
@@ -453,33 +531,97 @@ footer .menu-newsletter button{
 
 
 /* Media-Queries */
+
 @media (min-width: 768px) {
-    menu{
+    menu {
         display: none;
     }
-    
     .btn-toggle-navbar {
         display: none;
-      }
-      .menu-collapse .enlaces ul{
+    }
+    .menu-collapse .enlaces ul {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-      }
-      .btn_receta {
+    }
+    .btn_receta {
         margin-left: 50%;
     }
 }
+
 @media (min-width: 320px) {
-    .logofooter{
+    .logofooter {
         margin-bottom: 1.5em;
     }
-        .copy{
-            order:2;
-        }
-        .redes{
-            order:1;
-        }
+    .copy {
+        order: 2;
     }
+    .redes {
+        order: 1;
+    }
+}
+
+
+/*PÁGINA DE CARGA DE PRODUCTO*/
+
+.carga_producto button {
+    color: #fff;
+    background: var(--colorBtnRegister);
+    border-radius: 6px;
+    font-family: var(--fuenteMenuBtn);
+    font-size: 0.8em;
+    font-weight: var(--fontweightMenuBtn);
+    margin-left: -1.5%;
+    padding: 2% 4%;
+}
+
+.carga_producto button:hover {
+    color: #fff;
+    background: var(--colorMenu);
+}
+
+.carga_producto button.blanco {
+    color: #219653;
+    background: #fff;
+    border: 1px solid #219653;
+    border-radius: 6px;
+    font-family: var(--fuenteMenuBtn);
+    font-size: 0.8em;
+    font-weight: var(--fontweightMenuBtn);
+    padding: 2% 4%;
+    position: relative;
+    z-index: 2;
+}
+
+.carga_producto button.blanco:hover {
+    color: #fff;
+    background: var(--colorBtnLoginHover);
+}
+
+.carga_producto .principal {
+    margin-top: 3%;
+}
+
+.carga_producto .center-column img {
+    width: 200px;
+    border-radius: 10px;
+    border: hidden;
+}
+
+.carga_producto .center-column button {
+    margin-top: 5%;
+}
+
+.carga_producto .right-column .card-header {
+    background-color: var(--colorBtnRegister);
+}
+
+.carga_producto .right-column .card-header-tabs .nav-link {
+    font-size: var(--fontSizeDescripcionProducto);
+}
+
+.carga_producto .right-column .card-header-tabs .nav-link:hover {
+    background-color: var(--colorMenu);
+}
