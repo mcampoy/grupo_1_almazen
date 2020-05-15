@@ -86,15 +86,10 @@ img {
 }
 
 select {
-    color: #6ED097;
+    color: #219653;
     font-weight: bolder;
     border: none;
     background-color: transparent;
-}
-
-.option:hover {
-    background-color: lightgray;
-    border: none;
 }
 
 /* botones de compra */
@@ -102,7 +97,6 @@ select {
 
 input {
     width: 170px;
-    color: white;
     font-weight: bold;
     border-radius: 10px;
     padding: 8px;
@@ -110,15 +104,27 @@ input {
 }
 
 .primary {
-    background: #6ED097;
-    border: 1.5px solid #6ED097;
+    background: transparent;
+    border: 1px solid #219653;
+    color: #219653;
+}
+
+.primary:hover {
+    background-color: #6FCF97;
+    border-color: #219653;
+    color: white;
 }
 
 .secondary {
-    background: transparent;
-    border: 1.5px solid #6ED097;
-    color: #6ED097;
+    background-color: #6FCF97;
+    border: 1px solid #6FCF97;;
+    color: white;
     margin: 10px 0;
+}
+
+.secondary:hover {
+    background-color: #219653;
+    border-color: #219653;
 }
 
 /* Estilos tablet */
