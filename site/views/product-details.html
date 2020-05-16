@@ -7,16 +7,16 @@
 
     <title>Detalle de producto</title>
 
-   <!-- Font Awesome Stylesheet -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-   <!-- FONTS-->
-   <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700,900|Poppins:400,500,700&display=swap" rel="stylesheet">
-   <!-- Bootstrap Grid Stylesheet -->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-   <!-- Own Stylesheet -->   
-   <link rel="stylesheet" href="../stylesheets/styles.css">
-   <!-- details css -->
-   <link rel="stylesheet" href="/stylesheets/detail.css">
+    <!-- Font Awesome Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <!-- FONTS-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700,900|Poppins:400,500,700&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap Grid Stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Own Stylesheet -->
+    <link rel="stylesheet" href="../stylesheets/styles.css">
     <!-- /css -->
 </head>
 
@@ -25,7 +25,6 @@
     <!-- LOGO -->
     <!-- MENU CON BOTONES DE REGISTRO -->
     <div class="container-fluid">
-
         <header class="container-fluid">
             <nav class="navbar navbar-expand-lg">
                 <a href="#" role="button" class="col-2"><img src="/images/Logo.svg" alt="marca almazen"
@@ -54,11 +53,11 @@
                         <li class="col-12 col-lg-2 align-items-center enlaces">
                             <a class="col-12" href="#">DIETAS</a>
                         </li>
-                        <li class="col-12 col-lg-3 align-items-center enlaces">
-                            <a class="col-12" href="#">TIPS SALUDABLES</a>
+                        <li class="col-12 col-lg-2 align-items-center enlaces">
+                            <a class="col-12 col-lg-2" href="#">TIPS</a>
                         </li>
                         <li class="col-12 col-lg-2 dropdown align-items-center enlaces">
-                            <a class="col-12 col-lg-3 dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            <a class="col-12 col-lg-2 dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 RECETAS
                             </a>
@@ -73,6 +72,7 @@
                             <a href="#" role="button" class="col-12 carrito"><img src="/images/cart.svg"
                                     alt="carrito"></a>
                         </li>
+
 
                     </ul>
                     <div
@@ -89,40 +89,37 @@
         </header>
         <!-- /Header -->
 
+        <!-- Details products -->
+        <article class="container container-details">
+            <div class="row box-product-details">
 
-        <!-- Content -->
-
-        <!-- Container -->
-        <article class="container">
-            <div class="row box-product">
-
-                <figure class="col-12 col-lg-6">
-                    <img src="/images/curcuma en polvo.jpg" alt="cúrcuma en">
+                <figure class="col-12 col-lg-6 imagen-detalles">
+                    <img src="/images/curcuma en polvo.jpg" alt="cúrcuma en polvo">
                 </figure>
 
                 <div class="col-12 col-lg-6">
-                    <div class="description-wrapper">
-                        <section class="col-12 product">
-                            <div class="short-description">
+                    <div class="description-wrapper-details">
+                        <section class="col-12 product-details">
+                            <div class="short-description-detalles">
 
-                                <h3 class="product-name">Cúrcuma</h3>
-                                <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
+                                <h3 class="titulo_producto mb-2">Cúrcuma</h3>
+                                <p class="descripcion_producto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
                                     nisi tenetur at neque maiores quo assumenda veritatis, ullam temporibus aut sint
                                     officia
                                     dicta, alias
                                     ratione quam
                                     architecto repellat vero quia.</p>
                             </div>
-                            <form action="" class="purchase-form">
+                            <form action="" class="forumlario_compra-detalles mb-4">
 
-                                <div class="row product-price">
-                                    <h3 class="col-6 col-lg-12 price">$200</h3>
+                                <div class="row precio_producto-detalles">
+                                    <h3 class="col-6 col-lg-12 precio_producto precio_detalles">$200</h3>
 
-                                    <div class="col-6 col-lg-12 box-quantity">
+                                    <div class="col-6 col-lg-12 box-quantity-detalles">
 
                                         <div class="quantity-selector-text"> Cantidad: </div>
 
-                                        <select class="selectpicker quantity-selector">
+                                        <select class="selectpicker quantity-selector-detalles">
                                             <option class="active">1 unidad</option>
                                             <option class="option">2 unidades</option>
                                             <option class="option">3 unidades</option>
@@ -133,9 +130,9 @@
                                     </div>
                                 </div>
 
-                                <div class="vip-actions-wrapper  vip-actions-wrapper--cart-item">
+                                <div class="vip-actions-wrapper  vip-actions-wrapper--cart-item botones-detalles">
                                     <div class="vip-actions item-actions u-clearfix">
-                                        <div class="row vip-action-primary">
+                                        <div class="row vip-action-primary-details">
 
                                             <input type="submit" data-js="vip-action-primary" form="productInfo"
                                                 title="curcuma" value="Comprar ahora"
@@ -155,10 +152,7 @@
                 </div>
             </div>
         </article>
-        <!-- /Container -->
-
-        <!-- /Content -->
-
+        <!-- /Details products -->
 
         <!-- Footet -->
         <footer class="row container-fluid">
@@ -248,10 +242,8 @@
 
                 </div>
             </div>
-
         </footer>
         <!-- /Footet -->
-
 
         <!-- Scripts -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -264,7 +256,7 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
         </script>
         <!-- /Scripts -->
-
+    </div>
 </body>
 
 </html>
