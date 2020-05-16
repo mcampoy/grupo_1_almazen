@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // ************ Controller Require ************
-const registroController = require('../controllers/registroController');
+const registroController = require('../controllers/registroControllers');
 
 /* GET - user page. */
 router.get('/create', registroController.reg);
