@@ -44,9 +44,7 @@
     --colorTituloSeccion: #2b2b2b;
     --colorTituloGeneral: #2b2b2b;
     --colorTituloProducto: #2b2b2b;
-    ;
     --colorDescripcionProducto: #2b2b2b;
-    ;
     --colorBtnLoginHover: #C3EAD3;
     /* PADDINGS Y MARGENES */
     --paddingSecciones: 1.5em;
@@ -72,8 +70,14 @@
     margin-left: 0;
     margin-right: 0;
 }
-
-
+button{
+    border:none;
+    box-shadow: none;
+}
+a:hover {
+   
+    text-decoration: none;
+}
 /* */
 
 body {
@@ -218,12 +222,9 @@ header {
 
 /* * * * * * SLIDER HOME * * * * * * */
 
-.slider {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    height: 200px;
-    width: 100%;
+.carousel-inner {
+    height: 25em;
+    
 }
 
 .epigrafe {
@@ -270,6 +271,9 @@ header {
 
 
 /* * * * * * SECCION PRODUCTOS DESTACADOS * * * * * */
+section a{
+    text-decoration: none;
+}
 
 .destacados {
     padding: var(--paddingSecciones);
@@ -529,41 +533,6 @@ footer .menu-newsletter button {
     padding: 2% 2%;
 }
 
-
-/* Media-Queries */
-
-@media (min-width: 768px) {
-    menu {
-        display: none;
-    }
-    .btn-toggle-navbar {
-        display: none;
-    }
-    .menu-collapse .enlaces ul {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-    }
-    .btn_receta {
-        margin-left: 50%;
-    }
-}
-
-@media (min-width: 320px) {
-    .logofooter {
-        margin-bottom: 1.5em;
-    }
-    .copy {
-        order: 2;
-    }
-    .redes {
-        order: 1;
-    }
-}
-
-
 /*PÁGINA DE CARGA DE PRODUCTO*/
 
 .carga_producto button {
@@ -790,10 +759,72 @@ select {
     border-color: var(--colorMenu);
 }
 
+/* CARRITO */
+
+.product-carrito{
+    padding-right: 0px!important;
+    padding-left: 0px!important;
+}
+.eliminar{
+    align-items: center;
+    color: red;
+    font-size: 1.9em;
+}
+.precio_producto-carrito{
+    padding:0px;
+}
+.total{
+    font-size: 1.5em;
+}
+.monto{
+    font-weight: 800;
+}
+
+
+/* Estilos mobile */
+@media (min-width: 320px) {
+.carousel-inner {
+    height: 250px;
+    
+}
+}
+@media (min-width: 425px) {
+    .precio_carrito{
+        order:5;
+    }
+    .box-quantity-carrito{
+        order:1;
+    }
+    .copyright{
+        margin-top: 2%;
+    }
+       
+    .iconos{
+        margin: 0 auto;
+        
+    }
+    
+    .menu-newsletter{
+        display: none;
+    }
+    .carousel-inner {
+        height: 250px;
+        
+    }
+}
 
 /* Estilos tablet */
 
 @media (min-width: 767px) {
+    .elemento-info{
+        flex-direction: column;
+    }
+    .elemento-info p{
+        text-align: center;
+    }
+    .elemento-info span{
+        display: none;
+    }
     .precio_detalles {
         font-size: 2.5em;
         text-align: center;
@@ -803,6 +834,48 @@ select {
     }
     .secondary {
         margin: 0;
+    }
+    menu {
+        display: none;
+    }
+    .btn-toggle-navbar {
+        display: none;
+    }
+    .menu-collapse .enlaces ul {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn_receta {
+        margin-left: 50%;
+    }
+   .copy{
+       justify-content: center;
+       
+   }
+   .copyright{
+    margin-top: 2%;
+    
+    }
+   
+    .iconos{
+        margin: 0 auto;
+        
+    }
+    .precio_carrito{
+        order:5;
+    }
+    .box-quantity-carrito{
+        order:1;
+    }
+    .menu-newsletter{
+        display: none;
+    }
+    .carousel-inner {
+        height: 300px;
+        
     }
 }
 
@@ -836,5 +909,29 @@ select {
     .secondary {
         max-width: 170px;
         padding: 10px 10px;
+    }
+    .copy{
+        justify-content: start;
+    }
+    .copyright{
+        margin-top: 2%;
+        
+        }
+       
+    .iconos{
+        margin-left: auto;
+        
+    }
+    .elemento-info{
+        flex-direction: row;
+    }
+    .elemento-info p{
+        text-align: left;
+    }
+    .elemento-info span{
+        display: block;
+    }
+    .menu-newsletter{
+        display: none;
     }
 }
