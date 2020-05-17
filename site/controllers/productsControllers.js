@@ -12,8 +12,8 @@ const controller = {
         let html = readHTML('product-details');
         res.send(html);
     },
-    edit: (req, res) => {
-        let html = readHTML('product-edit');
+    upload: (req, res) => {
+        let html = readHTML('product-upload');
         res.send(html);
     }
 };

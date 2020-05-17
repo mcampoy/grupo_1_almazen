@@ -5,40 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Almazen</title>
-    <link rel="icon" href="/img/favicon.png" type="image/png" />
+    <link rel="icon" href="/images/favicon.png" type="image/png" />
     <!-- Font Awesome Stylesheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <!-- FONTS-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700,900|Poppins:400,500,700&display=swap" rel="stylesheet">
     <!-- Bootstrap Grid Stylesheet -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Own Stylesheet -->
     <link rel="stylesheet" href="../stylesheets/styles.css">
-    <!-- FONTS-->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700,900|Poppins:400,500,700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
 
-    <div class="container-fluid carga_producto">
+    <div class="container-fluid ">
+
+        <!-- Header -->
         <header class="container-fluid">
-
             <nav class="navbar navbar-expand-lg">
-                <!-- LOGO -->
-
                 <a href="#" role="button" class="col-2"><img src="/images/Logo.svg" alt="marca almazen" class="navbar-brand"></a>
                 <button class="ml-auto navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <img src="/images/toggler_icon.png">
-                <!--<i class="fa fa-bars"></i>-->
-              </button>
-                <!-- MENU CON BOTONES DE REGISTRO -->
+                    <img src="/images/toggler_icon.png">
+                    <!--<i class="fa fa-bars"></i>-->
+                </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="ml-auto mb-3 col-12 col-md-12 col-lg-8 col-xl-8 d-flex align-items-center navbar-nav">
                         <li class="col-12 col-md-12 col-lg-2 align-items-center dropdown enlaces">
                             <a class="col-12 col-md-3 col-lg-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          PRODUCTOS
-                        </a>
+                                PRODUCTOS
+                            </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">PRODUCTO 1</a>
                                 <a class="dropdown-item" href="#">PRODUCTO 2</a>
@@ -49,13 +47,13 @@
                         <li class="col-12 col-lg-2 align-items-center enlaces">
                             <a class="col-12" href="#">DIETAS</a>
                         </li>
-                        <li class="col-12 col-lg-3 align-items-center enlaces">
-                            <a class="col-12" href="#">TIPS SALUDABLES</a>
+                        <li class="col-12 col-lg-2 align-items-center enlaces">
+                            <a class="col-12 col-lg-2" href="#">TIPS</a>
                         </li>
                         <li class="col-12 col-lg-2 dropdown align-items-center enlaces">
-                            <a class="col-12 col-lg-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        RECETAS
-                      </a>
+                            <a class="col-12 col-lg-2 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                RECETAS
+                            </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Receta 1</a>
                                 <a class="dropdown-item" href="#">Receta 2</a>
@@ -78,144 +76,155 @@
                 <a href=""></a>
             </nav>
         </header>
+        <!-- /Header -->
 
-        <!-- -- -- -- --  SECCIÓN PRINCIPAL - CARGA DE PRODUCTO -- -- -- -- -->
-        <div class="container align-content-between principal pb-5">
+        <!-- Upload product -->
+        <div class="container align-content-between carga_producto pb-5">
             <form>
                 <div class="row">
-
                     <!-- COLUMNA IZQUIERDA -->
-                    <div class="container left-column col-12 col-md-6 col-lg-4 d-block m-auto">
-                        <div class="row justify-content-center">
+                    <div class="container left-column  col-12 col-md-6 col-lg-4 d-block">
+                        <div class="row ">
                             <div class="form-group col-12">
-                                <label class="titulo_producto" for="nombre">Nombre del producto</label>
-                                <input type="text" class="form-control" id="nombre" placeholder="Producto 1">
+                                <label class="titulo_carga_producto" for="nombre">Nombre del producto</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del producto,">
                             </div>
                             <div class="form-group col-12">
-                                <label class="titulo_producto " for="descripcionCorta">Descripción corta</label>
-                                <input type="text" class="form-control" id="descripcionCorta" placeholder="Descripción de producto 1">
+                                <label class="titulo_carga_producto " for="descripcionCorta">Descripción corta</label>
+                                <input type="text" class="form-control" id="descripcionCorta" placeholder="Ingrese la descripción corta del producto,">
                             </div>
                             <div class="form-group col-12">
-                                <label class="titulo_producto" for="descripcionLarga">Descripción completa</label>
-                                <textarea class="form-control" id="descripcionLarga" rows="3"></textarea>
+                                <label class="titulo_carga_producto" for="descripcionLarga">Descripción completa</label>
+                                <textarea class="form-control" id="descripcionLarga" rows="3" placeholder="Ingrese la descripción completa del producto."></textarea>
                             </div>
-                            <div class="row">
-                                <div class="form-group col-6 col-md-4 ">
-                                    <label class="titulo_producto" for="precio">Precio</label>
-                                    <div class="input-group">
 
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">$</span>
-                                        </div>
-                                        <input type="text" class="form-control text-right" id="precio" placeholder="0">
-
+                            <div class="form-group col-6 pl-0 ">
+                                <label class="titulo_carga_producto" for="precio">Precio</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                    <input type="text" class="form-control text-right" id="precio" placeholder="0">
+                                </div>
+                            </div>
+                            <div class="form-group col-6 pr-0">
+                                <label class="titulo_carga_producto" for="descuento">Descuento</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control text-right" id="descuento" placeholder="0">
+                                    <div class="input-group-apend">
+                                        <span class="input-group-text">%</span>
                                     </div>
                                 </div>
-                                <div class="form-group col-6 col-md-4 ">
-                                    <label class="titulo_producto" for="descuento">Descuento</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control text-right" id="descuento" placeholder="0">
-                                        <div class="input-group-apend">
-                                            <span class="input-group-text">%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-6 col-md-4 ">
-                                    <label class="titulo_producto" for="stock">Stock</label>
-                                    <input type="text" class="form-control text-right" id="stock" placeholder="0">
-                                </div>
                             </div>
+                            <div class="form-group col-6 pl-0">
+                                <label class="titulo_carga_producto" for="stock">Stock</label>
+                                <input type="text" class="form-control text-right" id="stock" placeholder="0">
+                            </div>
+
                         </div>
                     </div>
                     <!-- COLUMNA CENTRAL -->
-                    <div class="container center-column col-12 col-md-6 col-lg-4">
-                        <div class="row justify-content-center  ">
-                            <div>
-
-
-                                <label class="titulo_producto" for="form_producto">Imagen del producto</label>
-                                <div id="image-preview-div">
-                                    <img id="preview-img" src="/images/curcuma en polvo.jpg">
-                                </div>
-
-
-                                <div class=" row form-group justify-content-around">
-                                    <button class="col-5 blanco align-items-center justify-content-center" role="button" type="reset">BORRAR</button>
-                                    <button class=" col-5  align-items-center justify-content-center" role="button" type="file">CAMBIAR</button>
-                                </div>
+                    <div class="mt-2 mt-lg-0 mb-2 ml-md-0 ml-lg-auto order-md-3  order-lg-2 container center-column col-12 col-md-6 col-lg-4">
+                        <div class="row justify-content-center">
+                            <label class="titulo_carga_producto col-12 text-center" for="form_producto">Imagen del producto</label>
+                            <div class=" col-12 text-center" id="image-preview-div">
+                                <img id="preview-img" src="/images/curcuma en polvo.jpg">
                             </div>
-
+                            <div class="col-8 row form-group justify-content-around ">
+                                <button class="col-5 blanco align-items-center justify-content-center" role="button" type="reset">BORRAR</button>
+                                <button class=" col-5  align-items-center justify-content-center" role="button" type="file">CAMBIAR</button>
+                            </div>
                         </div>
                     </div>
                     <!-- COLUMNA DERECHA -->
-                    <div class="container align-content-center right-column col-12 col-md-6 col-lg-4">
-
+                    <div class=" order-md-2 order-lg-3 container align-content-center right-column col-12 col-md-6 col-lg-4">
                         <div class="row justify-content-center ">
                             <div class="card text-center">
                                 <div class="card-header">
                                     <ul class=" nav  nav-tabs card-header-tabs ">
                                         <li class="nav-item">
-                                            <a class="nav-link titulo_producto font-weight-bold active" href="#">Categorías</a>
+                                            <a class="nav-link titulo_carga_producto font-weight-bold border-white active" href="#">Categorías</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link titulo_producto " href="#">Recetas</a>
+                                            <a class="nav-link titulo_carga_producto  border-white" href="#">Recetas</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link titulo_producto " href="#">Dietas</a>
+                                            <a class="nav-link titulo_carga_producto  border-white" href="#">Dietas</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="card-body">
 
-                                    <div class="text-left">
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" class="align-middle" value="">Frutas Secas</label>
+                                    <div class="card_item text-left">
+                                        <div class="form-check d-inline-block  ">
+                                            <input type="checkbox" class="" id="checkbox_1" value="">
+                                            <label for="checkbox_1"></label>
                                         </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox"  class="align-middle"value="">Harinas</label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox"  class="align-middle"value="" >Bebidas</label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" class="align-middle" value="">Frutas Secas</label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox"  class="align-middle"value="">Harinas</label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox"  class="align-middle"value="" >Bebidas</label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" class="align-middle" value="">Frutas Secas</label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox"  class="align-middle"value="">Harinas</label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox"  class="align-middle"value="" >Bebidas</label>
-                                        </div>
+                                        <label for="checkbox_1" class="nombre_item d-inline-block">Frutas Secas</label>
                                     </div>
-                                </div>
+                                    <div class="card_item text-left">
+                                        <div class="form-check d-inline-block  ">
+                                            <input type="checkbox" class="" id="checkbox_2" value="">
+                                            <label for="checkbox_2"></label>
+                                        </div>
+                                        <label for="checkbox_2" class="nombre_item d-inline-block">Harinas</label>
+                                    </div>
 
+                                    <div class="card_item text-left">
+                                        <div class="form-check d-inline-block  ">
+                                            <input type="checkbox" class="" id="checkbox_3" checked value="">
+                                            <label for="checkbox_3"></label>
+                                        </div>
+                                        <label for="checkbox_3" class="nombre_item d-inline-block">Bebidas</label>
+                                    </div>
+                                    <div class="card_item text-left">
+                                        <div class="form-check d-inline-block  ">
+                                            <input type="checkbox" class="" id="checkbox_4" value="">
+                                            <label for="checkbox_4"></label>
+                                        </div>
+                                        <label for="checkbox_4" class="nombre_item d-inline-block">Frutas Secas</label>
+                                    </div>
+                                    <div class="card_item text-left">
+                                        <div class="form-check d-inline-block  ">
+                                            <input type="checkbox" class="" id="checkbox_5" value="">
+                                            <label for="checkbox_5"></label>
+                                        </div>
+                                        <label for="checkbox_5" class="nombre_item d-inline-block">Harinas</label>
+                                    </div>
+                                    <div class="card_item text-left">
+                                        <div class="form-check d-inline-block  ">
+                                            <input type="checkbox" class="" id="checkbox_6" checked value="">
+                                            <label for="checkbox_6"></label>
+                                        </div>
+                                        <label for="checkbox_6" class="nombre_item d-inline-block">Bebidas</label>
+                                    </div>
+                                    <div class="card_item text-left">
+                                        <div class="form-check d-inline-block  ">
+                                            <input type="checkbox" class="" id="checkbox_7" value="">
+                                            <label for="checkbox_7"></label>
+                                        </div>
+                                        <label for="checkbox_7" class="nombre_item d-inline-block">Harinas</label>
+                                    </div>
+                                    <div class="card_item text-left">
+                                        <div class="form-check d-inline-block  ">
+                                            <input type="checkbox" class="" id="checkbox_8" checked value="">
+                                            <label for="checkbox_8"></label>
+                                        </div>
+                                        <label for="checkbox_8" class="nombre_item d-inline-block">Bebidas</label>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
                 <!-- FILA INFERIOR  -->
-                <div class="fila_inferior container">
+                <div class="fila_inferior container ">
                     <div class="row col-12 mt-3 mb-3">
                         <!--d-flex flex-xs-row align-items-center justify-content-center-->
-                        <div class="form-group col-12 ">
+                        <div class="form-group col-12 ml-3">
                             <input type="checkbox" class=" form-check-input" checked id="habilitado">
-                            <span class="titulo_producto">Habilitado</span>
+                            <span class="titulo_carga_producto">Habilitado</span>
                         </div>
                         <button class="pt-2 pb-2 ml-lg-auto" type="submit">GUARDAR</button>
                     </div>
@@ -223,14 +232,14 @@
                 </div>
             </form>
         </div>
-
-        <!-- -- -- -- --  FOOTER -- -- -- -- -->
+        <!-- /Upload product -->
+        <!-- Footet -->
         <footer class="row container-fluid">
 
             <div class="col-11 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center flex-wrap">
                 <!-- Logo footer -->
                 <div class="col-12 d-flex justify-content-center col-xl-2 logofooter">
-                    <a href="#" role="button"><img src="images/Logo.svg" alt="marca almazen"></a>
+                    <a href="#" role="button"><img src="/images/Logo.svg" alt="marca almazen"></a>
                 </div>
                 <!-- Menu de productos -->
                 <div class="col-6 col-xl-2 menu-productos">
@@ -301,13 +310,13 @@
                             <a href="" class=""><img src="/images/SVG/facebook-icon-verde.svg" alt="facebook_icon"></a>
                         </li>
                         <li class="col-3 align-items-center">
-                            <a href="" class=""><img src="/images/SVG/youtube-icon-verde.svg" alt="facebook_icon" class=""></a>
+                            <a href="" class=""><img src="/images/SVG/youtube-icon-verde.svg" alt="youtube_icon" class=""></a>
                         </li>
                         <li class="col-3 align-items-center">
-                            <a href="" class=""><img src="/images/SVG/instagram-icon-verde.svg" alt="facebook_icon" class=""></a>
+                            <a href="" class=""><img src="/images/SVG/instagram-icon-verde.svg" alt="instagram_icon" class=""></a>
                         </li>
                         <li class="col-3 align-items-center">
-                            <a href="" class=""><img src="/images/SVG/whatsapp-icon-verde.svg" alt="facebook_icon"></a>
+                            <a href="" class=""><img src="/images/SVG/whatsapp-icon-verde.svg" alt="whatsapp_icon"></a>
                         </li>
                     </ul>
 
@@ -316,6 +325,8 @@
             </div>
 
         </footer>
+        <!-- /Footet -->
+
     </div>
     <!-- Fin DIV Container-->
 
