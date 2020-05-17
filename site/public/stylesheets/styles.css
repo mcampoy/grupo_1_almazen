@@ -224,29 +224,22 @@ header {
 
 .carousel-inner {
     height: 25em;
-    
+    }
+.carousel-caption{
+    background-color: rgba(90, 90, 90, 0.6);
+    border-radius: 7px 7px 0px 0px;
+    margin-bottom: 80px;
+    padding:1%;
+    width: 40%;
 }
-
 .epigrafe {
-    color: var(--colorTituloProducto);
-    font-size: var(--fontSizeSlider);
-    font-weight: var(--fontweightSlider);
-    text-align: left;
-}
-
-.epigrafe-derecho {
-    color: var(--colorTituloProducto);
-    font-size: var(--fontSizeSlider);
-    font-weight: var(--fontweightSlider);
-    text-align: right;
-}
-
-.epigrafe-oscuro {
     color: #fff;
     font-size: var(--fontSizeSlider);
     font-weight: var(--fontweightSlider);
     text-align: left;
 }
+
+
 
 
 /* * * * * * SECCION INFORMACION * * * * * */
