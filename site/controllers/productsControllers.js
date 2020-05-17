@@ -12,8 +12,14 @@ const controller = {
         let html = readHTML('product-details');
         res.send(html);
     },
+    
     upload: (req, res) => {
         let html = readHTML('product-upload');
+        res.send(html);
+    },
+
+    cart: (req, res) => {
+        let html = readHTML('productCart');
         res.send(html);
     }
 };
