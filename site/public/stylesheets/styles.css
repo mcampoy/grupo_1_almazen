@@ -75,7 +75,11 @@ button {
     border: none;
     box-shadow: none;
 }
-button a {color:#fff}
+
+button a {
+    color: #fff
+}
+
 a:hover {
     text-decoration: none;
 }
@@ -230,7 +234,6 @@ header {
 }
 
 .carousel-caption {
-    
     border-radius: 7px 7px 0px 0px;
     margin-bottom: 80px;
     padding: 1%;
@@ -547,7 +550,6 @@ footer .menu-newsletter button {
         align-items: center;
         justify-content: center;
     }
-    
 }
 
 @media (min-width: 320px) {
@@ -722,7 +724,8 @@ footer .menu-newsletter button {
     padding: 20px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
+    margin-bottom: 5%;
+    margin-top: 5%;
 }
 
 h4 {
@@ -764,6 +767,11 @@ label {
     margin-right: auto;
 }
 
+.form-campos {
+    display: block;
+    margin-bottom: 40px;
+}
+
 
 /* ESTILOS DE LA PÁGINA DE DETALLE DE PRODUCTO */
 
@@ -790,6 +798,7 @@ label {
 .short-description-detalles p {
     text-align: justify;
 }
+
 
 /* formulario de compra */
 
@@ -872,7 +881,6 @@ select {
 /* CARRITO */
 
 .separator {
-    
     border: 1px solid #2b2b2b;
 }
 
@@ -923,12 +931,11 @@ select {
         height: auto;
     }
     .carousel-caption {
-   
         margin-bottom: 0px;
         padding: 1%;
         width: 40%;
     }
-    .epigrafe{
+    .epigrafe {
         font-size: 1em;
     }
 }
@@ -969,7 +976,6 @@ select {
         align-items: center;
         justify-content: center;
     }
-    
     .copy {
         justify-content: center;
     }
