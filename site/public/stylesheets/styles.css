@@ -567,6 +567,10 @@ footer .menu-newsletter button {
 
 /* ESTILOS DE LA PÁGINA DE CARGA DE PRODUCTO */
 
+.carga_producto {
+    margin-top: 3%;
+}
+
 .titulo_carga_producto {
     color: var(--colorTituloProducto);
     font-size: var(--fontSizeTituloProducto);
@@ -575,7 +579,6 @@ footer .menu-newsletter button {
 }
 
 .carga_producto .form-control {
-    background-color: var(--colorBtnLoginHover);
     font-family: var(--fuenteMenuBtn);
 }
 
@@ -613,10 +616,6 @@ footer .menu-newsletter button {
     background: var(--colorBtnLoginHover);
 }
 
-.carga_producto {
-    margin-top: 3%;
-}
-
 .left-column .input-group-text {
     background-color: var(--colorBtnLoginHover);
     font-family: var(--fuenteMenuBtn);
@@ -650,6 +649,7 @@ footer .menu-newsletter button {
 
 .right-column .card-header-tabs .nav-link:hover {
     background-color: var(--colorMenu);
+    color: #fff;
 }
 
 .right-column .nombre_item {
@@ -659,13 +659,13 @@ footer .menu-newsletter button {
 
 /*CHECKBOX*/
 
-.right-column .form-check {
+.carga_producto .form-check {
     width: 20px;
     position: relative;
     margin: 10px;
 }
 
-.right-column .form-check label {
+.carga_producto .form-check label {
     width: 20px;
     height: 20px;
     cursor: pointer;
@@ -676,7 +676,7 @@ footer .menu-newsletter button {
     border-radius: 4px;
 }
 
-.right-column .form-check label:after {
+.carga_producto .form-check label:after {
     box-sizing: content-box;
     content: '';
     width: 9px;
@@ -693,20 +693,20 @@ footer .menu-newsletter button {
     transform: rotate(-45deg);
 }
 
-.right-column .form-check label:hover::after {
+.carga_producto .form-check label:hover::after {
     opacity: 0;
 }
 
-.right-column .form-check input[type=checkbox] {
+.carga_producto .form-check input[type=checkbox] {
     visibility: hidden;
 }
 
-.right-column .form-check input[type=checkbox]:checked+label {
+.carga_producto .form-check input[type=checkbox]:checked+label {
     opacity: 1;
     background: var(--colorBtnRegister);
 }
 
-.right-column .form-check input[type=checkbox]:checked+label:after {
+.carga_producto .form-check input[type=checkbox]:checked+label:after {
     opacity: 1;
 }
 
