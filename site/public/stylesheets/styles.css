@@ -733,11 +733,14 @@ footer .menu-newsletter button {
 h4 {
     text-align: center;
     margin-bottom: 15px;
+    font-family: var(--fuenteMenu);
+    color: var(--colorTituloProducto);
 }
 
 label {
     display: block;
     text-align: center;
+    font-family: var(--fuenteMenu);
 }
 
 .img {
@@ -756,7 +759,7 @@ label {
     margin-bottom: 20px;
 }
 
-.btn-group {
+#miFormulario {
     display: block;
     text-align: center;
 }
@@ -764,22 +767,6 @@ label {
 .form-group {
     margin-left: auto;
     margin-right: auto;
-}
-
-#enviar {
-    background-color: #57bC90;
-    border-color: #57bC90;
-}
-
-#resetear {
-    background-color: #fff;
-    border-color: #57bC90;
-    color: #57bC90;
-}
-
-.btn-secondary:hover {
-    background-color: #015249;
-    border-color: #015249;
 }
 
 
