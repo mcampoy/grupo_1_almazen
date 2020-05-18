@@ -9,12 +9,12 @@ function readHTML(fileName) {
 
 const controller = {
     details: (req, res) => {
-        let html = readHTML('product-details');
+        let html = readHTML('productDetail');
         res.send(html);
     },
     
-    upload: (req, res) => {
-        let html = readHTML('product-upload');
+    add: (req, res) => {
+        let html = readHTML('productAdd');
         res.send(html);
     },
 
