@@ -530,10 +530,7 @@ footer .menu-newsletter button {
     padding: 2% 2%;
 }
 
-<<<<<<< HEAD
-/*PÁGINA DE CARGA DE PRODUCTO*/
 
-=======
 /* Media-Queries */
 
 @media (min-width: 768px) {
@@ -582,7 +579,7 @@ footer .menu-newsletter button {
     font-family: var(--fuenteMenuBtn);
 }
 
->>>>>>>f7fc63c8d32f3fae6c650ad250f6fbbf716a71d7 .carga_producto button {
+.carga_producto button {
     color: #fff;
     background: var(--colorBtnRegister);
     border-radius: 6px;
