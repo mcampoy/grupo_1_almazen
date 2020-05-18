@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almazen</title>
+    <title>Almazen - Carga de Producto</title>
     <link rel="icon" href="/images/favicon.png" type="image/png" />
     <!-- Font Awesome Stylesheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
@@ -32,9 +32,9 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="ml-auto mb-3 col-12 col-md-12 col-lg-8 col-xl-8 d-flex align-items-center navbar-nav">
-                        <li class="col-12 col-md-12 col-lg-2 align-items-center dropdown enlaces">
-                            <a class="col-12 col-md-3 col-lg-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <ul class="ml-auto mb-3 col-12 col-md-12 col-lg-7 col-xl-7 d-flex align-items-center justify-content-around  navbar-nav">
+                        <li class="col-12 col-md-12 col-lg-3 align-items-center dropdown enlaces">
+                            <a class="col-12 col-md-3 col-lg-2 col-xl-2 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 PRODUCTOS
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -44,14 +44,14 @@
                                 <a class="dropdown-item" href="#">TODOS</a>
                             </div>
                         </li>
-                        <li class="col-12 col-lg-2 align-items-center enlaces">
-                            <a class="col-12" href="#">DIETAS</a>
+                        <li class="col-12 col-lg-1 align-items-center enlaces">
+                            <a class="col-12 col-lg-1 col-xl-1" href="#">DIETAS</a>
                         </li>
-                        <li class="col-12 col-lg-2 align-items-center enlaces">
-                            <a class="col-12 col-lg-2" href="#">TIPS</a>
+                        <li class="col-12 col-lg-1 align-items-center enlaces">
+                            <a class="col-12 col-lg-2 col-xl-1" href="#">TIPS</a>
                         </li>
                         <li class="col-12 col-lg-2 dropdown align-items-center enlaces">
-                            <a class="col-12 col-lg-2 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="col-12 col-lg-2 col-xl-2 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 RECETAS
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -73,7 +73,7 @@
                     </div>
 
                 </div>
-                <a href=""></a>
+
             </nav>
         </header>
         <!-- /Header -->
@@ -221,7 +221,6 @@
                 <!-- FILA INFERIOR  -->
                 <div class="fila_inferior container ">
                     <div class="row col-12 mt-3 mb-3">
-                        <!--d-flex flex-xs-row align-items-center justify-content-center-->
                         <div class="form-group col-12 ml-3">
                             <input type="checkbox" class=" form-check-input" checked id="habilitado">
                             <span class="titulo_carga_producto">Habilitado</span>
@@ -236,13 +235,13 @@
         <!-- Footet -->
         <footer class="row container-fluid">
 
-            <div class="col-11 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center flex-wrap">
+            <div class="col-11 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-around flex-wrap">
                 <!-- Logo footer -->
-                <div class="col-12 d-flex justify-content-center col-xl-2 logofooter">
+                <div class="mb-2 col-11 col-md-12 col-lg-2 col-xl-2 d-flex justify-content-around flex-wrap">
                     <a href="#" role="button"><img src="/images/Logo.svg" alt="marca almazen"></a>
                 </div>
                 <!-- Menu de productos -->
-                <div class="col-6 col-xl-2 menu-productos">
+                <div class="col-6 col-md-3 col-lg-2 col-xl-2 menu-productos">
                     <article>
                         <h6>PRODUCTOS</h6>
                         <ul>
@@ -254,7 +253,7 @@
                     </article>
                 </div>
                 <!-- Menu Recetas -->
-                <div class="col-6 col-xl-2 menu-recetas">
+                <div class="col-6 col-md-3 col-lg-2 ccol-xl-2 menu-recetas">
                     <article>
                         <h6>RECETAS</h6>
                         <ul>
@@ -265,10 +264,11 @@
                         </ul>
                     </article>
                 </div>
-                <!-- Menu Tips Saludables-->
-                <div class="col-6 col-xl-2 menu-tips">
+                <!-- Menu Tips -->
+
+                <div class="col-6 col-md-3 col-lg-2 ccol-xl-2 menu-tips">
                     <article>
-                        <h6>TIPS SALUDABLES</h6>
+                        <h6>TIPS</h6>
                         <ul>
                             <li><a href="">Producto 1</a></li>
                             <li><a href="">Producto 2</a></li>
@@ -278,7 +278,7 @@
                     </article>
                 </div>
                 <!-- Menu DIETAS-->
-                <div class="col-6 col-xl-2 menu-tips">
+                <div class="col-6 col-md-3 col-xl-2 menu-tips">
                     <article>
                         <h6>DIETAS</h6>
                         <ul>
@@ -289,34 +289,34 @@
                         </ul>
                     </article>
                 </div>
-                <div class="col-12 col-lg-2 menu-newsletter">
-                    <h6 class="col-12">NEWSLETTER</h6>
-                    <p class="col-12 justify-content-start">Dejanos tus datos para recibir toda la información y promociones</p>
-                    <form class="mb-2 col-9 col-lg-12 d-flex">
+                <div class="col-md-12 col-lg-2 justify-content-start menu-newsletter">
+                    <h6 class="col-12 col-md-8">NEWSLETTER</h6>
+                    <p class="col-12 col-md-8 justify-content-start">Dejanos tus datos para recibir toda la información y promociones</p>
+                    <form class="mb-2 col-12 col-md-8 col-lg-12 d-flex">
                         <input class="col-9" type="email" name="newsletter"><button class="col-3" type="submit">Enviar</button>
                     </form>
                 </div>
             </div>
-            <div class="col-8 col-lg-12 row d-flex align-items-center justify-content-center">
+            <div class="col-11 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-around flex-wrap">
 
-                <div class="col-12 col-lg-4 justify-content-center align-items-center">
-                    <h6 class="d-flex justify-content-center copy">© 2020 Almazen. Todos los derechos reservados</h6>
+                <div class="col-12 col-lg-6 align-items-center copyright">
+                    <h6 class="d-flex copy">© 2020 Almazen. Todos los derechos reservados</h6>
                 </div>
 
-                <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center redes">
-                    <span class="col-5 col-lg-2 d-flex flex-row align-items-center">Seguínos: </span>
-                    <ul class="col-5 col-lg-6 d-flex align-items-center justify-content-start">
-                        <li class="col-3 align-items-center justify-content-center">
-                            <a href="" class=""><img src="/images/SVG/facebook-icon-verde.svg" alt="facebook_icon"></a>
+                <div class="col-12 col-lg-6 col-xl-6 d-flex redes">
+
+                    <ul class="col-12 col-md-8 col-lg-6 d-flex align-items-center iconos">
+                        <li class=" ">
+                            <a href="" class="d-flex justify-content-center"><img src="/images/SVG/facebook-icon-verde.svg" alt="facebook_icon" width="45px"></a>
                         </li>
-                        <li class="col-3 align-items-center">
-                            <a href="" class=""><img src="/images/SVG/youtube-icon-verde.svg" alt="youtube_icon" class=""></a>
+                        <li class="">
+                            <a href="" class="d-flex justify-content-center"><img src="/images/SVG/youtube-icon-verde.svg" alt="youtube_icon" width="45px" class=""></a>
                         </li>
-                        <li class="col-3 align-items-center">
-                            <a href="" class=""><img src="/images/SVG/instagram-icon-verde.svg" alt="instagram_icon" class=""></a>
+                        <li class="">
+                            <a href="" class="d-flex justify-content-center"><img src="/images/SVG/instagram-icon-verde.svg" alt="instagram_icon" width="45px" class=""></a>
                         </li>
-                        <li class="col-3 align-items-center">
-                            <a href="" class=""><img src="/images/SVG/whatsapp-icon-verde.svg" alt="whatsapp_icon"></a>
+                        <li class="">
+                            <a href="" class="d-flex justify-content-center"><img src="/images/SVG/whatsapp-icon-verde.svg" alt="whatsapp_icon" width="45px"></a>
                         </li>
                     </ul>
 
