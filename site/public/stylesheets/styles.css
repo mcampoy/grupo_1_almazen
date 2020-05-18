@@ -568,7 +568,12 @@ footer .menu-newsletter button {
 /* ESTILOS DE LA PÁGINA DE CARGA DE PRODUCTO */
 
 .carga_producto {
-    margin-top: 3%;
+    margin-top: 5%;
+    margin-top: 5%;
+}
+
+.asterisco {
+    color: red;
 }
 
 .titulo_carga_producto {
