@@ -226,6 +226,11 @@ header {
     background: var(--colorBtnLoginHover);
 }
 
+.container-carrito {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
 
 /* * * * * * SLIDER HOME * * * * * * */
 
@@ -998,9 +1003,6 @@ select {
     }
     .menu-newsletter {
         display: none;
-    }
-    .carousel-inner {
-        height: 300px;
     }
 }
 
