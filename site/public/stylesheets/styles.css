@@ -70,14 +70,17 @@
     margin-left: 0;
     margin-right: 0;
 }
-button{
-    border:none;
+
+button {
+    border: none;
     box-shadow: none;
 }
+
 a:hover {
-   
     text-decoration: none;
 }
+
+
 /* */
 
 body {
@@ -224,22 +227,22 @@ header {
 
 .carousel-inner {
     height: 25em;
-    }
-.carousel-caption{
+}
+
+.carousel-caption {
     background-color: rgba(90, 90, 90, 0.6);
     border-radius: 7px 7px 0px 0px;
     margin-bottom: 80px;
-    padding:1%;
+    padding: 1%;
     width: 40%;
 }
+
 .epigrafe {
     color: #fff;
     font-size: var(--fontSizeSlider);
     font-weight: var(--fontweightSlider);
     text-align: left;
 }
-
-
 
 
 /* * * * * * SECCION INFORMACION * * * * * */
@@ -264,7 +267,8 @@ header {
 
 
 /* * * * * * SECCION PRODUCTOS DESTACADOS * * * * * */
-section a{
+
+section a {
     text-decoration: none;
 }
 
@@ -528,8 +532,8 @@ footer .menu-newsletter button {
 
 <<<<<<< HEAD
 /*PÁGINA DE CARGA DE PRODUCTO*/
-=======
 
+=======
 /* Media-Queries */
 
 @media (min-width: 768px) {
@@ -577,9 +581,8 @@ footer .menu-newsletter button {
     background-color: var(--colorBtnLoginHover);
     font-family: var(--fuenteMenuBtn);
 }
->>>>>>> f7fc63c8d32f3fae6c650ad250f6fbbf716a71d7
 
-.carga_producto button {
+>>>>>>>f7fc63c8d32f3fae6c650ad250f6fbbf716a71d7 .carga_producto button {
     color: #fff;
     background: var(--colorBtnRegister);
     border-radius: 6px;
@@ -880,70 +883,73 @@ select {
     border-color: var(--colorMenu);
 }
 
+
 /* CARRITO */
 
-.product-carrito{
+.product-carrito {
     padding-right: 0px!important;
     padding-left: 0px!important;
 }
-.eliminar{
+
+.eliminar {
     align-items: center;
     color: red;
     font-size: 1.9em;
 }
-.precio_producto-carrito{
-    padding:0px;
+
+.precio_producto-carrito {
+    padding: 0px;
 }
-.total{
+
+.total {
     font-size: 1.5em;
 }
-.monto{
+
+.monto {
     font-weight: 800;
 }
 
 
 /* Estilos mobile */
+
 @media (min-width: 320px) {
-.carousel-inner {
-    height: 250px;
-    
+    .carousel-inner {
+        height: 250px;
+    }
 }
-}
+
 @media (min-width: 425px) {
-    .precio_carrito{
-        order:5;
+    .precio_carrito {
+        order: 5;
     }
-    .box-quantity-carrito{
-        order:1;
+    .box-quantity-carrito {
+        order: 1;
     }
-    .copyright{
+    .copyright {
         margin-top: 2%;
     }
-       
-    .iconos{
+    .iconos {
         margin: 0 auto;
-        
     }
-    
-    .menu-newsletter{
+    .menu-newsletter {
         display: none;
     }
     .carousel-inner {
         height: 250px;
-        
     }
 }
+
 
 /* Estilos tablet */
 
 @media (min-width: 767px) {
-    .elemento-info{
+    .elemento-info {
         flex-direction: column;
     }
-    .elemento-info p{
+    .elemento-info p {
         text-align: center;
     }
-    .elemento-info span{
+    .elemento-info span {
         display: none;
     }
     .precio_detalles {
@@ -972,31 +978,26 @@ select {
     .btn_receta {
         margin-left: 50%;
     }
-   .copy{
-       justify-content: center;
-       
-   }
-   .copyright{
-    margin-top: 2%;
-    
+    .copy {
+        justify-content: center;
     }
-   
-    .iconos{
+    .copyright {
+        margin-top: 2%;
+    }
+    .iconos {
         margin: 0 auto;
-        
     }
-    .precio_carrito{
-        order:5;
+    .precio_carrito {
+        order: 5;
     }
-    .box-quantity-carrito{
-        order:1;
+    .box-quantity-carrito {
+        order: 1;
     }
-    .menu-newsletter{
+    .menu-newsletter {
         display: none;
     }
     .carousel-inner {
         height: 300px;
-        
     }
 }
 
@@ -1031,28 +1032,25 @@ select {
         max-width: 170px;
         padding: 10px 10px;
     }
-    .copy{
+    .copy {
         justify-content: start;
     }
-    .copyright{
+    .copyright {
         margin-top: 2%;
-        
-        }
-       
-    .iconos{
-        margin-left: auto;
-        
     }
-    .elemento-info{
+    .iconos {
+        margin-left: auto;
+    }
+    .elemento-info {
         flex-direction: row;
     }
-    .elemento-info p{
+    .elemento-info p {
         text-align: left;
     }
-    .elemento-info span{
+    .elemento-info span {
         display: block;
     }
-    .menu-newsletter{
+    .menu-newsletter {
         display: none;
     }
 }
