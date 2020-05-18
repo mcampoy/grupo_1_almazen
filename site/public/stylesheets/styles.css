@@ -787,6 +787,9 @@ label {
     font-size: 1.8em;
 }
 
+.short-description-detalles p {
+    text-align: justify;
+}
 
 /* formulario de compra */
 
