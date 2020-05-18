@@ -28,7 +28,7 @@
     <div class="container-fluid">
         <header class="container-fluid">
             <nav class="navbar navbar-expand-lg">
-              <a href="#" role="button" class="col-2"><img src="/images/Logo.svg" alt="marca almazen" class="navbar-brand"></a>
+              <a href="/" role="button" class="col-2"><img src="/images/Logo.svg" alt="marca almazen" class="navbar-brand"></a>
               <button class="ml-auto navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <img src="/images/toggler_icon.png">
                 <!--<i class="fa fa-bars"></i>-->
@@ -37,14 +37,14 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="ml-auto mb-3 col-12 col-md-12 col-lg-7 col-xl-7 d-flex align-items-center justify-content-around  navbar-nav">
                     <li class="col-12 col-md-12 col-lg-3 align-items-center dropdown enlaces">
-                        <a class="col-12 col-md-3 col-lg-2 col-xl-2 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="col-12 col-md-3 col-lg-2 col-xl-2 dropdown-toggle" href="/#productos" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           PRODUCTOS
                         </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="#">PRODUCTO 1</a>
-                              <a class="dropdown-item" href="#">PRODUCTO 2</a>
+                              <a class="dropdown-item" href="/#productos">PRODUCTO 1</a>
+                              <a class="dropdown-item" href="/#productos">PRODUCTO 2</a>
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">TODOS</a>
+                              <a class="dropdown-item" href="/#productos">TODOS</a>
                           </div>
                     </li>
                     <li class="col-12 col-lg-1 align-items-center enlaces">
@@ -54,7 +54,7 @@
                       <a class="col-12 col-lg-2 col-xl-1" href="#">TIPS</a>
                     </li>
                     <li class="col-12 col-lg-2 dropdown align-items-center enlaces">
-                      <a class="col-12 col-lg-2 col-xl-2 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <a class="col-12 col-lg-2 col-xl-2 dropdown-toggle" href="/#recetas" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         RECETAS
                       </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -65,14 +65,14 @@
                         </div>
                     </li>
                     <li class="col-12 col-lg-1 align-items-center enlaces">
-                        <a href="#" role="button" class="col-12 carrito"><img src="/images/cart.svg" alt="carrito"></a>
+                        <a href="/product/cart" role="button" class="col-12 carrito"><img src="/images/cart.svg" alt="carrito"></a>
                       </li>
                       
                     
                   </ul>
                   <div class="mb-3 col-12 col-lg-3 col-xl-4 d-flex flex-xs-row align-items-center justify-content-center user">
-                    <button class="col-4 col-lg-5 col-xl-5 login align-items-center justify-content-center" role="button" type="button">INGRESAR</button>
-                    <button class="col-4 col-lg-5 col-xl-5 register align-items-center justify-content-center" role="button" type="button">REGISTRAR</button>
+                    <button class="col-4 col-lg-5 col-xl-5 login align-items-center justify-content-center" role="button" type="button" onclick="window.location='/registro/login'">INGRESAR</button>
+                  <button class="col-4 col-lg-5 col-xl-5 register align-items-center justify-content-center" role="button" type="button" onclick="window.location='/registro/create'">REGISTRAR</button>
                 </div>
                 
               </div>
@@ -152,17 +152,17 @@
             <div class="col-11 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-around flex-wrap">
                 <!-- Logo footer -->
                 <div class="mb-2 col-11 col-md-12 col-lg-2 col-xl-2 d-flex justify-content-around flex-wrap">
-                    <a href="#" role="button"><img src="/images/Logo.svg" alt="marca almazen"></a>
+                    <a href="/" role="button"><img src="images/Logo.svg" alt="marca almazen"></a>
                 </div>
                 <!-- Menu de productos -->
                 <div class="col-6 col-md-3 col-lg-2 col-xl-2 menu-productos">
                     <article>
                         <h6>PRODUCTOS</h6>
                         <ul>
-                        <li><a href="">Producto 1</a></li>
-                        <li><a href="">Producto 2</a></li>
-                        <li><a href="">Producto 3</a></li>
-                        <li><a href="">Producto 4</a></li>
+                        <li><a href="/#productos">Producto 1</a></li>
+                        <li><a href="/#productos">Producto 2</a></li>
+                        <li><a href="/#productos">Producto 3</a></li>
+                        <li><a href="/#productos">Producto 4</a></li>
                         </ul>
                     </article>
                 </div>
@@ -171,10 +171,10 @@
                     <article>
                         <h6>RECETAS</h6>
                         <ul>
-                        <li><a href="">Producto 1</a></li>
-                        <li><a href="">Producto 2</a></li>
-                        <li><a href="">Producto 3</a></li>
-                        <li><a href="">Producto 4</a></li>
+                        <li><a href="/#recetas">Receta 1</a></li>
+                        <li><a href="/#recetas">Receta 2</a></li>
+                        <li><a href="/#recetas">Receta 3</a></li>
+                        <li><a href="/#recetas">Receta 4</a></li>
                         </ul>
                     </article>
                 </div>
@@ -184,10 +184,10 @@
                     <article>
                         <h6>TIPS</h6>
                         <ul>
-                        <li><a href="">Producto 1</a></li>
-                        <li><a href="">Producto 2</a></li>
-                        <li><a href="">Producto 3</a></li>
-                        <li><a href="">Producto 4</a></li>
+                        <li><a href="">TIP 1</a></li>
+                        <li><a href="">TIP 2</a></li>
+                        <li><a href="">TIP 3</a></li>
+                        <li><a href="">TIP 4</a></li>
                         </ul>
                     </article>
                 </div>
@@ -196,10 +196,10 @@
                     <article>
                         <h6>DIETAS</h6>
                         <ul>
-                        <li><a href="#">Producto 1</a></li>
-                        <li><a href="">Producto 2</a></li>
-                        <li><a href="">Producto 3</a></li>
-                        <li><a href="">Producto 4</a></li>
+                        <li><a href="#">Dieta 1</a></li>
+                        <li><a href="">Dieta 2</a></li>
+                        <li><a href="">Dieta 3</a></li>
+                        <li><a href="">Dieta 4</a></li>
                         </ul>
                     </article>
                 </div>
