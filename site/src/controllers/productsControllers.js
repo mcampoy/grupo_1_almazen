@@ -9,19 +9,16 @@ function readHTML(fileName) {
 
 const controller = {
     details: (req, res) => {
-        let html = readHTML('productDetail');
-        res.send(html);
+        res.render('productDetail');
     },
     
     add: (req, res) => {
-        let html = readHTML('productAdd');
-        res.send(html);
+        res.render('productAdd');
     },
 
     cart: (req, res) => {
-        let html = readHTML('productCart');
-        res.send(html);
-    }
+        res.render('productCart');
+    },
 };
 
 module.exports = controller;

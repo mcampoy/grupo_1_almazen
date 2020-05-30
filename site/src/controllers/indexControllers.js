@@ -9,8 +9,7 @@ function readHTML (fileName) {
 
 const controller = {
 	index: (req, res) => {
-		let html = readHTML('index');
-		res.send(html);
+		res.render('index');
 	}
 };
 

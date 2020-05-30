@@ -9,12 +9,10 @@ function readHTML(fileName) {
 
 const controller = {
     reg: (req, res) => {
-        let html = readHTML('register');
-        res.send(html);
+        res.render('register');
     },
     log: (req, res) => {
-        let html = readHTML('login');
-        res.send(html);
+        res.render('login');
     }
 };
 
