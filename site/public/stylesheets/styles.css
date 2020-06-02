@@ -545,9 +545,11 @@ footer .menu-newsletter button {
     menu {
         display: none;
     }
+
     .btn-toggle-navbar {
         display: none;
     }
+
     .menu-collapse .enlaces ul {
         display: flex;
         flex-direction: column;
@@ -561,9 +563,11 @@ footer .menu-newsletter button {
     .logofooter {
         margin-bottom: 1.5em;
     }
+
     .copy {
         order: 2;
     }
+
     .redes {
         order: 1;
     }
@@ -821,10 +825,30 @@ label {
     display: flex;
     align-content: center;
     margin: 10% 0;
+    justify-content: space-around;
+}
+
+.precio-descuento {
+    /* text-align: center; */
+    font-size: 1em;
+}
+
+.tachado {
+    text-decoration: line-through;
+    color:var(--colorMenu);
+}
+
+.discount {
+    color: var(--colorMenu);
+}
+
+.precio_producto-detalles h3 {
+    font-size: 2em;
+    font-weight: 700;
 }
 
 .precio_detalles {
-    font-size: 2.5em;
+    margin-top: 3%;
 }
 
 
@@ -925,26 +949,33 @@ select {
     .precio_carrito {
         order: 5;
     }
+
     .box-quantity-carrito {
         order: 1;
     }
+
     .copyright {
         margin-top: 2%;
     }
+
     .iconos {
         margin: 0 auto;
     }
+
     .menu-newsletter {
         display: none;
     }
+
     .carousel-inner {
         height: auto;
     }
+
     .carousel-caption {
         margin-bottom: 0px;
         padding: 1%;
         width: 40%;
     }
+
     .epigrafe {
         font-size: 1em;
     }
@@ -957,28 +988,44 @@ select {
     .elemento-info {
         flex-direction: column;
     }
+
     .elemento-info p {
         text-align: center;
     }
+
     .elemento-info span {
         display: none;
+    }
+
+    .precio-descuento {
+        padding-left: 5%;
+    }
+
+    .precio_producto-detalles {
+        margin-left: 12%;
     }
     .precio_detalles {
         font-size: 2.5em;
         text-align: center;
+        margin-top: 3%;
     }
+
     .vip-action-primary-details {
         justify-content: space-around;
     }
+
     .secondary {
         margin: 0;
     }
+
     menu {
         display: none;
     }
+
     .btn-toggle-navbar {
         display: none;
     }
+
     .menu-collapse .enlaces ul {
         display: flex;
         flex-direction: column;
@@ -986,21 +1033,27 @@ select {
         align-items: center;
         justify-content: center;
     }
+
     .copy {
         justify-content: center;
     }
+
     .copyright {
         margin-top: 2%;
     }
+
     .iconos {
         margin: 0 auto;
     }
+
     .precio_carrito {
         order: 5;
     }
+
     .box-quantity-carrito {
         order: 1;
     }
+
     .menu-newsletter {
         display: none;
     }
@@ -1013,49 +1066,318 @@ select {
     .description-wrapper-details {
         margin: 0 3%;
     }
+
     .short-description-detalles {
         padding-left: 10%;
     }
+
     .precio_detalles {
         text-align: right;
         margin-bottom: 1em;
     }
+
+    .precio_producto-detalles {
+        display: flex;
+        align-content: center;
+        margin: 10% 0;
+        justify-content: flex-end;
+    }
+
+    .precio_producto-detalles h3 {
+        font-size: 2.5em;
+        font-weight: 700;
+    }
+    
+    .precio-descuento {
+        text-align: end;
+        font-size: 1.3em;
+    }
+
     .box-quantity-detalles {
         justify-content: flex-end;
         margin-bottom: 10px;
     }
+
     .vip-action-primary-details {
         margin-top: 1em;
         justify-content: flex-end;
     }
+
     .primary {
         max-width: 170px;
         margin-right: 3%;
         padding: 0 15px;
     }
+
     .secondary {
         max-width: 170px;
         padding: 10px 10px;
     }
+
     .copy {
         justify-content: start;
     }
+
     .copyright {
         margin-top: 2%;
     }
+
     .iconos {
         margin-left: auto;
     }
+
     .elemento-info {
         flex-direction: row;
     }
+
     .elemento-info p {
         text-align: left;
     }
+
     .elemento-info span {
         display: block;
     }
+
     .menu-newsletter {
         display: none;
     }
+
+}
+
+/* Estilos recetas */
+
+.imagen-receta {
+    width: 100%;
+    border-radius: 2%;
+    margin-bottom: 5%;
+}
+
+.titulo-receta {
+    font-size: 2em;
+}
+
+.categoria-receta {
+    font-weight: bold;
+    text-align: left;
+    color: #39D27F;
+}
+
+.acciones-receta {
+    text-align: center;
+    margin-top: 15%;
+}
+
+.acciones-receta a i {
+    color: #CF664F;
+    padding: 3%;
+    font-size: 1.3em;
+}
+
+.descripcion_receta p {
+    font-size: 1.2em;
+    text-align: justify;
+}
+
+.titulo-ingredientes-receta {
+    margin: 0 0 15px;
+    font-family: var(--fuenteTituloSeccion);
+    font-weight: 600;
+    font-size: 1em;
+    line-height: 1;
+    text-align: center;
+    color: #39D27F;
+    margin: 10%;
+}
+
+@media (min-width: 1023px) {
+    .short-description-receta {
+        padding-left: 10%;
+    }
+}
+
+.short-description-receta h2 {
+    margin-top: 10px;
+}
+
+.short-description-receta h3 {
+    font-size: 0.8em;
+    margin-bottom: 5%;
+}
+
+.ingredientes-receta {
+    font-size: 18px;
+    line-height: 28px;
+    color: #777;
+}
+
+.ingredientes-receta label {
+    text-align: left;
+    margin: 0;
+    margin-left: 5%;
+    font-size: .8em;
+    padding: 1%;
+}
+
+.ingrediente-receta {
+    margin-left: 0px;
+}
+
+.ingrediente-receta:nth-child(odd) {
+    background-color: rgb(212, 248, 212);
+}
+
+.label-seleccionar-todos i {
+    color: #CF664F;
+    margin-bottom: 10px;
+    width: 30px;
+    font-size: 18px;
+}
+
+.boton-central-receta {
+    padding: 0 25px;
+    margin: 5%;
+    border: 1px solid #CF664F;
+    background: #CF664F;
+    color: #fff;
+    border-radius: 4px;
+    font-family: 'Nunito';
+    display: block;
+    width: 280px;
+    margin: 30px auto;
+}
+
+.preparacion-receta h2 {
+    font-family: var(--fuenteTituloSeccion);
+    font-weight: 600;
+    font-size: 1em;
+    line-height: 1;
+    text-align: center;
+    color: #39D27F;
+    margin: 10%;
+}
+
+.preparacion-receta h3 {
+    font-size: 14px;
+    color: #777;
+    text-align: center;
+}
+
+.preparacion-receta {
+    font-size: 18px;
+    line-height: 28px;
+    color: #777;
+}
+
+.paso-preparacion-receta label {
+    text-align: left;
+    margin: 0;
+    margin-left: 5%;
+    font-size: .8em;
+    padding: 1%;
+}
+
+.pasos-preparacion-receta:nth-child(odd) {
+    background-color: rgb(212, 248, 212);
+}
+
+.boton-central-receta {
+    text-align: center;
+}
+
+.ancor:hover {
+    color: #CF664F;
+    border: 1px solid #CF664F;
+    background-color: white;
+}
+
+.boton-central-receta:hover {
+    color: #CF664F;
+    background-color: white;
+    border: 1px solid #CF664F;
+}
+
+.label-check {
+    cursor: pointer;
+}
+
+.check {
+    margin-right: 8px;
+}
+
+.cantidad-porciones-receta {
+    text-align: center;
+}
+
+.pasos-preparacion-receta [type='checkbox'] {
+    display: none;
+}
+
+.pasos-preparacion-receta label {
+    cursor: pointer;
+}
+
+/* Estilos del modal y carrousel*/
+.modal-header {
+    text-align: center;
+    display: block;
+}
+
+.modal-header h5 {
+    margin-top: -20px;
+    padding: 1%;
+    font-size: 26pt;
+}
+
+.procedimientos {
+    padding: 3%;
+    font-family: 'Poppins';
+    color: var(--colorMenu);
+}
+
+.close {
+    align-self: flex-end;
+    margin-right: 15px;
+    margin-top: 15px;
+    color: var(--colorMenu);
+}
+
+.numero-paso-preparacion-receta {
+    color: #CF664F;
+    font-weight: bolder;
+}
+
+.modal.content {
+    height: 80vh;
+
+}
+
+.numero-paso-carrusel {
+    color: var(--colorBtnRegister);
+    font-size: 3em;
+    font-weight: 800;
+    text-align: center;
+    display: block;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    background-color: var(--colorMenu);
+    margin-bottom: 130%;
+    padding: 25%;
+}
+
+.carousel-indicators {
+    margin-bottom: 0;
+}
+
+.carousel-indicators li {
+    background-color: var(--colorMenu);
+}
+
+.descripcion-paso-carrusel {
+    font-size: 1em;
+    padding: 8%;
+    padding: 15%;
+    display: block;
+    text-align: center;
 }

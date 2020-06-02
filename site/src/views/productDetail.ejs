@@ -15,7 +15,7 @@
             <div class="row box-product-details">
 
                 <figure class="col-12 col-lg-6 imagen-detalles">
-                    <img src="/images/curcuma en polvo.jpg" alt="cúrcuma en polvo">
+                    <img src="/images/<%= product.image %>" alt=" <%= product.nombre %>">
                 </figure>
 
                 <div class="col-12 col-lg-6">
@@ -23,15 +23,29 @@
                         <section class="col-12 product-details">
                             <div class="short-description-detalles">
 
-                                <h3 class="titulo_producto mb-2">Cúrcuma</h3>
-                                <p class="descripcion_producto">La cúrcuma, también denominada azufre de Indias, es una planta muy apreciada por su versatilidad gastronómica. Se le atribuyen propiedades medicinales contra el cáncer, el colesterol alto o la artrosis, entre otras enfermedades. Es nativa del suroeste de la India y es una raíz de la familia del jengibre. </p>
-                                <p class="descripcion_producto"> Se utiliza como colorante por su inconfundible color amarillo. Además, aporta un cautivante sabor dulzón con un toque picante y amargo, por lo que conviene incorporarlo en pequeñas cantidades.</p> 
-                                <p class="descripcion_producto">Peso Neto: 100 gr.</p>
+                                <h3 class="titulo_producto mb-2"> <%= product.nombre %></h3>
+                                <p class="descripcion_producto"><%= product.descripcion %></p>
+                                <p class="cantidad descripcion_producto"><%= product.cantidad %></p>
                             </div>
                             <form action="" class="forumlario_compra-detalles mb-4">
 
                                 <div class="row precio_producto-detalles">
-                                    <h3 class="col-6 col-lg-12 precio_producto precio_detalles">$60</h3>
+                                    
+                                    <% if (product.descuento > 0) { %>
+           
+                                        <div class="col-12 precio-descuento">
+                                            <span class="tachado">$<%= product.precio %></span>
+                                            <span class="discount"> / <%= product.descuento %>% OFF</span>
+                                        </div>
+                           
+                                        <h3 class="precio_detalles">$<%= product.precio - (product.precio / 100 * product.descuento) %></h3>
+                           
+                                        <% } else { %>
+                           
+                                            <h3 class="col-6 col-lg-12 precio_detalles">$<%= product.precio %></h3>
+
+                                        <% } %>
+                                    
 
                                     <div class="col-6 col-lg-12 box-quantity-detalles">
 
