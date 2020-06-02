@@ -1059,3 +1059,51 @@ select {
         display: none;
     }
 }
+
+
+/* Estilos de la pagina  Tips */
+
+#tarjetas {
+    width: 100%;
+    max-width: 2000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+#tarjetas .ladofrente {
+    width: 350px;
+    height: auto;
+    border: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+    padding: 10px;
+    border-radius: 5%;
+}
+
+#tarjetas .ladofrente:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+#tarjetas .ladofrente img {
+    width: 330px;
+    height: 220px;
+    margin-bottom: 25px;
+    border-radius: 5%;
+}
+
+.tituloscard {
+    font-family: var(--fuenteTituloSeccion);
+    margin-bottom: 25px;
+    color: var(--colorMenu)
+}
+
+.tipsaludable {
+    font-family: var(--fuenteDescripcionProducto);
+}
