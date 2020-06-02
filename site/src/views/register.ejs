@@ -13,61 +13,61 @@
 
     <!-- HEADER -->
     <%- include("partials/header") %>
-    <!-- /HEADER -->
+        <!-- /HEADER -->
 
-    <section class="contenedor-formulario">
-        <div id="page-wrapper ">
-            <div class="img ">
-                <img class="fotoform" src="/images/portada.jpg" />
+        <section class="contenedor-formulario">
+            <div id="page-wrapper ">
+                <div class="img ">
+                    <img class="fotoform" src="/images/portada.jpg" />
+                </div>
+                <form method="post " id="miFormulario ">
+                    <h4><strong>REGISTRO</strong></h4>
+                    <div class="form-campos">
+                        <!-- nombre -->
+                        <div class="form-group col-xl-6 ">
+                            <label for="nombre"><strong>Nombre</strong></label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="nombre " placeholder="Ejemplo: Carolina" required/>
+                        </div>
+
+                        <!-- email -->
+                        <div class="form-group col-xl-6 ">
+                            <label for="exampleInputEmail1 "><strong>Email</strong></label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp " placeholder="Ejemplo: almazen@gmail.com" required/>
+                        </div>
+
+                        <!-- nombre de usuario -->
+                        <div class="form-group col-xl-6 ">
+                            <label for="usuario"><strong>Usuario</strong></label>
+                            <input type="text" class="form-control" id="usuario" aria-describedby="usuario" name="usuario" placeholder="Ingrese su usuario" required/>
+                        </div>
+
+                        <!-- password -->
+                        <div class="form-group col-xl-6 ">
+                            <label for="password"><strong>Contraseña</strong></label>
+                            <input type="password" class="form-control" id="password" name="password" aria-describedby="password" name="password" placeholder="Ingrese su contraseña" required/>
+                        </div>
+                    </div>
+
+                    <!-- dejar en blaco el formulario o enviar -->
+                    <div class="mb-3 col-12 col-lg-3 col-xl-4 d-flex flex-xs-row align-items-center justify-content-center user form-group">
+                        <button class="col-4 col-lg-5 col-xl-5 login align-items-center justify-content-center" role="button" type="reset">Borrar</button>
+                        <button class="col-4 col-lg-5 col-xl-5 register align-items-center justify-content-center" role="button" type="submit" value="enviar">Enviar</button>
+                    </div>
+
+
+                </form>
             </div>
-            <form method="post " id="miFormulario ">
-                <h4><strong>REGISTRO</strong></h4>
-                <div class="form-campos">
-                    <!-- nombre -->
-                    <div class="form-group col-xl-6 ">
-                        <label for="nombre "><strong>Nombre</strong></label>
-                        <input type="text " class="form-control " id="nombre " aria-describedby="nombre " placeholder="Ejemplo: Carolina" required/>
-                    </div>
 
-                    <!-- email -->
-                    <div class="form-group col-xl-6 ">
-                        <label for="exampleInputEmail1 "><strong>Email</strong></label>
-                        <input type="email " class="form-control " id="exampleInputEmail1 " aria-describedby="emailHelp " placeholder="Ejemplo: almazen@gmail.com" required/>
-                    </div>
+        </section>
 
-                    <!-- nombre de usuario -->
-                    <div class="form-group col-xl-6 ">
-                        <label for="usuario "><strong>Usuario</strong></label>
-                        <input type="text " class="form-control " id="usuario " aria-describedby="usuario " placeholder="Ingrese su usuario" required/>
-                    </div>
+        <!-- FOOTER -->
+        <%- include("partials/footer") %>
+            <!-- /FOOTER -->
 
-                    <!-- password -->
-                    <div class="form-group col-xl-6 ">
-                        <label for="password"><strong>Contraseña</strong></label>
-                        <input type="password" class="form-control " id="password" name="password" aria-describedby="password " placeholder="Ingrese su contraseña" required/>
-                    </div>
-                </div>
-
-                <!-- dejar en blaco el formulario o enviar -->
-                <div class="mb-3 col-12 col-lg-3 col-xl-4 d-flex flex-xs-row align-items-center justify-content-center user form-group">
-                    <button class="col-4 col-lg-5 col-xl-5 login align-items-center justify-content-center" role="button" type="reset">Borrar</button>
-                    <button class="col-4 col-lg-5 col-xl-5 register align-items-center justify-content-center" role="button" type="submit" value="enviar">Enviar</button>
-                </div>
-
-
-            </form>
-        </div>
-
-    </section>
-
-    <!-- FOOTER -->
-    <%- include("partials/footer") %>
-    <!-- /FOOTER -->
-
-    </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 
 </html>
