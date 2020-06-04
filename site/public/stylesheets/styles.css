@@ -1146,25 +1146,30 @@ select {
 
 /* Estilos recetas */
 
-.imagen-receta {
-    width: 100%;
-    border-radius: 2%;
-    margin-bottom: 5%;
-}
-
 .titulo-receta {
     font-size: 2em;
 }
 
 .categoria-receta {
-    font-weight: bold;
+    font-weight: 500;
     text-align: left;
-    color: #39D27F;
+    color: var(--colorMenu);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.fa-clock, .reloj, .dificulad{
+    color: #CF664F;
+}
+
+.imagen-receta {
+    width: 100%;
+    border-radius: 2%;
+    margin: 5% 0;
 }
 
 .acciones-receta {
     text-align: center;
-    margin-top: 15%;
 }
 
 .acciones-receta a i {
@@ -1181,27 +1186,36 @@ select {
 .titulo-ingredientes-receta {
     margin: 0 0 15px;
     font-family: var(--fuenteTituloSeccion);
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1em;
     line-height: 1;
     text-align: center;
-    color: #39D27F;
+    color: var(--colorMenu);
     margin: 10%;
 }
 
 @media (min-width: 1023px) {
-    .short-description-receta {
+
+        .short-description-receta {
         padding-left: 10%;
+        margin-top: 35px;
     }
 }
 
 .short-description-receta h2 {
-    margin-top: 10px;
+    margin-top: 30px;
+    margin-bottom: 15px;
 }
 
 .short-description-receta h3 {
     font-size: 0.8em;
     margin-bottom: 5%;
+}
+
+#slcCantidad{
+    font-weight: 500;
+    border:0.1px solid #777;
+    text-align: center;
 }
 
 .ingredientes-receta {
@@ -1220,6 +1234,7 @@ select {
 
 .ingrediente-receta {
     margin-left: 0px;
+    color: var(--colorDescripcionProducto);
 }
 
 .ingrediente-receta:nth-child(odd) {
@@ -1237,35 +1252,46 @@ select {
     padding: 0 25px;
     margin: 5%;
     border: 1px solid #CF664F;
-    background: #CF664F;
-    color: #fff;
+    background: #fff;
+    color: #CF664F;
     border-radius: 4px;
     font-family: 'Nunito';
     display: block;
-    width: 280px;
     margin: 30px auto;
+    text-align: center;
+}
+
+.boton-central-receta:hover {
+    color: white;
+    background-color: #CF664F;
+    border: 1px solid #CF664F;
 }
 
 .preparacion-receta h2 {
     font-family: var(--fuenteTituloSeccion);
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1em;
     line-height: 1;
     text-align: center;
-    color: #39D27F;
-    margin: 10%;
+    color: var(--colorMenu);
+    margin-top: 10%;
 }
 
 .preparacion-receta h3 {
     font-size: 14px;
-    color: #777;
+    color: var(--colorDescripcionProducto);
     text-align: center;
 }
 
 .preparacion-receta {
     font-size: 18px;
     line-height: 28px;
-    color: #777;
+    color: var(--colorDescripcionProducto);
+}
+
+.numero-paso-preparacion-receta {
+    font-family: var(--fuenteGeneral);
+    color: #CF664F;
 }
 
 .paso-preparacion-receta label {
@@ -1276,24 +1302,20 @@ select {
     padding: 1%;
 }
 
-.pasos-preparacion-receta:nth-child(odd) {
-    background-color: rgb(212, 248, 212);
+.paso-receta {
+    padding-left: 2%;
+    text-align: justify;
+    color: var(--colorDescripcionProducto);
 }
 
-.boton-central-receta {
-    text-align: center;
+.pasos-preparacion-receta:nth-child(odd) {
+    background-color: rgb(212, 248, 212);
 }
 
 .ancor:hover {
     color: #CF664F;
     border: 1px solid #CF664F;
     background-color: white;
-}
-
-.boton-central-receta:hover {
-    color: #CF664F;
-    background-color: white;
-    border: 1px solid #CF664F;
 }
 
 .label-check {
@@ -1316,6 +1338,7 @@ select {
     cursor: pointer;
 }
 
+
 /* Estilos del modal y carrousel*/
 .modal-header {
     text-align: center;
@@ -1325,12 +1348,13 @@ select {
 .modal-header h5 {
     margin-top: -20px;
     padding: 1%;
+    font-family: var(--fuenteGeneral);
     font-size: 26pt;
 }
 
 .procedimientos {
     padding: 3%;
-    font-family: 'Poppins';
+    font-family: var(--fuenteGeneral);
     color: var(--colorMenu);
 }
 
@@ -1341,14 +1365,10 @@ select {
     color: var(--colorMenu);
 }
 
-.numero-paso-preparacion-receta {
+.cantidad_pasos {
+    font-size: 1.5em;
     color: #CF664F;
-    font-weight: bolder;
-}
-
-.modal.content {
-    height: 80vh;
-
+    font-weight: 700;
 }
 
 .numero-paso-carrusel {
@@ -1359,11 +1379,18 @@ select {
     display: block;
 }
 
-.carousel-control-next-icon,
-.carousel-control-prev-icon {
-    background-color: var(--colorMenu);
-    margin-bottom: 130%;
-    padding: 25%;
+.fa-arrow-right {
+    color: var(--colorMenu);
+    margin-bottom: 1000%;
+    font-size: 1.5em;
+    margin-right: 500%;
+}
+
+.fa-arrow-left {
+    color: var(--colorMenu);
+    margin-bottom: 1000%;
+    font-size: 1.5em;
+    margin-left: 500%;
 }
 
 .carousel-indicators {
@@ -1375,13 +1402,30 @@ select {
 }
 
 .descripcion-paso-carrusel {
+    font-family: var(--fuenteGeneral);
+    color: var(--colorDescripcionProducto);
     font-size: 1em;
-    padding: 8%;
     padding: 15%;
+    font-weight: 500;
     display: block;
     text-align: center;
+    height: 200px;
 }
 
+.instruccion_carrusel {
+    background-color: var(--colorBtnLoginHover);
+    font-family: var(--fuenteGeneral);
+    color: var(--colorDescripcionProducto);
+    font-weight: 700;
+    margin: 0 0 57px;
+    height: 200px;
+}
+
+@media (min-width: 1023px){
+    .instruccion_carrusel {
+       margin-bottom: 100px;
+    }
+}
 
 /* Estilos de la pagina  Tips */
 

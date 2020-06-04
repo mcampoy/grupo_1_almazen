@@ -77,80 +77,51 @@
         <section id="productos" class="row container-fluid destacados">
             <h5 class="col-12 d-flex justify-content-center TituloDestacados">Productos Destacados</h5>
 
-            <div class="mb-3 col-12 col-sm-6 col-md-6 col-lg-4 d-flex justify-content-center">
-                <section class="col-12 col-md-11 col-lg-11 product-box">
-                    <a href="/product/details" class="col-12 col-lg-12">
-                        <figure class="col-12 col-lg-12 product-box_image">
-                            <img src="/images/curcuma en polvo.jpg" alt="imagen de producto" class="col-12">
-                        </figure>
-                        <article class="col-12 product-box_data">
-                            <h2 class="titulo_producto">Cúrcuma</h2>
-                            <span class="ml-auto precio_producto">$60</span>
-                            <p class="descripcion_producto"> Cúrcuma en polvo para darle sabor y color a tus comidas <br> Peso neto: 100 gr.</p>
-
-                        </article>
-                    </a>
-                    <button class="col-8 col-lg-7 d-flex justify-content-center align-items-center btn_producto" onclick="window.location='/product/cart'">AGREGAR AL CARRITO</button>
-                </section>
+            
+            <!-- PRODUCTOS -->
+                <% for( let product of products ) { %>
+                <div class="mb-3 col-12 col-sm-6 col-md-6 col-lg-4  justify-content-center">
+                    <section class="col-12 col-md-11 col-lg-11 product-box">
+                        <a href="/product/details/<%= product.id %> " class="col-12 col-lg-12">
+                            <figure class="col-12 col-lg-12 product-box_image">
+                                <img src="/images/<%= product.image %> " alt="imagen de producto" class="col-12">
+                            </figure>
+                            <article class="col-12 product-box_data">
+                                <h2 class="titulo_producto"><%= product.nombre %> </h2>
+                                <span class="ml-auto precio_producto">$ <%= product.precio %> </span>
+                                <p class="descripcion_producto"> <%= product.descripcion_breve %>  <br> <%= product.cantidad.cantidad %> <%= product.cantidad.unidad_medida %> </p>
+                            </article>
+                        </a>
+                        <button class="col-8 col-lg-7 d-flex justify-content-center align-items-center btn_producto" onclick="window.location='/product/cart'">AGREGAR AL CARRITO</button>
+                    </section>
+                </div>
+              
+                <% } %>
+                
             </div>
-            <!-- 2 Producto -->
-            <div class="mb-3 col-12 col-sm-6 col-md-6 col-lg-4 d-flex justify-content-center">
-                <section class="col-12 col-md-11 col-lg-11 product-box">
-                    <a href="/product/details" class="col-12 col-lg-12">
-                        <figure class="col-12 col-lg-12 product-box_image">
-                            <img src="/images/pan integral.jpg" alt="imagen de producto" class="col-12">
-
-                        </figure>
-                        <article class="col-12 product-box_data">
-                            <h2 class="titulo_producto">Pan integral</h2>
-                            <span class="ml-auto precio_producto">$200</span>
-                            <p class="descripcion_producto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, voluptatibus, aliquid commodi dolorem </p>
-
-
-                        </article>
-                    </a>
-                    <button class="col-8 col-lg-7 d-flex justify-content-center align-items-center btn_producto" onclick="window.location='/product/cart'">AGREGAR AL CARRITO</button>
-                </section>
-            </div>
-            <!-- 3 Producto -->
-            <div class="mb-3 col-12 col-sm-6 col-md-6 col-lg-4 d-flex justify-content-center">
-                <section class="col-12 col-md-11 col-lg-11 product-box">
-                    <a href="/product/details" class="col-12 col-lg-12">
-                        <figure class="col-12 col-lg-12 product-box_image">
-                            <img src="images/stevia.jpg" alt="imagen de producto" class="col-12">
-                        </figure>
-                        <article class="col-12 product-box_data">
-                            <h2 class="titulo_producto">Stevia</h2>
-                            <span class="ml-auto precio_producto">$500</span>
-                            <p class="descripcion_producto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, voluptatibus, aliquid commodi dolorem </p>
-
-
-                        </article>
-                    </a>
-                    <button class="col-8 col-lg-7 d-flex justify-content-center align-items-center btn_producto" onclick="window.location='/product/cart'">AGREGAR AL CARRITO</button>
-                </section>
-            </div>
-
-
+              
         </section>
-
-
         <!-- -- -- -- SECCION RECETAS -- -- -->
         <section id="recetas" class="mb-5 row container-fluid Recetas">
             <div class="mb-1 col-12 col-sm-6 col-md-12 col-lg-12 d-flex justify-content-center">
                 <section class="col-12 col-md-11 col-lg-11 d-flex product-box">
-                    <a href="" class="col-12 col-md-12 col-lg-12 d-flex flex-wrap">
+                    <% for( let receta of recetas) { %>       
+                    <a href="/recetas/<%= receta.id %> " class="col-12 col-md-12 col-lg-12 d-flex flex-wrap">
                         <figure class="col-11 col-md-12 col-lg-5 imagen_receta ">
-                            <img src="images/cacao.jpg" alt="imagen de receta" class="col-12">
+                            <img src="/images/recetas/<%= receta.image %>" alt="imagen de receta" class="col-12">
                         </figure>
                         <article class="col-11 col-md-12 col-lg-6 d-sm-block">
-                            <h6 class="tipo_receta">Vegana</h6>
-                            <span class="titulo_receta">Budin</span>
-                            <p class="descripcion_receta">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, voluptatibus, aliquid commodi dolorem </p>
-                            <button class="col-5 col-md-4 col-lg-3 d-flex justify-content-center align-items-center btn_receta">VER MÁS</button>
-
-                        </article>
-                    </a>
+                                                
+                                
+                                <h6 class="tipo_receta"> <%= receta.dieta %> </h6>
+                                <span class="titulo_receta"> <%= receta.nombre %>  </span>
+                                <p class="descripcion_receta"> <%= receta.descripcion %>  </p>
+                                <button class="col-5 col-md-4 col-lg-3 d-flex justify-content-center align-items-center btn_receta">VER PREPARACIÓN</button>
+                                
+                                
+                            </article>
+                        </a>
+                        <% } %>
                 </section>
             </div>
         </section>

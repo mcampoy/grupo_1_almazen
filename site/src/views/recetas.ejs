@@ -16,16 +16,15 @@
 
             <figure class="col-12 col-lg-6 descripcion-receta">
                 <div class="encabezado-receta">
-                    <h3 class="titulo-receta mb-2">Budín de banana y nuez</h3>
-                    <p class="categoria-receta">VEGETARIANA</p>
+                    <p class="categoria-receta"><%= receta.dieta %> </p>
+                    <h3 class="titulo-receta mb-2"><%= receta.nombre %> </h3>
+                    <span class="tiempo-coccion"><i class="far fa-clock"></i> <span class="reloj"> <%= receta.tiempo_coccion %> minutos </span> </span>
+                    <span class="dificultad"> <span class="dificulad"> - <i class="fas fa-utensil-spoon"></i>   <%= receta.dificultad %> </span> </span>
                 </div>
-                <img src="/images/Budín-de-banana-y-nuez.jpg" alt="cúrcuma en polvo" class="imagen-receta">
+                <img src="/images/recetas/<%= receta.image %>" alt=" <%= receta.nombre %> " class="imagen-receta">
 
                 <div class="descripcion_receta">
-                    <p>Ideal para una tarde lluviosa y gris, para acompañar la merienda o el mate, el budín de banana es
-                        un clásico infalible, que siempre es bien recibido. Se distingue de otros budines porque su
-                        consistencia es más húmeda, y eso es lo que le da su toque particular. El proceso de preparación
-                        es muy sencillo.</p>
+                    <p><%= receta.descripcion%> </p>
                 </div>
             </figure>
 
@@ -54,282 +53,68 @@
 
                             <form class="ingredientes-receta cargar-ajax" method="post" action="lista-de-compras.php">
                                 <h2 class="titulo-ingredientes-receta">Ingredientes</h2>
-                                <h3 class="cantidad-porciones-receta">Para <select
-                                        class="numero-cantidad-porciones-receta">
+                                <h3 class="cantidad-porciones-receta">Para <select id="slcCantidad" class="numero-cantidad-porciones-receta">
                                         <!-- <div class="titulo-ajustar-porciones-receta">Ajustar porciones:</div> -->
+                                        
+                                        <option value="default">hacer esta</option>
+                                        <option value="mitad">la mitad de la</option>
+                                        <option value="doble">el doble de la</option>
+                                        <option value="triple">el triple de la</option>
+                                        <option value="cuádruple">el cuádruple de la</option>
+                                        
+                                    </select> preparación</h3>
 
-                                        <option>
-                                            <a class="opcion-ajustar-porciones-receta cargar-ajax" href="#">8</a>
-                                        </option>
-                                        <option>
-                                            <a class="opcion-ajustar-porciones-receta cargar-ajax" href="#">16</a>
-                                        </option>
-                                        <option>
-                                            <a class="opcion-ajustar-porciones-receta cargar-ajax" href="#">24</a>
-                                        </option>
-                                        <option>
-                                            <a class="opcion-ajustar-porciones-receta cargar-ajax" href="#">32</a>
-                                        </option>
-                                        <option>
-                                            <a class="opcion-ajustar-porciones-receta cargar-ajax" href="#">40</a>
-                                        </option>
-                                    </select> porciones</h3>
+                               
+                                    <% for( let ingrediente of receta.ingredientes ) { %>
+                                    
+                                        <div class="ingrediente-receta checkbox">
+                                        
+                                            <label class="label-check">
+                                                <input class="check checkbox-original checkbox-ingrediente-receta"                                            type="checkbox" name="ingredientes" value="">
+                                                <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
+                                                <span class="cantidad-ingrediente-receta"> <%= ingrediente.cantidad %></span> 
+                                                <span class="cantidad-ingrediente-receta"> <%= ingrediente.unidad %> </span>
+                                                <span class="descripcion-ingrediente-receta"> <%= ingrediente.nombre_ingrediente  %></span>
+                                            </label>
+                                        </div>
+                                
+                                    <% } %>
+                             
+                                        <!-- Checkbox para seleccionar todos los ingredientes -->
+                                            <div class="checkbox">
+                                                <label class="label-seleccionar-todos">
+                                                    <i class="fas fa-tasks"></i> <input id="checkAll"
+                                                        class="check checkbox-original checkbox-seleccionar-todos" type="checkbox">
+                                                    <span class="checkbox-reemplazo"></span>
+                                                    Seleccionar todos
+                                                </label>
+                                            </div>
 
-                                <!-- <h3 class="titulo-seccion-ingredientes-receta">Para los panqueques</h3> -->
-                                <div class="ingrediente-receta checkbox">
-                                    <label class="label-check">
-                                        <input class="check checkbox-original checkbox-ingrediente-receta"
-                                            type="checkbox" name="ingredientes[]" value="4.0 huevos">
-                                        <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
-                                        <span class="cantidad-ingrediente-receta"> 2 </span>
-                                        <span class="descripcion-ingrediente-receta"> tazas de harina </span>
-                                    </label>
-                                </div>
-
-                                <div class="ingrediente-receta checkbox">
-                                    <label class="label-check">
-                                        <input class="check checkbox-original checkbox-ingrediente-receta"
-                                            type="checkbox" name="ingredientes[]" value="4.0 huevos">
-                                        <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
-                                        <span class="cantidad-ingrediente-receta"> 4 </span>
-                                        <span class="descripcion-ingrediente-receta"> bananas pisadas (4 si son chicas)
-                                        </span>
-                                    </label>
-                                </div>
-
-                                <div class="ingrediente-receta checkbox">
-                                    <label class="label-check">
-                                        <input class="check checkbox-original checkbox-ingrediente-receta"
-                                            type="checkbox" name="ingredientes[]" value="4.0 huevos">
-                                        <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
-                                        <span class="cantidad-ingrediente-receta"> 1 </span>
-                                        <span class="descripcion-ingrediente-receta"> taza de nueces picadas </span>
-                                    </label>
-                                </div>
-
-                                <div class="ingrediente-receta checkbox">
-                                    <label class="label-check">
-                                        <input class="check checkbox-original checkbox-ingrediente-receta"
-                                            type="checkbox" name="ingredientes[]" value="4.0 huevos">
-                                        <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
-                                        <span class="cantidad-ingrediente-receta"> 1 </span>
-                                        <span class="descripcion-ingrediente-receta"> taza de azúcar </span>
-                                    </label>
-                                </div>
-
-                                <div class="ingrediente-receta checkbox">
-                                    <label class="label-check">
-                                        <input class="check checkbox-original checkbox-ingrediente-receta"
-                                            type="checkbox" name="ingredientes[]" value="4.0 huevos">
-                                        <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
-                                        <span class="cantidad-ingrediente-receta"> 1/2 </span>
-                                        <span class="descripcion-ingrediente-receta"> taza de aceite vegetal </span>
-                                    </label>
-                                </div>
-
-                                <div class="ingrediente-receta checkbox">
-                                    <label class="label-check">
-                                        <input class="check checkbox-original checkbox-ingrediente-receta"
-                                            type="checkbox" name="ingredientes[]" value="4.0 huevos">
-                                        <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
-                                        <span class="cantidad-ingrediente-receta"> 2 </span>
-                                        <span class="descripcion-ingrediente-receta"> cdas. de leche </span>
-                                    </label>
-                                </div>
-
-                                <div class="ingrediente-receta checkbox">
-                                    <label class="label-check">
-                                        <input class="check checkbox-original checkbox-ingrediente-receta"
-                                            type="checkbox" name="ingredientes[]" value="4.0 huevos">
-                                        <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
-                                        <span class="cantidad-ingrediente-receta"> 1 </span>
-                                        <span class="descripcion-ingrediente-receta"> huevo </span>
-                                    </label>
-                                </div>
-
-                                <div class="ingrediente-receta checkbox">
-                                    <label class="label-check">
-                                        <input class="check checkbox-original checkbox-ingrediente-receta"
-                                            type="checkbox" name="ingredientes[]" value="4.0 huevos">
-                                        <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
-                                        <span class="cantidad-ingrediente-receta"> 1 1/2 </span>
-                                        <span class="descripcion-ingrediente-receta"> cdita. de bicarbonato </span>
-                                    </label>
-                                </div>
-
-                                <div class="ingrediente-receta checkbox">
-                                    <label class="label-check">
-                                        <input class="check checkbox-original checkbox-ingrediente-receta"
-                                            type="checkbox" name="ingredientes[]" value="4.0 huevos">
-                                        <span class="check checkbox-reemplazo checkbox-ingrediente-receta"></span>
-                                        <span class="cantidad-ingrediente-receta"> 1/4 </span>
-                                        <span class="descripcion-ingrediente-receta"> cdita. de sal </span>
-                                    </label>
-                                </div>
-
-                                <div class="ingrediente-receta checkbox">
-                                    <label class="label-check">
-                                        <input class="check checkbox-original checkbox-ingrediente-receta"
-                                            type="checkbox" name="ingredientes[]" value="4.0 huevos">
-                                        <span class="check checkbox-reemplazo checkbox-ingrediente-receta"></span>
-                                        <span class="cantidad-ingrediente-receta"> 1 </span>
-                                        <span class="descripcion-ingrediente-receta"> de canela </span>
-                                    </label>
-                                </div>
-
-                                <div class="ingrediente-receta checkbox">
-                                    <label class="label-check">
-                                        <input class="check checkbox-original checkbox-ingrediente-receta"
-                                            type="checkbox" name="ingredientes[]" value="4.0 huevos">
-                                        <span class="check checkbox-reemplazo checkbox-ingrediente-receta"></span>
-                                        <span class="cantidad-ingrediente-receta"> 1 </span>
-                                        <span class="descripcion-ingrediente-receta"> cdita esencia de vainilla </span>
-                                    </label>
-                                </div>
-
-                                <div class="checkbox">
-                                    <label class="label-seleccionar-todos">
-                                        <i class="fas fa-tasks"></i> <input id="checkAll"
-                                            class="check checkbox-original checkbox-seleccionar-todos" type="checkbox">
-                                        <span class="checkbox-reemplazo"></span>
-                                        Seleccionar todos
-                                    </label>
-                                </div>
-
-                                <button class="boton-central-receta" name="agregar">Agregar </button>
+                                <button class="boton-central-receta" name="agregar">Agregar al carrito </button>
                             </form>
-
 
                             <div class="preparacion-receta">
                                 <h2 class="titulo-preparacion-receta">Preparación</h2>
                                 <h3 class="subtitulo-preparacion-receta">Seguí los pasos de la receta aquí o en la vista
                                     de cocina.</h3>
 
+                                    
+                                    <% for( let i = 0; i < receta.pasos.length; i++ ) { %>
 
-                                <div class="pasos-preparacion-receta">
-                                    <div class="paso-preparacion-receta">
-                                        <label>
-                                            <input class="checkbox-original checkbox-paso-preparacion-receta"
-                                                type="checkbox">
-                                            <span class="checkbox-reemplazo checkbox-paso-preparacion-receta"></span>
-                                            <span class="numero-paso-preparacion-receta">1.</span>
-                                            <span class="tachado-checkbox"><span class="texto-tachado-checkbox">Como con
-                                                    los bizcochuelos, hay que comenzar precalentando el horno, así al
-                                                    terminar la preparación está a la temperatura just, que debe rondar
-                                                    los 325º-</span></span>
-                                        </label>
-                                    </div>
-                                </div>
+                                        <div class="pasos-preparacion-receta">
+                                            <div class="paso-preparacion-receta">
+                                                <label for="checkbox-original">
+                                                    <input class="checkbox-original checkbox-paso-preparacion-receta"
+                                                    type="checkbox">
+                                                    <span class="checkbox-reemplazo checkbox-paso-preparacion-receta"></span>
+                                                    <span class="numero-paso-preparacion-receta"> <%= i + 1 %>.  </span>
+                                                    <span class="tachado-checkbox"><span class="paso-receta texto-tachado-checkbox"> <%= receta.pasos[i] %> </span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    <% } %>
 
-                                <div class="pasos-preparacion-receta">
-                                    <div class="paso-preparacion-receta">
-                                        <label>
-                                            <input class="checkbox-original checkbox-paso-preparacion-receta"
-                                                type="checkbox">
-                                            <span class="checkbox-reemplazo checkbox-paso-preparacion-receta"></span>
-                                            <span class="numero-paso-preparacion-receta">2.</span>
-                                            <span class="tachado-checkbox"><span
-                                                    class="texto-tachado-checkbox">Enmantecar y enharinar una budinera.
-                                                    Puede ser rectangular, o circular con un hueco en el
-                                                    centro.</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="pasos-preparacion-receta">
-                                    <div class="paso-preparacion-receta">
-                                        <label>
-                                            <input class="checkbox-original checkbox-paso-preparacion-receta"
-                                                type="checkbox">
-                                            <span class="checkbox-reemplazo checkbox-paso-preparacion-receta"></span>
-                                            <span class="numero-paso-preparacion-receta">3.</span>
-                                            <span class="tachado-checkbox"><span class="texto-tachado-checkbox">Integrar
-                                                    todos los ingresdientes en un bowl</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="pasos-preparacion-receta">
-                                    <div class="paso-preparacion-receta">
-                                        <label>
-                                            <input class="checkbox-original checkbox-paso-preparacion-receta"
-                                                type="checkbox">
-                                            <span class="checkbox-reemplazo checkbox-paso-preparacion-receta"></span>
-                                            <span class="numero-paso-preparacion-receta">4.</span>
-                                            <span class="tachado-checkbox"><span class="texto-tachado-checkbox"> En otro
-                                                    recipiente aparte, batir el huevo, el aceite y el azúcar hasta hacer
-                                                    una especie de crema.</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="pasos-preparacion-receta">
-                                    <div class="paso-preparacion-receta">
-                                        <label>
-                                            <input class="checkbox-original checkbox-paso-preparacion-receta"
-                                                type="checkbox">
-                                            <span class="checkbox-reemplazo checkbox-paso-preparacion-receta"></span>
-                                            <span class="numero-paso-preparacion-receta">5.</span>
-                                            <span class="tachado-checkbox"><span class="texto-tachado-checkbox">Volcar
-                                                    de a poco los ingredientes secos en la crema de huevo y mezclar
-                                                    bien.</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="pasos-preparacion-receta">
-                                    <div class="paso-preparacion-receta">
-                                        <label>
-                                            <input class="checkbox-original checkbox-paso-preparacion-receta"
-                                                type="checkbox">
-                                            <span class="checkbox-reemplazo checkbox-paso-preparacion-receta"></span>
-                                            <span class="numero-paso-preparacion-receta">6.</span>
-                                            <span class="tachado-checkbox"><span class="texto-tachado-checkbox">Agregar
-                                                    la leche, las bananas y la vainilla y mezclar.</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="pasos-preparacion-receta">
-                                    <div class="paso-preparacion-receta">
-                                        <label>
-                                            <input class="checkbox-original checkbox-paso-preparacion-receta"
-                                                type="checkbox">
-                                            <span class="checkbox-reemplazo checkbox-paso-preparacion-receta"></span>
-                                            <span class="numero-paso-preparacion-receta">7.</span>
-                                            <span class="tachado-checkbox"><span
-                                                    class="texto-tachado-checkbox">Incorporar las nueces.</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="pasos-preparacion-receta">
-                                    <div class="paso-preparacion-receta">
-                                        <label>
-                                            <input class="checkbox-original checkbox-paso-preparacion-receta"
-                                                type="checkbox">
-                                            <span class="checkbox-reemplazo checkbox-paso-preparacion-receta"></span>
-                                            <span class="numero-paso-preparacion-receta">8.</span>
-                                            <span class="tachado-checkbox"><span class="texto-tachado-checkbox">Volcar
-                                                    la mezcla en la budinera. Si utilizamos la rectangular, podemos
-                                                    decorar la suèrficie con más nueces.</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="pasos-preparacion-receta">
-                                    <div class="paso-preparacion-receta">
-                                        <label>
-                                            <input class="checkbox-original checkbox-paso-preparacion-receta"
-                                                type="checkbox">
-                                            <span class="checkbox-reemplazo checkbox-paso-preparacion-receta"></span>
-                                            <span class="numero-paso-preparacion-receta">9.</span>
-                                            <span class="tachado-checkbox"><span class="texto-tachado-checkbox">Hornear
-                                                    entre 60 y 80 minutos.</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <button type="button" class="boton  boton-central-receta" data-toggle="modal"
+                               <button type="button" class="boton  boton-central-receta" data-toggle="modal"
                                     data-target="#exampleModalCenter">
                                     Vista de cocina
                                 </button>
@@ -344,61 +129,52 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Budín de banana y nuez
+                                            <h5 class="modal-title" id="exampleModalLongTitle"><%= receta.nombre %>
                                             </h5>
-                                            <h6 class="procedimientos"> <span>12</span> <span>pasos</span></h6>
+                                            <h6 class="procedimientos"> </span> <span>Total de pasos a seguir:</span> <br><br> <span class="cantidad_pasos"><%= receta.pasos.length %> </h6>                          
                                         </div>
                                         <div class="modal-body">
                                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="false"
                                                 data-interval="false">
                                                 <ol class="carousel-indicators">
-                                                    <li data-target="#carouselExampleIndicators" data-slide-to="0"
+                                                    <% for( let i = 0; i < receta.pasos.length; i++ ) { %>
+                                                    
+                                                        <li data-target="#carouselExampleIndicators" data-slide-to="<% [i] %> "
                                                         class="active"></li>
-                                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                                        <% } %>
                                                 </ol>
                                                 <div class="carousel-inner">
                                                     <div class="carousel-item active">
                                                         <div class="paso-carrusel">
-                                                            <span class="numero-paso-carrusel">1</span>
-                                                            <p class="descripcion-paso-carrusel"> Precalentar el horno
-                                                                hasta que este alcance los 325° mienrtas se realiza el
-                                                                resto de la preparación</p>
+                                                            <span class="numero-paso-carrusel"></span>
+                                                            <p class="descripcion-paso-carrusel instruccion_carrusel"> Desplázate hacia la derecha para ir viendo los pasos de esta deliciosa receta.</p>
                                                         </div>
                                                     </div>
-                                                    <div class="carousel-item">
+
+                                                    <% for( let i = 0; i < receta.pasos.length; i++ ) { %>
+                                                    <div class="carousel-item ">
                                                         <div class="paso-carrusel">
-                                                            <span class="numero-paso-carrusel">2</span>
-                                                            <p class="descripcion-paso-carrusel"> Enmantecar y enharinar
-                                                                una budinera. Puede ser rectangular, o circular con un
-                                                                hueco en el centro.</p>
+                                                            <span class="numero-paso-carrusel"><%= i + 1  %> </span>
+                                                            <p class="descripcion-paso-carrusel"> <%= receta.pasos[i] %> </p>
                                                         </div>
                                                     </div>
-                                                    <div class="carousel-item">
-                                                        <div class="paso-carrusel">
-                                                            <span class="numero-paso-carrusel">18</span>
-                                                            <p class="descripcion-paso-carrusel"> Colocar en un bol la
-                                                                harina junto con la sal, el bicarbonato y la canela.
-                                                                Mezclar los ingredientes en seco</p>
-                                                        </div>
-                                                    </div>
+                                                    <% } %>
+                                                    
+                                                    
                                                 </div>
                                                 <a class="carousel-control-prev" href="#carouselExampleIndicators"
                                                     role="button" data-slide="prev">
-                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="receta-prev carousel-control-prev" aria-hidden="true"><i class="fas fa-arrow-left"></i></span>
                                                     <span class="sr-only">Previous</span>
                                                 </a>
                                                 <a class="carousel-control-next" href="#carouselExampleIndicators"
                                                     role="button" data-slide="next">
-                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="receta-next carousel-control-next" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
                                                     <span class="sr-only">Next</span>
                                                 </a>
                                             </div>
                                         </div>
-                                        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div> -->
+                                    
                                     </div>
                                 </div>
                             </div>
@@ -418,6 +194,11 @@
     <!-- /FOOTER -->
 
     <!-- Scripts -->
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous">
+</script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
