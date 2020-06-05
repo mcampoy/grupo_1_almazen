@@ -1145,6 +1145,7 @@ select {
 }
 
 /* Estilos recetas */
+
 .titulo_seccion {
     color: var(--colorTituloProducto);
     padding-left: 5%;
@@ -1163,6 +1164,14 @@ select {
 
 /* Estilos página de cada receta */
 
+.siteMap {
+    font-size: .8em;
+
+}
+.siteMap a{
+    color: var(--colorMenu);
+}
+
 .titulo-receta {
     font-size: 2em;
 }
@@ -1177,6 +1186,9 @@ select {
 
 .fa-clock, .reloj, .dificulad{
     color: #CF664F;
+}
+
+.fa-clock {
     font-weight: 700;
 }
 
@@ -1218,11 +1230,6 @@ select {
         padding-left: 10%;
         margin-top: 35px;
     }
-}
-
-.siteMap a{
-    font-size: .5;
-    color: var(--colorMenu);
 }
 
 .short-description-receta h2 {

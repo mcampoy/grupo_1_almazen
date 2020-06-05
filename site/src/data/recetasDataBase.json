@@ -1,7 +1,7 @@
 [
 	{
         "id": 1,
-        "dieta": "Vegetariana",
+        "dieta": "vegetariana",
         "dificultad": "fácil",
 		"nombre": "Budín de banana y nuez",
 		"descripcion": "Ideal para una tarde lluviosa y gris, para acompañar la merienda o el mate, el budín de banana es un clásico infalible, que siempre es bien recibido. Se distingue de otros budines porque su consistencia es más húmeda, y eso es lo que le da su toque particular. El proceso de preparación es muy sencillo.",
@@ -12,7 +12,7 @@
 	},
 	{
         "id": 2,
-        "dieta": "Vegana",
+        "dieta": "vegana",
         "dificultad": "fácil",
 		"nombre": "Budín húmedo de peras, avena y almendras",
 		"descripcion": "En la cocina, a veces solo hace falta animarse a innovar y probar recetas ricas y sanas. Si lo hacés en casa, vas a estar seguro de que tiene los mejores ingredientes y ningún tipo de conservante. Animate a preparar esta fácil y deliciosa receta de budín húmedo de peras, avena y almendras.",
@@ -23,7 +23,7 @@
 	},
 	{
         "id": 3,
-        "dieta": "Celíacos",
+        "dieta": "celíacos",
         "dificultad": "fácil",
 		"nombre": "Budín de banana y nuez",
 		"descripcion": "Ideal para una tarde lluviosa y gris, para acompañar la merienda o el mate, el budín de banana es un clásico infalible, que siempre es bien recibido. Se distingue de otros budines porque su consistencia es más húmeda, y eso es lo que le da su toque particular. El proceso de preparación es muy sencillo.",
@@ -34,7 +34,7 @@
 	},
 	{
         "id": 4,
-        "dieta": "Diabéticos",
+        "dieta": "diabéticos",
         "dificultad": "fácil",
 		"nombre": "Budín húmedo de peras, avena y almendras",
 		"descripcion": "En la cocina, a veces solo hace falta animarse a innovar y probar recetas ricas y sanas. Si lo hacés en casa, vas a estar seguro de que tiene los mejores ingredientes y ningún tipo de conservante. Animate a preparar esta fácil y deliciosa receta de budín húmedo de peras, avena y almendras.",
