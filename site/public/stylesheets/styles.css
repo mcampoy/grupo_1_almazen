@@ -1145,6 +1145,23 @@ select {
 }
 
 /* Estilos recetas */
+.titulo_seccion {
+    color: var(--colorTituloProducto);
+    padding-left: 5%;
+}
+.container-tarjetas-recetas {
+    margin-bottom: 5% !important;
+}
+.tarjeta-recetas {
+    margin: 5%;
+    text-decoration: none;
+}
+
+.descripcion_tarjeta_receta {
+    color: #2b2b2b;
+}
+
+/* Estilos página de cada receta */
 
 .titulo-receta {
     font-size: 2em;
@@ -1160,6 +1177,7 @@ select {
 
 .fa-clock, .reloj, .dificulad{
     color: #CF664F;
+    font-weight: 700;
 }
 
 .imagen-receta {
@@ -1200,6 +1218,11 @@ select {
         padding-left: 10%;
         margin-top: 35px;
     }
+}
+
+.siteMap a{
+    font-size: .5;
+    color: var(--colorMenu);
 }
 
 .short-description-receta h2 {

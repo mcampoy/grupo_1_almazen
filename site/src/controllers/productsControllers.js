@@ -5,19 +5,29 @@ const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/pro
 
 
 const controller = {
+
+    productsList: (req, res) => {
+        res.render('products', {
+            products
+        })
+
+    },
+
     details: (req, res) => {
 
-        const product = products.find((product)=>{
+        const product = products.find((product) => {
             return product.id == req.params.id;
-          })
+        })
 
-          if(product == null){
+        if (product == null) {
 
             return res.redirect('/');
-          }
-        res.render('productDetail', {product: product});
+        }
+        res.render('productDetail', {
+            product: product
+        });
     },
-    
+
     add: (req, res) => {
         res.render('productAdd');
     },

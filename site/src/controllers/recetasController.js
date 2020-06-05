@@ -5,7 +5,14 @@ const recetas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/rece
 
 
 const controller = {
-    index: (req, res) => {
+    
+    recetaList: (req, res) => {
+
+      res.render('recetas', {recetas})
+
+    },
+  
+    receta: (req, res) => {
         const receta = recetas.find((receta)=>{
             return receta.id == req.params.id;
           })
@@ -14,8 +21,8 @@ const controller = {
 
             return res.redirect('/');
           }
-        res.render('recetas', {receta: receta});
-    },
+        res.render('receta', {receta: receta});
+    }
 };
 
 module.exports = controller;

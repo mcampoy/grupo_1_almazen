@@ -16,17 +16,17 @@
     <!-- /HEADER -->
 
     <div class="container container-tarjetas-recetas " id="tarjetas">
-        <h3 class="col-12 titulo_seccion">Conocé todas nuetras recetas</h3>
+        <h3 class="col-12 titulo_seccion">Conocé nuetros productos</h3>
 
 
-        <% for( let i = 0; i < recetas.length; i++ ) { %>
+        <% for( let i = 0; i < products.length; i++ ) { %>
 
 
         <div class="ladofrente tarjeta-recetas">
-            <a href="<%= recetas[i].id %>">
-                <img src="/images/recetas/<%= recetas[i].image %>" alt="<%= recetas[i].nombre %>">
-                <h3 class="tituloscard"><%= recetas[i].nombre %></h3>
-                <span class='descripcion_receta descripcion_tarjeta_receta'><%= recetas[i].descripcion %></span>
+            <a href="details/<%= products[i].id %>">
+                <img src="/images/<%= products[i].image %>" alt="<%= products[i].nombre %>">
+                <h3 class="tituloscard"><%= products[i].nombre %></h3>
+                <span class='descripcion_receta descripcion_tarjeta_receta'><%= products[i].descripcion %></span>
             </a>
         </div>
 
