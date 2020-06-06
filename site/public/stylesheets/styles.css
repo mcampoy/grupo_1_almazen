@@ -1150,16 +1150,34 @@ select {
     color: var(--colorTituloProducto);
     padding-left: 5%;
 }
-.container-tarjetas-recetas {
-    margin-bottom: 5% !important;
-}
+
 .tarjeta-recetas {
     margin: 5%;
     text-decoration: none;
+    text-align: justify !important;
 }
 
 .descripcion_tarjeta_receta {
     color: #2b2b2b;
+    line-height: normal;
+    
+}
+
+.etiqueta-dieta-receta {
+    text-align: left;
+    color: var(--colorSeccionInfo);
+    font-family: var(--fuenteGeneral);
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.tituloscard-receta {
+    font-family: var(--fuenteTituloSeccion);
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    color: var(--colorMenu);
+    text-align: justify;
 }
 
 /* Estilos página de cada receta */
@@ -1497,7 +1515,7 @@ select {
 .tituloscard {
     font-family: var(--fuenteTituloSeccion);
     margin-bottom: 25px;
-    color: var(--colorMenu)
+    color: var(--colorMenu);
 }
 
 .tipsaludable {

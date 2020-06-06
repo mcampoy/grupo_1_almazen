@@ -4,6 +4,6 @@ const recetasControllers = require('../controllers/recetasController');
 
 router.get('/', recetasControllers.recetaList);
 router.get('/:id', recetasControllers.receta);
-// router.get('/:dieta', recetasControllers.category);
+router.get('/dieta/:dieta', recetasControllers.category);
 
 module.exports = router;
