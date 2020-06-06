@@ -91,7 +91,7 @@
 
                         </div>
                         <div class="col-lg-9 container-fluid">
-                            <iframe style="height:480px; pointer-events:none;" id="iframeDetails" class="col-12" src="/product/addShow/1" frameborder="0"></iframe>
+                            <iframe style="height:480px" id="iframeDetails" class="col-12" src="/product/addShow/1" frameborder="0"></iframe>
                         </div>
                     </div>
 
@@ -135,7 +135,7 @@
 
         function editar() {
             var iframe = document.getElementById('iframeDetails');
-            iframe.setAttribute("style", "height:480px; pointer-events:all;");
+            iframe.setAttribute("style", "height:480px;");
             iframe.src = `/product/addEdit/${productID}`;
 
         }
@@ -143,7 +143,7 @@
 
         function crearNuevo() {
             var iframe = document.getElementById('iframeDetails');
-            iframe.setAttribute("style", "height:480px; pointer-events:all;");
+            iframe.setAttribute("style", "height:480px");
             iframe.src = `/product/addEdit/nuevo`;
 
         }
