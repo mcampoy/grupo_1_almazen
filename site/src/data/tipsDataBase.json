@@ -1,0 +1,39 @@
+[{
+        "id": 1,
+        "tip": "Este es el tip 1",
+        "image": "tip1.jpg"
+    },
+    {
+        "id": 1,
+        "tip": "Este es el tip 1",
+        "image": "tip1.jpg"
+    },    {
+        "id": 2,
+        "tip": "Este es el tip 1",
+        "image": "tip1.jpg"
+    },    {
+        "id": 3,
+        "tip": "Este es el tip 1",
+        "image": "tip1.jpg"
+    },    {
+        "id": 4,
+        "tip": "Este es el tip 1",
+        "image": "tip1.jpg"
+    },    {
+        "id": 5,
+        "tip": "Este es el tip 1",
+        "image": "tip1.jpg"
+    },    {
+        "id": 6,
+        "tip": "Este es el tip 1",
+        "image": "tip1.jpg"
+    },    {
+        "id": 7,
+        "tip": "Este es el tip 1",
+        "image": "tip1.jpg"
+    },    {
+        "id": 8,
+        "tip": "Este es el tip 1",
+        "image": "tip1.jpg"
+    }
+]

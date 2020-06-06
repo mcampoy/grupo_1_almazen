@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include("partials/head", {title:"Agregar producto"}) %>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- <link rel="stylesheet" href="../../stylesheets/productAdd.css"> -->
+        <link rel="stylesheet" href="../../stylesheets/productAdd.css">
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <!-- Upload product -->
+        <div class="container-fluid align-content-around carga_producto">
+
+            <form action="/product/add" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <!-- COLUMNA 2 - NOMBRE Y DESCRIPCIÓN -->
+                    <div class="container left-column  col-11 col-md-6 col-lg-4 d-block">
+                        <div class="row mt-5 mt-md-0">
+                            <div class="form-group col-12">
+                                <input name="id" type="text" class="form-control" id="id" required value="<%= product.id %>" style="display:none">
+                                <label class="titulo_carga_producto" for="codigo">Código del producto <span class="asterisco">*</span></label>
+                                <input name="codigo" type="text" class="form-control" id="codigo" placeholder="Ingrese el código del producto." required value="<%= product.codigo %>" <% if (!edit) { %>readonly
+                                <% } %>>
+                            </div>
+                            <div class="form-group col-12">
+                                <label class="titulo_carga_producto" for="nombre">Nombre del producto <span class="asterisco">*</span></label>
+                                <input name="nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del producto." required value="<%= product.nombre %>" <% if (!edit) { %> readonly
+                                <% } %>>
+                            </div>
+                            <div class="form-group col-12">
+                                <label class="titulo_carga_producto" for="descripcion_breve">Descripción corta <span class="asterisco">*</span></label>
+                                <input name="descripcion_breve" type="text" class="form-control" id="descripcion_breve" required placeholder="Ingrese la descripción corta del producto." value="<%= product.descripcion_breve %>" <% if (!edit) { %> readonly
+                                <% } %>>
+                            </div>
+                            <div class="form-group col-12">
+                                <label class="titulo_carga_producto" for="descripcionLarga">Descripción completa <span class="asterisco">*</span></label>
+                                <textarea name="descripcion" class="form-control" id="descripcionLarga" required rows="3" placeholder="Ingrese la descripción completa del producto." <% if (!edit) { %> readonly <% } %>><%= product.descripcion %></textarea>
+                            </div>
+
+                            <div class="form-group col-6 pl-0">
+                                <label class="titulo_carga_producto" for="precio">Precio <span class="asterisco">*</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                    <input name="precio" type="number" min="0" class="form-control text-right" id="precio" required placeholder="0" value="<%= product.precio %>" <% if (!edit) { %> readonly
+                                    <% } %>>
+                                </div>
+                            </div>
+                            <div class="form-group col-6 pr-0">
+                                <label class="titulo_carga_producto" for="descuento">Descuento</label>
+                                <div class="input-group">
+                                    <input name="descuento" type="number" min="0" class="form-control text-right" id="descuento" placeholder="0" value="<%= product.descuento %>" <% if (!edit) { %> readonly
+                                    <% } %>>
+                                        <div class="input-group-apend">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- COLUMNA 3 - FOTO -->
+                    <div class=" mt-2 mt-lg-0 mb-2 order-md-3 order-lg-2 container-fluid center-column col-10 col-md-6 col-lg-2 ">
+                        <label class="titulo_carga_producto col-11 text-center ">Imagen del producto</label>
+                        <div class=" col-12 text-center " id="image-preview-div">
+                            <img id="preview-img" src="/images/<%=product.image %>">
+                        </div>
+                        <div class="col-11 row form-group justify-content-center">
+                            <% if (edit) { %>
+                                <button class="col-5 blanco align-items-center justify-content-center mr-2" type="button" onclick="delete_image()">Borrar</button>
+                                <label class="custom-file-upload col-5 align-items-center justify-content-center mr-2">
+                            <input type="file" name="image" accept=".jpg" onchange="preview_image(event)" id="image">
+                            Cambiar
+                             </label>
+                                <input name="imageDeleted" type="checkbox" class="" id="imageDeleted" style="display: none;">
+                                <% } %>
+                        </div>
+                        <div class="col-12 container-fluid align-content-between">
+                            <div class="form-group col-12 ">
+                                <label class="titulo_carga_producto d-inline-block col-4" for="stock">Stock</label>
+                                <input name="stock" type="number" min="0" class="form-control text-right  d-inline-block col-7" id="stock" placeholder="0" value="<%=product.stock %>" <% if (!edit) { %> readonly
+                                <% } %>>
+                            </div>
+                            <label class="titulo_carga_producto d-inline-block col-12" for="cantidad">Presentación</label>
+
+                            <div class="form-group col-12">
+                                <input name="cantidad" type="number" min="0" class="form-control text-right d-inline-block col-7" id="cantidad" placeholder="0" value="<%= product.cantidad.cantidad %>" <% if (!edit) { %> readonly
+                                <% } %>>
+                                    <input name="unidad_medida" type="text" class="form-control  d-inline-block text-right col-4" id="unidad_medida" placeholder="gr." value="<%= product.cantidad.unidad_medida %>" <% if (!edit) { %> readonly
+                                    <% } %>>
+
+                            </div>
+                            <div class="form-group col-12 container  align-self-center">
+                                <div class="form-check d-inline-block">
+                                    <input name="habilitado" type="checkbox" class="" id="habilitado" value="" <% if (product.habilitado) { %>checked
+                                    <% } %>
+                                        <% if (!edit) { %> disabled
+                                            <% } %>>
+                                                <label for="habilitado"></label>
+                                </div>
+                                <label for="habilitado" class="nombre_item d-inline-block">Habilitado</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <!-- COLUMNA 4 - CATEGORÍAS, RECETAS Y DIETAS -->
+
+                    <div class=" order-md-2 order-lg-3 container align-content-center right-column col-12 col-md-6 col-lg-4">
+                        <div class="row justify-content-center">
+                            <div class="card text-center">
+                                <div class="card-header">
+                                    <ul class=" nav nav-tabs card-header-tabs">
+                                        <li class="nav-item">
+                                            <a class="nav-link active titulo_carga_producto font-weight-bold border-white" data-toggle="tab" href="#categorias">Categorías</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link titulo_carga_producto border-white" data-toggle="tab" href="#recetas">Recetas</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link titulo_carga_producto border-white" data-toggle="tab" href="#dietas">Dietas</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content card-body">
+                                    <div class="tab-pane active" id="categorias">
+                                        <% categorias.forEach(categoria => { %>
+                                            <div class="card_item text-left">
+                                                <div class="form-check d-inline-block">
+                                                    <input name="categoria" type="checkbox" class="" id="checkboxCategoria<%=categoria.id %>" value="<%=categoria.id %>" <% if (categoria.checked) {%> checked
+                                                    <% } %>
+                                                        <% if (!edit) { %> disabled
+                                                            <% } %>
+                                                                >
+                                                                <label for="checkboxCategoria<%=categoria.id %>"></label>
+                                                </div>
+                                                <label for="checkboxCategoria<%=categoria.id %>" class="nombre_item d-inline-block"><%= categoria.nombre %></label>
+                                            </div>
+                                            <% }) %>
+                                    </div>
+                                    <div class="tab-pane" id="dietas">
+                                        <% dietas.forEach(dieta => { %>
+                                            <div class="card_item text-left">
+                                                <div class="form-check d-inline-block">
+                                                    <input name="dieta" type="checkbox" class="" id="checkboxDieta<%=dieta.id %>" value="<%=dieta.id %>" <% if (dieta.checked) {%> checked
+                                                    <% } %>
+                                                        <% if (!edit) { %> disabled
+                                                            <% } %>
+                                                                >
+                                                                <label for="checkboxDieta<%=dieta.id %>"></label>
+                                                </div>
+                                                <label for="checkboxDieta<%=dieta.id %>" class="nombre_item d-inline-block"><%= dieta.nombre %></label>
+                                            </div>
+                                            <% }) %>
+                                    </div>
+                                    <div class="tab-pane" id="recetas">
+                                        <% recetas.forEach(receta => { %>
+                                            <div class="card_item text-left">
+                                                <div class="form-check d-inline-block">
+                                                    <input name="receta" type="checkbox" class="" id="checkboxReceta<%=receta.id %>" value="<%=receta.id %>" <% if (receta.checked) {%> checked
+                                                    <% } %>
+                                                        <% if (!edit) { %> disabled
+                                                            <% } %>
+                                                                >
+                                                                <label for="checkboxReceta<%=receta.id %>"></label>
+                                                </div>
+                                                <label for="checkboxReceta<%=receta.id %>" class="nombre_item d-inline-block"><%= receta.nombre %></label>
+                                            </div>
+                                            <% }) %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--  FILA INFERIOR  -->
+
+                <div class="fila_inferior container col-11">
+
+                    <% if (edit) { %>
+                        <button class="col-3 ml-lg-auto" type="submit">Guardar</button>
+                        <button class="col-3 ml-lg-auto" type="button" id="cancelar">Cancelar </button>
+                        <% } %>
+                </div>
+
+
+            </form>
+        </div>
+        <!-- /Upload product -->
+
+
+    </div>
+    <!-- Fin DIV Container-->
+
+    <script type="text/javascript">
+        var productID = document.getElementById('id').value;
+
+
+        document.getElementById("cancelar").onclick = function() {
+            window.location.href = "/product/addShow/" + productID;
+        };
+
+        function preview_image(event) {
+            var reader = new FileReader();
+            var output2 = document.getElementById('imageDeleted');
+            output2.checked = false;
+            reader.onload = function() {
+                var output = document.getElementById('preview-img');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function delete_image() {
+
+            var output = document.getElementById('preview-img');
+            output.src = "/images/defaultProduct.jpg";
+            var output2 = document.getElementById('imageDeleted');
+            output2.checked = true;
+            var output3 = document.getElementById('image');
+            output3.value = null;
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
