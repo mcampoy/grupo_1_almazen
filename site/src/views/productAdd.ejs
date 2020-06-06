@@ -2,183 +2,164 @@
 <html lang="es">
 
 <head>
-    <%- include("partials/head", {title: "Agregar producto"}) %> 
+    <%- include("partials/head", {title: "Agregar producto"}) %>
+        <link rel="stylesheet" href="../../stylesheets/productAdd.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
 
 
-    <div class="container-fluid ">
+    <div class="container-fluid">
 
         <!-- HEADER -->
-        <%- include("partials/header") %> 
-        <!-- /HEADER -->
+        <%- include("partials/header") %>
+            <!-- /HEADER -->
 
-        <!-- Upload product -->
-        <div class="container align-content-between carga_producto pb-5">
-            <form>
-                <div class="row">
-                    <!-- COLUMNA IZQUIERDA -->
-                    <div class="container left-column  col-12 col-md-6 col-lg-4 d-block">
-                        <div class="row ">
-                            <div class="form-group col-12">
-                                <label class="titulo_carga_producto" for="nombre">Nombre del producto <span class="asterisco">*</span></label>
-                                <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del producto." required>
-                            </div>
-                            <div class="form-group col-12">
-                                <label class="titulo_carga_producto " for="descripcionCorta">Descripción corta <span class="asterisco">*</span></label>
-                                <input type="text" class="form-control" id="descripcionCorta" required placeholder="Ingrese la descripción corta del producto.">
-                            </div>
-                            <div class="form-group col-12">
-                                <label class="titulo_carga_producto" for="descripcionLarga">Descripción completa <span class="asterisco">*</span></label>
-                                <textarea class="form-control" id="descripcionLarga" required rows="3" placeholder="Ingrese la descripción completa del producto."></textarea>
-                            </div>
-
-                            <div class="form-group col-6 pl-0 ">
-                                <label class="titulo_carga_producto" for="precio">Precio <span class="asterisco">*</span></label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">$</span>
+            <!-- Upload product -->
+            <div class="container-fluid align-content-around carga_producto pb-5">
+                <h2>Carga de Productos</h2>
+                <br>
+                <form>
+                    <div class="row">
+                        <!-- COLUMNA 1 - LISTADO DE PRODUCTOS  -->
+                        <div class="container left-column col-11 col-md-6 col-lg-3 d-block">
+                            <div class="selectorProductos">
+                                <div class="listaProductos col-12">
+                                    <table id="tablaProductos">
+                                        <tr class="header">
+                                            <th class="thCodigo">Código</th>
+                                            <th class="thProducto">Producto</th>
+                                            <th class="thPrecio">Precio</th>
+                                        </tr>
+                                        <% products.forEach(producto => { %>
+                                            <tr>
+                                                <td style="display: none;">
+                                                    <%= producto.id %>
+                                                </td>
+                                                <td>
+                                                    <%= producto.codigo %>
+                                                </td>
+                                                <td>
+                                                    <%= producto.nombre %>
+                                                </td>
+                                                <td>
+                                                    <%= producto.precio %>
+                                                </td>
+                                            </tr>
+                                            <% }) %>
+                                    </table>
+                                </div>
+                                <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Filtrar productos..."> -->
+                                <div class="form-group col-12">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Filtro</span>
+                                        </div>
+                                        <input type="text" class="form-control text-left" id="myInput" onkeyup="buscar()" placeholder="Buscar...">
                                     </div>
-                                    <input type="number" min="0" class="form-control text-right" id="precio" required placeholder="0">
+                                </div>
+                                <div class="col-12 row form-group justify-content-around">
+                                    <button class="col-3 blanco align-items-center justify-content-center" role="button" type="button" onclick="crearNuevo()">Nuevo</button>
+                                    <button class="col-3  align-items-center justify-content-center" role="button" type="button" data-toggle="modal" data-target="#exampleModalCenter">Borrar</button>
+                                    <button id="btnEditar" class="col-3 btn align-items-center justify-content-center" type="button" role="button" onclick="editar()">Editar</button>
+                                </div>
+
+
+                                <!-- Modal de confirmación de borrado de producto-->
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h2 class="modal-title" id="exampleModalLongTitle">Confirmación</h2>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>¿Seguro quiere borrar el producto?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="container justify-content-center">
+                                                    <button type="button" class="btn blanco btn-secondary col-4" data-dismiss="modal">Cancelar</button>
+                                                    <button type="button" class="btn btn-primary col-4" onclick="borrarPoducto()">Borrar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group col-6 pr-0">
-                                <label class="titulo_carga_producto" for="descuento">Descuento</label>
-                                <div class="input-group">
-                                    <input type="number" min="0" class="form-control text-right" id="descuento" placeholder="0">
-                                    <div class="input-group-apend">
-                                        <span class="input-group-text">%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group col-6 pl-0">
-                                <label class="titulo_carga_producto" for="stock">Stock</label>
-                                <input type="number" min="0" class="form-control text-right" id="stock" placeholder="0">
-                            </div>
+
 
                         </div>
-                    </div>
-                    <!-- COLUMNA CENTRAL -->
-                    <div class="mt-2 mt-lg-0 mb-2 ml-md-0 ml-lg-auto order-md-3  order-lg-2 container center-column col-12 col-md-6 col-lg-4">
-                        <div class="row justify-content-center">
-                            <label class="titulo_carga_producto col-12 text-center" for="form_producto">Imagen del
-                                producto</label>
-                            <div class=" col-12 text-center" id="image-preview-div">
-                                <img id="preview-img" src="/images/curcuma en polvo.jpg">
-                            </div>
-                            <div class="col-8 row form-group justify-content-around ">
-                                <button class="col-5 blanco align-items-center justify-content-center" role="button" type="button">Borrar</button>
-                                <button class=" col-5  align-items-center justify-content-center" role="button" type="button">Cambiar</button>
-                            </div>
+                        <div class="col-lg-9 container-fluid">
+                            <iframe style="height:480px" id="iframeDetails" class="col-12" src="/product/addShow/1" frameborder="0"></iframe>
                         </div>
                     </div>
-                    <!-- COLUMNA DERECHA -->
-                    <div class=" order-md-2 order-lg-3 container align-content-center right-column col-12 col-md-6 col-lg-4">
-                        <div class="row justify-content-center ">
-                            <div class="card text-center">
-                                <div class="card-header">
-                                    <ul class=" nav  nav-tabs card-header-tabs ">
-                                        <li class="nav-item">
-                                            <a class="nav-link titulo_carga_producto font-weight-bold border-white active" href="#">Categorías</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link titulo_carga_producto  border-white" href="#">Recetas</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link titulo_carga_producto  border-white" href="#">Dietas</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="card-body">
 
-                                    <div class="card_item text-left">
-                                        <div class="form-check d-inline-block  ">
-                                            <input type="checkbox" class="" id="checkbox_1" value="">
-                                            <label for="checkbox_1"></label>
-                                        </div>
-                                        <label for="checkbox_1" class="nombre_item d-inline-block">Frutas Secas</label>
-                                    </div>
-                                    <div class="card_item text-left">
-                                        <div class="form-check d-inline-block  ">
-                                            <input type="checkbox" class="" id="checkbox_2" value="">
-                                            <label for="checkbox_2"></label>
-                                        </div>
-                                        <label for="checkbox_2" class="nombre_item d-inline-block">Harinas</label>
-                                    </div>
+                </form>
+            </div>
+            <!-- /Upload product -->
 
-                                    <div class="card_item text-left">
-                                        <div class="form-check d-inline-block  ">
-                                            <input type="checkbox" class="" id="checkbox_3" checked value="">
-                                            <label for="checkbox_3"></label>
-                                        </div>
-                                        <label for="checkbox_3" class="nombre_item d-inline-block">Bebidas</label>
-                                    </div>
-                                    <div class="card_item text-left">
-                                        <div class="form-check d-inline-block  ">
-                                            <input type="checkbox" class="" id="checkbox_4" value="">
-                                            <label for="checkbox_4"></label>
-                                        </div>
-                                        <label for="checkbox_4" class="nombre_item d-inline-block">Frutas Secas</label>
-                                    </div>
-                                    <div class="card_item text-left">
-                                        <div class="form-check d-inline-block  ">
-                                            <input type="checkbox" class="" id="checkbox_5" value="">
-                                            <label for="checkbox_5"></label>
-                                        </div>
-                                        <label for="checkbox_5" class="nombre_item d-inline-block">Harinas</label>
-                                    </div>
-                                    <div class="card_item text-left">
-                                        <div class="form-check d-inline-block  ">
-                                            <input type="checkbox" class="" id="checkbox_6" checked value="">
-                                            <label for="checkbox_6"></label>
-                                        </div>
-                                        <label for="checkbox_6" class="nombre_item d-inline-block">Bebidas</label>
-                                    </div>
-                                    <div class="card_item text-left">
-                                        <div class="form-check d-inline-block  ">
-                                            <input type="checkbox" class="" id="checkbox_7" value="">
-                                            <label for="checkbox_7"></label>
-                                        </div>
-                                        <label for="checkbox_7" class="nombre_item d-inline-block">Harinas</label>
-                                    </div>
-                                    <div class="card_item text-left">
-                                        <div class="form-check d-inline-block  ">
-                                            <input type="checkbox" class="" id="checkbox_8" checked value="">
-                                            <label for="checkbox_8"></label>
-                                        </div>
-                                        <label for="checkbox_8" class="nombre_item d-inline-block">Bebidas</label>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- FILA INFERIOR  -->
-                <div class="fila_inferior container ">
-                    <div class="row col-12 mt-3">
-                        <div class="form-group col-12 ml-3">
-                            <div class="form-check d-inline-block  ">
-                                <input type="checkbox" class="" id="habilitado" checked value="">
-                                <label for="habilitado"></label>
-                            </div>
-                            <label for="habilitado" class="nombre_item d-inline-block">Habilitado</label>
-                        </div>
-                        <button class="pt-2 pb-2 ml-lg-auto" type="submit">Guardar</button>
-                    </div>
-
-                </div>
-            </form>
-        </div>
-        <!-- /Upload product -->
-        
-         <!-- FOOTER -->
-       <%- include("partials/footer") %> 
-       <!-- /FOOTER -->
+            <!-- FOOTER -->
+            <%- include("partials/footer") %>
+                <!-- /FOOTER -->
 
     </div>
     <!-- Fin DIV Container-->
+
+    <script type='text/javascript'>
+        var productID = '1';
+
+        function buscar() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("tablaProductos");
+            tr = table.getElementsByTagName("tr");
+
+            // Revisa por todas las filas y esconde las que no cumplen con la búsqueda
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[2];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+
+
+
+        function editar() {
+            var iframe = document.getElementById('iframeDetails');
+            iframe.setAttribute("style", "height:480px;");
+            iframe.src = `/product/addEdit/${productID}`;
+
+        }
+
+
+        function crearNuevo() {
+            var iframe = document.getElementById('iframeDetails');
+            iframe.setAttribute("style", "height:480px");
+            iframe.src = `/product/addEdit/nuevo`;
+
+        }
+    </script>
+
+    <script>
+        $("#tablaProductos tr").click(function() {
+            $(this).addClass('selected').siblings().removeClass('selected');
+            var value = $(this).find('td:first').html();
+            productID = value.trim()
+            var iframe = document.getElementById('iframeDetails');
+
+            iframe.src = `/product/addShow/${productID}`;
+
+        });
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
