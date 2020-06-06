@@ -1157,6 +1157,11 @@ select {
     text-align: justify !important;
 }
 
+.img-tarjeta-receta img{
+    width: 100% !important;
+    height: auto !important;
+}
+
 .descripcion_tarjeta_receta {
     color: #2b2b2b;
     line-height: normal;
@@ -1521,3 +1526,4 @@ select {
 .tipsaludable {
     font-family: var(--fuenteDescripcionProducto);
 }
+

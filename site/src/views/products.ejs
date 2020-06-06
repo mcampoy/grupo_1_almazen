@@ -24,7 +24,9 @@
 
         <div class="ladofrente tarjeta-recetas">
             <a href="details/<%= products[i].id %>">
-                <img src="/images/<%= products[i].image %>" alt="<%= products[i].nombre %>">
+                <figure class="img-tarjeta-receta">
+                    <img src="/images/<%= products[i].image %>" alt="<%= products[i].nombre %>">
+                </figure>
                 <h3 class="tituloscard"><%= products[i].nombre %></h3>
                 <span class='descripcion_receta descripcion_tarjeta_receta'><%= products[i].descripcion %></span>
             </a>
