@@ -124,20 +124,22 @@ header {
 .navbar-nav a {
     color: var(--colorMenu);
     font-family: var(--fuenteMenu);
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: var(--fontweightMenu);
-    letter-spacing: 0.040em;
+    letter-spacing: 0.030em;
     text-decoration: none;
-    margin-left: 1em;
+    
 }
 
 
 /* ENLACES MENU */
 
-.enlaces {
-    list-style: none;
-    text-align: center;
-    margin: 0.5% 0;
+.search-form_button {
+    background-color: var(--colorBtnRegister);
+    border-radius: 0px 5px 5px 0px;
+}
+.fa-search{
+    color:#fff
 }
 
 
@@ -145,6 +147,7 @@ header {
 
 .dropdown-menu {
     border: none;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -161,7 +164,7 @@ header {
 .dropdown-item {
     display: block;
     width: 100%;
-    padding: 0px;
+    padding: 0px 1em;
     clear: both;
     font-weight: 400;
     color: #212529;
@@ -170,7 +173,10 @@ header {
     background-color: transparent;
     border: 0;
 }
-
+.drop{
+    padding-top: .5em;
+    /*text-align: right;*/
+}
 
 /* MENU HAMBURGUESA */
 
@@ -281,7 +287,7 @@ section a {
 }
 
 .destacados {
-    padding: var(--paddingSecciones);
+    /*padding: var(--paddingSecciones);*/
     margin: var(--marginSecciones);
 }
 
@@ -290,6 +296,7 @@ section a {
 
 .product-box {
     margin-bottom: 1em;
+    padding: 1em;
 }
 
 
@@ -423,7 +430,7 @@ section a {
 
 /* TITULOS FOOTER */
 
-footer h6 {
+footer h6 a {
     color: var(--colorMenu);
     font-family: var(--fuenteMenu);
     font-size: .9em;
