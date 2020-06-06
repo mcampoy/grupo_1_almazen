@@ -545,11 +545,9 @@ footer .menu-newsletter button {
     menu {
         display: none;
     }
-
     .btn-toggle-navbar {
         display: none;
     }
-
     .menu-collapse .enlaces ul {
         display: flex;
         flex-direction: column;
@@ -563,11 +561,9 @@ footer .menu-newsletter button {
     .logofooter {
         margin-bottom: 1.5em;
     }
-
     .copy {
         order: 2;
     }
-
     .redes {
         order: 1;
     }
@@ -575,11 +571,6 @@ footer .menu-newsletter button {
 
 
 /* ESTILOS DE LA PÁGINA DE CARGA DE PRODUCTO */
-
-.carga_producto {
-    margin-top: 5%;
-    margin-top: 5%;
-}
 
 .asterisco {
     color: red;
@@ -835,7 +826,7 @@ label {
 
 .tachado {
     text-decoration: line-through;
-    color:var(--colorMenu);
+    color: var(--colorMenu);
 }
 
 .discount {
@@ -949,33 +940,26 @@ select {
     .precio_carrito {
         order: 5;
     }
-
     .box-quantity-carrito {
         order: 1;
     }
-
     .copyright {
         margin-top: 2%;
     }
-
     .iconos {
         margin: 0 auto;
     }
-
     .menu-newsletter {
         display: none;
     }
-
     .carousel-inner {
         height: auto;
     }
-
     .carousel-caption {
         margin-bottom: 0px;
         padding: 1%;
         width: 40%;
     }
-
     .epigrafe {
         font-size: 1em;
     }
@@ -988,19 +972,15 @@ select {
     .elemento-info {
         flex-direction: column;
     }
-
     .elemento-info p {
         text-align: center;
     }
-
     .elemento-info span {
         display: none;
     }
-
     .precio-descuento {
         padding-left: 5%;
     }
-
     .precio_producto-detalles {
         margin-left: 12%;
     }
@@ -1009,23 +989,18 @@ select {
         text-align: center;
         margin-top: 3%;
     }
-
     .vip-action-primary-details {
         justify-content: space-around;
     }
-
     .secondary {
         margin: 0;
     }
-
     menu {
         display: none;
     }
-
     .btn-toggle-navbar {
         display: none;
     }
-
     .menu-collapse .enlaces ul {
         display: flex;
         flex-direction: column;
@@ -1033,27 +1008,21 @@ select {
         align-items: center;
         justify-content: center;
     }
-
     .copy {
         justify-content: center;
     }
-
     .copyright {
         margin-top: 2%;
     }
-
     .iconos {
         margin: 0 auto;
     }
-
     .precio_carrito {
         order: 5;
     }
-
     .box-quantity-carrito {
         order: 1;
     }
-
     .menu-newsletter {
         display: none;
     }
@@ -1066,83 +1035,67 @@ select {
     .description-wrapper-details {
         margin: 0 3%;
     }
-
     .short-description-detalles {
         padding-left: 10%;
     }
-
     .precio_detalles {
         text-align: right;
         margin-bottom: 1em;
     }
-
     .precio_producto-detalles {
         display: flex;
         align-content: center;
         margin: 10% 0;
         justify-content: flex-end;
     }
-
     .precio_producto-detalles h3 {
         font-size: 2.5em;
         font-weight: 700;
     }
-    
     .precio-descuento {
         text-align: end;
         font-size: 1.3em;
     }
-
     .box-quantity-detalles {
         justify-content: flex-end;
         margin-bottom: 10px;
     }
-
     .vip-action-primary-details {
         margin-top: 1em;
         justify-content: flex-end;
     }
-
     .primary {
         max-width: 170px;
         margin-right: 3%;
         padding: 0 15px;
     }
-
     .secondary {
         max-width: 170px;
         padding: 10px 10px;
     }
-
     .copy {
         justify-content: start;
     }
-
     .copyright {
         margin-top: 2%;
     }
-
     .iconos {
         margin-left: auto;
     }
-
     .elemento-info {
         flex-direction: row;
     }
-
     .elemento-info p {
         text-align: left;
     }
-
     .elemento-info span {
         display: block;
     }
-
     .menu-newsletter {
         display: none;
     }
-
 }
+
 
 /* Estilos recetas */
 
@@ -1160,7 +1113,6 @@ select {
 .descripcion_tarjeta_receta {
     color: #2b2b2b;
     line-height: normal;
-    
 }
 
 .etiqueta-dieta-receta {
@@ -1180,13 +1132,14 @@ select {
     text-align: justify;
 }
 
+
 /* Estilos página de cada receta */
 
 .siteMap {
     font-size: .8em;
-
 }
-.siteMap a{
+
+.siteMap a {
     color: var(--colorMenu);
 }
 
@@ -1202,7 +1155,9 @@ select {
     margin: 0;
 }
 
-.fa-clock, .reloj, .dificulad{
+.fa-clock,
+.reloj,
+.dificulad {
     color: #CF664F;
 }
 
@@ -1243,8 +1198,7 @@ select {
 }
 
 @media (min-width: 1023px) {
-
-        .short-description-receta {
+    .short-description-receta {
         padding-left: 10%;
         margin-top: 35px;
     }
@@ -1260,9 +1214,9 @@ select {
     margin-bottom: 5%;
 }
 
-#slcCantidad{
+#slcCantidad {
     font-weight: 500;
-    border:0.1px solid #777;
+    border: 0.1px solid #777;
     text-align: center;
 }
 
@@ -1388,6 +1342,7 @@ select {
 
 
 /* Estilos del modal y carrousel*/
+
 .modal-header {
     text-align: center;
     display: block;
@@ -1469,11 +1424,12 @@ select {
     height: 200px;
 }
 
-@media (min-width: 1023px){
+@media (min-width: 1023px) {
     .instruccion_carrusel {
-       margin-bottom: 100px;
+        margin-bottom: 100px;
     }
 }
+
 
 /* Estilos de la pagina  Tips */
 

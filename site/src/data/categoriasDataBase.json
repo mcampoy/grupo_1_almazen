@@ -1,0 +1,33 @@
+[{
+        "id": 1,
+        "nombre": "Frutas secas"
+    },
+    {
+        "id": 2,
+        "nombre": "Harinas"
+    },
+    {
+        "id": 3,
+        "nombre": "Bebidas"
+    },
+    {
+        "id": 4,
+        "nombre": "Especias"
+    },
+    {
+        "id": 5,
+        "nombre": "Edulcorantes"
+    },
+    {
+        "id": 6,
+        "nombre": "Lácteos"
+    },
+    {
+        "id": 7,
+        "nombre": "Categoría 7"
+    },
+    {
+        "id": 8,
+        "nombre": "Categoría 8"
+    }
+]
