@@ -628,6 +628,7 @@ footer .menu-newsletter button {
 
 .center-column img {
     width: 200px;
+    max-height: 120px;
     border-radius: 10px;
     border: hidden;
 }

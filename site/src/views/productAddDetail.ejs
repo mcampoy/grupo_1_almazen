@@ -50,32 +50,12 @@
                             <div class="form-group col-6 pr-0">
                                 <label class="titulo_carga_producto" for="descuento">Descuento</label>
                                 <div class="input-group">
-                                    <input name="descuento" type="number" min="0" class="form-control text-right" id="descuento" placeholder="0" value="<%= product.precio %>">
+                                    <input name="descuento" type="number" min="0" class="form-control text-right" id="descuento" placeholder="0" value="<%= product.descuento %>">
                                     <div class="input-group-apend">
                                         <span class="input-group-text">%</span>
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="form-group col-6 pr-0 pl-0 container  align-self-center">
-                                <div class="form-check d-inline-block">
-                                    <input name="habilitado" type="checkbox" class="" id="habilitado" value="" <% if (product.habilitado) { %>checked
-                                    <% } %> >
-                                        <label for="habilitado"></label>
-                                </div>
-                                <label for="habilitado" class="nombre_item d-inline-block">Habilitado</label>
-                            </div> -->
-                            <!-- <div class="form-group col-6  pr-0">
-                                <label class="titulo_carga_producto" for="stock">Stock</label>
-                                <input name="stock" type="number" min="0" class="form-control text-right" id="stock" placeholder="0" value="<%= product.stock %>">
-                            </div>
-                            <div class="form-group col-6  pr-0">
-                                <label class="titulo_carga_producto" for="cantidad">Presentación</label>
-                                <input name="cantidad" type="number" min="0" class="form-control text-right" id="cantidad" placeholder="0" value="<%= product.cantidad.cantidad %>">
-                            </div>
-                            <div class="form-group col-6  pr-0">
-                                <label class="titulo_carga_producto" for="unidad_medida">Unidad</label>
-                                <input name="unidad_medida" type="text" class="form-control text-right" id="unidad_medida" placeholder="gr." value="<%= product.cantidad.unidad_medida %>">
-                            </div> -->
                         </div>
                     </div>
                     <!-- COLUMNA 3 - FOTO -->
@@ -94,20 +74,19 @@
                                 <input name="imageDeleted" type="checkbox" class="" id="imageDeleted" style="display: none;">
                                 <% } %>
                         </div>
-                        <div class="col-12">
-                            <div class="form-group col-5  pr-0">
-                                <label class="titulo_carga_producto" for="stock">Stock</label>
-                                <input name="stock" type="number" min="0" class="form-control text-right" id="stock" placeholder="0" value="<%= product.stock %>">
+                        <div class="col-12 container-fluid align-content-between">
+                            <div class="form-group col-12 ">
+                                <label class="titulo_carga_producto d-inline-block col-4" for="stock">Stock</label>
+                                <input name="stock" type="number" min="0" class="form-control text-right  d-inline-block col-7" id="stock" placeholder="0" value="<%= product.stock %>">
                             </div>
-                            <div class="form-group col-5  pr-0">
-                                <label class="titulo_carga_producto" for="cantidad">Presentación</label>
-                                <input name="cantidad" type="number" min="0" class="form-control text-right" id="cantidad" placeholder="0" value="<%= product.cantidad.cantidad %>">
+                            <label class="titulo_carga_producto d-inline-block col-12" for="cantidad">Presentación</label>
+
+                            <div class="form-group col-12">
+                                <input name="cantidad" type="number" min="0" class="form-control text-right d-inline-block col-7" id="cantidad" placeholder="0" value="<%= product.cantidad.cantidad %>">
+                                <input name="unidad_medida" type="text" class="form-control  d-inline-block text-right col-4" id="unidad_medida" placeholder="gr." value="<%= product.cantidad.unidad_medida %>">
+
                             </div>
-                            <div class="form-group col-6  pr-0">
-                                <label class="titulo_carga_producto" for="unidad_medida">Unidad</label>
-                                <input name="unidad_medida" type="text" class="form-control text-right" id="unidad_medida" placeholder="gr." value="<%= product.cantidad.unidad_medida %>">
-                            </div>
-                            <div class="form-group col-12 pr-0 pl-0 container  align-self-center">
+                            <div class="form-group col-12 container  align-self-center">
                                 <div class="form-check d-inline-block">
                                     <input name="habilitado" type="checkbox" class="" id="habilitado" value="" <% if (product.habilitado) { %>checked
                                     <% } %> >

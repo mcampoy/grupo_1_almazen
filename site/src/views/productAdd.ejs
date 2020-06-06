@@ -18,7 +18,7 @@
 
             <!-- Upload product -->
             <div class="container-fluid align-content-around carga_producto pb-5">
-                <h2>Administración de Productos</h2>
+                <h2>Carga de Productos</h2>
                 <br>
                 <form>
                     <div class="row">
@@ -118,7 +118,7 @@
 
             // Revisa por todas las filas y esconde las que no cumplen con la búsqueda
             for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
+                td = tr[i].getElementsByTagName("td")[2];
                 if (td) {
                     txtValue = td.textContent || td.innerText;
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
