@@ -9,7 +9,7 @@
 
 </head>
 
-<body>
+<body style="overflow:hidden">
 
     <div class="container-fluid">
         <!-- Upload product -->
@@ -105,6 +105,14 @@
                                 <label for="habilitado" class="nombre_item d-inline-block">Habilitado</label>
                             </div>
                         </div>
+
+                        <div class="fila_inferior container col-11">
+
+                            <% if (edit) { %>
+                                <button class="col-5 ml-lg-auto" type="submit">Guardar</button>
+                                <button class="col-5 ml-lg-auto blanco" type="button" id="cancelar">Cancelar </button>
+                                <% } %>
+                        </div>
                     </div>
 
 
@@ -159,7 +167,7 @@
                                             </div>
                                             <% }) %>
                                     </div>
-                                    <div class="tab-pane" id="recetas">
+                                    <div class="tab-pane " id="recetas">
                                         <% recetas.forEach(receta => { %>
                                             <div class="card_item text-left">
                                                 <div class="form-check d-inline-block">
@@ -182,13 +190,7 @@
                 </div>
                 <!--  FILA INFERIOR  -->
 
-                <div class="fila_inferior container col-11">
 
-                    <% if (edit) { %>
-                        <button class="col-3 ml-lg-auto" type="submit">Guardar</button>
-                        <button class="col-3 ml-lg-auto" type="button" id="cancelar">Cancelar </button>
-                        <% } %>
-                </div>
 
 
             </form>

@@ -100,5 +100,33 @@
   "habilitado": 1,
   "id": 4,
   "image": "Prueba1 - 6-5-2020 14_22_53.jpg"
+ },
+ {
+  "codigo": "pn1",
+  "nombre": "nombre 3423",
+  "descripcion": "desc complet|",
+  "descripcion_breve": "desc234",
+  "cantidad": {
+   "cantidad": 2,
+   "unidad_medida": ""
+  },
+  "precio": 4334,
+  "descuento": 2332,
+  "stock": 3,
+  "categoria": [
+   "1",
+   "2"
+  ],
+  "receta": [
+   "3",
+   "4"
+  ],
+  "dieta": [
+   "4",
+   "5"
+  ],
+  "habilitado": 1,
+  "id": 5,
+  "image": "nombre 3423 - 6-5-2020 19_40_55.jpg"
  }
 ]

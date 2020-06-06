@@ -54,14 +54,14 @@
                                 <div class="form-group col-12">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Filtro</span>
+                                            <label class="input-group-text" id="buscarLabel"> <i class="fas fa-search"></i>  </label>
                                         </div>
                                         <input type="text" class="form-control text-left" id="myInput" onkeyup="buscar()" placeholder="Buscar...">
                                     </div>
                                 </div>
                                 <div class="col-12 row form-group justify-content-around">
-                                    <button class="col-3 blanco align-items-center justify-content-center" role="button" type="button" onclick="crearNuevo()">Nuevo</button>
-                                    <button class="col-3  align-items-center justify-content-center" role="button" type="button" data-toggle="modal" data-target="#exampleModalCenter">Borrar</button>
+                                    <button id="btnNuevo" class="col-3 blanco align-items-center justify-content-center" role="button" type="button" onclick="crearNuevo()">Nuevo</button>
+                                    <button id="btnBorrar" class="col-3  align-items-center justify-content-center" role="button" type="button" data-toggle="modal" data-target="#exampleModalCenter">Borrar</button>
                                     <button id="btnEditar" class="col-3 btn align-items-center justify-content-center" type="button" role="button" onclick="editar()">Editar</button>
                                 </div>
 
@@ -79,8 +79,8 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <div class="container justify-content-center">
-                                                    <button type="button" class="btn blanco btn-secondary col-4" data-dismiss="modal">Cancelar</button>
-                                                    <button type="button" class="btn btn-primary col-4" onclick="borrarPoducto()">Borrar</button>
+                                                    <button id="btnConfCancelar" type="button" class="btn blanco btn-secondary col-4" data-dismiss="modal">Cancelar</button>
+                                                    <button id="btnConfBorrar" type="button" class="btn btn-primary col-4" onclick="borrarPoducto()">Borrar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -134,6 +134,13 @@
 
 
         function editar() {
+            var btnNuevo = document.getElementById('btnNuevo');
+            btnNuevo.style.display = 'none';
+            var btnBorrar = document.getElementById('btnBorrar');
+            btnBorrar.style.display = 'none';
+            var btnEditar = document.getElementById('btnEditar');
+            btnEditar.style.display = 'none';
+
             var iframe = document.getElementById('iframeDetails');
             iframe.setAttribute("style", "height:480px;");
             iframe.src = `/product/addEdit/${productID}`;
