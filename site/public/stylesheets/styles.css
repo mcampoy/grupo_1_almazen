@@ -336,6 +336,7 @@ section a {
     font-size: var(--fontSizeDescripcionProducto);
     font-family: var(--fuenteTituloProducto);
     font-weight: var(--fontweightDescripcionProducto);
+    height: 60px;
 }
 
 .contenedor-sale {
@@ -1359,17 +1360,19 @@ select {
 .modal-header {
     text-align: center;
     display: block;
+    padding: 0;
+    padding-top: 1em;
 }
 
 .modal-header h5 {
     margin-top: -20px;
     padding: 1%;
     font-family: var(--fuenteGeneral);
-    font-size: 26pt;
+    font-size: 1.5em;
 }
 
 .procedimientos {
-    padding: 3%;
+    padding-top: 2%;
     font-family: var(--fuenteGeneral);
     color: var(--colorMenu);
 }
@@ -1389,8 +1392,8 @@ select {
 
 .numero-paso-carrusel {
     color: var(--colorBtnRegister);
-    font-size: 3em;
-    font-weight: 800;
+    font-size: 2.5em;
+    font-weight: 700;
     text-align: center;
     display: block;
 }
@@ -1420,7 +1423,7 @@ select {
 .descripcion-paso-carrusel {
     font-family: var(--fuenteGeneral);
     color: var(--colorDescripcionProducto);
-    font-size: 1em;
+    font-size: .9em;
     padding: 15%;
     font-weight: 500;
     display: block;
@@ -1429,17 +1432,20 @@ select {
 }
 
 .instruccion_carrusel {
-    background-color: var(--colorBtnLoginHover);
     font-family: var(--fuenteGeneral);
     color: var(--colorDescripcionProducto);
     font-weight: 700;
-    margin: 0 0 57px;
-    height: 200px;
+    margin: 10% 0 57px;
+    height: 300px;
 }
 
-@media (min-width: 1023px) {
+@media (min-width: 424px){ 
     .instruccion_carrusel {
-        margin-bottom: 100px;
+        margin: 0;
+        padding-top: 28%;
+
+        height: 275px;
+
     }
 }
 
