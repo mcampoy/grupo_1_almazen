@@ -1491,3 +1491,17 @@ select {
     font-family: var(--fuenteDescripcionProducto);
 }
 
+.social-bar {
+    /*clip-path: polygon(64% 13%, 100% 0, 100% 100%, 64% 89%);*/
+    background-color: #ffffffa1;
+    border-radius: 10px 0px 0px 10px;
+    padding: 5px 2px 5px 5px;
+    position: fixed;
+	right: 0;
+	top: 35%;
+	font-size: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	z-index: 100;
+}
