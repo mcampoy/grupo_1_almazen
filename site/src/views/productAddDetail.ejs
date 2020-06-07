@@ -15,7 +15,7 @@
         <!-- Upload product -->
         <div class="container-fluid align-content-around carga_producto">
 
-            <form action="/product/add" method="post" enctype="multipart/form-data">
+            <form action="/product/add" method="post" enctype="multipart/form-data" onsubmit="parent.location.href = '/product/add'">
                 <div class="row">
                     <!-- COLUMNA 2 - NOMBRE Y DESCRIPCIÓN -->
                     <div class="container left-column  col-11 col-md-6 col-lg-4 d-block">
@@ -65,7 +65,7 @@
                     </div>
                     <!-- COLUMNA 3 - FOTO -->
                     <div class=" mt-2 mt-lg-0 mb-2 order-md-3 order-lg-2 container-fluid center-column col-10 col-md-6 col-lg-2 ">
-                        <label class="titulo_carga_producto col-11 text-center ">Imagen del producto</label>
+                        <label class="titulo_carga_producto col-11 text-center ">Imagen</label>
                         <div class=" col-12 text-center " id="image-preview-div">
                             <img id="preview-img" src="/images/<%=product.image %>">
                         </div>
@@ -110,7 +110,7 @@
 
                             <% if (edit) { %>
                                 <button class="col-5 ml-lg-auto" type="submit">Guardar</button>
-                                <button class="col-5 ml-lg-auto blanco" type="button" id="cancelar">Cancelar </button>
+                                <button class="col-5 ml-lg-auto blanco" type="button" id="btnCancelar">Cancelar </button>
                                 <% } %>
                         </div>
                     </div>
@@ -205,8 +205,10 @@
         var productID = document.getElementById('id').value;
 
 
-        document.getElementById("cancelar").onclick = function() {
-            window.location.href = "/product/addShow/" + productID;
+        document.getElementById("btnCancelar").onclick = function() {
+            parent.location.href = "/product/add" // /"+ productID;
+                //parent.location.reload();
+                //window.location.href = "/product/addShow/" + productID;
         };
 
         function preview_image(event) {

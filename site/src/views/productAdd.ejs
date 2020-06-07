@@ -20,82 +20,82 @@
             <div class="container-fluid align-content-around carga_producto pb-5">
                 <h2>Carga de Productos</h2>
                 <br>
-                <form>
-                    <div class="row">
-                        <!-- COLUMNA 1 - LISTADO DE PRODUCTOS  -->
-                        <div class="container left-column col-11 col-md-6 col-lg-3 d-block">
-                            <div class="selectorProductos">
-                                <div class="listaProductos col-12">
-                                    <table id="tablaProductos">
-                                        <tr class="header">
-                                            <th class="thCodigo">Código</th>
-                                            <th class="thProducto">Producto</th>
-                                            <th class="thPrecio">Precio</th>
+                <div class="row">
+                    <!-- COLUMNA 1 - LISTADO DE PRODUCTOS  -->
+                    <div class="container left-column col-11 col-md-6 col-lg-3 d-block">
+                        <div class="selectorProductos">
+                            <div class="listaProductos col-12">
+                                <table id="tablaProductos">
+                                    <tr class="header">
+                                        <th class="thCodigo">Código</th>
+                                        <th class="thProducto">Producto</th>
+                                        <th class="thPrecio">Precio</th>
+                                    </tr>
+                                    <% products.forEach(producto => { %>
+                                        <tr class="filaProducto">
+                                            <td style="display: none;">
+                                                <%= producto.id %>
+                                            </td>
+                                            <td>
+                                                <%= producto.codigo %>
+                                            </td>
+                                            <td>
+                                                <%= producto.nombre %>
+                                            </td>
+                                            <td>
+                                                <%= producto.precio %>
+                                            </td>
                                         </tr>
-                                        <% products.forEach(producto => { %>
-                                            <tr>
-                                                <td style="display: none;">
-                                                    <%= producto.id %>
-                                                </td>
-                                                <td>
-                                                    <%= producto.codigo %>
-                                                </td>
-                                                <td>
-                                                    <%= producto.nombre %>
-                                                </td>
-                                                <td>
-                                                    <%= producto.precio %>
-                                                </td>
-                                            </tr>
-                                            <% }) %>
-                                    </table>
-                                </div>
-                                <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Filtrar productos..."> -->
-                                <div class="form-group col-12">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <label class="input-group-text" id="buscarLabel"> <i class="fas fa-search"></i>  </label>
-                                        </div>
-                                        <input type="text" class="form-control text-left" id="myInput" onkeyup="buscar()" placeholder="Buscar...">
+                                        <% }) %>
+                                </table>
+                            </div>
+                            <div class="form-group col-12">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" id="buscarLabel"> <i class="fas fa-search"></i>  </label>
                                     </div>
+                                    <input type="text" class="form-control text-left" id="searchInput" onkeyup="buscar()" placeholder="Filtrar...">
                                 </div>
-                                <div class="col-12 row form-group justify-content-around">
-                                    <button id="btnNuevo" class="col-3 blanco align-items-center justify-content-center" role="button" type="button" onclick="crearNuevo()">Nuevo</button>
-                                    <button id="btnBorrar" class="col-3  align-items-center justify-content-center" role="button" type="button" data-toggle="modal" data-target="#exampleModalCenter">Borrar</button>
-                                    <button id="btnEditar" class="col-3 btn align-items-center justify-content-center" type="button" role="button" onclick="editar()">Editar</button>
-                                </div>
+                            </div>
+                            <div class="col-12 row form-group justify-content-around">
+                                <button id="btnNuevo" class="col-3 blanco align-items-center justify-content-center" role="button" type="button" onclick="crear()">Nuevo</button>
+                                <button id="btnBorrar" class="col-3  align-items-center justify-content-center" role="button" type="button" data-toggle="modal" data-target="#exampleModalCenter">Borrar</button>
+                                <button id="btnEditar" class="col-3 btn align-items-center justify-content-center" type="button" role="button" onclick="editar()">Editar</button>
+                            </div>
 
 
-                                <!-- Modal de confirmación de borrado de producto-->
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h2 class="modal-title" id="exampleModalLongTitle">Confirmación</h2>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>¿Seguro quiere borrar el producto?</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <div class="container justify-content-center">
-                                                    <button id="btnConfCancelar" type="button" class="btn blanco btn-secondary col-4" data-dismiss="modal">Cancelar</button>
-                                                    <button id="btnConfBorrar" type="button" class="btn btn-primary col-4" onclick="borrarPoducto()">Borrar</button>
-                                                </div>
+                            <!-- Modal de confirmación de borrado de producto-->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h2 class="modal-title" id="exampleModalLongTitle">Confirmación</h2>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>¿Seguro quiere borrar el producto?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="container justify-content-center">
+                                                <button id="btnConfCancelar" type="button" class="btn blanco btn-secondary col-4" data-dismiss="modal">Cancelar</button>
+                                                <form id="borrarForm" method="POST">
+                                                    <input name="id" id="idProducto" style="display: none;">
+                                                    <button id="btnConfBorrar" type="button" value="" class="btn btn-primary col-4" onclick="borrar()">Borrar</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
 
-                        </div>
-                        <div class="col-lg-9 container-fluid">
-                            <iframe style="height:480px" id="iframeDetails" class="col-12" src="/product/addShow/1" frameborder="0"></iframe>
-                        </div>
                     </div>
+                    <div class="col-lg-9 container-fluid">
+                        <iframe style="height:480px" id="iframeDetails" class="col-12" src="/product/addShow/1" frameborder="0"></iframe>
+                    </div>
+                </div>
 
-                </form>
             </div>
             <!-- /Upload product -->
 
@@ -108,10 +108,11 @@
 
     <script type='text/javascript'>
         var productID = '1';
+        var editando = false;
 
         function buscar() {
             var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");
+            input = document.getElementById("searchInput");
             filter = input.value.toUpperCase();
             table = document.getElementById("tablaProductos");
             tr = table.getElementsByTagName("tr");
@@ -131,39 +132,50 @@
         }
 
 
+        function borrar() {
+            document.getElementById("idProducto").value = productID;
+            console.log(productID);
+            document.getElementById("borrarForm").action = "/product/addDelete";
+            document.getElementById("borrarForm").submit();
+        }
 
 
         function editar() {
+            bloquearProducto();
+            var iframe = document.getElementById('iframeDetails');
+            iframe.src = `/product/addEdit/${productID}`;
+        }
+
+        function crear() {
+            bloquearProducto();
+            var iframe = document.getElementById('iframeDetails');
+            iframe.src = `/product/addEdit/nuevo`;
+        }
+
+        function bloquearProducto() {
+            editando = true;
             var btnNuevo = document.getElementById('btnNuevo');
             btnNuevo.style.display = 'none';
             var btnBorrar = document.getElementById('btnBorrar');
             btnBorrar.style.display = 'none';
             var btnEditar = document.getElementById('btnEditar');
             btnEditar.style.display = 'none';
+            var searchInput = document.getElementById('searchInput');
+            searchInput.disabled = true;
 
-            var iframe = document.getElementById('iframeDetails');
-            iframe.setAttribute("style", "height:480px;");
-            iframe.src = `/product/addEdit/${productID}`;
-
-        }
-
-
-        function crearNuevo() {
-            var iframe = document.getElementById('iframeDetails');
-            iframe.setAttribute("style", "height:480px");
-            iframe.src = `/product/addEdit/nuevo`;
 
         }
     </script>
 
     <script>
         $("#tablaProductos tr").click(function() {
-            $(this).addClass('selected').siblings().removeClass('selected');
-            var value = $(this).find('td:first').html();
-            productID = value.trim()
-            var iframe = document.getElementById('iframeDetails');
-
-            iframe.src = `/product/addShow/${productID}`;
+            if (!editando) {
+                $(this).addClass('selected').siblings().removeClass('selected');
+                var value = $(this).find('td:first').html();
+                productID = value.trim()
+                var iframe = document.getElementById('iframeDetails');
+                iframe.src = `/product/addShow/${productID}`;
+            }
 
         });
     </script>
