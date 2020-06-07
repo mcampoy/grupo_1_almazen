@@ -59,30 +59,28 @@
                             </div>
                             <div class="col-12 row form-group justify-content-around">
                                 <button id="btnNuevo" class="col-3 blanco align-items-center justify-content-center" role="button" type="button" onclick="crear()">Nuevo</button>
-                                <button id="btnBorrar" class="col-3  align-items-center justify-content-center" role="button" type="button" data-toggle="modal" data-target="#exampleModalCenter">Borrar</button>
+                                <button id="btnBorrar" class="col-3  align-items-center justify-content-center" role="button" type="button" data-toggle="modal" data-target="#modalBorrar">Borrar</button>
                                 <button id="btnEditar" class="col-3 btn align-items-center justify-content-center" type="button" role="button" onclick="editar()">Editar</button>
                             </div>
 
 
                             <!-- Modal de confirmación de borrado de producto-->
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal modalBorraProducto fade" id="modalBorrar" tabindex="-1" role="dialog">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h2 class="modal-title" id="exampleModalLongTitle">Confirmación</h2>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h2 class="modal-title d-inline-block" id="exampleModalLongTitle">Confirmación</h2>
+                                            <button type="button" class="close " data-dismiss="modal">&times;</button>
                                         </div>
-                                        <div class="modal-body">
+                                        <div class="modal-body text-center">
                                             <p>¿Seguro quiere borrar el producto?</p>
                                         </div>
-                                        <div class="modal-footer">
-                                            <div class="container justify-content-center">
-                                                <button id="btnConfCancelar" type="button" class="btn blanco btn-secondary col-4" data-dismiss="modal">Cancelar</button>
-                                                <form id="borrarForm" method="POST">
-                                                    <input name="id" id="idProducto" style="display: none;">
-                                                    <button id="btnConfBorrar" type="button" value="" class="btn btn-primary col-4" onclick="borrar()">Borrar</button>
-                                                </form>
-                                            </div>
+                                        <div class="modal-footer text-center justify-content-center">
+                                            <button id="btnConfCancelar" type="button" class="btn blanco btn-secondary col-3" data-dismiss="modal">Cancelar</button>
+                                            <form class="col-3" id="borrarForm" method="POST">
+                                                <input name="id" id="idProducto" style="display: none;">
+                                                <button id="btnConfBorrar" type="button" value="" class="btn btn-primary" onclick="borrar()">Borrar</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -92,7 +90,7 @@
 
                     </div>
                     <div class="col-lg-9 container-fluid">
-                        <iframe style="height:480px" id="iframeDetails" class="col-12" src="/product/addShow/1" frameborder="0"></iframe>
+                        <iframe id="iframeDetails" class="col-12" src="/product/addShow/1" frameborder="0"></iframe>
                     </div>
                 </div>
 

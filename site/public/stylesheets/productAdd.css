@@ -1,170 +1,177 @@
-          :root {
-             /* TIPOGRAFIAS */
-             --fuenteMenu: 'Nunito';
-             --fuenteMenuBtn: 'Nunito';
-             --fuenteSlider: 'Nunito';
-             --fuenteTituloSeccion: 'Poppins';
-             --fuenteCategoriaProducto: 'Poppins';
-             --fuenteTituloProducto: 'Poppins';
-             --fuenteTituloReceta: 'Poppins';
-             --fuenteDescripcionProducto: 'Poppins';
-             --fuenteMenuFooter: 'Poppins';
-             --fuenteSubMenuFooter: 'Poppins';
-             --fuenteGeneral: 'Poppins';
-             /* TAMAÑOS TIPOGRAFICOS */
-             --fontSizeMenu: 1em;
-             --fontSizeSlider: 2em;
-             --fontSizeTituloSeccion: 1.4em;
-             --fontSizeCategoriaProducto: 0.7em;
-             --fontSizeTituloProducto: 1.1em;
-             --fontSizeDescripcionProducto: 0.8em;
-             --fontSizeTipoReceta: 1.5em;
-             --fontSizeTituloReceta: 1.8em;
-             --fontPrecioProducto: 1.6em;
-             --fontSizeMenuFooter: 1.1em;
-             --fontSizeSlider: 1.6em;
-             /* VARIANTES TIPOGRAFICAS */
-             --fontweightMenu: 700;
-             --fontweightMenuBtn: 700;
-             --fontweightSlider: 500;
-             --fontweightTituloSeccion: 500;
-             --fontweightCategoriaProducto: 500;
-             --fontweightTituloProducto: 500;
-             --fontweightPrecioProducto: 700;
-             --fontweightDescripcionProducto: 400;
-             --fontweightMenuFooter: 500;
-             --fontweightSubMenuFooter: 400;
-             /* COLORES */
-             --colorBtnRegister: #6FCF97;
-             --BtnBorderLogin: border: 1px solid #219653;
-             --colorMenu: #219653;
-             --colorSeccionInfo: #6FCF97;
-             --colorTituloSeccion: #2b2b2b;
-             --colorTituloGeneral: #2b2b2b;
-             --colorTituloProducto: #2b2b2b;
-             --colorDescripcionProducto: #2b2b2b;
-             --colorBtnLoginHover: #C3EAD3;
-             /* PADDINGS Y MARGENES */
-             --paddingSecciones: 1.5em;
-             --marginSecciones: 1em 0;
-         }
-         
-         .selectorProductos {
-             width: 100%;
-         }
-         
-         #searchInput {
-             font-size: 16px;
-             border: 1px solid #ddd;
-         }
-         
-         #tablaProductos {
-             overflow-y: auto;
-             height: 100px;
-             border-collapse: collapse;
-             width: 100%;
-             border: 1px solid #ddd;
-             color: var(--colorTituloProducto);
-             font-size: var(--fontSizeDescripcionProducto);
-             font-family: var(--fuenteTituloProducto);
-             font-weight: var(--fontweightTituloProducto);
-         }
-         
-         .listaProductos {
-             height: 380px;
-             overflow: auto;
-             border: solid 1px;
-             border-color: var(--colorBtnRegister);
-         }
-         
-         #tablaProductos th {
-             position: sticky;
-             top: 0;
-             background-color: var(--colorBtnRegister);
-             font-size: var(--fontSizeTituloProducto);
-             border: solid 1px var(--colorBtnRegister);
-         }
-         
-         #tablaProductos .thCodigo {
-             width: 15%;
-             border-right: solid 1px white;
-         }
-         
-         #tablaProductos .thProducto {
-             width: 65%;
-             border-left: solid 1px white;
-             border-right: solid 1px white;
-         }
-         
-         #tablaProductos .thPrecio {
-             width: 20%;
-         }
-         
-         #tablaProductos th,
-         #tablaProductos td {
-             text-align: left;
-             padding: 12px;
-         }
-         
-         .selected {
-             background-color: var(--colorBtnRegister);
-             color: #FFF;
-         }
-         
-         #tablaProductos tr.header,
-         #tablaProductos tr:hover {
-             background-color: var(--colorBtnLoginHover);
-         }
-         
-         .carga_producto h2 {
-             color: var(--colorTituloProducto);
-             font-size: var(--fontSizeTituloProducto);
-             font-family: var(--fuenteTituloProducto);
-             font-weight: var(--fontweightTituloProducto);
-             margin-bottom: 0px;
-             text-align: center;
-         }
-         
-         .carga_producto input[type="file"] {
-             display: none;
-         }
-         
-         .carga_producto .custom-file-upload {
-             color: #219653;
-             background: #fff;
-             border: 1px solid #219653;
-             border-radius: 6px;
-             font-family: var(--fuenteMenuBtn);
-             font-size: 0.8em;
-             font-weight: var(--fontweightMenuBtn);
-             margin-top: 7px;
-             margin-bottom: 0;
-             padding: 2% 4%;
-             position: relative;
-             z-index: 2;
-         }
-         
-         .carga_producto .custom-file-upload:hover {
-             color: #fff;
-             background: var(--colorBtnLoginHover);
-         }
-         
-         .tab-pane {
-             max-height: 380px;
-             overflow-y: auto;
-         }
-         
-         #iframeDetails {
-             max-height: 500px;
-             overflow: hidden;
-         }
-         
-         .carga_producto .card {
-             max-width: 300px;
-         }
-         
-         .carga_producto .card .nombre_item {
-             width: 100px;
-             display: inline-block;
-             white-space: nowrap;
-         }
+                                            :root {
+                                               /* TIPOGRAFIAS */
+                                               --fuenteMenu: 'Nunito';
+                                               --fuenteMenuBtn: 'Nunito';
+                                               --fuenteSlider: 'Nunito';
+                                               --fuenteTituloSeccion: 'Poppins';
+                                               --fuenteCategoriaProducto: 'Poppins';
+                                               --fuenteTituloProducto: 'Poppins';
+                                               --fuenteTituloReceta: 'Poppins';
+                                               --fuenteDescripcionProducto: 'Poppins';
+                                               --fuenteMenuFooter: 'Poppins';
+                                               --fuenteSubMenuFooter: 'Poppins';
+                                               --fuenteGeneral: 'Poppins';
+                                               /* TAMAÑOS TIPOGRAFICOS */
+                                               --fontSizeMenu: 1em;
+                                               --fontSizeSlider: 2em;
+                                               --fontSizeTituloSeccion: 1.4em;
+                                               --fontSizeCategoriaProducto: 0.7em;
+                                               --fontSizeTituloProducto: 1.1em;
+                                               --fontSizeDescripcionProducto: 0.8em;
+                                               --fontSizeTipoReceta: 1.5em;
+                                               --fontSizeTituloReceta: 1.8em;
+                                               --fontPrecioProducto: 1.6em;
+                                               --fontSizeMenuFooter: 1.1em;
+                                               --fontSizeSlider: 1.6em;
+                                               /* VARIANTES TIPOGRAFICAS */
+                                               --fontweightMenu: 700;
+                                               --fontweightMenuBtn: 700;
+                                               --fontweightSlider: 500;
+                                               --fontweightTituloSeccion: 500;
+                                               --fontweightCategoriaProducto: 500;
+                                               --fontweightTituloProducto: 500;
+                                               --fontweightPrecioProducto: 700;
+                                               --fontweightDescripcionProducto: 400;
+                                               --fontweightMenuFooter: 500;
+                                               --fontweightSubMenuFooter: 400;
+                                               /* COLORES */
+                                               --colorBtnRegister: #6FCF97;
+                                               --BtnBorderLogin: border: 1px solid #219653;
+                                               --colorMenu: #219653;
+                                               --colorSeccionInfo: #6FCF97;
+                                               --colorTituloSeccion: #2b2b2b;
+                                               --colorTituloGeneral: #2b2b2b;
+                                               --colorTituloProducto: #2b2b2b;
+                                               --colorDescripcionProducto: #2b2b2b;
+                                               --colorBtnLoginHover: #C3EAD3;
+                                               /* PADDINGS Y MARGENES */
+                                               --paddingSecciones: 1.5em;
+                                               --marginSecciones: 1em 0;
+                                           }
+                                           
+                                           .selectorProductos {
+                                               width: 100%;
+                                           }
+                                           
+                                           #searchInput {
+                                               font-size: 16px;
+                                               border: 1px solid #ddd;
+                                           }
+                                           
+                                           #tablaProductos {
+                                               overflow-y: auto;
+                                               height: 100px;
+                                               border-collapse: collapse;
+                                               width: 100%;
+                                               border: 1px solid #ddd;
+                                               color: var(--colorTituloProducto);
+                                               font-size: var(--fontSizeDescripcionProducto);
+                                               font-family: var(--fuenteTituloProducto);
+                                               font-weight: var(--fontweightTituloProducto);
+                                           }
+                                           
+                                           .listaProductos {
+                                               height: 380px;
+                                               overflow: auto;
+                                               border: solid 1px;
+                                               border-color: var(--colorBtnRegister);
+                                           }
+                                           
+                                           #tablaProductos th {
+                                               position: sticky;
+                                               top: 0;
+                                               background-color: var(--colorBtnRegister);
+                                               font-size: var(--fontSizeTituloProducto);
+                                               border: solid 1px var(--colorBtnRegister);
+                                           }
+                                           
+                                           #tablaProductos .thCodigo {
+                                               width: 15%;
+                                               border-right: solid 1px white;
+                                           }
+                                           
+                                           #tablaProductos .thProducto {
+                                               width: 65%;
+                                               border-left: solid 1px white;
+                                               border-right: solid 1px white;
+                                           }
+                                           
+                                           #tablaProductos .thPrecio {
+                                               width: 20%;
+                                           }
+                                           
+                                           #tablaProductos th,
+                                           #tablaProductos td {
+                                               text-align: left;
+                                               padding: 12px;
+                                           }
+                                           
+                                           .selected {
+                                               background-color: var(--colorBtnRegister);
+                                               color: #FFF;
+                                           }
+                                           
+                                           #tablaProductos tr.header,
+                                           #tablaProductos tr:hover {
+                                               background-color: var(--colorBtnLoginHover);
+                                           }
+                                           
+                                           .carga_producto h2 {
+                                               color: var(--colorTituloProducto);
+                                               font-size: var(--fontSizeTituloProducto);
+                                               font-family: var(--fuenteTituloProducto);
+                                               font-weight: var(--fontweightTituloProducto);
+                                               margin-bottom: 0px;
+                                               text-align: center;
+                                           }
+                                           
+                                           .carga_producto input[type="file"] {
+                                               display: none;
+                                           }
+                                           
+                                           .carga_producto .custom-file-upload {
+                                               color: #219653;
+                                               background: #fff;
+                                               border: 1px solid #219653;
+                                               border-radius: 6px;
+                                               font-family: var(--fuenteMenuBtn);
+                                               font-size: 0.8em;
+                                               font-weight: var(--fontweightMenuBtn);
+                                               margin-top: 7px;
+                                               margin-bottom: 0;
+                                               padding: 2% 4%;
+                                               position: relative;
+                                               z-index: 2;
+                                           }
+                                           
+                                           .carga_producto .custom-file-upload:hover {
+                                               color: #fff;
+                                               background: var(--colorBtnLoginHover);
+                                           }
+                                           
+                                           .tab-pane {
+                                               max-height: 380px;
+                                               overflow-y: auto;
+                                           }
+                                           
+                                           #iframeDetails {
+                                               /* max-height: 500px; */
+                                               overflow-y: auto;
+                                               height: 100%;
+                                           }
+                                           
+                                           .carga_producto .card {
+                                               max-width: 300px;
+                                           }
+                                           
+                                           .carga_producto .card .nombre_item {
+                                               width: 100px;
+                                               display: inline-block;
+                                               white-space: nowrap;
+                                           }
+                                           
+                                           .carga_producto .modalBorraProducto .btn-primary {
+                                               margin-top: auto;
+                                               margin-bottom: auto;
+                                               padding: 10% 45%;
+                                           }

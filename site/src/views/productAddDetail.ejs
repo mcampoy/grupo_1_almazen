@@ -9,7 +9,7 @@
 
 </head>
 
-<body style="overflow:hidden">
+<body style="overflow:auto">
 
     <div class="container-fluid">
         <!-- Upload product -->
@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-11 row form-group justify-content-center">
                             <% if (edit) { %>
-                                <button class="col-5 blanco align-items-center justify-content-center mr-2" type="button" onclick="delete_image()">Borrar</button>
+                                <button class="col-5  align-items-center justify-content-center mr-2" type="button" onclick="delete_image()">Borrar</button>
                                 <label class="custom-file-upload col-5 align-items-center justify-content-center mr-2">
                             <input type="file" name="image" accept=".jpg" onchange="preview_image(event)" id="image">
                             Cambiar
@@ -106,12 +106,33 @@
                             </div>
                         </div>
 
-                        <div class="fila_inferior container col-11">
+                        <div class="fila_inferior container col-12">
 
                             <% if (edit) { %>
-                                <button class="col-5 ml-lg-auto" type="submit">Guardar</button>
-                                <button class="col-5 ml-lg-auto blanco" type="button" id="btnCancelar">Cancelar </button>
+                                <button class="col-6 " type="submit">Guardar</button>
+                                <button class="col-6  blanco" type="button" id="btnCancelar" data-toggle="modal" data-target="#modalCancelar">Cancelar</button>
                                 <% } %>
+
+                                    <!-- Modal de confirmación de cancelar sin guardar datos de producto-->
+                                    <div class="modal fade" id="modalCancelar" tabindex="-1" role="dialog">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h2 class="modal-title d-inline-block" id="exampleModalLongTitle">Confirmación</h2>
+                                                    <button type="button" class="close " data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body text-center">
+                                                    <p>¿Seguro quiere salir sin guardar los cambios?</p>
+                                                </div>
+                                                <div class="modal-footer  justify-content-center ">
+                                                    <button id="btnConfSalir" type="button" value="" class="btn btn-primary  col-3" onclick="">Salir</button>
+                                                    <button id="btnConfCancelar" type="button" class="btn blanco btn-secondary col-3" data-dismiss="modal">Cancelar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                         </div>
                     </div>
 
@@ -205,7 +226,7 @@
         var productID = document.getElementById('id').value;
 
 
-        document.getElementById("btnCancelar").onclick = function() {
+        document.getElementById("btnConfSalir").onclick = function() {
             parent.location.href = "/product/add" // /"+ productID;
                 //parent.location.reload();
                 //window.location.href = "/product/addShow/" + productID;
