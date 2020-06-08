@@ -1283,6 +1283,7 @@ select {
     margin: 5%;
     text-decoration: none;
     text-align: justify !important;
+    padding: 2% !important;
 }
 
 .img-tarjeta-receta img {
@@ -1519,7 +1520,6 @@ select {
     cursor: pointer;
 }
 
-
 /* Estilos del modal y carrousel*/
 
 .modal-header-receta {
@@ -1601,14 +1601,7 @@ select {
     color: var(--colorDescripcionProducto);
     font-weight: 700;
     margin: 10% 0 57px;
-    /* height: 115px; */
 }
-
-/* .cuchara {
-    color: var(--colorMenu);
-    padding-top: 15%;
-    font-size: 2em;
-} */
 
 .horneando {
     display: none;
