@@ -9,13 +9,13 @@
 
 </head>
 
-<body>
+<body style="overflow:auto">
 
     <div class="container-fluid">
         <!-- Upload product -->
         <div class="container-fluid align-content-around carga_producto">
 
-            <form action="/product/add" method="post" enctype="multipart/form-data">
+            <form action="/product/add" method="post" enctype="multipart/form-data" onsubmit="parent.location.href = '/product/add'">
                 <div class="row">
                     <!-- COLUMNA 2 - NOMBRE Y DESCRIPCIÓN -->
                     <div class="container left-column  col-11 col-md-6 col-lg-4 d-block">
@@ -65,13 +65,13 @@
                     </div>
                     <!-- COLUMNA 3 - FOTO -->
                     <div class=" mt-2 mt-lg-0 mb-2 order-md-3 order-lg-2 container-fluid center-column col-10 col-md-6 col-lg-2 ">
-                        <label class="titulo_carga_producto col-11 text-center ">Imagen del producto</label>
+                        <label class="titulo_carga_producto col-11 text-center ">Imagen</label>
                         <div class=" col-12 text-center " id="image-preview-div">
                             <img id="preview-img" src="/images/<%=product.image %>">
                         </div>
                         <div class="col-11 row form-group justify-content-center">
                             <% if (edit) { %>
-                                <button class="col-5 blanco align-items-center justify-content-center mr-2" type="button" onclick="delete_image()">Borrar</button>
+                                <button class="col-5  align-items-center justify-content-center mr-2" type="button" onclick="delete_image()">Borrar</button>
                                 <label class="custom-file-upload col-5 align-items-center justify-content-center mr-2">
                             <input type="file" name="image" accept=".jpg" onchange="preview_image(event)" id="image">
                             Cambiar
@@ -104,6 +104,35 @@
                                 </div>
                                 <label for="habilitado" class="nombre_item d-inline-block">Habilitado</label>
                             </div>
+                        </div>
+
+                        <div class="fila_inferior container col-12">
+
+                            <% if (edit) { %>
+                                <button class="col-6 " type="submit">Guardar</button>
+                                <button class="col-6  blanco" type="button" id="btnCancelar" data-toggle="modal" data-target="#modalCancelar">Cancelar</button>
+                                <% } %>
+
+                                    <!-- Modal de confirmación de cancelar sin guardar datos de producto-->
+                                    <div class="modal fade" id="modalCancelar" tabindex="-1" role="dialog">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h2 class="modal-title d-inline-block" id="exampleModalLongTitle">Confirmación</h2>
+                                                    <button type="button" class="close " data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body text-center">
+                                                    <p>¿Seguro quiere salir sin guardar los cambios?</p>
+                                                </div>
+                                                <div class="modal-footer  justify-content-center ">
+                                                    <button id="btnConfSalir" type="button" value="" class="btn btn-primary  col-3" onclick="">Salir</button>
+                                                    <button id="btnConfCancelar" type="button" class="btn blanco btn-secondary col-3" data-dismiss="modal">Cancelar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                         </div>
                     </div>
 
@@ -159,7 +188,7 @@
                                             </div>
                                             <% }) %>
                                     </div>
-                                    <div class="tab-pane" id="recetas">
+                                    <div class="tab-pane " id="recetas">
                                         <% recetas.forEach(receta => { %>
                                             <div class="card_item text-left">
                                                 <div class="form-check d-inline-block">
@@ -182,13 +211,7 @@
                 </div>
                 <!--  FILA INFERIOR  -->
 
-                <div class="fila_inferior container col-11">
 
-                    <% if (edit) { %>
-                        <button class="col-3 ml-lg-auto" type="submit">Guardar</button>
-                        <button class="col-3 ml-lg-auto" type="button" id="cancelar">Cancelar </button>
-                        <% } %>
-                </div>
 
 
             </form>
@@ -203,8 +226,10 @@
         var productID = document.getElementById('id').value;
 
 
-        document.getElementById("cancelar").onclick = function() {
-            window.location.href = "/product/addShow/" + productID;
+        document.getElementById("btnConfSalir").onclick = function() {
+            parent.location.href = "/product/add" // /"+ productID;
+                //parent.location.reload();
+                //window.location.href = "/product/addShow/" + productID;
         };
 
         function preview_image(event) {

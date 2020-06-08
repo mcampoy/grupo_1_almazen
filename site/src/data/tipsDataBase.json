@@ -1,39 +1,38 @@
 [{
         "id": 1,
-        "tip": "Este es el tip 1",
+        "nombre": "Coma alimentos variados",
+        "descripcion": "Necesitamos más de 40 nutrientes diferentes y ningún alimento por sí solo puede proporcionarlos todos. El suministro de alimentos que existe hoy en día facilita tomar una amplia variedad de alimentos, tanto comprando alimentos frescos como comprando comidas preparadas.",
         "image": "tip1.jpg"
     },
     {
-        "id": 1,
-        "tip": "Este es el tip 1",
-        "image": "tip1.jpg"
-    },    {
         "id": 2,
-        "tip": "Este es el tip 1",
-        "image": "tip1.jpg"
-    },    {
+        "nombre": "Alimentos ricos en hidratos de carbono",
+        "descripcion": "Más de la mitad de las calorías de su dieta, es decir el 60 % aproximadamente, deben venir de estos alimentos. Lo ideal es aumentar la ingesta de fibra con el aporte de pan integral, la pasta integrales y otros cereales.",
+        "image": "tip2.jpg"
+    }, {
         "id": 3,
-        "tip": "Este es el tip 1",
-        "image": "tip1.jpg"
-    },    {
+        "nombre": "Coma muchas frutas y verduras",
+        "descripcion": "La mayor parte de la gente no come la suficiente cantidad de estos alimentos que proporcionan importantes nutrientes protectores. Intente comer al menos cinco raciones al día. Pruebe nuevas recetas o vea qué platos preparados están disponibles en el supermercado.",
+        "image": "tip3.jpg"
+    }, {
         "id": 4,
-        "tip": "Este es el tip 1",
-        "image": "tip1.jpg"
-    },    {
+        "nombre": "Coma raciones moderadas",
+        "descripcion": "Si ingiere las raciones adecuadas de cada alimento, es más fácil comer de todos los grupos de alimentos sin necesidad de eliminar ninguno. Si come fuera, podría compartir parte de su comida con un amigo. No abandone el hábito de comer con los que quiere.",
+        "image": "tip4.jpg"
+    }, {
         "id": 5,
-        "tip": "Este es el tip 1",
-        "image": "tip1.jpg"
-    },    {
+        "nombre": "Tenga regularidad en las comidas",
+        "descripcion": "Saltarse las comidas, sobre todo el desayuno, puede conducir a una sensación de hambre descontrolada, causando a menudo una sobre ingesta. Realizar la merienda puede ayudar a contener el hambre, pero no coma demasiado para no sustituir las comidas principales.",
+        "image": "tip5.jpg"
+    }, {
         "id": 6,
-        "tip": "Este es el tip 1",
-        "image": "tip1.jpg"
-    },    {
+        "nombre": "Todo es cuestión de equilibrio",
+        "descripcion": "No se sienta culpable de los alimentos que le gustan, simplemente permítaselos con moderación y elija otros alimentos que le proporcionen el equilibrio y la variedad que necesita para conseguir una buena salud.",
+        "image": "tip6.jpg"
+    }, {
         "id": 7,
-        "tip": "Este es el tip 1",
-        "image": "tip1.jpg"
-    },    {
-        "id": 8,
-        "tip": "Este es el tip 1",
-        "image": "tip1.jpg"
-    }
+        "nombre": "Coma alimentos variados",
+        "descripcion": "Necesitamos más de 40 nutrientes diferentes y ningún alimento por sí solo puede proporcionarlos todos. El suministro de alimentos que existe hoy en día facilita tomar una amplia variedad de alimentos, tanto comprando alimentos frescos como comprando comidas preparadas.",
+        "image": "tip7.jpg"
+    },
 ]

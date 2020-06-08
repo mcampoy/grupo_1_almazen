@@ -1,19 +1,15 @@
 const fs = require('fs');
 const path = require('path');
 
-const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/productsDataBase.json'), 'utf-8'));
-
-
 let productsPath = path.resolve(__dirname, '../data/productsDataBase.json');
 let categoriasPath = path.resolve(__dirname, '../data/categoriasDataBase.json');
 let recetasPath = path.resolve(__dirname, '../data/recetasDataBase.json');
 let dietasPath = path.resolve(__dirname, '../data/dietasDataBase.json');
 
-//const products = getProducts();
+const products = getProducts();
 const categorias = getCategorias();
 const recetas = getRecetas();
 const dietas = getDietas();
-
 
 function getProducts() {
     let productsJson = fs.readFileSync(productsPath, 'utf-8');
@@ -51,45 +47,26 @@ function getDietas() {
     }
 };
 
-
-
 function getProductById(id) {
     let products = getProducts()
     return products.find(product => product.id == id)
 }
 
-
-
-
-
 function saveProduct(product) {
-
     let products = getProducts();
     let esNuevo = true;
-
     products.forEach((productoExistente, index) => {
         if (productoExistente.id == product.id) {
             esNuevo = false;
-            console.log("products[index]");
-            console.log(products[index]);
-            console.log("product");
-            console.log(product);
 
             if (typeof product.image == 'undefined')
                 product.image = products[index].image;
             products[index] = product;
-
-
         }
     });
-
-    if (esNuevo == true) products.push(product); //producto nuevo
-    console.log("esNuevo");
-    console.log(esNuevo);
+    if (esNuevo == true) products.push(product);
     fs.writeFileSync(productsPath, JSON.stringify(products, null, ' '));
-
 }
-
 
 function productIdGenerator() {
     let products = getProducts();
@@ -101,22 +78,17 @@ function productIdGenerator() {
 };
 
 const controller = {
-
     productsList: (req, res) => {
         res.render('products', {
             products
         })
-
     },
 
     details: (req, res) => {
-
         const product = products.find((product) => {
             return product.id == req.params.id;
         })
-
         if (product == null) {
-
             return res.redirect('/');
         }
         res.render('productDetail', {
@@ -125,6 +97,7 @@ const controller = {
     },
 
     add: (req, res) => {
+        let products = getProducts()
         res.render('productAdd', { products });
     },
 
@@ -136,15 +109,11 @@ const controller = {
         let products = getProducts()
         let product = getProductById(req.params.id);
 
-
         for (i = 0; i < categorias.length; i++) {
             var xx = categorias[i].checked = (product.categoria.find((categoria) => {
                 return categoria == categorias[i].id;
             })) ? 1 : 0;
         }
-
-        console.log("product.dieta");
-        console.log(product.dieta);
 
         for (i = 0; i < dietas.length; i++) {
             var xx = dietas[i].checked = (product.dieta.find((dieta) => {
@@ -158,7 +127,6 @@ const controller = {
             })) ? 1 : 0;
         }
 
-
         // Debo mostrar un mensaje tanto si lo encuentro como si no
         if (product == null) {
             // Acá debería mostrar un mensaje de error
@@ -167,7 +135,6 @@ const controller = {
         const edit = 0;
 
         res.render('productAddDetail', { product, categorias, dietas, recetas, edit });
-
     },
 
     addEditDetails: (req, res) => {
@@ -175,9 +142,6 @@ const controller = {
         let product = [];
 
         if (req.params.id == "nuevo") {
-            console.log("nuevo");
-            console.log(req.params.id);
-
             product.id = productIdGenerator();
             product.codigo = "";
             product.nombre = "";
@@ -195,13 +159,11 @@ const controller = {
 
         } else product = getProductById(req.params.id);
 
-
         for (i = 0; i < categorias.length; i++) {
             var xx = categorias[i].checked = (product.categoria.find((categoria) => {
                 return categoria == categorias[i].id;
             })) ? 1 : 0;
         }
-
 
         for (i = 0; i < dietas.length; i++) {
             var xx = dietas[i].checked = (product.dieta.find((dieta) => {
@@ -215,7 +177,6 @@ const controller = {
             })) ? 1 : 0;
         }
 
-
         // Debo mostrar un mensaje tanto si lo encuentro como si no
         if (product == null) {
             // Acá debería mostrar un mensaje de error
@@ -228,11 +189,6 @@ const controller = {
     },
 
     addSaveDetails: (req, res, next) => {
-        console.log("req.body");
-        console.log(req.body);
-
-
-
         let product = {
             codigo: req.body.codigo,
             nombre: req.body.nombre,
@@ -250,11 +206,8 @@ const controller = {
             dieta: req.body.dieta
         }
 
-
         if (!Array.isArray(product.dieta)) {
-            console.log(product.dieta);
             product.dieta = [product.dieta];
-            console.log(product.dieta);
         }
         if (!Array.isArray(product.receta))
             product.receta = [product.receta];
@@ -272,17 +225,26 @@ const controller = {
             product.habilitado = 1;
         else product.habilitado = 0;
 
-        console.log("product con datos tomados de req.body:");
-        console.log(product);
-
         if (typeof req.body.id !== 'undefined')
             product.id = parseInt(req.body.id);
         else product.id = productIdGenerator();
 
         saveProduct(product);
-        //res.render('productAdd', { products });
-        res.send("PRODUCTO GRABADO"); //ACÁ HAY QUE HACER QUE REFRESQUE TODA LA PÁGINA
     },
+
+    addDelete: (req, res, next) => {
+        let products = getProducts();
+        products.forEach((product, index) => {
+            console.log(req.body);
+            console.log(product.id);
+            console.log(req.body.id);
+            if (product.id == parseInt(req.body.id)) {
+                products.splice(index, 1);
+            }
+        });
+        fs.writeFileSync(productsPath, JSON.stringify(products, null, ' '));
+        controller.add(req, res);
+    }
 };
 
 module.exports = controller;
