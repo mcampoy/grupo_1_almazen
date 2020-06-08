@@ -1596,20 +1596,43 @@ select {
     height: 200px;
 }
 
-.instruccion_carrusel {
+.instruccion_carrusel p {
     font-family: var(--fuenteGeneral);
     color: var(--colorDescripcionProducto);
     font-weight: 700;
     margin: 10% 0 57px;
-    height: 300px;
+    /* height: 115px; */
+}
+
+/* .cuchara {
+    color: var(--colorMenu);
+    padding-top: 15%;
+    font-size: 2em;
+} */
+
+.horneando {
+    display: none;
 }
 
 @media (min-width: 424px) {
     .instruccion_carrusel {
         margin: 0;
-        padding-top: 28%;
-        height: 275px;
+        padding-top: 12%;
+        height: 10px;
     }
+
+    .horneando {
+        display: block;
+        width:20%;
+        position: relative;
+        margin-bottom: 11%;
+        margin-top: 0;
+        margin-left: 42%;
+    }
+}
+
+@media (min-width: 1024px) {
+
 }
 
 
