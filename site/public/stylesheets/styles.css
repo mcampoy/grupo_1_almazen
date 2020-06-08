@@ -441,7 +441,10 @@ footer h6 a {
     letter-spacing: 0.040em;
     text-decoration: none;
 }
-
+footer h6 a:hover {
+    color: var(--BtnBorderLogin);
+    
+}
 
 /* ENLACES FOOTER */
 
