@@ -128,7 +128,6 @@ header {
     font-weight: var(--fontweightMenu);
     letter-spacing: 0.030em;
     text-decoration: none;
-    
 }
 
 
@@ -138,8 +137,9 @@ header {
     background-color: var(--colorBtnRegister);
     border-radius: 0px 5px 5px 0px;
 }
-.fa-search{
-    color:#fff
+
+.fa-search {
+    color: #fff
 }
 
 
@@ -173,10 +173,12 @@ header {
     background-color: transparent;
     border: 0;
 }
-.drop{
+
+.drop {
     padding-top: .5em;
     /*text-align: right;*/
 }
+
 
 /* MENU HAMBURGUESA */
 
@@ -727,6 +729,170 @@ footer .menu-newsletter button {
 
 /* FIN DE CHECKBOX */
 
+.carga_producto .selectorProductos {
+    width: 100%;
+}
+
+.carga_producto #searchInput {
+    font-size: 16px;
+    border: 1px solid #ddd;
+}
+
+.carga_producto #tablaProductos {
+    overflow-y: auto;
+    height: 100px;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    color: var(--colorTituloProducto);
+    font-size: var(--fontSizeDescripcionProducto);
+    font-family: var(--fuenteTituloProducto);
+    font-weight: var(--fontweightTituloProducto);
+}
+
+.carga_producto .listaProductos {
+    height: 380px;
+    overflow: auto;
+    border: solid 1px;
+    border-color: var(--colorBtnRegister);
+}
+
+.carga_producto #tablaProductos th {
+    position: sticky;
+    top: 0;
+    background-color: var(--colorBtnRegister);
+    font-size: var(--fontSizeTituloProducto);
+    border: solid 1px var(--colorBtnRegister);
+}
+
+.carga_producto #tablaProductos .thCodigo {
+    width: 15%;
+    border-right: solid 1px white;
+}
+
+.carga_producto #tablaProductos .thProducto {
+    width: 65%;
+    border-left: solid 1px white;
+    border-right: solid 1px white;
+}
+
+.carga_producto #tablaProductos .thPrecio {
+    width: 20%;
+}
+
+.carga_producto #tablaProductos .tdId {
+    display: none;
+}
+
+.carga_producto #tablaProductos .tdPrecio {
+    text-align: right;
+}
+
+.carga_producto #tablaProductos th,
+.carga_producto #tablaProductos td {
+    text-align: left;
+    padding: 12px;
+}
+
+.carga_producto .selected {
+    background-color: var(--colorBtnRegister);
+    color: #FFF;
+}
+
+.carga_producto #tablaProductos tr.header,
+.carga_producto #tablaProductos tr:hover {
+    background-color: var(--colorBtnLoginHover);
+}
+
+.carga_producto h2 {
+    color: var(--colorTituloProducto);
+    font-size: var(--fontSizeTituloProducto);
+    font-family: var(--fuenteTituloProducto);
+    font-weight: var(--fontweightTituloProducto);
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.carga_producto input[type="file"] {
+    display: none;
+}
+
+.carga_producto .custom-file-upload {
+    color: #219653;
+    background: #fff;
+    border: 1px solid #219653;
+    border-radius: 6px;
+    font-family: var(--fuenteMenuBtn);
+    font-size: 0.8em;
+    font-weight: var(--fontweightMenuBtn);
+    /* padding-top: 0;
+    padding-bottom: 5%; */
+    /* padding: 3% 8%; */
+    /* position: relative; */
+    /* margin-top: 5%; */
+    z-index: 2;
+}
+
+.carga_producto .previewImage {
+    margin-bottom: 2%;
+}
+
+.carga_producto .btnDeleteImage {
+    padding: 0 0;
+    /*margin: 5% 0; */
+    margin-top: -5%;
+}
+
+.carga_producto .custom-file-upload:hover {
+    color: #fff;
+    background: var(--colorBtnLoginHover);
+}
+
+.carga_producto .tab-pane {
+    max-height: 380px;
+    /* overflow-y: auto; */
+}
+
+.carga_producto #iframeDetails {
+    overflow-y: hidden;
+}
+
+.carga_producto .card {
+    max-width: 300px;
+}
+
+.carga_producto .card .nombre_item {
+    width: 80%;
+    display: inline-block;
+    overflow: scroll;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.carga_producto .modalBorraProducto .btn-primary {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 10% 45%;
+}
+
+.carga_producto .modal-header {
+    padding-bottom: 3%;
+}
+
+.carga_producto .modal-header .close {
+    margin-right: 0%;
+}
+
+.carga_producto .iframeDetailsContainer {
+    padding-left: 0;
+    padding-right: 0;
+    height: 500%;
+}
+
+.carga_producto .pageTitle {
+    margin-bottom: 3%;
+}
+
 
 /* FIN DE  ESTILOS DE LA PÁGINA DE CARGA DE PRODUCTO */
 
@@ -1119,7 +1285,7 @@ select {
     text-align: justify !important;
 }
 
-.img-tarjeta-receta img{
+.img-tarjeta-receta img {
     width: 100% !important;
     height: auto !important;
 }
@@ -1438,13 +1604,11 @@ select {
     height: 300px;
 }
 
-@media (min-width: 424px){ 
+@media (min-width: 424px) {
     .instruccion_carrusel {
         margin: 0;
         padding-top: 28%;
-
         height: 275px;
-
     }
 }
 
@@ -1502,11 +1666,11 @@ select {
     border-radius: 10px 0px 0px 10px;
     padding: 5px 2px 5px 5px;
     position: fixed;
-	right: 0;
-	top: 35%;
-	font-size: 1.5rem;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	z-index: 100;
+    right: 0;
+    top: 35%;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 100;
 }

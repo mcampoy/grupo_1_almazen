@@ -4,8 +4,7 @@
 <head>
     <%- include("partials/head", {title:"Agregar producto"}) %>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <!-- <link rel="stylesheet" href="../../stylesheets/productAdd.css"> -->
-        <link rel="stylesheet" href="../../stylesheets/productAdd.css">
+
 
 </head>
 
@@ -17,8 +16,8 @@
 
             <form action="/product/add" method="post" enctype="multipart/form-data" onsubmit="parent.location.href = '/product/add'">
                 <div class="row">
-                    <!-- COLUMNA 2 - NOMBRE Y DESCRIPCIÓN -->
-                    <div class="container left-column  col-11 col-md-6 col-lg-4 d-block">
+                    <!-- COLUMNA 1 - NOMBRE Y DESCRIPCIÓN -->
+                    <div class="container left-column  col-11 col-md-5 col-lg-4 d-block">
                         <div class="row mt-5 mt-md-0">
                             <div class="form-group col-12">
                                 <input name="id" type="text" class="form-control" id="id" required value="<%= product.id %>" style="display:none">
@@ -32,8 +31,8 @@
                                 <% } %>>
                             </div>
                             <div class="form-group col-12">
-                                <label class="titulo_carga_producto" for="descripcion_breve">Descripción corta <span class="asterisco">*</span></label>
-                                <input name="descripcion_breve" type="text" class="form-control" id="descripcion_breve" required placeholder="Ingrese la descripción corta del producto." value="<%= product.descripcion_breve %>" <% if (!edit) { %> readonly
+                                <label class="titulo_carga_producto" for="descripcion_breve">Descripción breve <span class="asterisco">*</span></label>
+                                <input name="descripcion_breve" maxlength="150" type="text" class="form-control" id="descripcion_breve" required placeholder="Ingrese la descripción breve del producto." value="<%= product.descripcion_breve %>" <% if (!edit) { %>                                readonly
                                 <% } %>>
                             </div>
                             <div class="form-group col-12">
@@ -63,26 +62,26 @@
                             </div>
                         </div>
                     </div>
-                    <!-- COLUMNA 3 - FOTO -->
-                    <div class=" mt-2 mt-lg-0 mb-2 order-md-3 order-lg-2 container-fluid center-column col-10 col-md-6 col-lg-2 ">
+                    <!-- COLUMNA 2 - FOTO -->
+                    <div class=" mt-2 mt-lg-0 mb-2 order-sm-3 order-lg-2 container-fluid center-column col-10 col-md-4 col-lg-2 ">
                         <label class="titulo_carga_producto col-11 text-center ">Imagen</label>
-                        <div class=" col-12 text-center " id="image-preview-div">
+                        <div class=" col-12 text-center d-flex justify-content-center previewImage " id="image-preview-div">
                             <img id="preview-img" src="/images/<%=product.image %>">
                         </div>
-                        <div class="col-11 row form-group justify-content-center">
+                        <div class="col-12 row  align-items-center form-group d-flex justify-content-center align-content-middle ">
                             <% if (edit) { %>
-                                <button class="col-5  align-items-center justify-content-center mr-2" type="button" onclick="delete_image()">Borrar</button>
-                                <label class="custom-file-upload col-5 align-items-center justify-content-center mr-2">
-                            <input type="file" name="image" accept=".jpg" onchange="preview_image(event)" id="image">
+                                <button class="col-5 btnDeleteImage " type="button" onclick="deteteImage()">Borrar</button>
+                                <label class="custom-file-upload d-inline text-center align-items-center col-5 ">
+                            <input type="file" name="image" accept=".jpg" onchange="previewImage(event)" id="image">
                             Cambiar
                              </label>
                                 <input name="imageDeleted" type="checkbox" class="" id="imageDeleted" style="display: none;">
                                 <% } %>
                         </div>
                         <div class="col-12 container-fluid align-content-between">
-                            <div class="form-group col-12 ">
-                                <label class="titulo_carga_producto d-inline-block col-4" for="stock">Stock</label>
-                                <input name="stock" type="number" min="0" class="form-control text-right  d-inline-block col-7" id="stock" placeholder="0" value="<%=product.stock %>" <% if (!edit) { %> readonly
+                            <div class="form-group ">
+                                <label class="titulo_carga_producto d-inline-block col-5" for="stock">Stock</label>
+                                <input name="stock" type="number" min="0" class="form-control   d-inline-block col-6" id="stock" placeholder="0" value="<%=product.stock %>" <% if (!edit) { %> readonly
                                 <% } %>>
                             </div>
                             <label class="titulo_carga_producto d-inline-block col-12" for="cantidad">Presentación</label>
@@ -118,8 +117,8 @@
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h2 class="modal-title d-inline-block" id="exampleModalLongTitle">Confirmación</h2>
-                                                    <button type="button" class="close " data-dismiss="modal">&times;</button>
+                                                    <h2 class="modal-title d-inline-block">Confirmación</h2>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                 </div>
                                                 <div class="modal-body text-center">
                                                     <p>¿Seguro quiere salir sin guardar los cambios?</p>
@@ -136,12 +135,8 @@
                         </div>
                     </div>
 
-
-
-
-                    <!-- COLUMNA 4 - CATEGORÍAS, RECETAS Y DIETAS -->
-
-                    <div class=" order-md-2 order-lg-3 container align-content-center right-column col-12 col-md-6 col-lg-4">
+                    <!-- COLUMNA 3 - CATEGORÍAS, RECETAS Y DIETAS -->
+                    <div class=" order-sm-2 order-lg-3 container align-content-center right-column col-12 col-md-6 col-lg-4">
                         <div class="row justify-content-center">
                             <div class="card text-center">
                                 <div class="card-header">
@@ -227,12 +222,10 @@
 
 
         document.getElementById("btnConfSalir").onclick = function() {
-            parent.location.href = "/product/add" // /"+ productID;
-                //parent.location.reload();
-                //window.location.href = "/product/addShow/" + productID;
-        };
+            parent.location.href = "/product/add"
+        }
 
-        function preview_image(event) {
+        function previewImage(event) {
             var reader = new FileReader();
             var output2 = document.getElementById('imageDeleted');
             output2.checked = false;
@@ -243,7 +236,7 @@
             reader.readAsDataURL(event.target.files[0]);
         }
 
-        function delete_image() {
+        function deteteImage() {
 
             var output = document.getElementById('preview-img');
             output.src = "/images/defaultProduct.jpg";
@@ -251,6 +244,8 @@
             output2.checked = true;
             var output3 = document.getElementById('image');
             output3.value = null;
+
+
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
