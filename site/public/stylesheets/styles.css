@@ -1520,6 +1520,7 @@ select {
     cursor: pointer;
 }
 
+
 /* Estilos del modal y carrousel*/
 
 .modal-header-receta {
@@ -1613,10 +1614,9 @@ select {
         padding-top: 12%;
         height: 10px;
     }
-
     .horneando {
         display: block;
-        width:20%;
+        width: 20%;
         position: relative;
         margin-bottom: 11%;
         margin-top: 0;
@@ -1624,9 +1624,7 @@ select {
     }
 }
 
-@media (min-width: 1024px) {
-
-}
+@media (min-width: 1024px) {}
 
 
 /* Estilos de la pagina  Tips */
@@ -1660,7 +1658,7 @@ select {
 }
 
 #tarjetas .ladofrente img {
-    width: 330px;
+    width: 320px;
     height: 220px;
     margin-bottom: 25px;
     border-radius: 5%;
