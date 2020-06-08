@@ -17,7 +17,7 @@
             <form action="/product/add" method="post" enctype="multipart/form-data" onsubmit="parent.location.href = '/product/add'">
                 <div class="row">
                     <!-- COLUMNA 1 - NOMBRE Y DESCRIPCIÓN -->
-                    <div class="container left-column  col-11 col-md-5 col-lg-4 d-block">
+                    <div class="container left-column  order-1 col-11 col-md-5 col-lg-4 d-block">
                         <div class="row mt-5 mt-md-0">
                             <div class="form-group col-12">
                                 <input name="id" type="text" class="form-control" id="id" required value="<%= product.id %>" style="display:none">
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <!-- COLUMNA 2 - FOTO -->
-                    <div class=" mt-2 mt-lg-0 mb-2 order-sm-3 order-lg-2 container-fluid center-column col-10 col-md-4 col-lg-2 ">
+                    <div class=" mt-2 mt-lg-0 mb-2 order-3 order-lg-2 container-fluid center-column col-10 col-md-4 col-lg-2 ">
                         <label class="titulo_carga_producto col-11 text-center ">Imagen</label>
                         <div class=" col-12 text-center d-flex justify-content-center previewImage " id="image-preview-div">
                             <img id="preview-img" src="/images/<%=product.image %>">
@@ -136,7 +136,7 @@
                     </div>
 
                     <!-- COLUMNA 3 - CATEGORÍAS, RECETAS Y DIETAS -->
-                    <div class=" order-sm-2 order-lg-3 container align-content-center right-column col-12 col-md-6 col-lg-4">
+                    <div class=" order-2 order-lg-3 container align-content-center right-column col-12 col-md-6 col-lg-4">
                         <div class="row justify-content-center">
                             <div class="card text-center">
                                 <div class="card-header">
