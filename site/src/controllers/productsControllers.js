@@ -70,8 +70,12 @@ function saveProduct(product) {
 
 function productIdGenerator() {
     let products = getProducts();
+    let mayor = 1;
     if (products.length) {
-        return products.length + 1;
+        products.forEach(product => {
+            if (product.id > mayor) mayor = product.id;
+        });
+        return mayor + 1;
     } else {
         return 1;
     }
@@ -106,7 +110,7 @@ const controller = {
     },
 
     addShowDetails: (req, res) => {
-        let products = getProducts()
+        // let products = getProducts()
         let product = getProductById(req.params.id);
 
         for (i = 0; i < categorias.length; i++) {
@@ -138,7 +142,7 @@ const controller = {
     },
 
     addEditDetails: (req, res) => {
-        let products = getProducts()
+        // let products = getProducts()
         let product = [];
 
         if (req.params.id == "nuevo") {
@@ -216,7 +220,7 @@ const controller = {
 
         if (typeof req.file !== 'undefined') {
             product.image = req.file.filename
-        }
+        } else product.image = "defaultProduct.jpg";
 
         if (typeof req.body.imageDeleted !== 'undefined')
             product.image = "defaultProduct.jpg"
@@ -228,11 +232,12 @@ const controller = {
         if (typeof req.body.id !== 'undefined')
             product.id = parseInt(req.body.id);
         else product.id = productIdGenerator();
+        console.log(product.id);
 
         saveProduct(product);
     },
 
-    addDelete: (req, res, next) => {
+    delete: (req, res, next) => {
         let products = getProducts();
         products.forEach((product, index) => {
             console.log(req.body);
