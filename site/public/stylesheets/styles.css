@@ -1283,8 +1283,15 @@ select {
     margin: 5%;
     text-decoration: none;
     text-align: justify !important;
-    padding: 2% !important;
+    padding: 4% !important;
 }
+
+@media (min-width: 768px){
+    .tarjeta-recetas {
+        padding: 2% !important;
+    }
+}
+
 
 .img-tarjeta-receta img {
     width: 100% !important;
@@ -1293,6 +1300,7 @@ select {
 
 .descripcion_tarjeta_receta {
     color: #2b2b2b;
+    font-size: 1em;
 }
 
 .etiqueta-dieta-receta {
