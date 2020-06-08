@@ -17,8 +17,15 @@
 
     <div class="container container-tarjetas-recetas " id="tarjetas">
 
-        <h3 class="col-12 titulo_seccion">Recetas <%= receta.dieta %>s  </h3>
-        
+        <% if (receta.dieta !== "vegana" && receta.dieta !== "vegetariana") { %>
+
+            <h3 class="col-12 titulo_seccion">Recetas <%= receta.dieta %>  </h3>
+
+            <% }else { %>
+
+            <h3 class="col-12 titulo_seccion">Recetas <%= receta.dieta %>s </h3>
+            <% } %>
+
         <% for( let receta of dietas) { %>
 
 

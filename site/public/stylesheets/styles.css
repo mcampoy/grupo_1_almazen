@@ -1126,7 +1126,6 @@ select {
 
 .descripcion_tarjeta_receta {
     color: #2b2b2b;
-    line-height: normal;
 }
 
 .etiqueta-dieta-receta {
@@ -1143,7 +1142,7 @@ select {
     font-size: 1.5em;
     margin-bottom: 25px;
     color: var(--colorMenu);
-    text-align: justify;
+    text-align: center;
 }
 
 
@@ -1357,7 +1356,7 @@ select {
 
 /* Estilos del modal y carrousel*/
 
-.modal-header {
+.modal-header-receta {
     text-align: center;
     display: block;
     padding: 0;
