@@ -11,26 +11,6 @@ let usuariosPath = path.resolve(__dirname, '../data/usuarios.json');
 
 const controller = {
     reg: (req, res) => {
-        let User = {
-            Nombre: req.body.nombre,
-            Usuario: req.body.usuario,
-            Email: req.body.email,
-            Password: req.body.password
-        };
-
-        let Archivousuario = fs.readFileSync(usuariosPath, { encoding: 'utf-8' });
-        let usuarios;
-        if (Archivousuario == "") {
-            usuarios = [];
-        } else {
-            usuarios = JSON.parse(Archivousuario);
-        }
-        usuarios.push(User);
-
-        usuarioJson = JSON.stringify(usuarios);
-
-        fs.writeFileSync(usuariosPath, usuarioJson);
-
         res.render('register');
     },
     create: (req, res) => {
@@ -53,6 +33,8 @@ const controller = {
         usuarioJson = JSON.stringify(usuarios);
 
         fs.writeFileSync(usuariosPath, usuarioJson);
+
+        res.render('login');
 
     },
     log: (req, res) => {
