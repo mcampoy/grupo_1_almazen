@@ -83,8 +83,13 @@ function productIdGenerator() {
 
 const controller = {
     productsList: (req, res) => {
+        let productos = [];
+		for (let product of products){
+			if(product.habilitado == 1){
+				productos.push(product);
+			}}
         res.render('products', {
-            products
+            productos
         })
     },
 
