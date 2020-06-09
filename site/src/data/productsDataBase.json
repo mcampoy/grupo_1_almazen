@@ -22,7 +22,7 @@
   "dieta": [
    "3"
   ],
-  "habilitado": 1,
+  "habilitado": true,
   "id": 1,
   "image": "curcuma en polvo.jpg"
  },
@@ -39,9 +39,8 @@
   "descuento": 10,
   "stock": null,
   "categoria": [
-   "2",
    "4",
-   "8"
+   "7"
   ],
   "receta": [
    "3"
@@ -49,9 +48,9 @@
   "dieta": [
    "3"
   ],
-  "image": "cacao.jpg",
-  "habilitado": 1,
-  "id": 2
+  "habilitado": true,
+  "id": 2,
+  "image": "cacao.jpg"
  },
  {
   "codigo": "ALM0145",
@@ -66,8 +65,8 @@
   "descuento": 0,
   "stock": null,
   "categoria": [
-   "2",
    "4",
+   "5",
    "8"
   ],
   "receta": [
@@ -76,7 +75,7 @@
   "dieta": [
    "3"
   ],
-  "habilitado": 1,
+  "habilitado": true,
   "id": 3,
   "image": "stevia.jpg"
  },
@@ -103,8 +102,8 @@
   "dieta": [
    "3"
   ],
-  "habilitado": 0,
-  "id": 1,
+  "habilitado": false,
+  "id": 4,
   "image": "curcuma en polvo.jpg"
  }
 ]

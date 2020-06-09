@@ -84,10 +84,11 @@ function productIdGenerator() {
 const controller = {
     productsList: (req, res) => {
         let productos = [];
-		for (let product of products){
-			if(product.habilitado == 1){
-				productos.push(product);
-			}}
+        for (let product of products) {
+            if (product.habilitado) {
+                productos.push(product);
+            }
+        }
         res.render('products', {
             productos
         })
@@ -161,7 +162,7 @@ const controller = {
             product.descuento = 0;
             product.stock = 0;
             product.image = "defaultProduct.jpg";
-            product.habilitado = 1;
+            product.habilitado = true;
             product.categoria = [];
             product.receta = [];
             product.dieta = [];
@@ -198,6 +199,7 @@ const controller = {
     },
 
     addSaveDetails: (req, res, next) => {
+        console.log(req.body)
         let product = {
             codigo: req.body.codigo,
             nombre: req.body.nombre,
@@ -225,14 +227,13 @@ const controller = {
 
         if (typeof req.file !== 'undefined') {
             product.image = req.file.filename
-        } else product.image = "defaultProduct.jpg";
-
-        if (typeof req.body.imageDeleted !== 'undefined')
+        } else if (typeof req.body.imageDeleted !== 'undefined') {
             product.image = "defaultProduct.jpg"
+        }
 
         if (typeof req.body.habilitado !== 'undefined')
-            product.habilitado = 1;
-        else product.habilitado = 0;
+            product.habilitado = true;
+        else product.habilitado = false;
 
         if (typeof req.body.id !== 'undefined')
             product.id = parseInt(req.body.id);
