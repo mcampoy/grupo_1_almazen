@@ -15,14 +15,15 @@
     <%- include("partials/header") %>
     <!-- /HEADER -->
 
+    <!-- Redes Sociales Flotantes-->
+    <%-include('partials/redesSociales') %>
+
+    <!-- CONTENEDOR DE TARJETAS DE RECETAS -->
     <div class="container container-tarjetas-recetas " id="tarjetas">
         <h3 class="col-12 titulo_seccion">Recetas que inspiran</h3>
 
-
         <% for( let receta of recetas) { %>
-
             <%- include("partials/tarjetaReceta", {receta}) %>
-
         <% } %>
     </div>
 
@@ -40,5 +41,4 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 </body>
-
 </html>

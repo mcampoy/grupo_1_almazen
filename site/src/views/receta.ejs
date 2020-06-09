@@ -10,19 +10,28 @@
     <%- include("partials/header") %>
     <!-- /HEADER -->
 
-    <!-- Details products -->
+    <!-- Redes Sociales Flotantes-->
+    <%-include('partials/redesSociales') %>
+
+    <!-- Contenedor de receta -->
     <article class="container container-details">
         <div class="row box-product-details">
+
+            <!-- Sitemap -->
             <div class="siteMap col-12">
-               <span>Volver al listado  | </span> <a href="/">Home</a> <span> > </span><a href="/recetas/">Recetas</a> <span> > </span><a href="/recetas/dieta/<%= receta.dieta %>"><%= receta.dieta %></a> <br><br>
+                <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/recetas/">Recetas</a>
+                <span> > </span><a href="/recetas/dieta/<%= receta.dieta %>"><%= receta.dieta %></a> <br><br>
             </div>
 
+            <!-- Receta -->
             <figure class="col-12 col-lg-6 descripcion-receta">
                 <div class="encabezado-receta">
                     <p class="categoria-receta"><%= receta.dieta %> </p>
                     <h3 class="titulo-receta mb-2"><%= receta.nombre %> </h3>
-                    <span class="tiempo-coccion"><i class="far fa-clock"></i> <span class="reloj"> <%= receta.tiempo_coccion %> minutos </span> </span>
-                    <span class="dificultad"> <span class="dificulad"> - <i class="fas fa-utensil-spoon"></i>   <%= receta.dificultad %> </span> </span>
+                    <span class="tiempo-coccion"><i class="far fa-clock"></i> <span class="reloj">
+                            <%= receta.tiempo_coccion %> minutos </span> </span>
+                    <span class="dificultad"> <span class="dificulad"> - <i class="fas fa-utensil-spoon"></i>
+                            <%= receta.dificultad %> </span> </span>
                 </div>
                 <img src="/images/recetas/<%= receta.image %>" alt=" <%= receta.nombre %> " class="imagen-receta">
 
@@ -56,74 +65,80 @@
 
                             <form class="ingredientes-receta cargar-ajax" method="post" action="lista-de-compras.php">
                                 <h2 class="titulo-ingredientes-receta">Ingredientes</h2>
-                                <h3 class="cantidad-porciones-receta">Para <select id="slcCantidad" class="numero-cantidad-porciones-receta">
+                                <h3 class="cantidad-porciones-receta">Para <select id="slcCantidad"
+                                        class="numero-cantidad-porciones-receta">
                                         <!-- <div class="titulo-ajustar-porciones-receta">Ajustar porciones:</div> -->
-                                        
+
                                         <option value="default">hacer esta</option>
                                         <option value="mitad">la mitad de la</option>
                                         <option value="doble">el doble de la</option>
                                         <option value="triple">el triple de la</option>
                                         <option value="cuádruple">el cuádruple de la</option>
-                                        
+
                                     </select> preparación</h3>
 
-                               
-                                    <% for( let ingrediente of receta.ingredientes ) { %>
-                                    
-                                        <div class="ingrediente-receta checkbox">
-                                        
-                                            <label class="label-check">
-                                                <input class="check checkbox-original checkbox-ingrediente-receta"                                            type="checkbox" name="ingredientes" value="">
-                                                <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
-                                                <span class="cantidad-ingrediente-receta"> <%= ingrediente.cantidad %></span> 
-                                                <span class="cantidad-ingrediente-receta"> <%= ingrediente.unidad %> </span>
-                                                <span class="descripcion-ingrediente-receta"> <%= ingrediente.nombre_ingrediente  %></span>
-                                            </label>
-                                        </div>
-                                
-                                    <% } %>
-                             
-                                        <!-- Checkbox para seleccionar todos los ingredientes -->
-                                            <div class="checkbox">
-                                                <label class="label-seleccionar-todos">
-                                                    <i class="fas fa-tasks"></i> <input id="checkAll"
-                                                        class="check checkbox-original checkbox-seleccionar-todos" type="checkbox">
-                                                    <span class="checkbox-reemplazo"></span>
-                                                    Seleccionar todos
-                                                </label>
-                                            </div>
+                                <!-- INGREDIENTES -->
+                                <% for( let ingrediente of receta.ingredientes ) { %>
+
+                                <div class="ingrediente-receta checkbox">
+
+                                    <label class="label-check">
+                                        <input class="check checkbox-original checkbox-ingrediente-receta"
+                                            type="checkbox" name="ingredientes" value="">
+                                        <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
+                                        <span class="cantidad-ingrediente-receta"> <%= ingrediente.cantidad %></span>
+                                        <span class="cantidad-ingrediente-receta"> <%= ingrediente.unidad %> </span>
+                                        <span class="descripcion-ingrediente-receta">
+                                            <%= ingrediente.nombre_ingrediente  %></span>
+                                    </label>
+                                </div>
+
+                                <% } %>
+
+                                <!-- Checkbox para seleccionar todos los ingredientes -->
+                                <div class="checkbox">
+                                    <label class="label-seleccionar-todos">
+                                        <i class="fas fa-tasks"></i> <input id="checkAll"
+                                            class="check checkbox-original checkbox-seleccionar-todos" type="checkbox">
+                                        <span class="checkbox-reemplazo"></span>
+                                        Seleccionar todos
+                                    </label>
+                                </div>
 
                                 <button class="boton-central-receta" name="agregar">Agregar al carrito </button>
                             </form>
 
+                            <!-- PREPARACIÓN -->
                             <div class="preparacion-receta">
                                 <h2 class="titulo-preparacion-receta">Preparación</h2>
                                 <h3 class="subtitulo-preparacion-receta">Seguí los pasos de la receta aquí o en la vista
                                     de cocina.</h3>
 
-                                    
-                                    <% for( let i = 0; i < receta.pasos.length; i++ ) { %>
 
-                                        <div class="pasos-preparacion-receta">
-                                            <div class="paso-preparacion-receta">
-                                                <label for="checkbox-original">
-                                                    <input class="checkbox-original checkbox-paso-preparacion-receta"
-                                                    type="checkbox">
-                                                    <span class="checkbox-reemplazo checkbox-paso-preparacion-receta"></span>
-                                                    <span class="numero-paso-preparacion-receta"> <%= i + 1 %>.  </span>
-                                                    <span class="tachado-checkbox"><span class="paso-receta texto-tachado-checkbox"> <%= receta.pasos[i] %> </span></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    <% } %>
+                                <% for( let i = 0; i < receta.pasos.length; i++ ) { %>
 
-                               <button type="button" class="boton  boton-central-receta" data-toggle="modal"
+                                <div class="pasos-preparacion-receta">
+                                    <div class="paso-preparacion-receta">
+                                        <label for="checkbox-original">
+                                            <input class="checkbox-original checkbox-paso-preparacion-receta"
+                                                type="checkbox">
+                                            <span class="checkbox-reemplazo checkbox-paso-preparacion-receta"></span>
+                                            <span class="numero-paso-preparacion-receta"> <%= i + 1 %>. </span>
+                                            <span class="tachado-checkbox"><span
+                                                    class="paso-receta texto-tachado-checkbox"> <%= receta.pasos[i] %>
+                                                </span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <% } %>
+
+                                <button type="button" class="boton  boton-central-receta" data-toggle="modal"
                                     data-target="#exampleModalCenter">
                                     Vista de cocina
                                 </button>
                             </div>
 
-                            <!-- Modal -->
+                            <!-- MODAL: VISTA DE COCINA -->
                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                                 aria-labelledby="modalCenterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -131,55 +146,68 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
+
+                                        <!-- HEADER MODAL -->
                                         <div class="modal-header modal-header-receta">
                                             <h5 class="modal-title" id="exampleModalLongTitle"><%= receta.nombre %>
                                             </h5>
-                                            <h6 class="procedimientos"> </span> <span>Total de pasos a seguir:</span> <br><br> <span class="cantidad_pasos"><%= receta.pasos.length %> </h6>                          
+                                            <h6 class="procedimientos"> </span> <span>Total de pasos a seguir:</span>
+                                                <br><br> <span class="cantidad_pasos"><%= receta.pasos.length %> </h6>
                                         </div>
+
+                                        <!-- BODY MODAL -->
                                         <div class="modal-body">
                                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="false"
                                                 data-interval="false">
                                                 <ol class="carousel-indicators">
                                                     <% for( let i = 0; i <= receta.pasos.length; i++ ) { %>
-                                                    
-                                                        <li data-target="#carouselExampleIndicators" data-slide-to="<% [i] %> "
-                                                        class="active"></li>
-                                                        <% } %>
+
+                                                    <li data-target="#carouselExampleIndicators"
+                                                        data-slide-to="<% [i] %> " class="active"></li>
+                                                    <% } %>
                                                 </ol>
                                                 <div class="carousel-inner">
                                                     <div class="carousel-item active">
                                                         <div class="paso-carrusel">
                                                             <span class="numero-paso-carrusel"></span>
-                                                            
                                                         </div>
-                                                        <p class="descripcion-paso-carrusel instruccion_carrusel"> Desplázate hacia la derecha para ir viendo los pasos de esta deliciosa receta. <br></p>
+
+                                                        <!-- PRESENTACIÓN DE PASOS -->
+                                                        <p class="descripcion-paso-carrusel instruccion_carrusel">
+                                                            Desplázate hacia la derecha para ir viendo los pasos de esta
+                                                            deliciosa receta. <br></p>
                                                         <img src="/images/horneando.svg" alt="" class="horneando">
                                                     </div>
 
+                                                        <!-- PASOS -->
                                                     <% for( let i = 0; i < receta.pasos.length; i++ ) { %>
                                                     <div class="carousel-item ">
                                                         <div class="paso-carrusel">
                                                             <span class="numero-paso-carrusel"><%= i + 1  %> </span>
-                                                            <p class="descripcion-paso-carrusel"> <%= receta.pasos[i] %> </p>
+                                                            <p class="descripcion-paso-carrusel"> <%= receta.pasos[i] %>
+                                                            </p>
                                                         </div>
                                                     </div>
                                                     <% } %>
-                                                    
-                                                    
+
                                                 </div>
+
+                                                <!-- BOTONES PREVIO Y SIGUIENTE -->
                                                 <a class="carousel-control-prev" href="#carouselExampleIndicators"
                                                     role="button" data-slide="prev">
-                                                    <span class="receta-prev carousel-control-prev" aria-hidden="true"><i class="fas fa-arrow-left"></i></span>
+                                                    <span class="receta-prev carousel-control-prev"
+                                                        aria-hidden="true"><i class="fas fa-arrow-left"></i></span>
                                                     <span class="sr-only">Previous</span>
                                                 </a>
                                                 <a class="carousel-control-next" href="#carouselExampleIndicators"
                                                     role="button" data-slide="next">
-                                                    <span class="receta-next carousel-control-next" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                                                    <span class="receta-next carousel-control-next"
+                                                        aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
                                                     <span class="sr-only">Next</span>
                                                 </a>
                                             </div>
                                         </div>
-                                    
+
                                     </div>
                                 </div>
                             </div>
@@ -199,11 +227,9 @@
     <!-- /FOOTER -->
 
     <!-- Scripts -->
-    <script
-    src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous">
-</script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+    </script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
