@@ -20,9 +20,10 @@
     <div class="container container-tarjetas-recetas " id="tarjetas">
         <!-- Sitemap -->
         <div class="siteMap col-12" style="margin-left: 10%">
-            <span>Volver al listado  | </span> <a href="/">Home</a> <span> > </span><a href="/product/">Productos</a> <span> <br><br>
-         </div>
-         
+            <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/product/">Productos</a>
+            <span> <br><br>
+        </div>
+
         <h3 class="col-12 titulo_seccion">Nuestros productos</h3>
         <% for (let product of productos) { %>
         <%- include('partials/productCard', {product}) %>
