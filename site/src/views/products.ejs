@@ -16,21 +16,15 @@
     <!-- /HEADER -->
 
     <div class="container container-tarjetas-recetas " id="tarjetas">
+        <div class="siteMap col-12" style="margin-left: 10%">
+            <span>Volver al listado  | </span> <a href="/">Home</a> <span> > </span><a href="/product/">Productos</a> <span> <br><br>
+         </div>
         <h3 class="col-12 titulo_seccion">Nuestros productos</h3>
 
 
-        <% for( let i = 0; i < productos.length; i++ ) { %>
+        <% for (let product of productos) { %>
 
-
-        <div class="ladofrente tarjeta-recetas">
-            <a href="details/<%= productos[i].id %>">
-                <figure class="img-tarjeta-receta">
-                    <img src="/images/<%= productos[i].image %>" alt="<%= productos[i].nombre %>">
-                </figure>
-                <h3 class="tituloscard"><%= productos[i].nombre %></h3>
-                <span class='descripcion_receta descripcion_tarjeta_receta'><%= productos[i].descripcion %></span>
-            </a>
-        </div>
+        <%- include('partials/productCard', {product}) %>
 
         <% } %>
     </div>
