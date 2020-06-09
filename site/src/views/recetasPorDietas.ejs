@@ -14,9 +14,13 @@
     <!-- HEADER -->
     <%- include("partials/header") %>
     <!-- /HEADER -->
-
+    
+     
     <div class="container container-tarjetas-recetas " id="tarjetas">
-
+        <div class="siteMap col-12" style="margin-left: 10%">
+            <span>Volver al listado  | </span> <a href="/">Home</a> <span> > </span><a href="/recetas/">Recetas</a> <span> <br><br>
+         </div>
+        
         <% if (receta.dieta !== "vegana" && receta.dieta !== "vegetariana") { %>
 
             <h3 class="col-12 titulo_seccion">Recetas <%= receta.dieta %>  </h3>
