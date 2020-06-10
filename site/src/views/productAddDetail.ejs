@@ -14,7 +14,9 @@
         <!-- Upload product -->
         <div class="container-fluid align-content-around carga_producto">
 
-            <form action="/product/add" method="post" enctype="multipart/form-data" onsubmit="parent.location.href = '/product/add'">
+            <!-- <form action="/product/add" method="post" enctype="multipart/form-data" onsubmit="window.top.location.reload(true);"> -->
+            <form action="/product/add" method="post" enctype="multipart/form-data" onsubmit="window.top.location.href = window.top.location.href;">
+
                 <div class="row">
                     <!-- COLUMNA 1 - NOMBRE Y DESCRIPCIÓN -->
                     <div class="container left-column  order-1 col-11 col-md-5 col-lg-4 d-block">

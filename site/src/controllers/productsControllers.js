@@ -13,6 +13,7 @@ const dietas = getDietas();
 
 function getProducts() {
     let productsJson = fs.readFileSync(productsPath, 'utf-8');
+
     if (productsJson != ' ') {
         return JSON.parse(productsJson)
     } else {
@@ -48,28 +49,27 @@ function getDietas() {
 };
 
 function getProductById(id) {
-    let products = getProducts()
-    return products.find(product => product.id == id)
+    return products.find(product => product.id == id);
 }
 
 function saveProduct(product) {
-    let products = getProducts();
+    // let products = getProducts();
     let esNuevo = true;
     products.forEach((productoExistente, index) => {
         if (productoExistente.id == product.id) {
             esNuevo = false;
-
             if (typeof product.image == 'undefined')
                 product.image = products[index].image;
             products[index] = product;
         }
     });
+
     if (esNuevo == true) products.push(product);
     fs.writeFileSync(productsPath, JSON.stringify(products, null, ' '));
 }
 
 function productIdGenerator() {
-    let products = getProducts();
+    // let products = getProducts();
     let mayor = 1;
     if (products.length) {
         products.forEach(product => {
@@ -107,7 +107,6 @@ const controller = {
     },
 
     add: (req, res) => {
-        let products = getProducts()
         res.render('productAdd', { products });
     },
 
@@ -116,8 +115,12 @@ const controller = {
     },
 
     addShowDetails: (req, res) => {
-        // let products = getProducts()
-        let product = getProductById(req.params.id);
+        let product;
+        if (typeof getProductById(req.params.id) != 'undefined') {
+            product = getProductById(req.params.id);
+        } else {
+            product = getProductById(Math.min.apply(null, products.map(function(a) { return a.id; })));
+        }
 
         for (i = 0; i < categorias.length; i++) {
             var xx = categorias[i].checked = (product.categoria.find((categoria) => {
@@ -137,18 +140,15 @@ const controller = {
             })) ? 1 : 0;
         }
 
-        // Debo mostrar un mensaje tanto si lo encuentro como si no
         if (product == null) {
             // Acá debería mostrar un mensaje de error
             return res.redirect('/');
         }
-        const edit = 0;
 
-        res.render('productAddDetail', { product, categorias, dietas, recetas, edit });
+        res.render('productAddDetail', { product, categorias, dietas, recetas, edit: false });
     },
 
     addEditDetails: (req, res) => {
-        // let products = getProducts()
         let product = [];
 
         if (req.params.id == "nuevo") {
@@ -157,7 +157,7 @@ const controller = {
             product.nombre = "";
             product.descripcion = "";
             product.descripcion_breve = "";
-            product.cantidad = [cantidad = 0, unidad_medida = "g"];
+            product.cantidad = [cantidad = 100, unidad_medida = "gr."];
             product.precio = 0;
             product.descuento = 0;
             product.stock = 0;
@@ -167,7 +167,14 @@ const controller = {
             product.receta = [];
             product.dieta = [];
 
-        } else product = getProductById(req.params.id);
+        } else {
+            product = getProductById(req.params.id);
+            if (product == null) {
+                // Acá debería mostrar un mensaje de error
+                return res.redirect('/');
+            }
+        }
+
 
         for (i = 0; i < categorias.length; i++) {
             var xx = categorias[i].checked = (product.categoria.find((categoria) => {
@@ -187,19 +194,11 @@ const controller = {
             })) ? 1 : 0;
         }
 
-        // Debo mostrar un mensaje tanto si lo encuentro como si no
-        if (product == null) {
-            // Acá debería mostrar un mensaje de error
-            return res.redirect('/');
-        }
-        const edit = 1;
-
-        res.render('productAddDetail', { product, categorias, dietas, recetas, edit });
+        res.render('productAddDetail', { product, categorias, dietas, recetas, edit: true });
 
     },
 
     addSaveDetails: (req, res, next) => {
-        console.log(req.body)
         let product = {
             codigo: req.body.codigo,
             nombre: req.body.nombre,
@@ -220,41 +219,49 @@ const controller = {
         if (!Array.isArray(product.dieta)) {
             product.dieta = [product.dieta];
         }
-        if (!Array.isArray(product.receta))
-            product.receta = [product.receta];
-        if (!Array.isArray(product.categoria))
-            product.categoria = [product.categoria];
 
-        if (typeof req.file !== 'undefined') {
-            product.image = req.file.filename
-        } else if (typeof req.body.imageDeleted !== 'undefined') {
-            product.image = "defaultProduct.jpg"
+        if (!Array.isArray(product.receta)) {
+            product.receta = [product.receta];
         }
 
-        if (typeof req.body.habilitado !== 'undefined')
-            product.habilitado = true;
-        else product.habilitado = false;
+        if (!Array.isArray(product.categoria)) {
+            product.categoria = [product.categoria];
+        }
 
-        if (typeof req.body.id !== 'undefined')
+
+        if (typeof req.file !== 'undefined') {
+            product.image = req.file.filename //si  se seleccionó algún archivo de imagen
+        } else if (
+            typeof req.body.imageDeleted !== 'undefined' ||
+            typeof req.imgage == 'undefined') {
+            product.image = "defaultProduct.jpg"; // si no se seleccionó y (se borró la imagen que tenía o es producto nuevo) 
+        }
+
+        if (typeof req.body.habilitado !== 'undefined') {
+            product.habilitado = true;
+        } else {
+            product.habilitado = false;
+        }
+
+        if (typeof req.body.id !== 'undefined') {
             product.id = parseInt(req.body.id);
-        else product.id = productIdGenerator();
-        console.log(product.id);
+        } else {
+            product.id = productIdGenerator();
+        }
 
         saveProduct(product);
     },
 
     delete: (req, res, next) => {
-        let products = getProducts();
+        //      let products = getProducts();
         products.forEach((product, index) => {
-            console.log(req.body);
-            console.log(product.id);
-            console.log(req.body.id);
             if (product.id == parseInt(req.body.id)) {
                 products.splice(index, 1);
             }
         });
         fs.writeFileSync(productsPath, JSON.stringify(products, null, ' '));
-        controller.add(req, res);
+        //controller.add(req, res);
+        res.redirect('add');
     }
 };
 

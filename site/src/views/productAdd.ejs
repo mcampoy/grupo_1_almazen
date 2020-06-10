@@ -14,7 +14,6 @@
         <!-- HEADER -->
         <%- include("partials/header") %>
             <!-- /HEADER -->
-
             <!-- Upload product -->
             <div class="row  carga_producto pb-5 justify-content-around">
                 <h2 class="col-12 row justify-content-center  pageTitle">Carga de Productos</h2>
@@ -102,7 +101,6 @@
     <!-- Fin DIV Container-->
 
     <script type='text/javascript'>
-        var productID = '1';
         var editando = false;
 
         function buscar() {
@@ -129,7 +127,6 @@
 
         function borrar() {
             document.getElementById("idProducto").value = productID;
-            console.log(productID);
             document.getElementById("borrarForm").action = "/product/delete";
             document.getElementById("borrarForm").submit();
         }
