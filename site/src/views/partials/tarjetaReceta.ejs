@@ -4,7 +4,16 @@
         <a href="/recetas/<%= receta.id %>">
            <span class="etiqueta-dieta-receta"> <%= receta.dieta %>  </span>
             <figure class="img-tarjeta-receta">
-                <img src="/images/recetas/<%= receta.image %>" alt="<%= receta.nombre %>">
+
+                <% if (receta.dieta == "sin gluten") { %>
+                    <!-- Sin es sin gluten añade el logo de sin tacc -->
+                        <img src="/images/recetas/<%= receta.image %>" alt="Foto de <%= receta.nombre %> ">
+                        <img class="singlutenLogo-recetas" src="/images/logos/sintaccLogo.png" alt="Logo de productos sin gluten">
+
+                <% } else { %>
+                    <img src="/images/recetas/<%= receta.image %>" alt="<%= receta.nombre %>">
+                <% } %>
+
             </figure>
             <h3 class="tituloscard-receta"><%= receta.nombre %></h3>
             <span class='descripcion_receta descripcion_tarjeta_receta'><%= receta.descripcion %></span>

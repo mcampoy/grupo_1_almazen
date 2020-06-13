@@ -119,7 +119,15 @@
                 <!-- si va más de una receta, insertar el comienzo del for acá -->
                 <a href="/recetas/<%= receta.id %>" class="col-12 col-md-12 col-lg-12 d-flex flex-wrap">
                     <figure class="col-11 col-md-12 col-lg-5 imagen_receta ">
-                        <img src="/images/recetas/<%= receta.image %>" alt="imagen de receta" class="col-12">
+                        <% if (receta.dieta == "sin gluten") { %>
+                            <!-- Sin es sin gluten añade el logo de sin tacc -->
+                            <img src="/images/recetas/<%= receta.image %>" alt="imagen de <%= receta.nombre %> " class="col-12">
+                                <img class="singlutenLogo-recetas logoSG-index" src="/images/logos/sintaccLogo.png" alt="Logo de productos sin gluten">
+
+                        <% } else { %>
+
+                            <img src="/images/recetas/<%= receta.image %>" alt="imagen de <%= receta.nombre %> " class="col-12">
+                        <% } %>
                     </figure>
                     <article class="col-11 col-md-12 col-lg-6 d-sm-block">
 

@@ -1283,7 +1283,7 @@ select {
     padding-left: 5%;
 }
 
-.tarjeta-recetas {
+.tarjeta-recetas  {
     margin: 5%;
     text-decoration: none;
     text-align: justify !important;
@@ -1296,9 +1296,27 @@ select {
     }
 }
 
+.tarjeta-recetas figure {
+    position: relative !important;
+}
+
 .img-tarjeta-receta img {
     width: 100% !important;
     height: auto !important;
+}
+
+figure img.singlutenLogo-recetas {
+    width: 13% !important;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+/* LOGO DE SIN GLUTEN DE LA HOME */
+
+img.singlutenLogo-recetas.logoSG-index {
+    left: 6%;
+    width: 10% !important;
 }
 
 .descripcion_tarjeta_receta {
@@ -1360,6 +1378,14 @@ select {
     width: 100%;
     border-radius: 2%;
     margin: 5% 0;
+    position: relative;
+}
+
+/* LOGO SIN GLUTEN */
+figure img.sg-logo-receta {
+    top: 8%;
+    left: 2%;
+    width: 10% !important;
 }
 
 .acciones-receta {
@@ -1409,6 +1435,7 @@ select {
     font-weight: 500;
     border: 0.1px solid #777;
     text-align: center;
+    border-radius:4px
 }
 
 .ingredientes-receta {

@@ -33,7 +33,16 @@
                     <span class="dificultad"> <span class="dificulad"> - <i class="fas fa-utensil-spoon"></i>
                             <%= receta.dificultad %> </span> </span>
                 </div>
-                <img src="/images/recetas/<%= receta.image %>" alt=" <%= receta.nombre %> " class="imagen-receta">
+                <figure class="imagen-receta">
+                    <% if (receta.dieta == "sin gluten") { %>
+                        <!-- Sin es sin gluten añade el logo de sin tacc -->
+                        <img src="/images/recetas/<%= receta.image %>" alt=" <%= receta.nombre %> " class="imagen-receta">
+                        <img class="singlutenLogo-recetas sg-logo-receta" src="/images/logos/sintaccLogo.png" alt="Logo de productos sin gluten">
+                    
+                    <% } else { %>
+                        <img src="/images/recetas/<%= receta.image %>" alt=" <%= receta.nombre %> " class="imagen-receta">
+                    <% } %>
+                </figure>
 
                 <div class="descripcion_receta">
                     <p><%= receta.descripcion%> </p>
