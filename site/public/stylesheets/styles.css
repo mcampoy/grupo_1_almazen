@@ -1364,6 +1364,10 @@ img.singlutenLogo-recetas.logoSG-index {
     margin: 0;
 }
 
+.productos-receta {
+    margin-top: 50px;
+}
+
 .fa-clock,
 .reloj,
 .dificulad {
@@ -1429,6 +1433,20 @@ figure img.sg-logo-receta {
 .short-description-receta h3 {
     font-size: 0.8em;
     margin-bottom: 5%;
+}
+
+.prod-carrousel figure {
+    display: flex;
+    justify-content: center;
+}
+.img-prod-carrousel {
+    width: 50%;
+    border-radius: 4px;
+    justify-content: center;
+}
+
+.info-prod-carrousel{
+    margin-left: 10%;
 }
 
 #slcCantidad {

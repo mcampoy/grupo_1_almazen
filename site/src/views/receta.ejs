@@ -24,7 +24,7 @@
             </div>
 
             <!-- Receta -->
-            <figure class="col-12 col-lg-6 descripcion-receta">
+            <section class="col-12 col-lg-6 descripcion-receta">
                 <div class="encabezado-receta">
                     <p class="categoria-receta"><%= receta.dieta %> </p>
                     <h3 class="titulo-receta mb-2"><%= receta.nombre %> </h3>
@@ -38,7 +38,7 @@
                         <!-- Sin es sin gluten añade el logo de sin tacc -->
                         <img src="/images/recetas/<%= receta.image %>" alt=" <%= receta.nombre %> " class="imagen-receta">
                         <img class="singlutenLogo-recetas sg-logo-receta" src="/images/logos/sintaccLogo.png" alt="Logo de productos sin gluten">
-                    
+
                     <% } else { %>
                         <img src="/images/recetas/<%= receta.image %>" alt=" <%= receta.nombre %> " class="imagen-receta">
                     <% } %>
@@ -47,7 +47,44 @@
                 <div class="descripcion_receta">
                     <p><%= receta.descripcion%> </p>
                 </div>
-            </figure>
+
+                <div class="productos-receta">
+                    <h4>Nuestro productos para esta receta</h4>
+
+                    <div class="products-carrousel">
+
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img class="d-block w-100" src="/images/Logo.svg" alt="First slide">
+                              </div>
+                              <% for( let product of products ) { %>
+                              <div class="carousel-item">
+                                <a class="prod-carrousel" href="../product/details/<%= product.id %> ">
+                                    <figure class="product-box_image">
+                                    <img class="img-prod-carrousel" src="/images/<%= product.image %>" alt="Second slide">
+                                    </figure>
+                                    <div class="info-prod-carrousel">
+                                        <h2 class="titulo_producto"><%= product.nombre %></h2>
+                                        <span class="ml-auto precio_producto"> $<%= product.precio %> </span>
+                                    </div>
+                                </a>
+                              </div>
+                              <% } %>
+
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                            </a>
+                          </div>
+                    </div>
+                </div>
+            </section>
 
             <div class="col-12 col-lg-6">
                 <div class="description-wrapper-details">
@@ -97,8 +134,7 @@
                                         <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
                                         <span class="cantidad-ingrediente-receta"> <%= ingrediente.cantidad %></span>
                                         <span class="cantidad-ingrediente-receta"> <%= ingrediente.unidad %> </span>
-                                        <span class="descripcion-ingrediente-receta">
-                                            <%= ingrediente.nombre_ingrediente  %></span>
+                                        <span class="descripcion-ingrediente-receta"> <%= ingrediente.nombre_ingrediente  %></span>
                                     </label>
                                 </div>
 
@@ -114,7 +150,7 @@
                                     </label>
                                 </div>
 
-                                <button class="boton-central-receta" name="agregar">Agregar al carrito </button>
+                                <button class="boton-central-receta" name="agregar">Agregar lista de compras </button>
                             </form>
 
                             <!-- PREPARACIÓN -->
