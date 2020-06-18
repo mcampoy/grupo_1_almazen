@@ -1305,14 +1305,13 @@ select {
     height: auto !important;
 }
 
+/* LOGO DE SIN GLUTEN DE LA HOME */
 figure img.singlutenLogo-recetas {
     width: 13% !important;
     position: absolute;
     top: 5px;
     left: 5px;
 }
-
-/* LOGO DE SIN GLUTEN DE LA HOME */
 
 img.singlutenLogo-recetas.logoSG-index {
     left: 6%;
@@ -1364,10 +1363,6 @@ img.singlutenLogo-recetas.logoSG-index {
     margin: 0;
 }
 
-.productos-receta {
-    margin-top: 50px;
-}
-
 .fa-clock,
 .reloj,
 .dificulad {
@@ -1391,6 +1386,55 @@ figure img.sg-logo-receta {
     left: 2%;
     width: 10% !important;
 }
+
+
+/* CARROUSEL DE PRODUCTOS */
+.productos-receta {
+    margin-top: 50px;
+}
+
+.nombre_producto_receta {
+    font-size: var(--fontSizeTituloProducto);
+}
+
+.precio_producto-carrousel {
+    font-style: var(--fontweightPrecioProducto);
+    color: var(--colorDescripcionProducto);
+    font-size: .8em;
+}
+
+.prod-carrousel figure {
+    display: flex;
+    justify-content: center;
+}
+
+.presentacion-carrousel-prod {
+    width: 50% !important;
+    border-radius: 4px;
+    margin-left: 25%;
+    margin-top: 5%;
+}
+
+.img-prod-carrousel {
+    width: 50%;
+    border-radius: 4px;
+    justify-content: center;
+}
+
+.info-prod-carrousel{
+    margin-left: 25%;
+    display: flex;
+}
+
+.nombre_producto_receta {
+  width: 100%;
+}
+
+.precio_producto-carrousel {
+    margin-left: 2%;
+}
+
+/* BOTONES DE ACCIÓN */
 
 .acciones-receta {
     text-align: center;
@@ -1433,20 +1477,6 @@ figure img.sg-logo-receta {
 .short-description-receta h3 {
     font-size: 0.8em;
     margin-bottom: 5%;
-}
-
-.prod-carrousel figure {
-    display: flex;
-    justify-content: center;
-}
-.img-prod-carrousel {
-    width: 50%;
-    border-radius: 4px;
-    justify-content: center;
-}
-
-.info-prod-carrousel{
-    margin-left: 10%;
 }
 
 #slcCantidad {

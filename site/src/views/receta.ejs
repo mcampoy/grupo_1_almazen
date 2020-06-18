@@ -55,8 +55,8 @@
 
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img class="d-block w-100" src="/images/Logo.svg" alt="First slide">
+                              <div class="carousel-item active contenedor-presentacion">
+                                <img class="d-block w-100 presentacion-carrousel-prod" src="/images/Logo.svg" alt="First slide">
                               </div>
                               <% for( let product of products ) { %>
                               <div class="carousel-item">
@@ -65,8 +65,7 @@
                                     <img class="img-prod-carrousel" src="/images/<%= product.image %>" alt="Second slide">
                                     </figure>
                                     <div class="info-prod-carrousel">
-                                        <h2 class="titulo_producto"><%= product.nombre %></h2>
-                                        <span class="ml-auto precio_producto"> $<%= product.precio %> </span>
+                                        <h2 class="titulo_producto nombre_producto_receta"><%= product.nombre %>  <span class="precio_producto-carrousel"> $<%= product.precio %> </span></h2>
                                     </div>
                                 </a>
                               </div>
@@ -150,7 +149,32 @@
                                     </label>
                                 </div>
 
-                                <button class="boton-central-receta" name="agregar">Agregar lista de compras </button>
+                                <button type="button" class="boton  boton-central-receta" data-toggle="modal"
+                                data-target="#lista-compras">
+                                Agregar a lista de compras
+                                </button>
+
+                                <!-- MODAL: LSITA DE COMPRAS -->
+                                        <div class="modal fade" id="lista-compras" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Lista de compras</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                ...
+                                                </div>
+                                                <!-- <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div> -->
+                                            </div>
+                                            </div>
+                                        </div>
+                                <!-- / MODAL: LSITA DE COMPRAS -->
                             </form>
 
                             <!-- PREPARACIÓN -->
@@ -177,14 +201,14 @@
                                 </div>
                                 <% } %>
 
-                                <button type="button" class="boton  boton-central-receta" data-toggle="modal"
-                                    data-target="#exampleModalCenter">
+                                <button type="button" class="boton boton-central-receta" data-toggle="modal"
+                                    data-target="#pasos">
                                     Vista de cocina
                                 </button>
                             </div>
 
                             <!-- MODAL: VISTA DE COCINA -->
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="pasos" tabindex="-1" role="dialog"
                                 aria-labelledby="modalCenterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
