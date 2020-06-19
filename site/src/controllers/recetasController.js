@@ -24,12 +24,10 @@ const controller = {
 
     receta: (req, res) => {
 
-      
-      
       const receta = recetas.find((receta)=>{
         return receta.id == req.params.id;
       })
-           
+
           if(receta == null){
 
             return res.redirect('/');
@@ -53,6 +51,13 @@ const controller = {
         }
 
       res.render('recetasPorDietas', {dietas, receta});
+    },
+
+    listaCompras: (req, res) => {
+      let prodSelecc = {...req.body};
+      console.log(prodSelecc);
+      res.send('hola', {prodSelecc})
+
     }
 };
 

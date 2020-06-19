@@ -92,23 +92,26 @@
 
                             <!-- Acciones -->
                             <div class="acciones-receta">
-                                <a class="accion-receta favorito" rel="nofollow" href="#"" title=" Me gusta">
+                                <a class="accion-receta favorito" href="#" title=" Me gusta">
                                     <i class="far fa-heart"></i>
                                 </a>
-                                <a class="accion-receta agregar" rel="nofollow" href="#"
+                                <a class="accion-receta agregar" href="#"
                                     title="Agregar a mis recetarios">
                                     <i class="fas fa-book"></i>
                                 </a>
-                                <a class="cargar-ajax accion-receta compartir" rel="nofollow"
-                                    href="compartir.php?receta=95-panqueques-con-dulce-de-leche" title="Compartir">
+                                <a class="accion-receta compartir" href="#" title="Compartir">
                                     <i class="fas fa-share-alt"></i>
                                 </a>
+                                <button type="button" class="boton  boton-central-receta" data-toggle="modal"
+                                data-target="#lista-compras">
+                                    <i class="fas fa-tasks"></i>
+                                </button>
                             </div>
 
                             <!-- /Acciones -->
 
 
-                            <form class="ingredientes-receta cargar-ajax" method="post" action="lista-de-compras.php">
+                            <form class="ingredientes-receta" method="#" action="#">
                                 <h2 class="titulo-ingredientes-receta">Ingredientes</h2>
                                 <h3 class="cantidad-porciones-receta">Para <select id="slcCantidad"
                                         class="numero-cantidad-porciones-receta">
@@ -133,7 +136,7 @@
                                         <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
                                         <span class="cantidad-ingrediente-receta"> <%= ingrediente.cantidad %></span>
                                         <span class="cantidad-ingrediente-receta"> <%= ingrediente.unidad %> </span>
-                                        <span class="descripcion-ingrediente-receta"> <%= ingrediente.nombre_ingrediente  %></span>
+                                        <span class="descripcion-ingrediente-receta"> <%= ingrediente.nombre_ingrediente %></span>
                                     </label>
                                 </div>
 
@@ -149,7 +152,7 @@
                                     </label>
                                 </div>
 
-                                <button type="button" class="boton  boton-central-receta" data-toggle="modal"
+                                <button type="submit" class="boton  boton-central-receta" data-toggle="modal"
                                 data-target="#lista-compras">
                                 Agregar a lista de compras
                                 </button>
