@@ -136,7 +136,7 @@
 
                                 <div class="ingrediente-receta checkbox">
 
-                                    <label class="label-check">
+                                    <label class="label-check nombre_item">
                                         <input class="check checkbox-original checkbox-ingrediente-receta"
                                             type="checkbox" name="ingredientes" value="">
                                         <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
@@ -307,19 +307,6 @@
     <!-- /FOOTER -->
 
     <!-- Scripts -->
-    <script>
-
-        let pasos = document.querySelectorAll('.paso-receta')
-        console.log(pasos);
-
-        for (const paso of pasos) {
-
-            paso.addEventListener('click', function () {
-                paso.classList.toggle('tachado')
-            })
-
-        }
-    </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
     </script>
@@ -333,9 +320,19 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
     <script>
+        // Seleccionar todos con jquery
         $("#checkAll").click(function () {
             $(".check").prop('checked', $(this).prop('checked'));
         });
+
+        // Tachar los pasos cuando los seleccionamos
+        let pasos = document.querySelectorAll('.paso-receta')
+        console.log(pasos);
+        for (const paso of pasos) {
+            paso.addEventListener('click', function () {
+                paso.classList.toggle('tachado-paso')
+            })
+        }
     </script>
     <!-- /Scripts -->
     </div>

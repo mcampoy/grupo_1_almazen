@@ -11,6 +11,6 @@ router.get('/addShow/:id', productsControllers.addShowDetails);
 router.get('/addEdit/:id', productsControllers.addEditDetails);
 
 router.post('/delete', productsControllers.delete);
-router.post('/add', middUploadFile.uploadFile, productsControllers.addSaveDetails);
+router.put('/add', middUploadFile.uploadFile, productsControllers.addSaveDetails);
 
 module.exports = router;
