@@ -1572,8 +1572,12 @@ figure img.sg-logo-receta {
 
 .paso-receta {
     padding-left: 2%;
-    text-align: justify;
     color: var(--colorDescripcionProducto);
+}
+
+.tachado {
+    color: #CF664F; 
+    text-decoration: line-through;
 }
 
 .pasos-preparacion-receta:nth-child(odd) {
