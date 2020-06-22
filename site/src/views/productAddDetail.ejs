@@ -3,8 +3,6 @@
 
 <head>
     <%- include("partials/head", {title:"Agregar producto"}) %>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 </head>
 
 <body style="overflow:auto">
@@ -14,7 +12,7 @@
         <div class="container-fluid align-content-around carga_producto">
 
             <!-- <form action="/product/add" method="post" enctype="multipart/form-data" onsubmit="window.top.location.reload(true);"> -->
-            <form action="/product/add" method="post" enctype="multipart/form-data" onsubmit="window.top.location.href = window.top.location.href;">
+            <form action="/product/add?_method=PUT" method="post" enctype="multipart/form-data" onsubmit="window.top.location.href = window.top.location.href;">
 
                 <div class="row">
                     <!-- COLUMNA 1 - NOMBRE Y DESCRIPCIÓN -->
@@ -82,7 +80,7 @@
                         <div class="col-12 container-fluid align-content-between">
                             <div class="form-group ">
                                 <label class="titulo_carga_producto d-inline-block col-5" for="stock">Stock</label>
-                                <input name="stock" type="number" min="0" class="form-control   d-inline-block col-6" id="stock" placeholder="0" value="<%=product.stock %>" <% if (!edit) { %> readonly
+                                <input name="stock" type="number" min="0" class="form-control d-inline-block col-6" id="stock" placeholder="0" value="<%=product.stock %>" <% if (!edit) { %> readonly
                                 <% } %>>
                             </div>
                             <label class="titulo_carga_producto d-inline-block col-12" for="cantidad">Presentación</label>
@@ -137,11 +135,11 @@
                     </div>
 
                     <!-- COLUMNA 3 - CATEGORÍAS, RECETAS Y DIETAS -->
-                    <div class=" order-2 order-lg-3 container align-content-center right-column col-12 col-md-6 col-lg-4">
+                    <div class="order-2 order-lg-3 container align-content-center right-column col-12 col-md-6 col-lg-4">
                         <div class="row justify-content-center">
                             <div class="card text-center">
                                 <div class="card-header">
-                                    <ul class=" nav nav-tabs card-header-tabs">
+                                    <ul class="nav nav-tabs card-header-tabs">
                                         <li class="nav-item">
                                             <a class="nav-link active titulo_carga_producto font-weight-bold border-white" data-toggle="tab" href="#categorias">Categorías</a>
                                         </li>
@@ -218,12 +216,13 @@
     </div>
     <!-- Fin DIV Container-->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
         var productID = document.getElementById('id').value;
 
 
         document.getElementById("btnConfSalir").onclick = function() {
-            parent.location.href = "/product/add"
+            parent.location.href = "/product/add?_method=PUT"
         }
 
         function previewImage(event) {
@@ -240,13 +239,11 @@
         function deteteImage() {
 
             var output = document.getElementById('preview-img');
-            output.src = "/images/defaultProduct.jpg";
+            output.src = "/images/defaultProduct.jpg?_method=DELETE";
             var output2 = document.getElementById('imageDeleted');
             output2.checked = true;
             var output3 = document.getElementById('image');
             output3.value = null;
-
-
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
