@@ -1094,9 +1094,7 @@ select {
     font-size: 1.9em;
 }
 
-.precio_producto-carrito {
-    padding: 0px;
-}
+
 
 .total {
     font-size: 1.5em;
@@ -1806,7 +1804,6 @@ figure img.sg-logo-receta {
     border: transparent
 }
 
-}
 
 @media(max-width:767px) {
     .cardCarrito {
@@ -1843,6 +1840,31 @@ figure img.sg-logo-receta {
     border-bottom-right-radius: 1rem;
     padding: 4vh;
     color: rgb(65, 65, 65)
+}
+.precio_producto-carrito{
+    
+    font-size: var(--fontSizeTipoReceta);
+}
+.descripcion_producto_carrito{
+    color: var(--colorTituloProducto);
+    font-size: var(--fontSizeDescripcionProducto);
+    font-family: var(--fuenteTituloProducto);
+    font-weight: var(--fontweightDescripcionProducto);
+    
+}
+.btn-finalizar-compra{
+    color: #219653;
+    background: #fff;
+    border: 1px solid #219653;
+    border-radius: 6px;
+    font-family: var(--fuenteMenuBtn);
+    font-size: 1em;
+    font-weight: var(--fontweightMenuBtn);
+    padding: 2% 4%;
+    position: relative;
+}
+.volver{
+    color: var(--colorTituloGeneral);
 }
 
 @media(max-width:767px) {
