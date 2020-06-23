@@ -1,18 +1,21 @@
 <header class="container-fluid">
-    <nav class="navbar navbar-expand-lg">
-        <a href="/" role="button" class="col-2"><img src="/images/Logo.svg" alt="marca almazen" class="navbar-brand"></a>
-        <button class="ml-auto navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    
+    <nav class="navbar navbar-expand-lg mobile">
+        <button class="navbar-toggler col-1" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <img src="/images/toggler_icon.png">
             <!--<i class="fa fa-bars"></i>-->
         </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <a href="/" role="button" class="col-3  marca"><img src="/images/Logo.svg" alt="marca almazen" class="navbar-brand d-flex"></a>
+        <!-- FORMULARIO DE BUSQUEDA -->        
+        <form action="" method="get" class="search-form col-12 col-lg-3 d-flex justify-content-center input-group">
+            <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="form-control search-form_input col-10">
+            <button type="submit" class="search-form_button col-2"><i class="fas fa-search"></i></button>
+         </form>
+         <!-- MENU COLAPSABLE -->
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="ml-auto col-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center justify-content-around navbar-nav">
 
-                <form action="" method="get" class="search-form ml-auto col-12 col-lg-4 d-flex justify-content-center input-group">
-                    <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="form-control search-form_input col-10">
-                    <button type="submit" class="search-form_button col-2"><i class="fas fa-search"></i></button>
-                </form>
+                
 
                 <!-- BOTON PRODUCTOS -->
                 <li class="col-12 col-md-12 col-lg-2 mt-1 d-flex  justify-content-center align-items-center">
@@ -32,13 +35,22 @@
                     <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/tips/tips">TIPS</a>
                 </li>
 
-                <!--<div class="col-lg-2 d-flex">-->
-                <!-- BOTON CARRITO -->
-                <li class="col-12 col-md-12 col-lg-1 mt-1 d-flex align-items-center justify-content-center">
-                    <a href="/product/cart" role="button" class="col-12 d-flex justify-content-center"><img src="/images/cart.svg" width="33px" alt="carrito"></a>
-                </li>
-                <!-- BOTON PERFIL | INGRESAR | REGISTRAR -->
-                <div class="col-12 col-md-12 col-lg-1 mt-1  d-flex justify-content-center align-items-center">
+                
+
+
+
+            </ul>
+
+
+
+        </div>
+        <!--<div class="col-lg-2 d-flex">-->
+        <!-- BOTON CARRITO -->
+         <li class="ml-auto col-1 col-md-2 col-lg-1 mt-1 d-flex align-items-center justify-content-center carrito">
+            <a href="/product/cart" role="button" class="col-12 d-flex justify-content-center"><img src="/images/cart.svg" width="33px" alt="carrito"></a>
+        </li>
+        <!-- BOTON PERFIL | INGRESAR | REGISTRAR -->
+        <div class="col-1 col-md-2 col-lg-1 mt-1 d-flex profile justify-content-center align-items-center">
                     <div class="dropdown mr-1">
 
                         <img src="/images/profile.svg" class="dropdown-toggle d-flex justify-content-end" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="33px" alt="carrito">
@@ -51,14 +63,10 @@
 
                         </div>
                     </div>
-
-
-
-            </ul>
-
-
-
-            </div>
+        </div>
+        
+        
+        
 
     </nav>
 
