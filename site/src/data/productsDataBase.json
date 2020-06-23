@@ -1,30 +1,30 @@
 [
-    {
-        "codigo": "ALM0219",
-        "nombre": "Cúrcuma",
-        "descripcion": "La cúrcuma, también denominada azufre de Indias, es una planta muy apreciada por su versatilidad gastronómica. Se le atribuyen propiedades medicinales contra el cáncer, el colesterol alto o la artrosis, entre otras enfermedades. Es nativa del suroeste de la India y es una raíz de la familia del jengibre. Se utiliza como colorante por su inconfundible color amarillo. Además, aporta un cautivante sabor dulzón con un toque picante y amargo, por lo que conviene incorporarlo en pequeñas cantidades",
-        "descripcion_breve": "Cúrcuma en polvo para darle sabor y color a tus comidas",
-        "cantidad": {
-         "cantidad": 100,
-         "unidad_medida": "gr."
-        },
-        "precio": 60,
-        "descuento": 12,
-        "stock": 3,
-        "categoria": [
-         "4",
-         "8"
-        ],
-        "receta": [
-         "3"
-        ],
-        "dieta": [
-         "3"
-        ],
-        "image": "curcuma en polvo.jpg",
-        "habilitado": true,
-        "id": 1
-    },
+ {
+  "codigo": "ALM0219",
+  "nombre": "Cúrcuma",
+  "descripcion": "La cúrcuma, también denominada azufre de Indias, es una planta muy apreciada por su versatilidad gastronómica. Se le atribuyen propiedades medicinales contra el cáncer, el colesterol alto o la artrosis, entre otras enfermedades. Es nativa del suroeste de la India y es una raíz de la familia del jengibre. Se utiliza como colorante por su inconfundible color amarillo. Además, aporta un cautivante sabor dulzón con un toque picante y amargo, por lo que conviene incorporarlo en pequeñas cantidades",
+  "descripcion_breve": "Cúrcuma en polvo para darle sabor y color a tus comidas",
+  "cantidad": {
+   "cantidad": 100,
+   "unidad_medida": "gr."
+  },
+  "precio": 60,
+  "descuento": 12,
+  "stock": 3,
+  "categoria": [
+   "4",
+   "8"
+  ],
+  "receta": [
+   "3"
+  ],
+  "dieta": [
+   "3"
+  ],
+  "image": "curcuma en polvo.jpg",
+  "habilitado": true,
+  "id": 1
+ },
  {
   "codigo": "ALM0421",
   "nombre": "Cacao",

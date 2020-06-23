@@ -69,12 +69,14 @@
                         </div>
                         <div class="col-12 row  align-items-center form-group d-flex justify-content-center align-content-middle ">
                             <% if (edit) { %>
-                                <button class="col-5 btnDeleteImage " type="button" onclick="deteteImage()">Borrar</button>
+                                <button class="col-5 btnDeleteImage " type="button" onclick="deleteImage()">Borrar</button>
                                 <label class="custom-file-upload d-inline text-center align-items-center col-5 ">
                             <input type="file" name="image" accept=".jpg" onchange="previewImage(event)" id="image">
                             Cambiar
                              </label>
-                                <input name="imageDeleted" type="checkbox" class="" id="imageDeleted" style="display: none;">
+                                <!-- <input name="imageDeleted" type="checkbox" class="" id="imageDeleted" style="display: none;"> -->
+                                <input name="imageName" class="" id="imageName" value="<%=product.image %>" style="display: none;">
+
                                 <% } %>
                         </div>
                         <div class="col-12 container-fluid align-content-between">
@@ -222,28 +224,32 @@
 
 
         document.getElementById("btnConfSalir").onclick = function() {
-            parent.location.href = "/product/add?_method=PUT"
+            parent.location.href = "/product/add"
         }
 
         function previewImage(event) {
             var reader = new FileReader();
-            var output2 = document.getElementById('imageDeleted');
-            output2.checked = false;
+            // var output2 = document.getElementById('imageDeleted');
+            // output2.checked = false;
             reader.onload = function() {
                 var output = document.getElementById('preview-img');
                 output.src = reader.result;
+                var output3 = document.getElementById('imageName');
+                output3.value = event.target.files[0].name;
             }
+
             reader.readAsDataURL(event.target.files[0]);
         }
 
-        function deteteImage() {
-
+        function deleteImage() {
             var output = document.getElementById('preview-img');
-            output.src = "/images/defaultProduct.jpg?_method=DELETE";
-            var output2 = document.getElementById('imageDeleted');
-            output2.checked = true;
+            output.src = "/images/defaultProduct.jpg";
+            // var output2 = document.getElementById('imageDeleted');
+            // output2.checked = true;
             var output3 = document.getElementById('image');
             output3.value = null;
+            var output3 = document.getElementById('imageName');
+            output3.value = "deleted";
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">

@@ -127,7 +127,8 @@
 
         function borrar() {
             document.getElementById("idProducto").value = productID;
-            document.getElementById("borrarForm").action = "/product/delete";
+            // document.getElementById("borrarForm").action = "/product/delete";
+            document.getElementById("borrarForm").action = "/product/add?_method=DELETE"
             document.getElementById("borrarForm").submit();
         }
 

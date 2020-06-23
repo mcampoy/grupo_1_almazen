@@ -232,10 +232,20 @@ const controller = {
         if (typeof req.file !== 'undefined') {
             product.image = req.file.filename //si  se seleccionó algún archivo de imagen
         } else if (
-            typeof req.body.imageDeleted !== 'undefined' ||
-            typeof req.imgage == 'undefined') {
-            product.image = "defaultProduct.jpg"; // si no se seleccionó y (se borró la imagen que tenía o es producto nuevo) 
+            typeof req.body.imageName == 'undefined' ||
+            req.body.imageName == 'deleted') {
+            product.image = "defaultProduct.jpg"; // si no se seleccionó y (se borró la imagen que tenía o es producto nuevo)
+        } else {
+            product.image = req.body.imageName;
         }
+
+        console.table([
+            [" req.body.imageName", req.body.imageName],
+            ["typeof req.file", typeof req.file],
+            ["product.image", product.image]
+        ]);
+
+        console.log(req.body);
 
         if (typeof req.body.habilitado !== 'undefined') {
             product.habilitado = true;
@@ -260,7 +270,6 @@ const controller = {
             }
         });
         fs.writeFileSync(productsPath, JSON.stringify(products, null, ' '));
-        //controller.add(req, res);
         res.redirect('add');
     }
 };

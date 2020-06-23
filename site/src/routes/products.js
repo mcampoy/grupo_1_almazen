@@ -10,7 +10,7 @@ router.get('/add', productsControllers.add);
 router.get('/addShow/:id', productsControllers.addShowDetails);
 router.get('/addEdit/:id', productsControllers.addEditDetails);
 
-router.post('/delete', productsControllers.delete);
+router.delete('/add', productsControllers.delete);
 router.put('/add', middUploadFile.uploadFile, productsControllers.addSaveDetails);
 
 module.exports = router;
