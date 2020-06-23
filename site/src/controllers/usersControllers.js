@@ -54,14 +54,15 @@ function getUserById(id) {
 // FUNCIONES DE PRODUCTOS
 let productsPath = path.resolve(__dirname, '../data/productsDataBase.json');
 const products = getProducts();
-function getProducts() {
-  let productsJson = fs.readFileSync(productsPath, 'utf-8');
 
-  if (productsJson != ' ') {
-      return JSON.parse(productsJson)
-  } else {
-      return []
-  }
+function getProducts() {
+    let productsJson = fs.readFileSync(productsPath, 'utf-8');
+
+    if (productsJson != ' ') {
+        return JSON.parse(productsJson)
+    } else {
+        return []
+    }
 };
 
 
@@ -75,10 +76,11 @@ const controller = {
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
-            if (req.body.password != req.body.validacion) {
-                return res.send('Las contraseñas no coinciden')
+            if (req.body.password == req.body.validation) {
+
+                delete req.body.validation;
             }
-            delete req.body.validacion;
+
             let user = {
                 id: userIdGenerator(),
                 ...req.body,
@@ -88,10 +90,11 @@ const controller = {
             saveUser(user)
 
             res.redirect(`profile/${user.id}`);
-            // res.send('Gracias por registrarte');
 
         } else {
-            return res.render("register", {errors: errors.errors})
+            return res.render("register", {
+                errors: errors.errors
+            })
 
         }
 
@@ -124,35 +127,32 @@ const controller = {
 
     access: (req, res) => {
         let errors = validationResult(req);
-        if(errors.isEmpty()){
-            if(req.body.email == 'admin' && req.body.password == "admin"){
-                
-                res.render('productAdmin', {products})
-           
-           
+        if (errors.isEmpty()) {
+            if (req.body.email == 'admin@admin.com' && req.body.validation == "admin") {
+
+                res.render('productAdmin', {
+                    products
+                });
+
             } else {
-
                 let user = getUserByEmail(req.body.email)
-    
-                // res.send("Acceso correcto")
                 res.redirect(`profile/${user.id}`);
-
             }
 
-
         } else {
-          return res.render("login", {errors: errors.errors});
+            return res.render("login", {
+                errors: errors.errors
+            });
         }
-  },
+    },
 
-  profile: function (req, res, next) {
+    profile: function (req, res, next) {
 
-    let user = getUserById(req.params.id)
-
-    res.render('profile', {user});
-
-  }
-
+        let user = getUserById(req.params.id)
+        res.render('profile', {
+            user
+        });
+    }
 };
 
 module.exports = controller;

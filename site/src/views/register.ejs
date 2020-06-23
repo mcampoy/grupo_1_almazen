@@ -16,9 +16,19 @@
 
         <section class="contenedor-formulario">
             <div id="page-wrapper ">
-                <div class="img ">
+                <!-- <div class="img ">
                     <img class="fotoform" src="/images/portada.jpg" />
-                </div>
+                </div> -->
+                <div class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                       <ul>
+                         <% for(let error of errors) { %>
+                           <li><%= error.msg %> </li>
+                         <% } %>
+                       </ul>
+                    
+                     <% } %>
+                  </div>
                 <form method="post" id="miFormulario">
                     <h4><strong>Creá tu cuenta</strong></h4>
                     <div class="form-campos">
@@ -44,7 +54,7 @@
                     <!-- nombre de usuario -->
                     <div class="form-group col-xl-6 ">
                         <label for="validation"><strong>Repetí la contraseña</strong></label>
-                        <input type="password" class="form-control" id="validation" aria-describedby="validation" name="validacion" placeholder="Repetí tu contraseña" required/>
+                        <input type="password" class="form-control" id="validation" aria-describedby="validation" name="validation" placeholder="Repetí tu contraseña" required/>
                     </div>
 
                     <!-- dejar en blanco el formulario o enviar -->

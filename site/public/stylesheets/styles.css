@@ -1286,6 +1286,7 @@ select {
     text-decoration: none;
     text-align: justify !important;
     padding: 4% !important;
+    background-color: #ffff!important;
 }
 
 @media (min-width: 768px) {
