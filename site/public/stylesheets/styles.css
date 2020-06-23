@@ -243,7 +243,7 @@ header {
 /* * * * * * SLIDER HOME * * * * * * */
 
 .carousel-inner {
-    height: 25em;
+    /*height: 25em;*/
 }
 
 .carousel-caption {
@@ -1111,7 +1111,7 @@ select {
 
 @media (min-width: 320px) {
     .carousel-inner {
-        height: 250px;
+        /*height: 250px;*/
     }
 }
 
@@ -1777,4 +1777,36 @@ figure img.sg-logo-receta {
     flex-direction: column;
     align-items: flex-end;
     z-index: 100;
+}
+#code {
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253), rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center
+}
+    .slcCantidadCarrito{border-radius:4px}
+    .navbar-toggler{
+        order:-3;
+    }
+    @media(max-width:900px) {
+.marca{
+ order:-3;
+   
+}    
+.carrito{
+    order:-2;
+    padding:2em;
+}
+.profile{
+    order:-1;
+}
+.form-control{
+order:2;
+}
+.search-form_button{
+order:3;
+}
+.navbar-nav{
+    order:5;
+}
 }
