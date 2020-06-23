@@ -19,16 +19,15 @@
                 <!-- <div class="img ">
                     <img class="fotoform" src="/images/portada.jpg" />
                 </div> -->
-                <div class="error">
-                    <% if (typeof errors != 'undefined') { %>
+                <% if (typeof errors != 'undefined') { %>
+                <div class="users-errors">
                        <ul>
                          <% for(let error of errors) { %>
-                           <li><%= error.msg %> </li>
+                           <li> <%= error.msg %> </li>
                          <% } %>
                        </ul>
-                    
-                     <% } %>
-                  </div>
+                    </div>
+                    <% } %>
                 <form method="post" id="miFormulario">
                     <h4><strong>Creá tu cuenta</strong></h4>
                     <div class="form-campos">

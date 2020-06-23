@@ -1969,3 +1969,23 @@ order:3;
     order:5;
 }
 }
+
+.users-errors {
+    color: #CF664F;
+    border: 1px solid #CF664F;
+    border-radius: 4px;
+    width: 50%;
+    font-weight: 600;
+    padding: 1%;
+    margin-bottom: 3%;
+    margin-left: 25%;
+}
+
+.users-errors ul {
+/* list-style: none; */
+padding-left: 3%;
+}
+
+.users-errors li {
+    padding-right: 1%;
+}

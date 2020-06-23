@@ -1,45 +1,14 @@
 [
  {
-  "nombre": "Agustin Pulido",
-  "usuario": "Agustin",
-  "email": "aguspulido14@gmail.com",
-  "password": "1111"
- },
- {
-  "nombre": "Hernan",
-  "usuario": "Hernan",
-  "email": "Hernan@elamigo.com",
-  "password": "aaaa"
- },
- {
-  "nombre": "Rafael Videla",
-  "usuario": "rvidela",
-  "email": "rvidela@gmail.com",
-  "password": "rafa"
- },
- {
-  "Email": "mcampoy@almazen.com",
-  "Password": "1234"
- },
- {
-  "id": 13,
+  "id": 1,
   "name": "Matías",
-  "email": "mcampoy@almazen.com",
-  "password": "$2b$10$a.FcwARKRnzkuBNDMSych.Pv0lx.fS6Ws9gZfoOH7dfkkol42vD3a",
-  "enviar": "enviar"
+  "email": "mc@almazen.com",
+  "password": "$2b$10$KBa3NztdfSvElb.986E.9eRHX1vm.0LpDdZfQnZkDzfB7DYFgS0P."
  },
  {
-  "id": 14,
-  "name": "Marcelo",
-  "email": "marce@almazen.com",
-  "password": "$2b$10$OcLaz43shAXFB7W7UlM18ubqj6s55gyl6I13vN7HiRREjuyW.cEhy",
-  "enviar": "enviar"
- },
- {
-  "id": 7,
-  "name": "Lucas",
-  "email": "lucas@alma.com",
-  "password": "$2b$10$KtVvoRzR/IRyRha7uQOTUOVsF2BZvQ19FdkOHDzsRQoRAU0RJ7VDm",
-  "enviar": "enviar"
+  "id": 2,
+  "name": "Agustín",
+  "email": "agus@almazen.com",
+  "password": "$2b$10$ylEixrFkDrhtEBnxsdxPB.P1F9KRJ6qAE4K7awd0cxAd4JKBHctLq"
  }
 ]

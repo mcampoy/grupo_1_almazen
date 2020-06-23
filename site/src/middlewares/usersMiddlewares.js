@@ -1,4 +1,4 @@
-// requerimientos
+// REQUERIMIENTOS
 var fs = require('fs');
 var path = require('path');
 let bcrypt = require('bcrypt');
@@ -15,6 +15,8 @@ function getUsers() {
     }
 };
 
+
+// MIDDLEWARES USUARIOS
 let usersMiddlewares = {
    middlewareGenerico: function(req, res, next){
        next()
@@ -67,6 +69,16 @@ let usersMiddlewares = {
            .exists().withMessage("Debés ingresar una contraseña")
            .trim()
            .isLength({min: 4}).withMessage('Contraseña inválida.'),
+        body('password').custom(function(value){
+            let users = getUsers();
+               for (let user of users){
+                if(bcrypt.compareSync(value, user.password)){
+                    
+                    return true;
+                }
+            }
+            return false
+        }).withMessage('Contraseña incorrecta')
    ],
 };
 
