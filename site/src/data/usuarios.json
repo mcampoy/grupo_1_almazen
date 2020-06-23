@@ -54,5 +54,11 @@
   "name": "Pedro",
   "email": "peter@almazen.com",
   "password": "$2b$10$i4.QcMfoRDsVvYhZ03p4DumrdHBkoYkDpZx.S3l1TrTdNCI7N/yfa"
+ },
+ {
+  "id": 10,
+  "name": "Agustin",
+  "email": "agus_puli09@hotmail.com",
+  "password": "$2b$10$wczAyxsK7RIPmly2QMrmpeI068/juivReGQCpy4qwGII.b2vop.im"
  }
 ]
