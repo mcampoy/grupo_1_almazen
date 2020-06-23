@@ -1778,6 +1778,118 @@ figure img.sg-logo-receta {
     align-items: flex-end;
     z-index: 100;
 }
+@media screen and (min-width: 425px) and (max-width: 1024px) { 
+    .desktop{
+        display: none;
+    }
+    
+   
+}
+
+.caja{
+    background: #ddd;
+    min-height: 100vh;
+    vertical-align: middle;
+    display: flex;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold
+}
+
+
+.cardCarrito {
+    margin: auto;
+    max-width: 95%;
+    width: 90%;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    border: transparent
+}
+
+}
+
+@media(max-width:767px) {
+    .cardCarrito {
+        margin: 3vh auto
+    }
+    .navbar-expand-lg{
+        display:block;
+    }
+    
+}
+
+.cartCarrito {
+    background-color: #fff;
+    padding: 4vh 5vh;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem
+}
+
+@media(max-width:767px) {
+    .cartCarrito {
+        padding: 4vh;
+        border-bottom-left-radius: unset;
+        border-top-right-radius: 1rem
+    }
+    .precio_producto_carrito{
+        font-size: .2em;
+    }
+    
+}
+
+.summary {
+    background-color:var(--colorSeccionInfo);
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 4vh;
+    color: rgb(65, 65, 65)
+}
+
+@media(max-width:767px) {
+    .summary {
+        border-top-right-radius: unset;
+        border-bottom-left-radius: 1rem
+    }
+    
+}
+
+.summary .col-2 {
+    padding: 0
+}
+
+.summary .col-10 {
+    padding: 0
+}
+
+.row {
+    margin: 0
+}
+
+
+.main {
+    margin: 0;
+    padding: 2vh 0;
+    width: 100%
+}
+
+.back-to-shop {
+    margin-top: 4.5rem
+}
+
+
+hr {
+    margin-top: 1.25rem
+}
+.closeEliminar {
+    margin-left: auto;
+    
+}
+.precio_producto_carrito {
+    color: var(--colorTituloProducto);
+    font-size: .8em;
+    font-family: var(--fuenteTituloProducto);
+    font-weight: var(--fontweightPrecioProducto);
+}
 #code {
     background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253), rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
     background-repeat: no-repeat;
