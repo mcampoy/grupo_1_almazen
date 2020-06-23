@@ -19,12 +19,14 @@
     <%-include('partials/redesSociales') %>
 
     <!-- CONTENEDOR DE TARJETAS DE RECETAS -->
-    <div class="container container-tarjetas-recetas " id="tarjetas">
-        <h3 class="col-12 titulo_seccion">Recetas que inspiran</h3>
-
-        <% for( let receta of recetas) { %>
-            <%- include("partials/tarjetaReceta", {receta}) %>
-        <% } %>
+    <div class="caja mb-3">
+        <div class="container container-tarjetas-recetas " id="tarjetas">
+            <h3 class="col-12 titulo_seccion mt-5">Recetas que inspiran</h3>
+        
+            <% for( let receta of recetas) { %>
+                <%- include("partials/tarjetaReceta", {receta}) %>
+            <% } %>
+        </div>
     </div>
 
     <!-- FOOTER -->

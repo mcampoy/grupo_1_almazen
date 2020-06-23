@@ -41,18 +41,5 @@
   "email": "lucas@alma.com",
   "password": "$2b$10$KtVvoRzR/IRyRha7uQOTUOVsF2BZvQ19FdkOHDzsRQoRAU0RJ7VDm",
   "enviar": "enviar"
- },
- {
-  "id": 8,
-  "name": "Lucas",
-  "email": "lucas@almazen.com",
-  "password": "$2b$10$RR6oTlLykTryUwFhD409iOLMSQFVnwy3piqdsDUN6JwAa9h4uGiwW",
-  "enviar": ""
- },
- {
-  "id": 9,
-  "name": "Pedro",
-  "email": "peter@almazen.com",
-  "password": "$2b$10$i4.QcMfoRDsVvYhZ03p4DumrdHBkoYkDpZx.S3l1TrTdNCI7N/yfa"
  }
 ]

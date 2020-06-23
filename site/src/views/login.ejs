@@ -17,9 +17,19 @@
 
         <section class="contenedor-formulario">
             <div id="page-wrapper">
-                <div class="img">
+                <!-- <div class="img">
                     <img class="fotoform" src="/images/portada.jpg" />
-                </div>
+                </div> -->
+                <div class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                       <ul>
+                         <% for(let error of errors) { %>
+                           <li><%= error.msg %> </li>
+                         <% } %>
+                       </ul>
+                    
+                     <% } %>
+                  </div>
                 <form method="post" action="/users/login" id="miFormulario">
                     <h4><strong>INGRESO</strong></h4>
                     <div class="form-campos">
