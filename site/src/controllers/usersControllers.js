@@ -51,6 +51,19 @@ function getUserById(id) {
     return users.find(user => user.id == id)
 };
 
+// FUNCIONES DE PRODUCTOS
+let productsPath = path.resolve(__dirname, '../data/productsDataBase.json');
+const products = getProducts();
+function getProducts() {
+  let productsJson = fs.readFileSync(productsPath, 'utf-8');
+
+  if (productsJson != ' ') {
+      return JSON.parse(productsJson)
+  } else {
+      return []
+  }
+};
+
 
 // CONTROLLERS DE USUARIO
 const controller = {
@@ -112,11 +125,20 @@ const controller = {
     access: (req, res) => {
         let errors = validationResult(req);
         if(errors.isEmpty()){
+            if(req.body.email == 'admin' && req.body.password == "admin"){
+                
+                res.render('productAdmin', {products})
+           
+           
+            } else {
 
-            let user = getUserByEmail(req.body.email)
+                let user = getUserByEmail(req.body.email)
+    
+                // res.send("Acceso correcto")
+                res.redirect(`profile/${user.id}`);
 
-            // res.send("Acceso correcto")
-            res.redirect(`profile/${user.id}`);
+            }
+
 
         } else {
           return res.render("login", {errors: errors.errors});
