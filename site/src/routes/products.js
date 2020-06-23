@@ -6,11 +6,11 @@ const middUploadFile = require('../middlewares/middUploadFile');
 router.get('/', productsControllers.productsList);
 router.get('/details/:id', productsControllers.details);
 router.get('/cart', productsControllers.cart);
-router.get('/add', productsControllers.add);
-router.get('/addShow/:id', productsControllers.addShowDetails);
-router.get('/addEdit/:id', productsControllers.addEditDetails);
+router.get('/admin', productsControllers.admin);
+router.get('/adminShow/:id', productsControllers.adminShowDetails);
+router.get('/adminEdit/:id', productsControllers.adminEditDetails);
 
-router.delete('/add', productsControllers.delete);
-router.put('/add', middUploadFile.uploadFile, productsControllers.addSaveDetails);
+router.delete('/admin', productsControllers.delete);
+router.put('/admin', middUploadFile.uploadFile, productsControllers.adminSaveDetails);
 
 module.exports = router;

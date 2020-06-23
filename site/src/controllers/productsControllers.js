@@ -106,15 +106,15 @@ const controller = {
         });
     },
 
-    add: (req, res) => {
-        res.render('productAdd', { products });
+    admin: (req, res) => {
+        res.render('productAdmin', { products });
     },
 
     cart: (req, res) => {
         res.render('productCart');
     },
 
-    addShowDetails: (req, res) => {
+    adminShowDetails: (req, res) => {
         let product;
         if (typeof getProductById(req.params.id) != 'undefined') {
             product = getProductById(req.params.id);
@@ -145,10 +145,10 @@ const controller = {
             return res.redirect('/');
         }
 
-        res.render('productAddDetail', { product, categorias, dietas, recetas, edit: false });
+        res.render('productAdminDetail', { product, categorias, dietas, recetas, edit: false });
     },
 
-    addEditDetails: (req, res) => {
+    adminEditDetails: (req, res) => {
         let product = [];
 
         if (req.params.id == "nuevo") {
@@ -194,11 +194,11 @@ const controller = {
             })) ? 1 : 0;
         }
 
-        res.render('productAddDetail', { product, categorias, dietas, recetas, edit: true });
+        res.render('productAdminDetail', { product, categorias, dietas, recetas, edit: true });
 
     },
 
-    addSaveDetails: (req, res, next) => {
+    adminSaveDetails: (req, res, next) => {
         let product = {
             codigo: req.body.codigo,
             nombre: req.body.nombre,
@@ -239,14 +239,6 @@ const controller = {
             product.image = req.body.imageName;
         }
 
-        console.table([
-            [" req.body.imageName", req.body.imageName],
-            ["typeof req.file", typeof req.file],
-            ["product.image", product.image]
-        ]);
-
-        console.log(req.body);
-
         if (typeof req.body.habilitado !== 'undefined') {
             product.habilitado = true;
         } else {
@@ -270,7 +262,7 @@ const controller = {
             }
         });
         fs.writeFileSync(productsPath, JSON.stringify(products, null, ' '));
-        res.redirect('add');
+        res.redirect('admin');
     }
 };
 
