@@ -106,15 +106,15 @@ const controller = {
         });
     },
 
-    add: (req, res) => {
-        res.render('productAdd', { products });
+    admin: (req, res) => {
+        res.render('productAdmin', { products });
     },
 
     cart: (req, res) => {
         res.render('productCart');
     },
 
-    addShowDetails: (req, res) => {
+    adminShowDetails: (req, res) => {
         let product;
         if (typeof getProductById(req.params.id) != 'undefined') {
             product = getProductById(req.params.id);
@@ -145,10 +145,10 @@ const controller = {
             return res.redirect('/');
         }
 
-        res.render('productAddDetail', { product, categorias, dietas, recetas, edit: false });
+        res.render('productAdminDetail', { product, categorias, dietas, recetas, edit: false });
     },
 
-    addEditDetails: (req, res) => {
+    adminEditDetails: (req, res) => {
         let product = [];
 
         if (req.params.id == "nuevo") {
@@ -194,11 +194,11 @@ const controller = {
             })) ? 1 : 0;
         }
 
-        res.render('productAddDetail', { product, categorias, dietas, recetas, edit: true });
+        res.render('productAdminDetail', { product, categorias, dietas, recetas, edit: true });
 
     },
 
-    addSaveDetails: (req, res, next) => {
+    adminSaveDetails: (req, res, next) => {
         let product = {
             codigo: req.body.codigo,
             nombre: req.body.nombre,
@@ -232,9 +232,11 @@ const controller = {
         if (typeof req.file !== 'undefined') {
             product.image = req.file.filename //si  se seleccionó algún archivo de imagen
         } else if (
-            typeof req.body.imageDeleted !== 'undefined' ||
-            typeof req.imgage == 'undefined') {
-            product.image = "defaultProduct.jpg"; // si no se seleccionó y (se borró la imagen que tenía o es producto nuevo) 
+            typeof req.body.imageName == 'undefined' ||
+            req.body.imageName == 'deleted') {
+            product.image = "defaultProduct.jpg"; // si no se seleccionó y (se borró la imagen que tenía o es producto nuevo)
+        } else {
+            product.image = req.body.imageName;
         }
 
         if (typeof req.body.habilitado !== 'undefined') {
@@ -260,8 +262,7 @@ const controller = {
             }
         });
         fs.writeFileSync(productsPath, JSON.stringify(products, null, ' '));
-        //controller.add(req, res);
-        res.redirect('add');
+        res.redirect('admin');
     }
 };
 

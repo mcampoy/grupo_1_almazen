@@ -11,8 +11,8 @@
         <!-- Upload product -->
         <div class="container-fluid align-content-around carga_producto">
 
-            <!-- <form action="/product/add" method="post" enctype="multipart/form-data" onsubmit="window.top.location.reload(true);"> -->
-            <form action="/product/add?_method=PUT" method="post" enctype="multipart/form-data" onsubmit="window.top.location.href = window.top.location.href;">
+            <!-- onsubmit="window.top.location.reload(true);" -->
+            <form action="/product/admin?_method=PUT" method="post" enctype="multipart/form-data" onsubmit="window.top.location.href = window.top.location.href;">
 
                 <div class="row">
                     <!-- COLUMNA 1 - NOMBRE Y DESCRIPCIÓN -->
@@ -69,12 +69,13 @@
                         </div>
                         <div class="col-12 row  align-items-center form-group d-flex justify-content-center align-content-middle ">
                             <% if (edit) { %>
-                                <button class="col-5 btnDeleteImage " type="button" onclick="deteteImage()">Borrar</button>
+                                <button class="col-5 btnDeleteImage " type="button" onclick="deleteImage()">Borrar</button>
                                 <label class="custom-file-upload d-inline text-center align-items-center col-5 ">
                             <input type="file" name="image" accept=".jpg" onchange="previewImage(event)" id="image">
                             Cambiar
                              </label>
-                                <input name="imageDeleted" type="checkbox" class="" id="imageDeleted" style="display: none;">
+                                <input name="imageName" class="" id="imageName" value="<%=product.image %>" style="display: none;">
+
                                 <% } %>
                         </div>
                         <div class="col-12 container-fluid align-content-between">
@@ -205,9 +206,6 @@
                 </div>
                 <!--  FILA INFERIOR  -->
 
-
-
-
             </form>
         </div>
         <!-- /Upload product -->
@@ -222,30 +220,31 @@
 
 
         document.getElementById("btnConfSalir").onclick = function() {
-            parent.location.href = "/product/add?_method=PUT"
+            parent.location.href = "/product/admin"
         }
 
         function previewImage(event) {
             var reader = new FileReader();
-            var output2 = document.getElementById('imageDeleted');
-            output2.checked = false;
             reader.onload = function() {
                 var output = document.getElementById('preview-img');
                 output.src = reader.result;
+                var output3 = document.getElementById('imageName');
+                output3.value = event.target.files[0].name;
             }
+
             reader.readAsDataURL(event.target.files[0]);
         }
 
-        function deteteImage() {
-
+        function deleteImage() {
             var output = document.getElementById('preview-img');
-            output.src = "/images/defaultProduct.jpg?_method=DELETE";
-            var output2 = document.getElementById('imageDeleted');
-            output2.checked = true;
+            output.src = "/images/defaultProduct.jpg";
             var output3 = document.getElementById('image');
             output3.value = null;
+            var output3 = document.getElementById('imageName');
+            output3.value = "deleted";
         }
     </script>
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">

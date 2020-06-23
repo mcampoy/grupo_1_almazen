@@ -8,13 +8,12 @@
 
 <body>
 
-
     <div class="container-fluid ">
 
         <!-- HEADER -->
         <%- include("partials/header") %>
             <!-- /HEADER -->
-            <!-- Upload product -->
+            <!-- Admin product -->
             <div class="row  carga_producto pb-5 justify-content-around">
                 <h2 class="col-12 row justify-content-center  pageTitle">Carga de Productos</h2>
 
@@ -60,7 +59,6 @@
                             <button id="btnEditar" class="col-3 btn align-items-center justify-content-center" type="button" role="button" onclick="editar()">Editar</button>
                         </div>
 
-
                         <!-- Modal de confirmación de borrado de producto-->
                         <div class="modal modalBorraProducto fade" id="modalBorrar" tabindex="-1" role="dialog">
                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -86,9 +84,8 @@
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-9 iframeDetailsContainer">
 
-                    <iframe id="iframeDetails" class="container-fluid" src="/product/addShow/1" frameborder="0" onload='resizeIframe(this)'></iframe>
+                    <iframe id="iframeDetails" class="container-fluid" src="/product/adminShow/1" frameborder="0" onload='resizeIframe(this)'></iframe>
                 </div>
-
 
             </div>
             <!-- /Upload product -->
@@ -124,24 +121,22 @@
             }
         }
 
-
         function borrar() {
             document.getElementById("idProducto").value = productID;
-            document.getElementById("borrarForm").action = "/product/delete";
+            document.getElementById("borrarForm").action = "/product/admin?_method=DELETE"
             document.getElementById("borrarForm").submit();
         }
-
 
         function editar() {
             bloquearProducto();
             var iframe = document.getElementById('iframeDetails');
-            iframe.src = `/product/addEdit/${productID}`;
+            iframe.src = `/product/adminEdit/${productID}`;
         }
 
         function crear() {
             bloquearProducto();
             var iframe = document.getElementById('iframeDetails');
-            iframe.src = `/product/addEdit/nuevo`;
+            iframe.src = `/product/adminEdit/nuevo`;
         }
 
         function bloquearProducto() {
@@ -154,18 +149,13 @@
             btnEditar.style.display = 'none';
             var searchInput = document.getElementById('searchInput');
             searchInput.disabled = true;
-
-
         }
-
 
         function resizeIframe(obj) {
             obj.style.height = 0;
             obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
         }
     </script>
-
-
 
     <script>
         $("#tablaProductos tr").click(function() {
@@ -174,7 +164,7 @@
                 var value = $(this).find('td:first').html();
                 productID = value.trim()
                 var iframe = document.getElementById('iframeDetails');
-                iframe.src = `/product/addShow/${productID}`;
+                iframe.src = `/product/adminShow/${productID}`;
             }
 
         });

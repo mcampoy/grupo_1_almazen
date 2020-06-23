@@ -8,11 +8,10 @@ var methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
 var productsRouter = require('./routes/products');
-var registroRouter = require('./routes/registro');
-
+// var registroRouter = require('./routes/registro');
 var recetasRouter = require('./routes/recetas');
 var tipsRouter = require('./routes/tips');
-// var usersRouter = require('./routes/users');
+var usersRouter = require('./routes/users');
 // const mainRouter = require('./routes/main');
 
 var app = express();
@@ -33,10 +32,10 @@ app.use(methodOverride('_method'));
 // app.use('/', mainRouter);
 app.use('/', indexRouter);
 app.use('/product', productsRouter);
-app.use('/registro', registroRouter);
+// app.use('/registro', registroRouter);
 app.use('/recetas', recetasRouter);
 app.use('/tips', tipsRouter);
-//app.use('/users', usersRouter);
+app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
