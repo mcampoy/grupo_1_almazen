@@ -1477,6 +1477,30 @@ figure img.sg-logo-receta {
     margin-bottom: 5%;
 }
 
+.title-prod-receta {
+    font-size: var(--fontSizeMenuFooter);
+    color: var(--colorMenu);
+    margin-top: 5%;
+}
+
+.productos-en-receta {
+    padding: 10%;
+    flex-wrap: wrap;
+}
+
+.productos-en-receta p {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--colorMenu);
+    padding-left: 3%;
+}
+
+.carr-product-receta {
+    width: 58% !important;
+    height: 100% !important;
+    margin-bottom: .3em !important;
+}
+
 #slcCantidad {
     font-weight: 500;
     border: 0.1px solid #777;

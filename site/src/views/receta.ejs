@@ -49,46 +49,20 @@
                     <p><%= receta.descripcion%> </p>
                 </div>
 
-                <div class="productos-receta">
-                    <h4>Nuestro productos para esta receta</h4>
-
-                    <div class="products-carrousel">
-
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active contenedor-presentacion">
-                                    <img class="d-block w-100 presentacion-carrousel-prod" src="/images/Logo.svg"
-                                        alt="First slide">
-                                </div>
-                                <% for( let product of products ) { %>
-                                <div class="carousel-item">
-                                    <a class="prod-carrousel" href="../product/details/<%= product.id %> ">
-                                        <figure class="product-box_image">
-                                            <img class="img-prod-carrousel" src="/images/<%= product.image %>"
-                                                alt="Second slide">
-                                        </figure>
-                                        <div class="info-prod-carrousel">
-                                            <h2 class="titulo_producto nombre_producto_receta"><%= product.nombre %>
-                                                <span class="precio_producto-carrousel"> $<%= product.precio %> </span>
-                                            </h2>
-                                        </div>
-                                    </a>
-                                </div>
-                                <% } %>
-
-                            </div>
-                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
+                <div id="tarjetas" class="ladofrente tarjeta-recetas productos mb-0">
+                    
+                    
+                    <div class="ladofrente tarjeta-recetas productos">
+                        <h4 class="title-prod-receta">Nuestros productos para esta receta</h4>
+                        <div class="productos-en-receta">
+                            <% for( let product of products) { %>
+                            <p> <%=product.nombre%> <a href="#"><img class="carr-product-receta" src="/images/cart.svg" alt="carrito"></a></p>
+                            <% } %>
                         </div>
+
                     </div>
+
+                    
                 </div>
             </section>
 
