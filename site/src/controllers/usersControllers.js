@@ -81,7 +81,7 @@ const controller = {
                 id: userIdGenerator(),
                 ...req.body,
                 password: bcrypt.hashSync(req.body.password, 10),
-                //   avatar: req.files[0].filename,
+                avatar: req.files[0].filename
             }
             saveUser(user)
 
