@@ -2,48 +2,101 @@
 <html lang="en">
 <head>
     <%- include("partials/head", {title: "Profile"}) %>
+    
 </head>
 <body>
        <!-- HEADER -->
        <%- include("partials/header") %>
        <!-- /HEADER -->
-<!-- MENU SIDEBAR -->
-<div class="d-flex flex-column">
+       <div class="container-fluid d-flex" id="">
 
-      <div class="profile">
-        <img src="/site/public/images/profile.svg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="#"><%= user.name%></a></h1>
-        
-      </div>
+              <!-- Sidebar -->
+              <div class="bg-light border-right col-2" id="">
+                     <!-- DATOS USUARIO-->
+                     <img src="/images/profile.svg" alt="" class="img-fluid rounded-circle d-flex mx-auto">
+                     <div class="sidebar-heading"><h4>Bienvenido, <%= user.name%></h4> </div>
+                
+                    <!-- MENU LATERAL --> 
+                  <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action bg-light">Editar perfil</a>
+                  <a href="#historial" class="list-group-item list-group-item-action bg-light">Historial de compras</a>
+                  <a href="#" class="list-group-item list-group-item-action bg-light">Favoritos</a>
+                  <a href="#recetarios" class="list-group-item list-group-item-action bg-light">Recetarios</a>
+                  
+                </div>
+              </div>
+              <!-- /#sidebar-wrapper -->
+          
+              <!-- Page Content -->
+              <div class="col" id="page-content-wrapper">
+                     <!-- --- --- -- -- -- Historial de compras --- --- -- -- -- -->
+                     <h5 id="historial" class="col-12 d-flex justify-content-center TituloDestacados mb-2">Historial de compras</h5>
+                     
+                     <div class="table-responsive">
+                            <table class="table">
+                                   <thead>
+                                     <tr>
+                                       <th scope="col">Numero de Orden</th>
+                                       <th scope="col">Producto</th>
+                                       <th scope="col">Fecha</th>
+                                       <th scope="col">Monto</th>
+                                     </tr>
+                                   </thead>
+                                   <tbody>
+                                     <tr>
+                                       <th scope="row">001</th>
+                                       <td>Cúrcuma en polvo x 100g</td>
+                                       <td>20/06/2020</td>
+                                       <td>$200</td>
+                                     </tr>
+                                     <tr>
+                                       <th scope="row">003</th>
+                                          <td>Cacao x 100g</td>
+                                          <td>25/06/2020</td>
+                                          <td>$300</td>
+                                        </tr>
+                                        <tr>
+                                          <th scope="row">002</th>
+                                          <td>Stevia </td>
+                                          <td>20/06/2020</td>
+                                          <td>$100</td>
+                                        </tr>
+                                   </tbody>
+                                 </table>   
+                     </div>
+                     <h5 id="recetarios"class="col-12 d-flex justify-content-center TituloDestacados mb-2">Recetarios</h5>
+                     
+                     <div class="" id="tarjetas">
+                            
+                            <div class="ladofrente">
+                                <img src="/images/alimentos-saludables.jpg" alt="Alimentos saludables">
+                                <h3 class="tituloscard">Come alimentos variados</h3>
+                                <span class='tipsaludable'>Necesitamos más de 40 nutrientes diferentes y ningún alimento por sí solo puede proporcionarlos todos. El suministro de alimentos que existe hoy en día facilita tomar una amplia variedad de alimentos, tanto comprando alimentos frescos como comprando comidas preparadas.</span>
+                
+                            </div>
+                
+                            <div class="ladofrente">
+                                <img src="/images/platosaludable.jpg" alt="Alimentos saludables">
+                                <h3 class="tituloscard">Alimentos ricos en hidratos de carbono</h3>
+                                <span class='tipsaludable'>Más de la mitad de las calorías de su dieta, es decir el 60 % aproximadamente, deben venir de estos alimentos. Lo ideal es aumentar la ingesta de fibra con el aporte de pan integral, la pasta integrales y otros cereales.</span>
+                            </div>
+                
+                            <div class="ladofrente">
+                                <img src="/images/frutassaludables.jpg" alt="Alimentos saludables">
+                                <h3 class="tituloscard">Come muchas frutas y verduras</h3>
+                                <span class='tipsaludable'>La mayor parte de la gente no come la suficiente cantidad de estos alimentos que proporcionan importantes nutrientes protectores. Intenta comer al menos cinco raciones al día y proba nuevas recetas o vea qué platos preparados están disponibles en el supermercado.</span>
+                            </div>
+                     </div>
+                     
+                     <h5 id="favoritos" class="col-12 d-flex justify-content-center TituloDestacados mb-2">Productos favoritos</h5>
+              </div>
+              
 
-      <nav class="nav-menu">
-        <ul>
-          <li><a href="#"><i class="bx bx-user"></i> <span>Editar Perfil</span></a></li>
-          <li class="active"><a href="#"><i class="bx bx-home"></i> <span>Historial de compras</span></a></li>
-          <li><a href="#"><i class="bx bx-file-blank"></i> <span>Favoritos</span></a></li>
-          <li><a href="#"><i class="bx bx-book-content"></i> Recetarios</a></li>
-
-        </ul>
-      </nav>
-      <!-- .nav-menu -->
-
-<div class="m-5">
-    
-           <h1>Bienvenido, <%= user.name%></h1>
-</div>
-<script>
-       $(document).ready(function(){
-  $("#menu-toggle").click(function(e){
-    e.preventDefault();
-    $("#wrapper").toggleClass("menuDisplayed");
-  });
-});
-</script>
-
+       </div>
        <!-- FOOTER -->
        <%- include("partials/footer") %>
        <!-- /FOOTER -->
-
+       
         <!-- SCRIPTS -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

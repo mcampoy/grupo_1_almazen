@@ -242,9 +242,7 @@ header {
 
 /* * * * * * SLIDER HOME * * * * * * */
 
-.carousel-inner {
-    /*height: 25em;*/
-}
+
 
 .carousel-caption {
     border-radius: 7px 7px 0px 0px;
@@ -1225,9 +1223,7 @@ label {
 /* Estilos mobile */
 
 @media (min-width: 320px) {
-    .carousel-inner {
-        /*height: 250px;*/
-    }
+    
 }
 
 @media (min-width: 425px) {
@@ -2050,3 +2046,42 @@ hr {
 }
 
 
+
+/* PROFILE */ 
+#wrapper {
+    overflow-x: hidden;
+ }
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+ 
+}
+
+#sidebar-wrapper .sidebar-heading {
+  
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 0;
+  min-height: 100vh;
+}
+.list-group-item+.list-group-item:hover{
+    background-color: var(--colorMenu);
+}
+
+@media (min-width: 768px) {
+  
+
+  #page-content-wrapper {
+    /*min-width: 0;*/
+    width: 100%;
+  }
+
+ 
+}
