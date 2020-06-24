@@ -53,16 +53,17 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuOffset">
 
                      <!-- LOGIN  -->
-                    <!-- <a class="dropdown-item drop mt-1" href="/users/login">INGRESAR</a> -->
-
                     <!-- Button trigger modal login -->
-                    <button type="button" class="btn btn-primary btn-login-header" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" class="btn btn-primary btn-login-header" data-toggle="modal" data-target="#Login">
                         INGRESAR
                     </button> 
 
                     <!-- /* CREAR CUENTA */ -->
+                    <button type="button" class="btn btn-primary btn-login-header" data-toggle="modal" data-target="#Register">
+                        CREAR CUENTA
+                    </button> 
 
-                    <a class="dropdown-item drop mt-1" href="/users/create">CREAR CUENTA</a>
+                    <!-- <a class="dropdown-item drop mt-1" href="/users/create">CREAR CUENTA</a> -->
                     <span class="dropdown-item drop mt-1"> ----------------</span>
                     <a class="dropdown-item drop mt-1" href="/product/admin">(Administrador)</a>
 
@@ -71,7 +72,7 @@
 
 
             <!-- Modal Login-->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header-login">
@@ -122,6 +123,81 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- Modal Register-->
+        <div class="modal fade" id="Register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header-login">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">CREAR CUENTA</h5>
+                </div>
+                <div class="modal-body">
+                   <section class="contenedor-formulario-login">
+            <div id="page-wrapper ">
+                <!-- <div class="img ">
+                    <img class="fotoform" src="/images/portada.jpg" />
+                </div> -->
+                <% if (typeof errors != 'undefined') { %>
+                <div class="users-errors">
+                       <ul>
+                         <% for(let error of errors) { %>
+                           <li> <%= error.msg %> </li>
+                         <% } %>
+                       </ul>
+                    </div>
+                    <% } %>
+                <form method="post" action="/users/create" id="miFormulario">
+                    <h4><strong>Creá tu cuenta</strong></h4>
+                    <div class="form-campos">
+                        <!-- nombre -->
+                        <div class="form-group">
+                            <label for="nombre"><strong>Nombre</strong></label>
+                            <input type="text" class="form-control" id="nombre" name="name" aria-describedby="nombre" placeholder="Ejemplo: Carolina" required/>
+                        </div>
+
+                        <!-- email -->
+                        <div class="form-group">
+                            <label for="exampleInputEmail1 "><strong>Email</strong></label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp " placeholder="Ejemplo: almazen@gmail.com" required/>
+                        </div>
+
+                        <!-- password -->
+                        <div class="form-group">
+                            <label for="password"><strong>Contraseña</strong></label>
+                            <input type="password" class="form-control" id="password" name="password" aria-describedby="password" name="password" placeholder="Ingresá una contraseña" required/>
+                        </div>
+                    </div>
+
+                    <!-- nombre de usuario -->
+                    <div class="form-group">
+                        <label for="validation"><strong>Repetí la contraseña</strong></label>
+                        <input type="password" class="form-control" id="validation" aria-describedby="validation" name="validation" placeholder="Repetí tu contraseña" required/>
+                    </div>
+
+                    <!-- dejar en blanco el formulario o enviar -->
+                    <div class="user form-group">
+                        <button class="login align-items-center justify-content-center" role="button" type="reset">Borrar</button>
+                        <button class="register align-items-center justify-content-center" role="button" type="submit">Enviar</button>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </section>
+
+                <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div> -->
+            </div>
+            </div>
+        </div>
+    </div>
 
     </nav>
 

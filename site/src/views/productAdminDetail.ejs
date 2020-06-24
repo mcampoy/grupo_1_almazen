@@ -7,13 +7,26 @@
 
 <body style="overflow:auto">
 
+    <div class="error">
+        <% if (typeof errors != 'undefined') { %>
+            <ul>
+                <% for(let error of errors) { %>
+                    <li>
+                        <%= error.msg %>
+                    </li>
+                    <% } %>
+            </ul>
+
+            <% } %>
+    </div>
+
     <div class="container-fluid">
         <!-- Upload product -->
         <div class="container-fluid align-content-around carga_producto">
 
             <!-- onsubmit="window.top.location.reload(true);" -->
-            <form action="/product/admin?_method=PUT" method="post" enctype="multipart/form-data" onsubmit="window.top.location.href = window.top.location.href;">
-
+            <!-- onsubmit="window.top.location.href = window.top.location.href; -->
+            <form action="/product/admin?_method=PUT" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <!-- COLUMNA 1 - NOMBRE Y DESCRIPCIÓN -->
                     <div class="container left-column  order-1 col-11 col-md-5 col-lg-4 d-block">
@@ -21,12 +34,12 @@
                             <div class="form-group col-12">
                                 <input name="id" type="text" class="form-control" id="id" required value="<%= product.id %>" style="display:none">
                                 <label class="titulo_carga_producto" for="codigo">Código del producto <span class="asterisco">*</span></label>
-                                <input name="codigo" type="text" class="form-control" id="codigo" placeholder="Ingrese el código del producto." required value="<%= product.codigo %>" <% if (!edit) { %>readonly
+                                <input name="codigo" maxlength="10" type="text" class="form-control" id="codigo" placeholder="Ingrese el código del producto." required value="<%= product.codigo %>" <% if (!edit) { %>readonly
                                 <% } %>>
                             </div>
                             <div class="form-group col-12">
                                 <label class="titulo_carga_producto" for="nombre">Nombre del producto <span class="asterisco">*</span></label>
-                                <input name="nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del producto." required value="<%= product.nombre %>" <% if (!edit) { %> readonly
+                                <input name="nombre" maxlength="45" type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del producto." required value="<%= product.nombre %>" <% if (!edit) { %> readonly
                                 <% } %>>
                             </div>
                             <div class="form-group col-12">
@@ -36,7 +49,7 @@
                             </div>
                             <div class="form-group col-12">
                                 <label class="titulo_carga_producto" for="descripcionLarga">Descripción completa <span class="asterisco">*</span></label>
-                                <textarea name="descripcion" class="form-control" id="descripcionLarga" required rows="3" placeholder="Ingrese la descripción completa del producto." <% if (!edit) { %> readonly <% } %>><%= product.descripcion %></textarea>
+                                <textarea name="descripcion" maxlength="500" class="form-control" id="descripcionLarga" required rows="3" placeholder="Ingrese la descripción completa del producto." <% if (!edit) { %> readonly <% } %>><%= product.descripcion %></textarea>
                             </div>
 
                             <div class="form-group col-6 pl-0">
