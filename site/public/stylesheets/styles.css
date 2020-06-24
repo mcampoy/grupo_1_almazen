@@ -2025,6 +2025,8 @@ hr {
     }
 }
 
+
+/* ERRORS */
 .users-errors {
     color: #CF664F;
     border: 1px solid #CF664F;
@@ -2045,6 +2047,16 @@ hr {
     padding-right: 1%;
 }
 
+/* MODAL LOGIN & REGISTER */
+
+.modal-header-login h5 {
+    padding: 1%;
+    color: var(--colorTituloGeneral);
+    font-size: 1.8em !important;
+    text-align: center;
+    padding-top: 8%;
+    font-family: var(--fuenteGeneral);
+}
 .btn-login-header {
     background: none;
     border: none;
@@ -2068,8 +2080,47 @@ hr {
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 5%;
+}
+
+.wrapper-email-login {
+    display: flex;
+}
+
+.mail-modal, .fa-key {
+    color: white;
+    align-self: center;
+    padding: 2.5%;
+    font-size: 1.1em !important;
+    background-color: var(--colorBtnRegister);
+    border-radius: 4px 0 0 4px;
+}
+
+@media (min-width: 768px){
+    .mail-modal, .fa-key {
+        font-size: 2em;
+    }
+}
+
+.modal-label {
+    font-weight: 700;
+    color: var(--colorMenu);
+    font-family: var(--fuenteMenu);
+    font-size: 0.9em;
+    font-weight: var(--fontweightMenu);
+    letter-spacing: 0.030em;
+    padding-top: 1%;
+}
+
+input#email.form-control, input#password.form-control {
+    padding: 0;
+    padding-left: 4%;
+    border-radius: 0 4px 4px 0;
+}
+
+.form-control-imagen {
 
 }
+
 /* PROFILE */ 
 #wrapper {
     overflow-x: hidden;
