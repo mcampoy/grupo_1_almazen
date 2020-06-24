@@ -20,16 +20,16 @@
                 <!-- <div class="img">
                     <img class="fotoform" src="/images/portada.jpg" />
                 </div> -->
-                <div class="error">
-                    <% if (typeof errors != 'undefined') { %>
+                <% if (typeof errors != 'undefined') { %>
+                <div class="users-errors">
                        <ul>
                          <% for(let error of errors) { %>
                            <li><%= error.msg %> </li>
                          <% } %>
                        </ul>
                     
-                     <% } %>
-                  </div>
+                    </div>
+                    <% } %>
                 <form method="post" action="/users/login" id="miFormulario">
                     <h4><strong>INGRESO</strong></h4>
                     <div class="form-campos">
@@ -42,7 +42,7 @@
                         <!-- password -->
                         <div class="form-group col-xl-6">
                             <label for="password"><strong>Contraseña</strong></label>
-                            <input type="password" class="form-control" id="password" aria-describedby="password" name="password" placeholder="Ingresá tu contraseña" required/>
+                            <input type="password" name="password" class="form-control" id="password" aria-describedby="password" placeholder="Ingresá tu contraseña" required/>
                         </div>
                     </div>
 

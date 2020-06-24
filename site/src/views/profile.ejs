@@ -7,11 +7,38 @@
        <!-- HEADER -->
        <%- include("partials/header") %>
        <!-- /HEADER -->
+<!-- MENU SIDEBAR -->
+<div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="/site/public/images/profile.svg" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="#"><%= user.name%></a></h1>
+        
+      </div>
+
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#"><i class="bx bx-user"></i> <span>Editar Perfil</span></a></li>
+          <li class="active"><a href="#"><i class="bx bx-home"></i> <span>Historial de compras</span></a></li>
+          <li><a href="#"><i class="bx bx-file-blank"></i> <span>Favoritos</span></a></li>
+          <li><a href="#"><i class="bx bx-book-content"></i> Recetarios</a></li>
+
+        </ul>
+      </nav>
+      <!-- .nav-menu -->
 
 <div class="m-5">
     
            <h1>Bienvenido, <%= user.name%></h1>
 </div>
+<script>
+       $(document).ready(function(){
+  $("#menu-toggle").click(function(e){
+    e.preventDefault();
+    $("#wrapper").toggleClass("menuDisplayed");
+  });
+});
+</script>
 
        <!-- FOOTER -->
        <%- include("partials/footer") %>

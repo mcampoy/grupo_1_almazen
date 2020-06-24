@@ -1,11 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 let bcrypt = require('bcrypt');
-const {
-    check,
-    validationResult,
-    body
-} = require('express-validator');
+const { check, validationResult, body } = require('express-validator');
 
 // ************ Function to Read an HTML File ************
 function readHTML(fileName) {
@@ -92,9 +88,7 @@ const controller = {
             res.redirect(`profile/${user.id}`);
 
         } else {
-            return res.render("register", {
-                errors: errors.errors
-            })
+            return res.render("register", {errors: errors.errors})
 
         }
 
@@ -128,30 +122,20 @@ const controller = {
     access: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            if (req.body.email == 'admin@admin.com' && req.body.validation == "admin") {
-
-                res.render('productAdmin', {
-                    products
-                });
-
-            } else {
-                let user = getUserByEmail(req.body.email)
+            let user = getUserByEmail(req.body.email)
                 res.redirect(`profile/${user.id}`);
-            }
+            
 
         } else {
-            return res.render("login", {
-                errors: errors.errors
-            });
+
+         return res.render("login", {errors: errors.errors});
         }
     },
 
-    profile: function (req, res, next) {
+    profile: function (req, res) {
 
         let user = getUserById(req.params.id)
-        res.render('profile', {
-            user
-        });
+        res.render('profile', {user});
     }
 };
 
