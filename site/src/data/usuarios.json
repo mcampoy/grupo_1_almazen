@@ -16,5 +16,12 @@
   "name": "Rafael",
   "email": "rafa@almazen.com",
   "password": "$2b$10$TfzxPZjDpjt8WFf/52eI.uyAEe/3W82klYAS3I7xee5.3YiaYPib6"
+ },
+ {
+  "id": 4,
+  "name": "Ariel",
+  "email": "agus_puli09@hotmail.com",
+  "password": "$2b$10$/1xLmzXBhDLFSPkmk7mKA.ZGfm2WXebqKfVRCj7Efc9F1ymjfvEXS",
+  "avatar": "avatar-1593022518948.jpg"
  }
 ]
