@@ -13,6 +13,19 @@
         <!-- HEADER -->
         <%- include("partials/header") %>
             <!-- /HEADER -->
+
+            <div class="error">
+                <% if (typeof errors != 'undefined') { %>
+                    <ul>
+                        <% for(let error of errors) { %>
+                            <li>
+                                <%= error.msg %>
+                            </li>
+                            <% } %>
+                    </ul>
+
+                    <% } %>
+            </div>
             <!-- Admin product -->
             <div class="row  carga_producto pb-5 justify-content-around">
                 <h2 class="col-12 row justify-content-center  pageTitle">Carga de Productos</h2>
@@ -136,7 +149,7 @@
         function crear() {
             bloquearProducto();
             var iframe = document.getElementById('iframeDetails');
-            iframe.src = `/product/adminEdit/nuevo`;
+            iframe.src = `/product/adminEdit/0`;
         }
 
         function bloquearProducto() {

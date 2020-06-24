@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
+const { check, validationResult, body } = require('express-validator');
+
 let productsPath = path.resolve(__dirname, '../data/productsDataBase.json');
 let categoriasPath = path.resolve(__dirname, '../data/categoriasDataBase.json');
 let recetasPath = path.resolve(__dirname, '../data/recetasDataBase.json');
@@ -69,7 +71,6 @@ function saveProduct(product) {
 }
 
 function productIdGenerator() {
-    // let products = getProducts();
     let mayor = 1;
     if (products.length) {
         products.forEach(product => {
@@ -150,8 +151,7 @@ const controller = {
 
     adminEditDetails: (req, res) => {
         let product = [];
-
-        if (req.params.id == "nuevo") {
+        if (req.params.id == "0") {
             product.id = productIdGenerator();
             product.codigo = "";
             product.nombre = "";
@@ -199,7 +199,9 @@ const controller = {
     },
 
     adminSaveDetails: (req, res, next) => {
+        let errors = validationResult(req);
         let product = {
+            id: parseInt(req.body.id),
             codigo: req.body.codigo,
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
@@ -245,24 +247,31 @@ const controller = {
             product.habilitado = false;
         }
 
-        if (typeof req.body.id !== 'undefined') {
-            product.id = parseInt(req.body.id);
+        if (errors.isEmpty()) {
+
+            saveProduct(product);
+            res.render('productAdminDetail', { product, categorias, dietas, recetas, edit: false })
+
         } else {
-            product.id = productIdGenerator();
+            return res.render('productAdminDetail', { product, categorias, dietas, recetas, edit: true, errors: errors.errors });
         }
 
-        saveProduct(product);
     },
 
     delete: (req, res, next) => {
-        //      let products = getProducts();
-        products.forEach((product, index) => {
-            if (product.id == parseInt(req.body.id)) {
-                products.splice(index, 1);
-            }
-        });
-        fs.writeFileSync(productsPath, JSON.stringify(products, null, ' '));
-        res.redirect('admin');
+        let errors = validationResult(req);
+
+        if (errors.isEmpty()) {
+            products.forEach((product, index) => {
+                if (product.id == parseInt(req.body.id)) {
+                    products.splice(index, 1);
+                }
+            });
+            fs.writeFileSync(productsPath, JSON.stringify(products, null, ' '));
+            res.redirect('admin');
+        } else {
+            res.render('productAdmin', { products, errors: errors.errors });
+        }
     }
 };
 

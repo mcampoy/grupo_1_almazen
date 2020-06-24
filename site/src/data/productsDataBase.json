@@ -1,81 +1,80 @@
-[
- {
-  "codigo": "ALM0219",
-  "nombre": "Cúrcuma",
-  "descripcion": "La cúrcuma, también denominada azufre de Indias, es una planta muy apreciada por su versatilidad gastronómica. Se le atribuyen propiedades medicinales contra el cáncer, el colesterol alto o la artrosis, entre otras enfermedades. Es nativa del suroeste de la India y es una raíz de la familia del jengibre. Se utiliza como colorante por su inconfundible color amarillo. Además, aporta un cautivante sabor dulzón con un toque picante y amargo, por lo que conviene incorporarlo en pequeñas cantidades",
-  "descripcion_breve": "Cúrcuma en polvo para darle sabor y color a tus comidas",
-  "cantidad": {
-   "cantidad": 100,
-   "unidad_medida": "gr."
-  },
-  "precio": 60,
-  "descuento": 12,
-  "stock": 3,
-  "categoria": [
-   "4",
-   "8"
-  ],
-  "receta": [
-   "3"
-  ],
-  "dieta": [
-   "3"
-  ],
-  "image": "curcuma en polvo.jpg",
-  "habilitado": true,
-  "id": 1
- },
- {
-  "codigo": "ALM0421",
-  "nombre": "Cacao",
-  "descripcion": "El cacao es un árbol procedente de América que produce un fruto del mismo nombre que se puede utilizar como ingrediente para alimentos entre los que destaca el chocolate. Su uso se remonta a la época de los mayas, aztecas e incas, y desde entonces se ha usado tanto para fines nutricionales como médicos. Su principal uso es para hacer chocolate. De este fruto se consigue tanto el polvo de cacao como la manteca. Ambas se suelen mezclar junto a azúcares refinados y leche.",
-  "descripcion_breve": "Cacao en polvo para darle sabor y color a tus preparaciones",
-  "cantidad": {
-   "cantidad": 250,
-   "unidad_medida": "gr."
-  },
-  "precio": 300,
-  "descuento": 10,
-  "stock": null,
-  "categoria": [
-   "4",
-   "7"
-  ],
-  "receta": [
-   "3"
-  ],
-  "dieta": [
-   "3"
-  ],
-  "habilitado": true,
-  "id": 2,
-  "image": "cacao.jpg"
- },
- {
-  "codigo": "ALM0145",
-  "nombre": "Stevia",
-  "descripcion": "La Stevia, originaria de Paraguay (ka’a he’e o “la hierba dulce” en guaraní), es una planta de la familia del girasol y se ha convertido en uno de los cultivos con mayor potencial en el mundo. La Stevia tiene una capacidad edulcorante equivalente a 300 veces la del azúcar, sus propiedades son únicas en el mundo.",
-  "descripcion_breve": "Una manera natural de endulzar tus preparaciones",
-  "cantidad": {
-   "cantidad": 110,
-   "unidad_medida": "gr."
-  },
-  "precio": 170,
-  "descuento": 0,
-  "stock": null,
-  "categoria": [
-   "4",
-   "5",
-   "8"
-  ],
-  "receta": [
-   "3"
-  ],
-  "dieta": [
-   "3"
-  ],
-  "habilitado": true,
-  "id": 3,
-  "image": "stevia.jpg"
- }
+[{
+        "codigo": "ALM0219",
+        "nombre": "Cúrcuma",
+        "descripcion": "La cúrcuma, también denominada azufre de Indias, es una planta muy apreciada por su versatilidad gastronómica. Se le atribuyen propiedades medicinales contra el cáncer, el colesterol alto o la artrosis, entre otras enfermedades. Es nativa del suroeste de la India y es una raíz de la familia del jengibre. Se utiliza como colorante por su inconfundible color amarillo. Además, aporta un cautivante sabor dulzón con un toque picante y amargo, por lo que conviene incorporarlo en pequeñas cantidades",
+        "descripcion_breve": "Cúrcuma en polvo para darle sabor y color a tus comidas",
+        "cantidad": {
+            "cantidad": 100,
+            "unidad_medida": "gr."
+        },
+        "precio": 60,
+        "descuento": 12,
+        "stock": 3,
+        "categoria": [
+            "4",
+            "8"
+        ],
+        "receta": [
+            "3"
+        ],
+        "dieta": [
+            "3"
+        ],
+        "image": "curcuma en polvo.jpg",
+        "habilitado": true,
+        "id": 1
+    },
+    {
+        "codigo": "ALM0421",
+        "nombre": "Cacao",
+        "descripcion": "El cacao es un árbol procedente de América que produce un fruto del mismo nombre que se puede utilizar como ingrediente para alimentos entre los que destaca el chocolate. Su uso se remonta a la época de los mayas, aztecas e incas, y desde entonces se ha usado tanto para fines nutricionales como médicos. Su principal uso es para hacer chocolate. De este fruto se consigue tanto el polvo de cacao como la manteca. Ambas se suelen mezclar junto a azúcares refinados y leche.",
+        "descripcion_breve": "Cacao en polvo para darle sabor y color a tus preparaciones",
+        "cantidad": {
+            "cantidad": 250,
+            "unidad_medida": "gr."
+        },
+        "precio": 300,
+        "descuento": 10,
+        "stock": null,
+        "categoria": [
+            "4",
+            "7"
+        ],
+        "receta": [
+            "3"
+        ],
+        "dieta": [
+            "3"
+        ],
+        "habilitado": true,
+        "id": 2,
+        "image": "cacao.jpg"
+    },
+    {
+        "codigo": "ALM0145",
+        "nombre": "Stevia",
+        "descripcion": "La Stevia, originaria de Paraguay (ka’a he’e o “la hierba dulce” en guaraní), es una planta de la familia del girasol y se ha convertido en uno de los cultivos con mayor potencial en el mundo. La Stevia tiene una capacidad edulcorante equivalente a 300 veces la del azúcar, sus propiedades son únicas en el mundo.",
+        "descripcion_breve": "Una manera natural de endulzar tus preparaciones",
+        "cantidad": {
+            "cantidad": 110,
+            "unidad_medida": "gr."
+        },
+        "precio": 170,
+        "descuento": 0,
+        "stock": null,
+        "categoria": [
+            "4",
+            "5",
+            "8"
+        ],
+        "receta": [
+            "3"
+        ],
+        "dieta": [
+            "3"
+        ],
+        "image": "stevia.jpg",
+        "habilitado": true,
+        "id": 3
+    }
 ]
