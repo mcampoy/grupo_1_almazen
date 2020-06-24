@@ -43,17 +43,18 @@
 
                                 <% if (product.descuento > 0) { %>
 
-                                <div class="col-12 precio-descuento">
-                                    <span class="tachado">$<%= product.precio %></span>
-                                    <span class="discount"> / <%= product.descuento %>% OFF</span>
+                                <div class="col-6 col-lg-12 precio-descuento">
+                                    <span class="div-precio-descuento">
+                                        <span class="tachado">$<%= product.precio %></span>
+                                        <span class="discount"> / <%= product.descuento %>% OFF</span>
+                                    </span>
+                                    <h3 class="precio_detalles">
+                                        $<%= product.precio - (product.precio / 100 * product.descuento) %></h3>
                                 </div>
-
-                                <h3 class="precio_detalles">
-                                    $<%= product.precio - (product.precio / 100 * product.descuento) %></h3>
 
                                 <% } else { %>
 
-                                <h3 class="col-6 col-lg-12 precio_detalles">$<%= product.precio %></h3>
+                                <h3 class="col-6 col-lg-12 precio_detalles sindescuento">$<%= product.precio %></h3>
 
                                 <% } %>
 
@@ -62,7 +63,7 @@
 
                                     <div class="quantity-selector-text"> Cantidad: </div>
 
-                                    <select class="selectpicker quantity-selector-detalles">
+                                    <select class="selectpicker custom-select quantity-selector-detalles">
                                         <option class="active">1 unidad</option>
                                         <option class="option">2 unidades</option>
                                         <option class="option">3 unidades</option>

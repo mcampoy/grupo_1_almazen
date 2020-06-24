@@ -96,7 +96,14 @@
                                     <h2 class="titulo_producto">
                                         <%= products[i].nombre %>
                                     </h2>
-                                    <span class="ml-auto precio_producto">$ <%= products[i].precio %> </span>
+                                    <% if (products[i].descuento) { %>
+                                        <span class="ml-auto precio_producto">$ <%= products[i].precio %> </span>
+                                        <span class="discountTagPosition">
+                                            <i class="fas fa-tag discountTag"></i> <span class="discountTag"><%= products[i].descuento %>% OFF </span>
+                                        </span>
+                                    <% }else { %> 
+                                        <span class="ml-auto precio_producto">$ <%= products[i].precio %> </span>
+                                    <% } %> 
                                     <p class="descripcion_producto">
                                         <%= products[i].descripcion_breve %> <br>
                                             <%= products[i].cantidad.cantidad %>
