@@ -85,10 +85,13 @@ const controller = {
             }
             saveUser(user)
 
+            req.session.userId = user.id; //para leerlo uso req.cookies.userId
+            res.cookie('userId', user.id); //para leerlo uso req.session.userId
+
             res.redirect(`profile/${user.id}`);
 
         } else {
-            return res.render("register", {errors: errors.errors})
+            return res.render("register", { errors: errors.errors })
 
         }
 
@@ -123,19 +126,19 @@ const controller = {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             let user = getUserByEmail(req.body.email)
-                res.redirect(`profile/${user.id}`);
-            
-
+            req.session.userId = user.id; //para leerlo uso req.cookies.userId
+            res.cookie('userId', user.id); //para leerlo uso req.session.userId
+            res.redirect(`profile/${user.id}`);
         } else {
 
-         return res.render("login", {errors: errors.errors});
+            return res.render("login", { errors: errors.errors });
         }
     },
 
-    profile: function (req, res) {
+    profile: function(req, res) {
 
         let user = getUserById(req.params.id)
-        res.render('profile', {user});
+        res.render('profile', { user });
     }
 };
 
