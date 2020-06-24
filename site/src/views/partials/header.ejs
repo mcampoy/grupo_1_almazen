@@ -84,15 +84,7 @@
                     <div class="modal-body">
                         <section class="contenedor-formulario-login">
                             <div id="page-wrapper">
-                                <% if (typeof errors != 'undefined') { %>
-                                <div class="users-errors">
-                                       <ul>
-                                         <% for(let error of errors) { %>
-                                           <li><%= error.msg %> </li>
-                                         <% } %>
-                                       </ul>
-                                    </div>
-                                    <% } %>
+                                
                                 <form method="post" action="/users/login" id="miFormulario">
                                     <div class="form-campos">
                                         <!-- email -->
@@ -133,18 +125,7 @@
                         <div class="modal-body">
                             <section class="contenedor-formulario-login">
                                 <div id="page-wrapper ">
-
-                                    <% if (typeof errors != 'undefined') { %>
-                                        <div class="users-errors">
-                                            <ul>
-                                                <% for(let error of errors) { %>
-                                                    <li>
-                                                        <%= error.msg %>
-                                                    </li>
-                                                    <% } %>
-                                            </ul>
-                                        </div>
-                                        <% } %>
+                                   
                                         <form method="post" action="/users/create" id="miFormulario" enctype="multipart/form-data">
                                                 <div class="form-campos">
                                                     <!-- nombre -->
@@ -183,18 +164,25 @@
                                                     <button class="login align-items-center justify-content-center" role="button" type="reset">Borrar</button>
                                                     <button class="register align-items-center justify-content-center" role="button" type="submit">Enviar</button>
                                                 </div>
-
-
                                             </form>
                                 </div>
-
                             </section>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
     </nav>
-
 </header>
+<% if (typeof errors != 'undefined') { %>
+    <div class="col-12 users-errors ">
+           <ul>
+               <h4><i class="fas fa-exclamation-triangle"></i>¡Vaya! Algo ha salido mal</h4>
+             <% for(let error of errors) { %>
+                <div id="error-messege">
+                    <li><i class="fas fa-times-circle"></i><%= error.msg %> </li>
+                </div>
+             <% } %>
+           </ul>
+        </div>
+        <% } %>

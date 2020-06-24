@@ -919,6 +919,7 @@ footer .menu-newsletter button {
 .contenedor-formulario {
     width: 90%;
     padding: 20px;
+    padding-top:0;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5%;
@@ -2029,22 +2030,43 @@ hr {
 /* ERRORS */
 .users-errors {
     color: #CF664F;
-    border: 1px solid #CF664F;
     border-radius: 4px;
-    width: 50%;
+    /* width: 50%; */
     font-weight: 600;
     padding: 1%;
-    margin-bottom: 3%;
-    margin-left: 25%;
+    /* margin-bottom: 3%; */
 }
 
 .users-errors ul {
-    /* list-style: none; */
-    padding-left: 6%;
+    list-style: none;
+    /* padding-left: 6%; */
+    margin-bottom: 0;
 }
 
 .users-errors li {
     padding-right: 1%;
+    margin-left: 10%;
+    width: 100vw;
+}
+@media (min-width: 769px){
+    .users-errors li {
+        margin-left: 30%;
+    }
+}
+
+#error-messege{
+    display: flex;
+}
+
+.fa-exclamation-triangle {
+    color: #f7eb40;
+    align-self: center;
+    margin-right: 2%;
+}
+
+.fa-times-circle {
+    align-self: center;
+    margin-right: 2%;
 }
 
 /* MODAL LOGIN & REGISTER */
@@ -2093,6 +2115,7 @@ hr {
     font-size: 1.1em !important;
     background-color: var(--colorBtnRegister);
     border-radius: 4px 0 0 4px;
+    height: 38px;
 }
 
 @media (min-width: 768px){
@@ -2115,10 +2138,6 @@ input#email.form-control, input#password.form-control {
     padding: 0;
     padding-left: 4%;
     border-radius: 0 4px 4px 0;
-}
-
-.form-control-imagen {
-
 }
 
 /* PROFILE */ 

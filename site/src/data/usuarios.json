@@ -23,5 +23,12 @@
   "email": "agus_puli09@hotmail.com",
   "password": "$2b$10$/1xLmzXBhDLFSPkmk7mKA.ZGfm2WXebqKfVRCj7Efc9F1ymjfvEXS",
   "avatar": "avatar-1593022518948.jpg"
+ },
+ {
+  "id": 5,
+  "name": "Matías",
+  "email": "matias@almazen.com",
+  "password": "$2b$10$H.8ZEl2ZSZ4Y3D9h3M9QsuQDbQh.r7bwYHyc7qsfW23lpUu2QAL1.",
+  "avatar": "avatar-1593036167353.png"
  }
 ]
