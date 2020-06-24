@@ -13,14 +13,8 @@
  },
  {
   "id": 3,
-  "name": "Hernán",
-  "email": "hernan@dh.com",
-  "password": "$2b$10$O8E4WwY5IHVG4O9iW9GD2uAgCISSKVCTuaQi7hSM7SlD8Dc5T2a9y"
- },
- {
-  "id": 4,
-  "name": "hern",
-  "email": "h@g.com",
-  "password": "$2b$10$dhXuBY8bx0vFrriRQCcahuoRDvti/gVw0FMQV8NhpnrBzdJBFzqa2"
+  "name": "Rafael",
+  "email": "rafa@almazen.com",
+  "password": "$2b$10$TfzxPZjDpjt8WFf/52eI.uyAEe/3W82klYAS3I7xee5.3YiaYPib6"
  }
 ]
