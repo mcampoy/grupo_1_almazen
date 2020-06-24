@@ -3,6 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
+const session = require('express-session');
+
 // Requerimiento del método Override
 var methodOverride = require('method-override');
 
@@ -28,6 +31,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 // Method Override
 app.use(methodOverride('_method'));
 
+app.use(session({ secret: "mensaje secreto Almazen" }));
 
 // app.use('/', mainRouter);
 app.use('/', indexRouter);

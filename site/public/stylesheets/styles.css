@@ -2045,8 +2045,31 @@ hr {
     padding-right: 1%;
 }
 
+.btn-login-header {
+    background: none;
+    border: none;
+    color: black;
+}
 
+.btn-login-header:hover {
+    background-color: var(--colorBtnRegister);
+    width: 100%;
+}
 
+.modal-header-login h5{
+    padding: 1%;
+    font-family: var(--colorTituloGeneral);
+    font-size: 1.5em;
+    text-align: center;
+    padding-top: 8%;
+}
+
+.form-group-login {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+
+}
 /* PROFILE */ 
 #wrapper {
     overflow-x: hidden;
@@ -2076,12 +2099,9 @@ hr {
 }
 
 @media (min-width: 768px) {
-  
 
   #page-content-wrapper {
     /*min-width: 0;*/
     width: 100%;
   }
-
- 
 }

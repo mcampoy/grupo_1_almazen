@@ -1,13 +1,20 @@
-[{
-        "id": 1,
-        "name": "Matías",
-        "email": "mc@almazen.com",
-        "password": "$2b$10$KBa3NztdfSvElb.986E.9eRHX1vm.0LpDdZfQnZkDzfB7DYFgS0P."
-    },
-    {
-        "id": 2,
-        "name": "Agustín",
-        "email": "agus@almazen.com",
-        "password": "$2b$10$ylEixrFkDrhtEBnxsdxPB.P1F9KRJ6qAE4K7awd0cxAd4JKBHctLq"
-    }
+[
+ {
+  "id": 1,
+  "name": "Matías",
+  "email": "mc@almazen.com",
+  "password": "$2b$10$KBa3NztdfSvElb.986E.9eRHX1vm.0LpDdZfQnZkDzfB7DYFgS0P."
+ },
+ {
+  "id": 2,
+  "name": "Agustín",
+  "email": "agus@almazen.com",
+  "password": "$2b$10$ylEixrFkDrhtEBnxsdxPB.P1F9KRJ6qAE4K7awd0cxAd4JKBHctLq"
+ },
+ {
+  "id": 3,
+  "name": "Rafael",
+  "email": "rafa@almazen.com",
+  "password": "$2b$10$TfzxPZjDpjt8WFf/52eI.uyAEe/3W82klYAS3I7xee5.3YiaYPib6"
+ }
 ]
