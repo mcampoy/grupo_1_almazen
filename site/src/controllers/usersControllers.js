@@ -144,7 +144,7 @@ const controller = {
             req.session.usuarioLogueado = user; //para leerlo uso req.session.usuarioLogueado
             res.cookie('userId', user.id); //para leerlo uso req.cookies.userId //ESTO LO TIENE QUE HACER SÓLO SI SE MARCÓ EL CHECKBOX RECORDARME
 
-            if (user.id == 6) //administrador, después modificar condición
+            if (user.email == "admin@almazen.com") //administrador, después modificar condición
             {
                 req.session.usuarioLogueado.isAdmin = true;
                 res.redirect('/');
