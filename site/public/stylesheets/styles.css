@@ -1770,6 +1770,7 @@ figure img.sg-logo-receta {
     transition: all 0.25s;
     padding: 10px;
     border-radius: 5%;
+    background-color: white;
 }
 
 #tarjetas .ladofrente:hover {
