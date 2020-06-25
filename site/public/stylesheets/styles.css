@@ -150,6 +150,7 @@ header {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
+
 /* ENLACES MENU DESPLEGABLE*/
 
 .navbar-light .navbar-toggler {
@@ -158,9 +159,10 @@ header {
 }
 
 .navbar-brand {
-    display: inline-block;    
+    display: inline-block;
     margin-right: 0px;
-    }
+}
+
 
 /* DROPDOWN MENU */
 
@@ -244,8 +246,6 @@ header {
 
 
 /* * * * * * SLIDER HOME * * * * * * */
-
-
 
 .carousel-caption {
     border-radius: 7px 7px 0px 0px;
@@ -455,8 +455,8 @@ footer h6 a {
 
 footer h6 a:hover {
     color: var(--BtnBorderLogin);
-
 }
+
 
 /* ENLACES FOOTER */
 
@@ -570,11 +570,9 @@ footer .menu-newsletter button {
     menu {
         display: none;
     }
-
     .btn-toggle-navbar {
         display: none;
     }
-
     .menu-collapse .enlaces ul {
         display: flex;
         flex-direction: column;
@@ -588,11 +586,9 @@ footer .menu-newsletter button {
     .logofooter {
         margin-bottom: 1.5em;
     }
-
     .copy {
         order: 2;
     }
-
     .redes {
         order: 1;
     }
@@ -922,7 +918,7 @@ footer .menu-newsletter button {
 .contenedor-formulario {
     width: 90%;
     padding: 20px;
-    padding-top:0;
+    padding-top: 0;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5%;
@@ -1069,6 +1065,7 @@ label {
     width: 150%;
 }
 
+
 /* botones de compra */
 
 .vip-actions-wrapper {
@@ -1105,42 +1102,38 @@ label {
     border-color: var(--colorMenu);
 }
 
+
 /* TABLET DETALLE DE PRODUCTO */
 
 @media (min-width: 767px) {
     .precio-descuento {
         padding-left: 5%;
     }
-
     .precio_producto-detalles {
         margin-left: 12%;
     }
-
     .precio_detalles {
         /* font-size: 2.5em; */
         text-align: center;
         margin-top: 3%;
     }
-
     .quantity-selector-detalles {
         margin-left: 0;
         align-self: auto;
         border: 1px solid #9e9e9e;
         width: 75%;
     }
-
     .vip-actions-wrapper {
         margin: 5% 0;
     }
-
     .vip-action-primary-details {
         justify-content: space-around;
     }
-
     .secondary {
         margin: 0;
     }
 }
+
 
 /* LAPTOP DETALLE DE PRODUCTO*/
 
@@ -1148,34 +1141,28 @@ label {
     .description-wrapper-details {
         margin: 0 3%;
     }
-
     .short-description-detalles {
         padding-left: 10%;
     }
-
     .precio_detalles {
         text-align: right;
         margin-bottom: 1em;
     }
-
     .precio_producto-detalles {
         display: flex;
         align-content: center;
         margin: 10% 0;
         justify-content: flex-end;
     }
-
     .precio_producto-detalles h3 {
         /* font-size: 2.5em; */
         font-weight: 700;
         text-align: right;
     }
-
     .precio-descuento {
         text-align: end;
         font-size: 1.3em;
     }
-
     .box-quantity-detalles {
         justify-content: flex-end;
         margin-bottom: 10px;
@@ -1184,24 +1171,21 @@ label {
         margin-left: 6%;
         width: 30%;
     }
-
-
     .vip-action-primary-details {
         margin-top: 1em;
         justify-content: flex-end;
     }
-
     .primary {
         max-width: 170px;
         margin-right: 3%;
         padding: 0 15px;
     }
-
     .secondary {
         max-width: 170px;
         padding: 10px 10px;
     }
 }
+
 
 /* CARRITO */
 
@@ -1226,41 +1210,32 @@ label {
 
 /* Estilos mobile */
 
-@media (min-width: 320px) {
-    
-}
+@media (min-width: 320px) {}
 
 @media (min-width: 425px) {
     .precio_carrito {
         order: 5;
     }
-
     .box-quantity-carrito {
         order: 1;
     }
-
     .copyright {
         margin-top: 2%;
     }
-
     .iconos {
         margin: 0 auto;
     }
-
     .menu-newsletter {
         display: none;
     }
-
     .carousel-inner {
         height: auto;
     }
-
     .carousel-caption {
         margin-bottom: 0px;
         padding: 1%;
         width: 40%;
     }
-
     .epigrafe {
         font-size: 1em;
     }
@@ -1273,23 +1248,18 @@ label {
     .elemento-info {
         flex-direction: column;
     }
-
     .elemento-info p {
         text-align: center;
     }
-
     .elemento-info span {
         display: none;
     }
-
     menu {
         display: none;
     }
-
     .btn-toggle-navbar {
         display: none;
     }
-
     .menu-collapse .enlaces ul {
         display: flex;
         flex-direction: column;
@@ -1297,31 +1267,26 @@ label {
         align-items: center;
         justify-content: center;
     }
-
     .copy {
         justify-content: center;
     }
-
     .copyright {
         margin-top: 2%;
     }
-
     .iconos {
         margin: 0 auto;
     }
-
     .precio_carrito {
         order: 5;
     }
-
     .box-quantity-carrito {
         order: 1;
     }
-
     .menu-newsletter {
         display: none;
     }
 }
+
 
 /* Estilos laptop */
 
@@ -1329,27 +1294,21 @@ label {
     .copy {
         justify-content: start;
     }
-
     .copyright {
         margin-top: 2%;
     }
-
     .iconos {
         margin-left: auto;
     }
-
     .elemento-info {
         flex-direction: row;
     }
-
     .elemento-info p {
         text-align: left;
     }
-
     .elemento-info span {
         display: block;
     }
-
     .menu-newsletter {
         display: none;
     }
@@ -1386,7 +1345,9 @@ label {
     height: auto !important;
 }
 
+
 /* LOGO DE SIN GLUTEN DE LA HOME */
+
 figure img.singlutenLogo-recetas {
     width: 13% !important;
     position: absolute;
@@ -1461,7 +1422,9 @@ img.singlutenLogo-recetas.logoSG-index {
     position: relative;
 }
 
+
 /* LOGO SIN GLUTEN */
+
 figure img.sg-logo-receta {
     top: 8%;
     left: 2%;
@@ -1472,6 +1435,7 @@ figure img.sg-logo-receta {
     background-color: #F5F5F5;
     border-radius: 4px;
 }
+
 
 /* BOTONES DE ACCIÓN */
 
@@ -1768,7 +1732,6 @@ figure img.sg-logo-receta {
         padding-top: 12%;
         height: 10px;
     }
-
     .horneando {
         display: block;
         width: 20%;
@@ -1825,10 +1788,6 @@ figure img.sg-logo-receta {
     color: var(--colorMenu);
 }
 
-.tipsaludable {
-    font-family: var(--fuenteDescripcionProducto);
-}
-
 .social-bar {
     /*clip-path: polygon(64% 13%, 100% 0, 100% 100%, 64% 89%);*/
     background-color: #ffffffa1;
@@ -1861,7 +1820,6 @@ figure img.sg-logo-receta {
     font-weight: bold
 }
 
-
 .cardCarrito {
     margin: auto;
     max-width: 95%;
@@ -1871,16 +1829,13 @@ figure img.sg-logo-receta {
     border: transparent
 }
 
-
 @media(max-width:767px) {
     .cardCarrito {
         margin: 3vh auto
     }
-
     .navbar-expand-lg {
         display: block;
     }
-
 }
 
 .cartCarrito {
@@ -1896,11 +1851,9 @@ figure img.sg-logo-receta {
         border-bottom-left-radius: unset;
         border-top-right-radius: 1rem
     }
-
     .precio_producto_carrito {
         font-size: .2em;
     }
-
 }
 
 .summary {
@@ -1912,7 +1865,6 @@ figure img.sg-logo-receta {
 }
 
 .precio_producto-carrito {
-
     font-size: var(--fontSizeTipoReceta);
 }
 
@@ -1921,7 +1873,6 @@ figure img.sg-logo-receta {
     font-size: var(--fontSizeDescripcionProducto);
     font-family: var(--fuenteTituloProducto);
     font-weight: var(--fontweightDescripcionProducto);
-
 }
 
 .btn-finalizar-compra {
@@ -1969,14 +1920,12 @@ figure img.sg-logo-receta {
     margin-top: 4.5rem
 }
 
-
 hr {
     margin-top: 1.25rem
 }
 
 .closeEliminar {
     margin-left: auto;
-
 }
 
 .precio_producto_carrito {
@@ -2005,39 +1954,38 @@ hr {
     .marca {
         order: -3;
         display: flex;
-
     }
-
     .navbar-brand {
-    display: flex;    
-    margin-right: 1rem;
+        display: flex;
+        margin-right: 1rem;
     }
-
     .carrito {
-        order: 4; /* -2 */
+        order: 4;
+        /* -2 */
         padding: 2em;
     }
-
     .profile {
-        order: 5; /* -1 */
+        order: 5;
+        /* -1 */
     }
-
     .form-control {
-        order: -2; /* 2 */
+        order: -2;
+        /* 2 */
     }
-
     .search-form_button {
-        order: -1; /* 3 */
+        order: -1;
+        /* 3 */
     }
-
     .navbar-nav {
-        order: 0; /* 5 */
+        order: 0;
+        /* 5 */
         margin-right: 1;
     }
 }
 
 
 /* ERRORS */
+
 .users-errors {
     color: #CF664F;
     border-radius: 4px;
@@ -2058,13 +2006,14 @@ hr {
     margin-left: 10%;
     width: 100vw;
 }
-@media (min-width: 769px){
+
+@media (min-width: 769px) {
     .users-errors li {
         margin-left: 30%;
     }
 }
 
-#error-messege{
+#error-messege {
     display: flex;
 }
 
@@ -2079,6 +2028,7 @@ hr {
     margin-right: 2%;
 }
 
+
 /* MODAL LOGIN & REGISTER */
 
 .modal-header-login h5 {
@@ -2089,6 +2039,7 @@ hr {
     padding-top: 8%;
     font-family: var(--fuenteGeneral);
 }
+
 .btn-login-header {
     background: none;
     border: none;
@@ -2100,7 +2051,7 @@ hr {
     width: 100%;
 }
 
-.modal-header-login h5{
+.modal-header-login h5 {
     padding: 1%;
     font-family: var(--colorTituloGeneral);
     font-size: 1.5em;
@@ -2118,7 +2069,8 @@ hr {
     display: flex;
 }
 
-.mail-modal, .fa-key {
+.mail-modal,
+.fa-key {
     color: white;
     align-self: center;
     padding: 2.5%;
@@ -2128,8 +2080,9 @@ hr {
     height: 38px;
 }
 
-@media (min-width: 768px){
-    .mail-modal, .fa-key {
+@media (min-width: 768px) {
+    .mail-modal,
+    .fa-key {
         font-size: 2em;
     }
 }
@@ -2144,7 +2097,8 @@ hr {
     padding-top: 1%;
 }
 
-input#email.form-control, input#password.form-control {
+input#email.form-control,
+input#password.form-control {
     padding: 0;
     padding-left: 4%;
     border-radius: 4px 0 0 4px;
@@ -2156,38 +2110,38 @@ input#email.form-control, input#password.form-control {
     font-weight: 400;
 }
 
-/* PROFILE */ 
+
+/* PROFILE */
+
 #wrapper {
     overflow-x: hidden;
- }
+}
 
 #sidebar-wrapper {
-  min-height: 100vh;
-  margin-left: -15rem;
- 
+    min-height: 100vh;
+    margin-left: -15rem;
 }
 
 #sidebar-wrapper .sidebar-heading {
-  
-  font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 
 #sidebar-wrapper .list-group {
-  width: 15rem;
+    width: 15rem;
 }
 
 #page-content-wrapper {
-  min-width: 0;
-  min-height: 100vh;
+    min-width: 0;
+    min-height: 100vh;
 }
-.list-group-item+.list-group-item:hover{
+
+.list-group-item+.list-group-item:hover {
     background-color: var(--colorMenu);
 }
 
 @media (min-width: 768px) {
-
-  #page-content-wrapper {
-    /*min-width: 0;*/
-    width: 100%;
-  }
+    #page-content-wrapper {
+        /*min-width: 0;*/
+        width: 100%;
+    }
 }
