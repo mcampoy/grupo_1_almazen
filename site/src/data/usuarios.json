@@ -10,14 +10,14 @@
         "name": "Agustín",
         "email": "agus@almazen.com",
         "password": "$2b$10$ylEixrFkDrhtEBnxsdxPB.P1F9KRJ6qAE4K7awd0cxAd4JKBHctLq",
-        "avatar": "avatar-1593036167353.png"
+        "avatar": "avatar-1593022518948.jpg"
     },
     {
         "id": 3,
         "name": "Rafael",
         "email": "rafa@almazen.com",
         "password": "$2b$10$TfzxPZjDpjt8WFf/52eI.uyAEe/3W82klYAS3I7xee5.3YiaYPib6",
-        "avatar": "avatar-1593036167353.png"
+        "avatar": "avatar-1593083486227.png"
     },
     {
         "id": 4,
@@ -29,13 +29,13 @@
     {
         "id": 5,
         "name": "Matías",
-        "email": "matias@almazen.com",
+        "email": "mati@almazen.com",
         "password": "$2b$10$H.8ZEl2ZSZ4Y3D9h3M9QsuQDbQh.r7bwYHyc7qsfW23lpUu2QAL1.",
         "avatar": "avatar-1593036167353.png"
     },
     {
         "id": 6,
-        "name": "Administrador",
+        "name": "Admin",
         "email": "admin@almazen.com",
         "password": "$2b$10$9pE7FmVoYQZf/9uQRPx8veTEUcIX/P8grWwU9tVDYoOz3rjJnj9G2",
         "avatar": "avatar-1593083486227.png"

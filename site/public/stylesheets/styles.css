@@ -2191,3 +2191,25 @@ input#email.form-control, input#password.form-control {
     width: 100%;
   }
 }
+
+/* ESTILOS HEADER LOGEADO */
+.adminin-menu button{
+    display: block;
+}
+
+.hoverlogout:hover {
+    background-color: #CF664F;
+}
+
+.userNameLog {
+    font-weight: 500;
+    font-weight: 500;
+    position: relative;
+    right: 15%;
+}
+
+.user-info-log {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
