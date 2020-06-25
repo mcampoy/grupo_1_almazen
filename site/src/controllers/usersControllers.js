@@ -77,6 +77,7 @@ const controller = {
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
+
             if (req.body.password == req.body.validation) {
 
                 delete req.body.validation;
@@ -91,7 +92,19 @@ const controller = {
             saveUser(user)
 
             req.session.usuarioLogueado = user;
-            res.redirect(`profile/${user.id}`);
+            if (req.body.remember != undefined) {
+                // creamos una cookie de nombre "recordarme" que va a contener el email del usuario
+                let expiracion = new Date(Date.now() + 900000); //15 minutos
+                res.cookie('recordarme', user.email, { expires: expiracion });
+            }
+
+            if (user.email == "admin@almazen.com") //administrador, después modificar condición
+            {
+                req.session.usuarioLogueado.isAdmin = true;
+                res.redirect('/');
+            }
+            //res.redirect(`profile/${user.id}`);
+            res.redirect('/');
 
         } else {
             //return res.render("register", { errors: errors.errors })
