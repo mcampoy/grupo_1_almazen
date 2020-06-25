@@ -99,6 +99,13 @@ let usersMiddlewares = {
             res.redirect('/');
         }
     },
+    adminValidation: function(req, res, next) {
+        if (req.session.usuarioLogueado != undefined && req.session.usuarioLogueado.isAdmin) {
+            next();
+        } else {
+            res.redirect('/');
+        }
+    },
     rememberUser: function(req, res, next) {
         // si el usuario no está logueado pero tiene la cookie "recordarme" activa
         if (req.session.usuarioLogueado == undefined && req.cookies.recordarme != undefined) {
