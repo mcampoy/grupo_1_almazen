@@ -30,7 +30,7 @@
                     <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/product/details">DIETAS</a>
                 </li>
                 <!-- BOTON TIPS -->
-                <li class="col-12 col-md-12 col-lg-1 mt-1 d-flex justify-content-center align-items-center ">
+                <li class="col-12 col-md-12 col-lg-1 mt-1 d-flex justify-content-center align-items-center">
                     <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/tips/tips">TIPS</a>
                 </li>
 
@@ -50,24 +50,47 @@
 
                 <img src="/images/profile.svg" class="dropdown-toggle d-flex justify-content-end" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="33px" alt="carrito">
 
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuOffset">
+                <% if (usuarioLogueado!=undefined) { %>
+                    <div>
+                        <%= usuarioLogueado.name %>
+                    </div>
+                    <% } %>
 
-                    <!-- LOGIN  -->
-                    <!-- Button trigger modal login -->
-                    <button type="button" class="btn btn-primary btn-login-header" data-toggle="modal" data-target="#Login">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuOffset">
+                            <% if (usuarioLogueado==undefined) { %>
+
+                                <!-- LOGIN  -->
+                                <!-- Button trigger modal login -->
+                                <button type="button" class="btn btn-primary btn-login-header" data-toggle="modal" data-target="#Login">
                         INGRESAR
                     </button>
 
-                    <!-- /* CREAR CUENTA */ -->
-                    <button type="button" class="btn btn-primary btn-login-header" data-toggle="modal" data-target="#Register">
+                                <!-- /* CREAR CUENTA */ -->
+                                <button type="button" class="btn btn-primary btn-login-header" data-toggle="modal" data-target="#Register">
                         CREAR CUENTA
                     </button>
 
-                    <!-- <a class="dropdown-item drop mt-1" href="/users/create">CREAR CUENTA</a> -->
-                    <span class="dropdown-item drop mt-1"> ----------------</span>
-                    <a class="dropdown-item drop mt-1" href="/product/admin">(Administrador)</a>
+                                <!-- <a class="dropdown-item drop mt-1" href="/users/create">CREAR CUENTA</a> -->
+                                <span class="dropdown-item drop mt-1"> ----------------</span>
+                                <a class="dropdown-item drop mt-1" href="/product/admin">(Administrador)</a>
 
-                </div>
+                                <% } else {%>
+
+
+                                    <!-- /* VER PERFIL */ -->
+                                    <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/users/profile/<%= usuarioLogueado.id%>'">
+                                    VER PERFIL
+                                </button>
+
+                                    <!-- /* CERRAR SESIÓN */ -->
+                                    <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/users/logout'">
+                            CERRAR SESIÓN
+                        </button>
+
+                                    <% }%>
+
+                        </div>
+
             </div>
 
 
@@ -79,33 +102,45 @@
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h5 class="modal-title-logs" id="exampleModalLabel">Ingresá a tu cuenta</h5>
-                    </div>
-                    <div class="modal-body">
-                        <section class="contenedor-formulario-login">
-                            <div id="page-wrapper">
-                                
-                                <form method="post" action="/users/login" id="miFormulario">
-                                    <div class="form-campos">
-                                        <!-- email -->
-                                        <div class="form-group-login">
-                                            <label class="modal-label" for="email">EMAIL</label>
-                                            <span class="wrapper-email-login"><i class="fas fa-envelope mail-modal"></i><input type="email" class="form-control" id="email" aria-describedby="email" name="email" placeholder="Ingresá tu email" required/></span>
+                            <h5 class="modal-title-logs" id="exampleModalLabel">Ingresá a tu cuenta</h5>
+                        </div>
+                        <div class="modal-body">
+                            <section class="contenedor-formulario-login">
+                                <div id="page-wrapper">
+                                    <% if (typeof errors != 'undefined') { %>
+                                        <div class="users-errors">
+                                            <ul>
+                                                <% for(let error of errors) { %>
+                                                    <li>
+                                                        <%= error.msg %>
+                                                    </li>
+                                                    <% } %>
+                                            </ul>
                                         </div>
-                                        <!-- password -->
-                                        <div class="form-group-login">
-                                            <label class="modal-label" for="password">CONTRASEÑA</label>
-                                            <span class="wrapper-email-login"><i class="fas fa-key"></i><input type="password" name="password" class="form-control" id="password" aria-describedby="password" placeholder="Ingresá tu contraseña" required/></span>
-                                        </div>
-                                        </div>
-                                        <!-- dejar en blanco el formulario o enviar -->
-                                        <div class="user form-group">
-                                              <button class="login" role="button" type="reset">Borrar</button>
-                                               <button class="register" role="button" type="submit" value="enviar">Ingresar</button>
-                                        </div>
-                                </form>
-                            </div>
-                        </section>
+                                        <% } %>
+                                            <form method="post" action="/users/login" id="miFormulario">
+                                                <div class="form-campos">
+                                                    <!-- email -->
+                                                    <div class="form-group-login">
+                                                        <label class="modal-label" for="email">EMAIL</label>
+                                                        <span class="wrapper-email-login"><i class="fas fa-envelope mail-modal"></i><input type="email" class="form-control" id="email" aria-describedby="email" name="email" placeholder="Ingresá
+                                        tu email" required/></span>
+                                                    </div>
+                                                    <!-- password -->
+                                                    <div class="form-group-login">
+                                                        <label class="modal-label" for="password">CONTRASEÑA</label>
+                                                        <span class="wrapper-email-login"><i class="fas fa-key"></i><input type="password" name="password" class="form-control" id="password" aria-describedby="password" placeholder="Ingresá tu
+                                        contraseña" required/></span>
+                                                    </div>
+                                                </div>
+                                                <!-- dejar en blanco el formulario o enviar -->
+                                                <div class="user form-group">
+                                                    <button class="login" role="button" type="reset">Borrar</button>
+                                                    <button class="register" role="button" type="submit" value="enviar">Ingresar</button>
+                                                </div>
+                                            </form>
+                                </div>
+                            </section>
                         </div>
                     </div>
                 </div>
@@ -124,9 +159,20 @@
                         </div>
                         <div class="modal-body">
                             <section class="contenedor-formulario-login">
-                                <div id="page-wrapper ">
-                                   
-                                        <form method="post" action="/users/create" id="miFormulario" enctype="multipart/form-data">
+                                <div id="page-wrapper">
+
+                                    <% if (typeof errors != 'undefined') { %>
+                                        <div class="users-errors">
+                                            <ul>
+                                                <% for(let error of errors) { %>
+                                                    <li>
+                                                        <%= error.msg %>
+                                                    </li>
+                                                    <% } %>
+                                            </ul>
+                                        </div>
+                                        <% } %>
+                                            <form method="post" action="/users/create" id="miFormulario" enctype="multipart/form-data">
                                                 <div class="form-campos">
                                                     <!-- nombre -->
                                                     <div class="form-group">
@@ -136,8 +182,8 @@
 
                                                     <!-- email -->
                                                     <div class="form-group">
-                                                        <label class="modal-label" for="exampleInputEmail1 ">EMAIL</label>
-                                                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp " placeholder="Ejemplo: almazen@gmail.com" required/>
+                                                        <label class="modal-label" for="exampleInputEmail1">EMAIL</label>
+                                                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Ejemplo: almazen@gmail.com" required/>
                                                     </div>
 
                                                     <!-- password -->
@@ -167,22 +213,25 @@
                                             </form>
                                 </div>
                             </section>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
     </nav>
 </header>
 <% if (typeof errors != 'undefined') { %>
     <div class="col-12 users-errors ">
-           <ul>
-               <h4><i class="fas fa-exclamation-triangle"></i>¡Vaya! Algo ha salido mal</h4>
-             <% for(let error of errors) { %>
+        <ul>
+            <h4><i class="fas fa-exclamation-triangle"></i>¡Vaya! Algo ha salido mal</h4>
+            <% for(let error of errors) { %>
                 <div id="error-messege">
-                    <li><i class="fas fa-times-circle"></i><%= error.msg %> </li>
+                    <li><i class="fas fa-times-circle"></i>
+                        <%= error.msg %>
+                    </li>
                 </div>
-             <% } %>
-           </ul>
-        </div>
-        <% } %>
+                <% } %>
+        </ul>
+    </div>
+    <% } %>

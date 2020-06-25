@@ -9,7 +9,12 @@ function readHTML(fileName) {
 
 const controller = {
     reg: (req, res) => {
-        res.render('tarjetas');
+        //res.render('tarjetas');
+        if (req.session.usuarioLogueado == undefined) {
+            return res.render("tarjetas", { usuarioLogueado: undefined });
+        } else {
+            return res.render("tarjetas", { usuarioLogueado: req.session.usuarioLogueado });
+        }
     }
 };
 

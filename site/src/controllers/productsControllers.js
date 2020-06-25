@@ -90,9 +90,12 @@ const controller = {
                 productos.push(product);
             }
         }
-        res.render('products', {
-            productos
-        })
+        // res.render('products', { productos })
+        if (req.session.usuarioLogueado == undefined) {
+            return res.render('products', { productos, usuarioLogueado: undefined });
+        } else {
+            return res.render('products', { productos, usuarioLogueado: req.session.usuarioLogueado });
+        }
     },
 
     details: (req, res) => {
@@ -102,17 +105,30 @@ const controller = {
         if (product == null) {
             return res.redirect('/');
         }
-        res.render('productDetail', {
-            product: product
-        });
+        //res.render('productDetail', {product: product});
+        if (req.session.usuarioLogueado == undefined) {
+            return res.render('productDetail', { product: product, usuarioLogueado: undefined });
+        } else {
+            return res.render('productDetail', { product: product, usuarioLogueado: req.session.usuarioLogueado });
+        }
     },
 
     admin: (req, res) => {
-        res.render('productAdmin', { products });
+        // res.render('productAdmin', { products });
+        if (req.session.usuarioLogueado == undefined) {
+            return res.render('productAdmin', { products, usuarioLogueado: undefined });
+        } else {
+            return res.render('productAdmin', { products, usuarioLogueado: req.session.usuarioLogueado });
+        }
     },
 
     cart: (req, res) => {
-        res.render('productCart');
+        //res.render('productCart');
+        if (req.session.usuarioLogueado == undefined) {
+            return res.render('productCart', { usuarioLogueado: undefined });
+        } else {
+            return res.render('productCart', { usuarioLogueado: req.session.usuarioLogueado });
+        }
     },
 
     adminShowDetails: (req, res) => {
@@ -268,9 +284,15 @@ const controller = {
                 }
             });
             fs.writeFileSync(productsPath, JSON.stringify(products, null, ' '));
-            res.redirect('admin');
+            res.redirect('product/admin');
         } else {
-            res.render('productAdmin', { products, errors: errors.errors });
+
+            //res.render('productAdmin', { products, errors: errors.errors });
+            if (req.session.usuarioLogueado == undefined) {
+                return res.render('productAdmin', { products, errors: errors.errors, usuarioLogueado: undefined });
+            } else {
+                return res.render('productAdmin', { products, errors: errors.errors, usuarioLogueado: req.session.usuarioLogueado });
+            }
         }
     }
 };
