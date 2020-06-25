@@ -90,9 +90,7 @@ const controller = {
             }
             saveUser(user)
 
-            req.session.usuarioLogueado = user; //para leerlo uso res.cookies.userId
-            res.cookie('userId', user.id); //para leerlo uso req.session.userId //ESTO LO TIENE QUE HACER SÓLO SI SE MARCÓ EL CHECKBOX RECORDARME
-
+            req.session.usuarioLogueado = user;
             res.redirect(`profile/${user.id}`);
 
         } else {
@@ -141,15 +139,20 @@ const controller = {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             let user = getUserByEmail(req.body.email)
-            req.session.usuarioLogueado = user; //para leerlo uso req.session.usuarioLogueado
-            res.cookie('userId', user.id); //para leerlo uso req.cookies.userId //ESTO LO TIENE QUE HACER SÓLO SI SE MARCÓ EL CHECKBOX RECORDARME
+            req.session.usuarioLogueado = user;
+            if (req.body.remember != undefined) {
+                // creamos una cookie de nombre "recordarme" que va a contener el email del usuario
+                let expiracion = new Date(Date.now() + 900000); //15 minutos
+                res.cookie('recordarme', user.email, { expires: expiracion });
+            }
 
             if (user.email == "admin@almazen.com") //administrador, después modificar condición
             {
                 req.session.usuarioLogueado.isAdmin = true;
                 res.redirect('/');
             }
-            res.redirect(`profile/${user.id}`);
+            //res.redirect(`profile/${user.id}`);
+            res.redirect(`/`);
 
         } else {
 
@@ -174,9 +177,13 @@ const controller = {
     },
 
     logout: function(req, res) {
-        req.session.destroy();
-        res.cookie('userId', undefined);
-        res.redirect('/');
+        req.session.destroy(function() { // Destruyo la sesión completa
+            if (req.cookies.recordarme != undefined) {
+                res.clearCookie("recordarme"); //eliminamos la cookie
+            }
+            mensaje = "Se cerró la sesión exitosamente";
+            res.redirect('/');
+        });
     }
 };
 

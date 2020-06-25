@@ -266,7 +266,7 @@ const controller = {
         if (errors.isEmpty()) {
 
             saveProduct(product);
-            res.render('productAdminDetail', { product, categorias, dietas, recetas, edit: false })
+            //res.render('productAdminDetail', { product, categorias, dietas, recetas, edit: false })
 
         } else {
             return res.render('productAdminDetail', { product, categorias, dietas, recetas, edit: true, errors: errors.errors });
@@ -284,7 +284,7 @@ const controller = {
                 }
             });
             fs.writeFileSync(productsPath, JSON.stringify(products, null, ' '));
-            res.redirect('product/admin');
+            res.redirect('/product/admin');
         } else {
 
             //res.render('productAdmin', { products, errors: errors.errors });

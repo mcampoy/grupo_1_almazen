@@ -16,6 +16,10 @@ function getUsers() {
     }
 };
 
+function getUserByEmail(email) {
+    let users = getUsers()
+    return users.find(user => user.email == email)
+};
 
 // MIDDLEWARES USUARIOS
 let usersMiddlewares = {
@@ -94,6 +98,22 @@ let usersMiddlewares = {
         } else {
             res.redirect('/');
         }
+    },
+    rememberUser: function(req, res, next) {
+        // si el usuario no está logueado pero tiene la cookie "recordarme" activa
+        if (req.session.usuarioLogueado == undefined && req.cookies.recordarme != undefined) {
+
+            let user = getUserByEmail(req.cookies.recordarme);
+            if (user != null) {
+                req.session.usuarioLogueado = user; // logueamos al usuario
+                if (user.email == "admin@almazen.com") //administrador, después modificar condición
+                {
+                    req.session.usuarioLogueado.isAdmin = true;
+                    res.redirect('/');
+                }
+            }
+        }
+        next();
     },
 }
 module.exports = usersMiddlewares;

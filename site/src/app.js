@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 const session = require('express-session');
+const usersMiddlewares = require('./middlewares/usersMiddlewares');
+
 
 // Requerimiento del método Override
 var methodOverride = require('method-override');
@@ -31,7 +33,10 @@ app.use(express.static(path.join(__dirname, '../public')));
 // Method Override
 app.use(methodOverride('_method'));
 
-app.use(session({ secret: "mensaje secreto Almazen", resave: false, saveUninitialized: false }));
+app.use(session({ secret: "mensaje secreto Almazen", resave: false, saveUninitialized: true }));
+
+app.use(usersMiddlewares.rememberUser); // cookie de inicio de sesión con check de "recordarme" activado
+
 
 // app.use('/', mainRouter);
 app.use('/', indexRouter);
@@ -45,6 +50,7 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
     next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {
