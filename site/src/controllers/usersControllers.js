@@ -143,7 +143,14 @@ const controller = {
             let user = getUserByEmail(req.body.email)
             req.session.usuarioLogueado = user; //para leerlo uso req.session.usuarioLogueado
             res.cookie('userId', user.id); //para leerlo uso req.cookies.userId //ESTO LO TIENE QUE HACER SÓLO SI SE MARCÓ EL CHECKBOX RECORDARME
+
+            if (user.id == 6) //administrador, después modificar condición
+            {
+                req.session.usuarioLogueado.isAdmin = true;
+                res.redirect('/');
+            }
             res.redirect(`profile/${user.id}`);
+
         } else {
 
             //return res.render("login", { errors: errors.errors });

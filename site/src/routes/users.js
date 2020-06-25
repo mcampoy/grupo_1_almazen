@@ -22,24 +22,23 @@ const usersController = require('../controllers/usersControllers');
 
 // ************ Middlewares Require ************
 var usersMiddlewares = require('../middlewares/usersMiddlewares');
-const middPermisos = require('../middlewares/middPermisos');
 
 
 
 /* LOGIN */
-router.get('/login', usersController.log);
-router.post('/login', usersMiddlewares.loginValidation, usersController.access);
+router.get('/login', usersMiddlewares.guestValidation, usersController.log);
+router.post('/login', usersMiddlewares.guestValidation, usersMiddlewares.loginValidation, usersController.access);
 
 
 /* REGISTRO */
-router.get('/create', usersController.reg);
-router.post('/create', upload.any(), usersMiddlewares.registerValidation, usersController.create);
+router.get('/create', usersMiddlewares.guestValidation, usersController.reg);
+router.post('/create', upload.any(), usersMiddlewares.guestValidation, usersMiddlewares.registerValidation, usersController.create);
 
 /*PERFIL DEL USUARIO*/
-router.get('/profile/:id', middPermisos.soloUsuariosLogueados, usersController.profile);
+router.get('/profile/:id', usersMiddlewares.loggedUserValidation, usersController.profile);
 
 /* CERRAR SESIÓN */
-router.get('/logout', usersController.logout);
+router.get('/logout', usersMiddlewares.loggedUserValidation, usersController.logout);
 
 
 module.exports = router;

@@ -6,8 +6,8 @@
             <!--<i class="fa fa-bars"></i>-->
         </button>
         <a href="/" role="button" class="col-1 col-md-4 col-lg-3 marca"><img src="/images/Logo.svg" alt="marca almazen" class="navbar-brand"></a>
-        
-         <!--<div class="col-lg-2 d-flex">-->
+
+        <!--<div class="col-lg-2 d-flex">-->
         <!-- BOTON CARRITO -->
         <li class="col-1 mt-1 ml-1 d-inline-flex align-items-center carrito">
             <a href="/product/cart" role="button" class="justify-content-center"><img src="/images/cart.svg" width="33px" alt="carrito"></a>
@@ -39,23 +39,53 @@
                     </button>
 
                                 <!-- <a class="dropdown-item drop mt-1" href="/users/create">CREAR CUENTA</a> -->
-                                <span class="dropdown-item drop mt-1"> ----------------</span>
-                                <a class="dropdown-item drop mt-1" href="/product/admin">(Administrador)</a>
 
                                 <% } else {%>
 
+                                    <% if (usuarioLogueado.isAdmin==true) { %>
+                                        <!-- /* MENÚ DE ADMINSITRADOR */ -->
 
-                                    <!-- /* VER PERFIL */ -->
-                                    <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/users/profile/<%= usuarioLogueado.id%>'">
-                                    VER PERFIL
-                                </button>
+                                        <!-- /* PRODUCTOS */ -->
+                                        <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
+                                        PRODUCTOS
+                                    </button>
 
-                                    <!-- /* CERRAR SESIÓN */ -->
-                                    <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/users/logout'">
+                                        <!-- /* RECETAS */ -->
+                                        <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
+                                        RECETAS
+                                    </button>
+
+                                        <!-- /* TIPS */ -->
+                                        <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
+                                        TIPS
+                                    </button>
+
+                                        <!-- /* CATEGORIAS */ -->
+                                        <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
+                                        CATEGORIAS
+                                    </button>
+
+                                        <!-- /* CATEGORIAS */ -->
+                                        <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
+                                        USUARIOS
+                                    </button>
+
+                                        <% } else {%>
+
+                                            <!-- /* VER PERFIL */ -->
+                                            <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/users/profile/<%= usuarioLogueado.id%>'">
+                                        VER PERFIL
+                                    </button>
+
+                                            <% }%>
+
+
+                                                <!-- /* CERRAR SESIÓN */ -->
+                                                <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/users/logout'">
                             CERRAR SESIÓN
                         </button>
 
-                                    <% }%>
+                                                <% }%>
 
                         </div>
 
@@ -184,8 +214,8 @@
                 </div>
             </div>
         </div>
-        
-        
+
+
         <!-- FORMULARIO DE BUSQUEDA -->
         <form action="" method="get" class="search-form col-12 col-lg-3 d-flex justify-content-center input-group">
             <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="form-control search-form_input col-10">
@@ -219,7 +249,7 @@
 
 
         </div>
-       
+
 
     </nav>
 </header>

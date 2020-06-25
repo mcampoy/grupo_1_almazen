@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 // Method Override
 app.use(methodOverride('_method'));
 
-app.use(session({ secret: "mensaje secreto Almazen" }));
+app.use(session({ secret: "mensaje secreto Almazen", resave: false, saveUninitialized: false }));
 
 // app.use('/', mainRouter);
 app.use('/', indexRouter);
