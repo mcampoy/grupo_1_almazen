@@ -2124,7 +2124,7 @@ hr {
     padding: 2.5%;
     font-size: 1.1em !important;
     background-color: var(--colorBtnRegister);
-    border-radius: 4px 0 0 4px;
+    border-radius: 0 4px 4px 0;
     height: 38px;
 }
 
@@ -2147,7 +2147,13 @@ hr {
 input#email.form-control, input#password.form-control {
     padding: 0;
     padding-left: 4%;
-    border-radius: 0 4px 4px 0;
+    border-radius: 4px 0 0 4px;
+}
+
+.remember {
+    margin-top: 3%;
+    color: var(--colorMenu);
+    font-weight: 400;
 }
 
 /* PROFILE */ 
