@@ -5,50 +5,18 @@
             <img src="/images/toggler_icon.png">
             <!--<i class="fa fa-bars"></i>-->
         </button>
-        <a href="/" role="button" class="col-3  marca"><img src="/images/Logo.svg" alt="marca almazen" class="navbar-brand d-flex"></a>
-        <!-- FORMULARIO DE BUSQUEDA -->
-        <form action="" method="get" class="search-form col-12 col-lg-3 d-flex justify-content-center input-group">
-            <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="form-control search-form_input col-10">
-            <button type="submit" class="search-form_button col-2"><i class="fas fa-search"></i></button>
-        </form>
-        <!-- MENU COLAPSABLE -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="ml-auto col-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center justify-content-around navbar-nav">
-
-
-                <!-- BOTON PRODUCTOS -->
-                <li class="col-12 col-md-12 col-lg-2 mt-1 d-flex  justify-content-center align-items-center">
-                    <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/product/">PRODUCTOS</a>
-
-                </li>
-                <!-- BOTON RECETAS -->
-                <li class="col-12 col-md-12 col-lg-1 mt-1 d-flex justify-content-center align-items-center">
-                    <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/recetas/">RECETAS</a>
-                </li>
-                <!-- BOTON DIETAS -->
-                <li class="col-12 col-md-12 col-lg-1 mt-1 d-flex justify-content-center align-items-center">
-                    <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/product/details">DIETAS</a>
-                </li>
-                <!-- BOTON TIPS -->
-                <li class="col-12 col-md-12 col-lg-1 mt-1 d-flex justify-content-center align-items-center">
-                    <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/tips/tips">TIPS</a>
-                </li>
-
-            </ul>
-
-
-
-        </div>
-        <!--<div class="col-lg-2 d-flex">-->
+        <a href="/" role="button" class="col-1 col-md-4 col-lg-3 marca"><img src="/images/Logo.svg" alt="marca almazen" class="navbar-brand"></a>
+        
+         <!--<div class="col-lg-2 d-flex">-->
         <!-- BOTON CARRITO -->
-        <li class="ml-auto col-1 col-md-2 col-lg-1 mt-1 d-flex align-items-center justify-content-center carrito">
-            <a href="/product/cart" role="button" class="col-12 d-flex justify-content-center"><img src="/images/cart.svg" width="33px" alt="carrito"></a>
+        <li class="col-1 mt-1 ml-1 d-inline-flex align-items-center carrito">
+            <a href="/product/cart" role="button" class="justify-content-center"><img src="/images/cart.svg" width="33px" alt="carrito"></a>
         </li>
         <!-- BOTON PERFIL | INGRESAR | REGISTRAR -->
-        <div class="col-1 col-md-2 col-lg-1 mt-1 d-flex profile justify-content-center align-items-center">
-            <div class="dropdown mr-1">
+        <div class="col-1 mt-1 ml-1 d-inline-flex align-items-center profile">
+            <div class="dropdown">
 
-                <img src="/images/profile.svg" class="dropdown-toggle d-flex justify-content-end" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="33px" alt="carrito">
+                <img src="/images/profile.svg" class="dropdown-toggle " id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="33px" alt="carrito">
 
                 <% if (usuarioLogueado!=undefined) { %>
                     <div>
@@ -216,6 +184,42 @@
                 </div>
             </div>
         </div>
+        
+        
+        <!-- FORMULARIO DE BUSQUEDA -->
+        <form action="" method="get" class="search-form col-12 col-lg-3 d-flex justify-content-center input-group">
+            <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="form-control search-form_input col-10">
+            <button type="submit" class="search-form_button col-2"><i class="fas fa-search"></i></button>
+        </form>
+        <!-- MENU COLAPSABLE -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="ml-1 col-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center justify-content-around navbar-nav">
+
+
+                <!-- BOTON PRODUCTOS -->
+                <li class="col-12 col-md-12 col-lg-2 mt-1 d-flex  justify-content-center align-items-center">
+                    <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/product/">PRODUCTOS</a>
+
+                </li>
+                <!-- BOTON RECETAS -->
+                <li class="col-12 col-md-12 col-lg-1 mt-1 d-flex justify-content-center align-items-center">
+                    <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/recetas/">RECETAS</a>
+                </li>
+                <!-- BOTON DIETAS -->
+                <li class="col-12 col-md-12 col-lg-1 mt-1 d-flex justify-content-center align-items-center">
+                    <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/product/details">DIETAS</a>
+                </li>
+                <!-- BOTON TIPS -->
+                <li class="col-12 col-md-12 col-lg-1 mt-1 d-flex justify-content-center align-items-center">
+                    <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/tips/tips">TIPS</a>
+                </li>
+
+            </ul>
+
+
+
+        </div>
+       
 
     </nav>
 </header>
