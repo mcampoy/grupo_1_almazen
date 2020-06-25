@@ -1132,6 +1132,7 @@ label {
     .secondary {
         margin: 0;
     }
+    
 }
 
 
@@ -1285,6 +1286,7 @@ label {
     .menu-newsletter {
         display: none;
     }
+    
 }
 
 
@@ -1836,6 +1838,7 @@ figure img.sg-logo-receta {
     .navbar-expand-lg {
         display: block;
     }
+    
 }
 
 .cartCarrito {
@@ -1854,6 +1857,7 @@ figure img.sg-logo-receta {
     .precio_producto_carrito {
         font-size: .2em;
     }
+    
 }
 
 .summary {
@@ -1895,6 +1899,12 @@ figure img.sg-logo-receta {
     .summary {
         border-top-right-radius: unset;
         border-bottom-left-radius: 1rem
+    }
+    /*.img-carrito{
+        display:none;
+    }*/
+    .select-cart{
+        order:5
     }
 }
 
