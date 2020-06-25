@@ -13,7 +13,7 @@
         <div class="container-fluid d-flex" id="">
 
             <!-- Sidebar -->
-            <div class="bg-light border-right col-2" id="">
+            <div class="bg-light border-right col col-lg-2" id="">
                 <!-- DATOS USUARIO-->
                 <img src="/users-avatar/<%= user.avatar %>" alt="Imagen de usuario" class="img-fluid rounded-circle d-flex mx-auto userProfileImage mt-3" style="width: 80px;">
                 <div class="sidebar-heading">
@@ -23,9 +23,9 @@
                 </div>
 
                 <!-- MENU LATERAL -->
-                <div class="list-group list-group-flush">
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Editar perfil</a>
-                    <a href="#historial" class="list-group-item list-group-item-action bg-light">Historial de compras</a>
+                <div class="list-group list-group-flush col d-flex flex-sm">
+                    <a href="#" class="list-group-item list-group-item-action bg-light d-flex">Editar perfil</a>
+                    <a href="#historial" class="list-group-item list-group-item-action bg-light d-flex">Historial de compras</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">Favoritos</a>
                     <a href="#recetarios" class="list-group-item list-group-item-action bg-light">Recetarios</a>
 
@@ -34,7 +34,7 @@
             <!-- /#sidebar-wrapper -->
 
             <!-- Page Content -->
-            <div class="col" id="page-content-wrapper">
+            <div class="col col-lg-10 d-sm-block" id="page-content-wrapper">
                 <!-- --- --- -- -- -- Historial de compras --- --- -- -- -- -->
                 <h5 id="historial" class="col-12 d-flex justify-content-center TituloDestacados mb-2">Historial de compras</h5>
 

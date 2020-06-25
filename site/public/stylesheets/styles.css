@@ -2125,6 +2125,7 @@ input#password.form-control {
 
 #wrapper {
     overflow-x: hidden;
+    width: 100wh;
 }
 
 #sidebar-wrapper {
@@ -2156,9 +2157,13 @@ input#password.form-control {
     width: 100%;
   }
   #page-content-wrapper {
-    min-width: 0;
+    /*min-width: 0;*/
     width: 100%;
  }
+ #sidebar-wrapper {
+    min-width: 100wh;
+    margin-left: 0;
+}
 }
 
 /* ESTILOS HEADER LOGEADO */
