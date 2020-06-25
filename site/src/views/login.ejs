@@ -9,44 +9,44 @@
 </head>
 
 <body>
-    
-    
+
+
     <!-- HEADER -->
-    <%- include("partials/header") %>
-    <!-- /HEADER -->
-    
-    <section class="contenedor-formulario col-12 col-lg-6 mt-0">
-        <div id="page-wrapper">
-            <form method="post" action="/users/login" id="miFormulario">
-                <div class="form-campos">
-                    <!-- email -->
-                    <div class="form-group-login">
-                        <label class="modal-label" for="email">EMAIL</label>
-                        <span class="wrapper-email-login"><i class="fas fa-envelope mail-modal"></i><input type="email" class="form-control" id="email" aria-describedby="email" name="email" placeholder="Ingresá tu email" required/></span>
+    <%- include("partials/header", {usuarioLogueado: usuarioLogueado}) %>
+        <!-- /HEADER -->
+
+        <section class="contenedor-formulario col-12 col-lg-6 mt-0">
+            <div id="page-wrapper">
+                <form method="post" action="/users/login" id="miFormulario">
+                    <div class="form-campos">
+                        <!-- email -->
+                        <div class="form-group-login">
+                            <label class="modal-label" for="email">EMAIL</label>
+                            <span class="wrapper-email-login"><i class="fas fa-envelope d-flex align-items-center justify-content-center mail-modal"></i><input type="email" class="form-control" id="email" aria-describedby="email" name="email" placeholder="Ingresá tu email" required/></span>
+                        </div>
+                        <!-- password -->
+                        <div class="form-group-login">
+                            <label class="modal-label" for="password">CONTRASEÑA</label>
+                            <span class="wrapper-email-login"><i class="fas fa-key d-flex align-items-center justify-content-center"></i><input type="password" name="password" class="form-control" id="password" aria-describedby="password" placeholder="Ingresá tu contraseña" required/></span>
+                        </div>
                     </div>
-                    <!-- password -->
-                    <div class="form-group-login">
-                        <label class="modal-label" for="password">CONTRASEÑA</label>
-                        <span class="wrapper-email-login"><i class="fas fa-key"></i><input type="password" name="password" class="form-control" id="password" aria-describedby="password" placeholder="Ingresá tu contraseña" required/></span>
+                    <!-- dejar en blanco el formulario o enviar -->
+                    <div class="user form-group">
+                        <button class="login" role="button" type="reset">Borrar</button>
+                        <button class="register" role="button" type="submit" value="enviar">Ingresar</button>
                     </div>
-                </div>
-                <!-- dejar en blanco el formulario o enviar -->
-                <div class="user form-group">
-                    <button class="login" role="button" type="reset">Borrar</button>
-                    <button class="register" role="button" type="submit" value="enviar">Ingresar</button>
-                </div>
-            </form>
-        </div>
-    </section>
-    
-    <!-- FOOTER -->
-    <%- include("partials/footer") %>
-    <!-- /FOOTER -->
-    
-</div>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+                </form>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <%- include("partials/footer") %>
+            <!-- /FOOTER -->
+
+            </div>
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 
 </html>

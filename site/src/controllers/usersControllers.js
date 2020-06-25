@@ -65,7 +65,12 @@ function getProducts() {
 // CONTROLLERS DE USUARIO
 const controller = {
     reg: (req, res) => {
-        res.render('register');
+        //res.render('register');
+        if (req.session.usuarioLogueado == undefined) {
+            return res.render('register', { usuarioLogueado: undefined });
+        } else {
+            return res.render('register', { usuarioLogueado: req.session.usuarioLogueado });
+        }
     },
 
     create: (req, res, next) => {
@@ -85,13 +90,18 @@ const controller = {
             }
             saveUser(user)
 
-            req.session.userId = user.id; //para leerlo uso req.cookies.userId
-            res.cookie('userId', user.id); //para leerlo uso req.session.userId
+            req.session.usuarioLogueado = user; //para leerlo uso res.cookies.userId
+            res.cookie('userId', user.id); //para leerlo uso req.session.userId //ESTO LO TIENE QUE HACER SÓLO SI SE MARCÓ EL CHECKBOX RECORDARME
 
             res.redirect(`profile/${user.id}`);
 
         } else {
-            return res.render("register", { errors: errors.errors })
+            //return res.render("register", { errors: errors.errors })
+            if (req.session.usuarioLogueado == undefined) {
+                return res.render("register", { errors: errors.errors, usuarioLogueado: undefined });
+            } else {
+                return res.render("register", { errors: errors.errors, usuarioLogueado: req.session.usuarioLogueado });
+            }
 
         }
 
@@ -119,26 +129,47 @@ const controller = {
 
     },
     log: (req, res) => {
-        res.render('login');
+        //res.render('login');
+        if (req.session.usuarioLogueado == undefined) {
+            return res.render("login", { usuarioLogueado: undefined });
+        } else {
+            return res.render("login", { usuarioLogueado: req.session.usuarioLogueado });
+        }
     },
 
     access: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             let user = getUserByEmail(req.body.email)
-            req.session.userId = user.id; //para leerlo uso req.cookies.userId
-            res.cookie('userId', user.id); //para leerlo uso req.session.userId
+            req.session.usuarioLogueado = user; //para leerlo uso req.session.usuarioLogueado
+            res.cookie('userId', user.id); //para leerlo uso req.cookies.userId //ESTO LO TIENE QUE HACER SÓLO SI SE MARCÓ EL CHECKBOX RECORDARME
             res.redirect(`profile/${user.id}`);
         } else {
 
-            return res.render("login", { errors: errors.errors });
+            //return res.render("login", { errors: errors.errors });
+            if (req.session.usuarioLogueado == undefined) {
+                return res.render("login", { errors: errors.errors, usuarioLogueado: undefined });
+            } else {
+                return res.render("login", { errors: errors.errors, usuarioLogueado: req.session.usuarioLogueado });
+            }
         }
     },
 
     profile: function(req, res) {
 
         let user = getUserById(req.params.id)
-        res.render('profile', { user });
+            //res.render('profile', { user });
+        if (req.session.usuarioLogueado == undefined) {
+            return res.render('profile', { user, usuarioLogueado: undefined });
+        } else {
+            return res.render('profile', { user, usuarioLogueado: req.session.usuarioLogueado });
+        }
+    },
+
+    logout: function(req, res) {
+        req.session.destroy();
+        res.cookie('userId', undefined);
+        res.redirect('/');
     }
 };
 

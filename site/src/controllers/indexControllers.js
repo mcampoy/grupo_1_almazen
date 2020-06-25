@@ -6,20 +6,26 @@ const recetas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/rece
 
 const controller = {
 
-	index: (req, res) => {
+    index: (req, res) => {
 
-		const receta = recetas.find((receta) => {
-			return receta.id;
-		})
+        const receta = recetas.find((receta) => {
+            return receta.id;
+        })
 
-		let products = [];
-		for (let product of productsdb){
-			if(product.habilitado == 1){
-				products.push(product);
-			}}
+        let products = [];
+        for (let product of productsdb) {
+            if (product.habilitado == 1) {
+                products.push(product);
+            }
+        }
 
-			res.render('index', {products, receta});
-	}
+        //res.render('index', {products, receta});
+        if (req.session.usuarioLogueado == undefined) {
+            return res.render('index', { products, receta, usuarioLogueado: undefined });
+        } else {
+            return res.render('index', { products, receta, usuarioLogueado: req.session.usuarioLogueado });
+        }
+    }
 };
 
 module.exports = controller;

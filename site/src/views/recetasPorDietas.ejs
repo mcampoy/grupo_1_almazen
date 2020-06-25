@@ -11,19 +11,19 @@
 
 <body>
     <!-- HEADER -->
-    <%- include("partials/header") %>
-    <!-- /HEADER -->
+    <%- include("partials/header", {usuarioLogueado: usuarioLogueado}) %>
+        <!-- /HEADER -->
 
-    <!-- Redes Sociales Flotantes-->
-    <%-include('partials/redesSociales') %>
+        <!-- Redes Sociales Flotantes-->
+        <%-include('partials/redesSociales') %>
 
-    <!-- Tarjeta de recetas -->
-    <div class="container container-tarjetas-recetas " id="tarjetas">
+            <!-- Tarjeta de recetas -->
+            <div class="container container-tarjetas-recetas " id="tarjetas">
 
-        <!-- Sitemap -->
-        <div class="siteMap col-12" style="margin-left: 10%">
-            <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/recetas/">Recetas</a>
-            <span> <br><br>
+                <!-- Sitemap -->
+                <div class="siteMap col-12" style="margin-left: 10%">
+                    <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/recetas/">Recetas</a>
+                    <span> <br><br>
         </div>
 
         <!-- Título de la sección -->
