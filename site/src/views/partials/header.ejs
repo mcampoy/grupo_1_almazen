@@ -16,16 +16,18 @@
         <div class="col-1 mt-1 ml-1 d-inline-flex align-items-center profile">
             <div class="dropdown">
 
-                <img src="/images/profile.svg" class="dropdown-toggle " id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="33px" alt="Imagen de suario">
-
                 <% if (usuarioLogueado!=undefined) { %>
+
+                    <img src="/users-avatar/<%= usuarioLogueado.avatar %>" class="dropdown-toggle " id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="40px" style="border-radius: 50%;" alt="Imagen de suario">
 
                     <div class="userNameLog">
                         <%= usuarioLogueado.name %>
                     </div>
 
-                    <% } %>
-
+                    <% } else { %>
+                
+                <img src="/images/profile.svg" class="dropdown-toggle userLogImage" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="40px" alt="Imagen de suario">
+                <% } %>
                         <div class="dropdown-menu dropdown-menu-right adminin-menu" aria-labelledby="dropdownMenuOffset">
                             <% if (usuarioLogueado==undefined) { %>
 
