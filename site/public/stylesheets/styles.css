@@ -2153,7 +2153,7 @@ input#password.form-control {
 .profile {
     cursor: pointer;
 }
-.profile:hover {
+.profile img:hover {
     transform: scale(0.1);
     -webkit-transform: scale(1.09);
     -o-transform: scale(1.09); 
