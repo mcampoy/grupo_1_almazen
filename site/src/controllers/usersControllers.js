@@ -101,7 +101,7 @@ const controller = {
             if (user.email == "admin@almazen.com") //administrador, después modificar condición
             {
                 req.session.usuarioLogueado.isAdmin = true;
-                res.redirect('/');
+                //res.redirect('/');
             }
             //res.redirect(`profile/${user.id}`);
             res.redirect('/');
@@ -180,12 +180,13 @@ const controller = {
 
     profile: function(req, res) {
 
-        let user = getUserById(req.params.id)
-            //res.render('profile', { user });
+        //let user = getUserById(req.params.id)
+        //res.render('profile', { user });
         if (req.session.usuarioLogueado == undefined) {
-            return res.render('profile', { user, usuarioLogueado: undefined });
+            //return res.render('profile', { user, usuarioLogueado: undefined });
+            res.render("login", { usuarioLogueado: undefined });
         } else {
-            return res.render('profile', { user, usuarioLogueado: req.session.usuarioLogueado });
+            return res.render('profile', { user: req.session.usuarioLogueado });
         }
     },
 

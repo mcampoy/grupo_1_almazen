@@ -35,7 +35,9 @@ router.get('/create', usersMiddlewares.guestValidation, usersController.reg);
 router.post('/create', upload.any(), usersMiddlewares.guestValidation, usersMiddlewares.registerValidation, usersController.create);
 
 /*PERFIL DEL USUARIO*/
-router.get('/profile/:id', usersMiddlewares.loggedUserValidation, usersController.profile);
+// router.get('/profile/:id', usersMiddlewares.loggedUserValidation, usersController.profile);
+router.get('/profile', usersMiddlewares.loggedUserValidation, usersController.profile);
+
 
 /* CERRAR SESIÓN */
 router.get('/logout', usersMiddlewares.loggedUserValidation, usersController.logout);
