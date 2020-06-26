@@ -18,29 +18,32 @@
         <%-include('partials/redesSociales') %>
 
             <!-- Tarjeta de recetas -->
-            <div class="container container-tarjetas-recetas " id="tarjetas">
+    <div class="caja mb-3">
+               
+        
+                <div class="container container-tarjetas-recetas " id="tarjetas">
 
-                <!-- Sitemap -->
-                <div class="siteMap col-12" style="margin-left: 10%">
-                    <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/recetas/">Recetas</a>
-                    <span> <br><br>
-        </div>
+                    <!-- Sitemap -->
+                    <div class="siteMap col-12" style="margin-left: 10%">
+                        <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/recetas/">Recetas</a>
+                        <span> <br><br>
+                    </div>
 
-        <!-- Título de la sección -->
-        <% if (receta.dieta !== "vegana" && receta.dieta !== "vegetariana") { %>
-            <h3 class="col-12 titulo_seccion">Recetas <%= receta.dieta %> </h3>
-        <% }else { %>
-            <h3 class="col-12 titulo_seccion">Recetas <%= receta.dieta %>s </h3>
-        <% } %>
+                    <!-- Título de la sección -->
+                    <% if (receta.dieta !== "vegana" && receta.dieta !== "vegetariana") { %>
+                        <h3 class="col-12 titulo_seccion">Recetas <%= receta.dieta %> </h3>
+                    <% }else { %>
+                        <h3 class="col-12 titulo_seccion">Recetas <%= receta.dieta %>s </h3>
+                    <% } %>
 
-        <!-- Tarjeta -->
-        <% for( let receta of dietas) { %>
+                    <!-- Tarjeta -->
+                    <% for( let receta of dietas) { %>
 
-        <%- include("partials/tarjetaReceta", {receta}) %>
+                    <%- include("partials/tarjetaReceta", {receta}) %>
 
-        <% } %>
+                    <% } %>
+                </div>
     </div>
-
     <!-- FOOTER -->
     <%- include("partials/footer") %>
     <!-- /FOOTER -->

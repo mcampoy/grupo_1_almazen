@@ -136,6 +136,11 @@ header {
 .search-form_button {
     background-color: var(--colorBtnRegister);
     border-radius: 0px 5px 5px 0px;
+    
+}
+.search-form_button:hover {
+    background-color: var(--colorMenu);
+    
 }
 
 .fa-search {
@@ -1770,6 +1775,7 @@ figure img.sg-logo-receta {
     transition: all 0.25s;
     padding: 10px;
     border-radius: 5%;
+    background-color: white;
 }
 
 #tarjetas .ladofrente:hover {
@@ -1973,9 +1979,18 @@ hr {
         order: 4;
         /* -2 */
         padding: 2em;
+        
+    }
+    .carrito:hover {
+       
+        transform: scale(0.1);
+        -webkit-transform: scale(1.09);
+        -o-transform: scale(1.09); 
+        -moz-transform: scale(1.09);
     }
     .profile {
         order: 5;
+        cursor: pointer;
         /* -1 */
     }
     .form-control {
@@ -2062,6 +2077,16 @@ hr {
     background-color: var(--colorBtnRegister);
     width: 100%;
 }
+.btn-primary:hover {
+    color: #fff;
+    background-color: var(--colorBtnRegister);
+    border-color: var(--colorBtnRegister);
+}
+.btn-primary:active {
+    color: #fff;
+    background-color: var(--colorBtnRegister);
+    border-color: var(--colorBtnRegister);
+}
 
 .modal-header-login h5 {
     padding: 1%;
@@ -2125,6 +2150,15 @@ input#password.form-control {
 
 /* PROFILE */
 
+.profile {
+    cursor: pointer;
+}
+.profile:hover {
+    transform: scale(0.1);
+    -webkit-transform: scale(1.09);
+    -o-transform: scale(1.09); 
+    -moz-transform: scale(1.09);
+}
 #wrapper {
     overflow-x: hidden;
     width: 100wh;
