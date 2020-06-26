@@ -39,7 +39,7 @@
   "name": "Admin",
   "email": "admin@almazen.com",
   "password": "$2b$10$9pE7FmVoYQZf/9uQRPx8veTEUcIX/P8grWwU9tVDYoOz3rjJnj9G2",
-  "avatar": "avatar-1593083486227.png"
+  "avatar": "avatar-1593119970177.png"
  },
  {
   "id": 7,
@@ -47,5 +47,26 @@
   "email": "yisus@almazen.com",
   "password": "$2b$10$c5BXacJAPOg5ySFU8AEptuI5/ZefZ4yIHULB093F7qKCi4YBfi1EW",
   "avatar": "avatar-1593110457114.jpg"
+ },
+ {
+  "id": 8,
+  "name": "Pedro",
+  "email": "pedro@jmail.com",
+  "password": "$2b$10$gqfmVdyMCYDybbWcjuifZ.lQ.WNGkhlUti3r3W/lhe.l/ACS7cJZq",
+  "avatar": "avatar-1593119914504.png"
+ },
+ {
+  "id": 9,
+  "name": "Marcelo",
+  "email": "marcelo@jmail.com",
+  "password": "$2b$10$M.N0eWMs253LYjSotbY4X.rEXgMD/fGdr3wFiOQn9OHhWnsIQMpka",
+  "avatar": "avatar-1593119970177.png"
+ },
+ {
+  "id": 10,
+  "name": "Carolina",
+  "email": "caro@dh.com",
+  "password": "$2b$10$4stR4gEsVETYenit7X9LfesbjTbTHOn7OE1Wzd8BhynKKiCrVwyqG",
+  "avatar": "avatar-1593122104569.jpg"
  }
 ]

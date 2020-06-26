@@ -116,28 +116,6 @@ const controller = {
 
         }
 
-        // let User = {
-        //     Nombre: req.body.nombre,
-        //     Usuario: req.body.usuario,
-        //     Email: req.body.email,
-        //     Password: req.body.password
-        // };
-
-        // let Archivousuario = fs.readFileSync(usuariosPath, { encoding: 'utf-8' });
-        // let usuarios;
-        // if (Archivousuario == "") {
-        //     usuarios = [];
-        // } else {
-        //     usuarios = JSON.parse(Archivousuario);
-        // }
-        // usuarios.push(User);
-
-        // usuarioJson = JSON.stringify(usuarios);
-
-        // fs.writeFileSync(usuariosPath, usuarioJson);
-
-        // res.send('Gracias por registrarte');
-
     },
     log: (req, res) => {
         //res.render('login');
