@@ -25,69 +25,69 @@
                     </div>
 
                     <% } else { %>
-                
-                <img src="/images/profile.svg" class="dropdown-toggle userLogImage" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="40px" alt="Imagen de suario">
-                <% } %>
-                        <div class="dropdown-menu dropdown-menu-right adminin-menu" aria-labelledby="dropdownMenuOffset">
-                            <% if (usuarioLogueado==undefined) { %>
 
-                                <!-- LOGIN  -->
-                                <!-- Button trigger modal login -->
-                                <button type="button" class="btn btn-primary btn-login-header" data-toggle="modal" data-target="#Login">
+                        <img src="/images/profile.svg" class="dropdown-toggle userLogImage" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="40px" alt="Imagen de suario">
+                        <% } %>
+                            <div class="dropdown-menu dropdown-menu-right adminin-menu" aria-labelledby="dropdownMenuOffset">
+                                <% if (usuarioLogueado==undefined) { %>
+
+                                    <!-- LOGIN  -->
+                                    <!-- Button trigger modal login -->
+                                    <button type="button" class="btn btn-primary btn-login-header" data-toggle="modal" data-target="#Login">
                             INGRESAR
                         </button>
 
-                                <!-- /* CREAR CUENTA */ -->
-                                <button type="button" class="btn btn-primary btn-login-header hoverlogout" data-toggle="modal" data-target="#Register">
+                                    <!-- /* CREAR CUENTA */ -->
+                                    <button type="button" class="btn btn-primary btn-login-header hoverlogout" data-toggle="modal" data-target="#Register">
                             CREAR CUENTA
                         </button>
 
-                                <% } else {%>
+                                    <% } else {%>
 
-                                    <% if (usuarioLogueado.isAdmin==true) { %>
-                                        <!-- /* MENÚ DE ADMINSITRADOR */ -->
-                                        <!-- /* PRODUCTOS */ -->
-                                        <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
+                                        <% if (usuarioLogueado.isAdmin==true) { %>
+                                            <!-- /* MENÚ DE ADMINSITRADOR */ -->
+                                            <!-- /* PRODUCTOS */ -->
+                                            <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
                             PRODUCTOS
                         </button>
 
-                                        <!-- /* RECETAS */ -->
-                                        <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
+                                            <!-- /* RECETAS */ -->
+                                            <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
                             RECETAS
                         </button>
 
-                                        <!-- /* TIPS */ -->
-                                        <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
+                                            <!-- /* TIPS */ -->
+                                            <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
                             TIPS
                         </button>
 
-                                        <!-- /* CATEGORIAS */ -->
-                                        <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
+                                            <!-- /* CATEGORIAS */ -->
+                                            <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
                             CATEGORIAS
                         </button>
 
-                                        <!-- /* CATEGORIAS */ -->
-                                        <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
+                                            <!-- /* CATEGORIAS */ -->
+                                            <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
                             USUARIOS
                         </button>
 
-                                        <% } else {%>
+                                            <% } else {%>
 
-                                            <!-- /* VER PERFIL */ -->
-                                            <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/users/profile/<%= usuarioLogueado.id%>'">
+                                                <!-- /* VER PERFIL */ -->
+                                                <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/users/profile'">
                             VER PERFIL
-                        </button>
-
-                                            <% }%>
-
-                                                <!-- /* CERRAR SESIÓN */ -->
-                                                <button type="button" class="btn btn-primary btn-login-header hoverlogout" onclick="location.href='/users/logout'">
-                            CERRAR SESIÓN
                         </button>
 
                                                 <% }%>
 
-                        </div>
+                                                    <!-- /* CERRAR SESIÓN */ -->
+                                                    <button type="button" class="btn btn-primary btn-login-header hoverlogout" onclick="location.href='/users/logout'">
+                            CERRAR SESIÓN
+                        </button>
+
+                                                    <% }%>
+
+                            </div>
 
             </div>
 
