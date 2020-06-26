@@ -2054,6 +2054,8 @@ hr {
     background: none;
     border: none;
     color: black;
+    width: 100%;
+    text-align: left;
 }
 
 .btn-login-header:hover {
