@@ -129,6 +129,9 @@ header {
     letter-spacing: 0.030em;
     text-decoration: none;
 }
+.navbar-nav a:hover{
+    color: var(--colorBtnLoginHover);
+}
 
 
 /* ENLACES MENU */
@@ -459,7 +462,7 @@ footer h6 a {
 }
 
 footer h6 a:hover {
-    color: var(--BtnBorderLogin);
+    color: var(--colorBtnLoginHover);
 }
 
 
@@ -1811,6 +1814,13 @@ figure img.sg-logo-receta {
     z-index: 100;
 }
 
+.social-bar img:hover {
+    border-radius: 50%;
+    background-color: var(--colorBtnLoginHover);
+    
+    
+}
+
 @media screen and (min-width: 425px) and (max-width: 1024px) {
     .desktop {
         display: none;
@@ -1891,24 +1901,34 @@ figure img.sg-logo-receta {
     border: 1px solid #219653;
     border-radius: 6px;
     font-family: var(--fuenteMenuBtn);
+    font-size: 0.8em;
+    font-weight: var(--fontweightMenuBtn);
+    padding: 4% 4%;
+    position: relative;
+    z-index: 2;
+    /*color: #219653;
+    background: #fff;
+    border: 1px solid #219653;
+    border-radius: 6px;
+    font-family: var(--fuenteMenuBtn);
     font-size: 1em;
     font-weight: var(--fontweightMenuBtn);
     padding: 2% 4%;
-    position: relative;
+    position: relative;*/
 }
 
 .volver {
     color: var(--colorTituloGeneral);
 }
 
-@media(max-width:767px) {
+@media(max-width:768px) {
     .summary {
         border-top-right-radius: unset;
         border-bottom-left-radius: 1rem
     }
-    /*.img-carrito{
+    .img-carrito{
         display:none;
-    }*/
+    }
     .select-cart{
         order:5
     }
