@@ -106,13 +106,13 @@
                                         <h3 class="cantidad-porciones-receta">Para <select id="slcCantidad" class="numero-cantidad-porciones-receta custom-select">
                                         <!-- <div class="titulo-ajustar-porciones-receta">Ajustar porciones:</div> -->
 
-                                        <option value="default">hacer esta</option>
-                                        <option id="mitad" value="/2">la mitad de la</option>
-                                        <option value="*2">el doble de la</option>
-                                        <option value="triple">el triple de la</option>
-                                        <option value="cuádruple">el cuádruple de la</option>
+                                        <option value="default"><%= receta.porciones %> </option>
+                                        <option class="option" value="doble"><%= receta.porciones * 2 %></option>
+                                        <option class="option" value="triple"><%= receta.porciones * 3 %></option>
+                                        <option class="option" value="cuadruple"><%= receta.porciones * 4 %></option>
+                                        <option class="option" value="quintuple"><%= receta.porciones * 5 %></option>
 
-                                    </select> preparación</h3>
+                                    </select> porciones</h3>
 
                                         <!-- INGREDIENTES -->
                                         <% for( let ingrediente of receta.ingredientes ) { %>
@@ -304,6 +304,53 @@
                             paso.classList.toggle('tachado-paso')
                         })
                     }
+
+
+                    //  FUNCIÓN PARA AJUSTAS LAS CANTIDADES DE LA RECETA
+
+
+                window.addEventListener('load', ()=>{
+
+                    let slcCantidad = document.getElementById('slcCantidad')
+                    let porciones = ()=> {return slcCantidad.value}
+                    slcCantidad.addEventListener("change", porciones)
+                    let cantidades = document.getElementsByClassName("cantidad-ingrediente-receta")
+                    console.log(cantidades)
+                    let doble = function(n){
+                        return n = n*2
+                    }
+                    let triple = function(n){
+                        return n = n*3
+                    }
+                    let cuadruple = function(n){
+                        return n*4
+                    }
+                    let quintuple = function(n){
+                        return n*5
+                    }
+
+                    slcCantidad.addEventListener('change', ()=>{
+                        for (let cantidad of cantidades) {
+
+                        switch(slcCantidad.value){
+                            case "doble":
+                            cantidad.innerHTML = doble(cantidad.outerText)
+                            break;
+                            case "triple":
+                            cantidad.innerHTML = triple(cantidad.outerText)
+                            break;
+                            case "cuadruple":
+                            cantidad.innerHTML = cuadruple(cantidad.outerText)
+                            break;
+                            case "quintuple":
+                            cantidad.innerHTML = quintuple(cantidad.outerText)
+                            break;
+                            case "default": cantidad.innerHTML = location.reload()
+                        }
+                        }
+                    })
+
+                })
                 </script>
                 <!-- /Scripts -->
                 </div>
