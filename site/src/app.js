@@ -13,7 +13,7 @@ var methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
 var productsRouter = require('./routes/products');
-// var registroRouter = require('./routes/registro');
+var registroRouter = require('./routes/registro');
 var recetasRouter = require('./routes/recetas');
 var tipsRouter = require('./routes/tips');
 var usersRouter = require('./routes/users');
@@ -41,7 +41,7 @@ app.use(usersMiddlewares.rememberUser); // cookie de inicio de sesión con check
 // app.use('/', mainRouter);
 app.use('/', indexRouter);
 app.use('/product', productsRouter);
-// app.use('/registro', registroRouter);
+app.use('/registro', registroRouter);
 app.use('/recetas', recetasRouter);
 app.use('/tips', tipsRouter);
 app.use('/users', usersRouter);
