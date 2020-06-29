@@ -1,0 +1,9 @@
+Archivos y líneas que hay que eliminar antes de la entrega:
+
+- views/paginaPruebas
+
+- Comentar o eliminar la ruta de registro en app.js (la dos líneas correspondientes)
+
+-Comentar o eliminar las líneas del archivo routes/registro.js (esto genera vulnerabilidad a la página)
+
+-eliminar el primer método implementado en usesController: método list
