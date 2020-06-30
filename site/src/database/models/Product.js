@@ -1,40 +1,38 @@
 module.exports = (sequelize, dataTypes) => {
-    const Product = sequelize.define("products",
-​
+    const Product = sequelize.define("Product",
+
         {
             id: {
                 type: dataTypes.INTEGER,
                 allowNull: false,
-                primaryKey:true,
+                primaryKey: true,
                 autoIncrement: true
             },
-​
+
+            name: {
+                type: dataTypes.STRING(45),
+                allowNull: false,
+            },
             code: {
                 type: dataTypes.STRING(45),
                 allowNull: false,
-​
             },
-​
             description: {
                 type: dataTypes.STRING(800),
-                 allowNull: false,
+                allowNull: false,
             },
-​
             description_short: {
                 type: dataTypes.STRING(150),
-                 allowNull: false,
+                allowNull: false,
             },
-​
             quantity: {
                 type: dataTypes.INTEGER,
                 allowNull: false,
             },
-​
             unit: {
                 type: dataTypes.STRING(10),
                 allowNull: false,
             },
-​
             price: {
                 type: dataTypes.DECIMAL(10, 0),
                 allowNull: false,
@@ -55,14 +53,11 @@ module.exports = (sequelize, dataTypes) => {
                 type: dataTypes.INTEGER(1),
                 allowNull: false,
             }
-​
-​
         },
-​
+
         {
-            tableName: 'products', // nombre de la tabla
-            timestamps: false, // timestamps
-​
+            tableName: 'products', //Si el nombre de la tabla no coincide con el del modelo
+            timestamps: false, //Si no tengo timestamps
         });
-    return Product; 
+    return Product; // Este retorno es lo que exporto
 }
