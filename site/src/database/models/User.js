@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const Usuario = sequelize.define("Usuario",
+    const User = sequelize.define("User",
 
         {
             id: {
@@ -39,7 +39,6 @@ module.exports = (sequelize, dataTypes) => {
                 type: dataTypes.INTEGER,
                 allowNull: false,
             }
-
         },
 
         {
@@ -47,5 +46,5 @@ module.exports = (sequelize, dataTypes) => {
             timestamps: false, //Si no tengo timestamps
 
         });
-    return Usuario; // Este retorno es lo que exporto
+    return User; // Este retorno es lo que exporto
 }

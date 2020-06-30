@@ -9,13 +9,16 @@
 
         <!-- Redes Sociales Flotantes-->
         <%-include('partials/redesSociales') %>
-    <h1>Los creadores de esta página son:</h1>
+    
+    
+    
+    <h1>Recetas:</h1>
     <ul class="contenedor">
-        <% for( let user of users) { %>
+        <% for( let recipe of recipes) { %>
             <li class="title">
-                <%= user.name %> <br> <br>
-                <img src="/users-avatar/<%= user.avatar %>" alt="<%= user.name %>" style="width: 48px; border-radius: 50%;"><br> <br>
-                <%= user.email %> <br><br>
+                <%= recipe.name %> <br> <br>
+                <img src="/images/recetas/<%= recipe.image %>" alt="<%= recipe.name %>" style="width: 48px; border-radius: 50%;"><br> <br>
+                <%= recipe.description %> <br><br>
             </li>
         <% } %>
     </ul>

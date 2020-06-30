@@ -2,20 +2,20 @@
 
 <div class="ladofrente tarjeta-recetas">
         <a href="/recetas/<%= receta.id %>">
-           <span class="etiqueta-dieta-receta"> <%= receta.dieta %>  </span>
+           <span class="etiqueta-dieta-receta"> <%= receta.diet %>  </span>
             <figure class="img-tarjeta-receta">
 
-                <% if (receta.dieta == "sin gluten") { %>
+                <% if (receta.diet == "sin gluten") { %>
                     <!-- Sin es sin gluten añade el logo de sin tacc -->
-                        <img src="/images/recetas/<%= receta.image %>" alt="Foto de <%= receta.nombre %> ">
+                        <img src="/images/recetas/<%= receta.image %>" alt="Foto de <%= receta.name %> ">
                         <img class="singlutenLogo-recetas" src="/images/logos/sintaccLogo.png" alt="Logo de productos sin gluten">
 
                 <% } else { %>
-                    <img src="/images/recetas/<%= receta.image %>" alt="<%= receta.nombre %>">
+                    <img src="/images/recetas/<%= receta.image %>" alt="<%= receta.name %>">
                 <% } %>
 
             </figure>
-            <h3 class="tituloscard-receta"><%= receta.nombre %></h3>
-            <span class='descripcion_receta descripcion_tarjeta_receta'><%= receta.descripcion %></span>
+            <h3 class="tituloscard-receta"><%= receta.name %></h3>
+            <span class='descripcion_receta descripcion_tarjeta_receta'><%= receta.description %></span>
         </a>
     </div>

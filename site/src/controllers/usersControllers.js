@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 let bcrypt = require('bcrypt');
 const { check, validationResult, body } = require('express-validator');
-let db = require('../database/models');
-let sequelize = db.sequelize;
+// let db = require('../database/models');
+// let sequelize = db.sequelize;
 
 
 // ************ Function to Read an HTML File ************
@@ -67,18 +67,7 @@ function getProducts() {
 
 // CONTROLLERS DE USUARIO
 const controller = {
-    list: (req, res) => {
-        db.Usuario.findAll()
-                .then(function (users) {
-    
-                    res.render('paginaPruebas', {
-                        users
-                    })
-                })
-                .catch((err) => console.error(err));
-        
-    },
-
+   
     reg: (req, res) => {
         //res.render('register');
         if (req.session.usuarioLogueado == undefined) {

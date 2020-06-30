@@ -36,7 +36,7 @@
   },
   "precio": 300,
   "descuento": 10,
-  "stock": null,
+  "stock": 80,
   "categoria": [
    "4",
    "7"

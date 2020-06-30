@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+let db = require('../database/models');
+let sequelize = db.sequelize;
 
 const recetas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/recetasDataBase.json'), 'utf-8'));
 let productsPath = path.resolve(__dirname, '../data/productsDataBase.json');
@@ -19,33 +21,57 @@ const controller = {
 
     recetaList: (req, res) => {
 
+        db.Recipe.findAll()
+        .then(recetas => {
+            return res.render('recetas', {
+                recetas: recetas
+            })
+        })
+        .catch((err) => console.error(err));
+
         //res.render('recetas', { recetas })
-        if (req.session.usuarioLogueado == undefined) {
-            return res.render('recetas', { recetas, usuarioLogueado: undefined });
-        } else {
-            return res.render('recetas', { recetas, usuarioLogueado: req.session.usuarioLogueado });
-        }
+        // if (req.session.usuarioLogueado == undefined) {
+        //     return res.render('recetas', { recetas, usuarioLogueado: undefined });
+        // } else {
+        //     return res.render('recetas', { recetas, usuarioLogueado: req.session.usuarioLogueado });
+        // }
     },
 
     receta: (req, res) => {
 
-        const receta = recetas.find((receta) => {
-            return receta.id == req.params.id;
+        db.Recipe.findByPk(req.params.id, {
+            include: [{
+                association: "ingredients"
+            }, {
+                association: "steps"
+            }]
         })
+        .then((receta) => {
+            if (receta == null) {
+                return res.redirect('/');
+            }
+            res.render('receta', {receta, products});
 
-        if (receta == null) {
-
-            return res.redirect('/');
-        }
-        //res.render('receta', {receta, products});
-        if (req.session.usuarioLogueado == undefined) {
-            return res.render('receta', { receta, products, usuarioLogueado: undefined });
-        } else {
-            return res.render('receta', { receta, products, usuarioLogueado: req.session.usuarioLogueado });
-        }
+            // if (req.session.usuarioLogueado == undefined) {
+            //         return res.render('receta', { receta, products, usuarioLogueado: undefined });
+            //     } else {
+            //         return res.render('receta', { receta, products, usuarioLogueado: req.session.usuarioLogueado });
+            //     }
+        })
+        .catch((err) => console.error(err));
     },
 
+
     category: (req, res) => {
+        
+       var sinGluten = db.Recipe.findAll({
+            where: {
+                diet: "sin gluten"
+            }
+        })
+
+        console.log(sinGluten)
+
         const receta = recetas.find((receta) => {
             return receta.dieta == req.params.dieta;
         })
