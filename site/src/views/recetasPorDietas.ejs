@@ -11,38 +11,38 @@
 
 <body>
     <!-- HEADER -->
-    <%- include("partials/header", {usuarioLogueado: usuarioLogueado}) %>
-        <!-- /HEADER -->
+    <%- include("partials/header", {usuarioLogueado: usuarioLogueado}) %>
+    <!-- /HEADER -->
 
-        <!-- Redes Sociales Flotantes-->
-        <%-include('partials/redesSociales') %>
+    <!-- Redes Sociales Flotantes-->
+    <%-include('partials/redesSociales') %>
 
-            <!-- Tarjeta de recetas -->
+    <!-- Tarjeta de recetas -->
     <div class="caja mb-3">
-               
-        
-                <div class="container container-tarjetas-recetas " id="tarjetas">
 
-                    <!-- Sitemap -->
-                    <div class="siteMap col-12" style="margin-left: 10%">
-                        <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/recetas/">Recetas</a>
-                        <span> <br><br>
-                    </div>
+        <div class="container container-tarjetas-recetas " id="tarjetas">
 
-                    <!-- Título de la sección -->
-                    <% if (receta.dieta !== "vegana" && receta.dieta !== "vegetariana") { %>
-                        <h3 class="col-12 titulo_seccion">Recetas <%= receta.dieta %> </h3>
-                    <% }else { %>
-                        <h3 class="col-12 titulo_seccion">Recetas <%= receta.dieta %>s </h3>
-                    <% } %>
+            <!-- Sitemap -->
+            <div class="siteMap col-12" style="margin-left: 10%">
+                <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/recetas/">Recetas</a>
+                <span> <br><br>
+            </div>
 
-                    <!-- Tarjeta -->
-                    <% for( let receta of dietas) { %>
+            <!-- Título de la sección -->
+            <% if (recetas.diet !== "vegana" && recetas.diet !== "vegetariana") { %>
+            <h3 class="col-12 titulo_seccion">Recetas <%= recetas[0].diet %> </h3>
+            <% }else { %>
+            <h3 class="col-12 titulo_seccion">Recetas <%= recetas[0].diet %>s </h3>
+            <% } %>
 
-                    <%- include("partials/tarjetaReceta", {receta}) %>
 
-                    <% } %>
-                </div>
+            <!-- Tarjeta -->
+            <% for( let receta of recetas ) { %>
+
+            <%- include("partials/tarjetaReceta", {receta}) %>
+            <% } %>
+
+        </div>
     </div>
     <!-- FOOTER -->
     <%- include("partials/footer") %>
