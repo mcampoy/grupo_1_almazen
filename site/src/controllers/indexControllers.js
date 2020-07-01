@@ -5,7 +5,7 @@ const controller = {
     index: (req, res) => {
         var products = db.Product.findAll({
             order: [
-                ['id', "DESC"]
+                ['id', "ASC"]
             ],
             limit: 3,
         });

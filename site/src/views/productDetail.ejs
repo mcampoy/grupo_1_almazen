@@ -24,7 +24,7 @@
                     </div>
 
                     <figure class="col-12 col-lg-6 imagen-detalles">
-                        <img src="/images/<%= product.image %>" alt=" <%= product.nombre %>">
+                        <img src="/images/imgProductos/<%= product.image %>" alt=" <%= product.name %>">
                     </figure>
 
                     <div class="col-12 col-lg-6">
@@ -33,35 +33,35 @@
                                 <div class="short-description-detalles">
 
                                     <h3 class="titulo_producto mb-2">
-                                        <%= product.nombre %>
+                                        <%= product.name %>
                                     </h3>
                                     <p class="descripcion_producto_detalles">
-                                        <%= product.descripcion %>
+                                        <%= product.description %>
                                     </p>
-                                    <p class="cantidad descripcion_producto_detalles"> <strong> <%= product.cantidad.cantidad %>
-                                    <%= product.cantidad.unidad_medida %> </strong> </p>
+                                    <p class="cantidad descripcion_producto_detalles"> <strong> <%= product.quantity %>
+                                    <%= product.unit %> </strong> </p>
                                 </div>
                                 <form action="" class="forumlario_compra-detalles mb-4">
 
                                     <div class="row precio_producto-detalles">
 
-                                        <% if (product.descuento > 0) { %>
+                                        <% if (product.discount > 0) { %>
 
                                             <div class="col-6 col-lg-12 precio-descuento">
                                                 <span class="div-precio-descuento">
-                                        <span class="tachado">$<%= product.precio %></span>
-                                                <span class="discount"> / <%= product.descuento %>% OFF</span>
+                                        <span class="tachado">$<%= product.price %></span>
+                                                <span class="discount"> / <%= product.discount %>% OFF</span>
                                                 </span>
                                                 <h3 class="precio_detalles">
                                                     $
-                                                    <%= product.precio - (product.precio / 100 * product.descuento) %>
+                                                    <%= product.price - (product.price / 100 * product.discount) %>
                                                 </h3>
                                             </div>
 
                                             <% } else { %>
 
                                                 <h3 class="col-6 col-lg-12 precio_detalles sindescuento">$
-                                                    <%= product.precio %>
+                                                    <%= product.price %>
                                                 </h3>
 
                                                 <% } %>

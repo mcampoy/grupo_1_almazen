@@ -87,33 +87,39 @@ function productIdGenerator() {
 
 const controller = {
     productsList: (req, res) => {
-        let productos = [];
-        for (let product of products) {
-            if (product.habilitado) {
-                productos.push(product);
+        // let productos = [];
+
+        db.Product.findAll({
+            where: {
+                enabled: 1
             }
-        }
-        // res.render('products', { productos })
-        if (req.session.usuarioLogueado == undefined) {
-            return res.render('products', { productos, usuarioLogueado: undefined });
-        } else {
-            return res.render('products', { productos, usuarioLogueado: req.session.usuarioLogueado });
-        }
+        })
+        .then((productos)=>{
+
+            // res.render('products', { productos })
+            if (req.session.usuarioLogueado == undefined) {
+                return res.render('products', { productos, usuarioLogueado: undefined });
+            } else {
+                return res.render('products', { productos, usuarioLogueado: req.session.usuarioLogueado });
+            }
+        })
     },
 
     details: (req, res) => {
-        const product = products.find((product) => {
-            return product.id == req.params.id;
-        })
-        if (product == null) {
-            return res.redirect('/');
-        }
-        //res.render('productDetail', {product: product});
-        if (req.session.usuarioLogueado == undefined) {
-            return res.render('productDetail', { product: product, usuarioLogueado: undefined });
-        } else {
-            return res.render('productDetail', { product: product, usuarioLogueado: req.session.usuarioLogueado });
-        }
+
+        db.Product.findByPk(req.params.id)
+        .then((product)=>{
+
+            if (product == null) {
+                return res.redirect('/');
+            }
+
+            if (req.session.usuarioLogueado == undefined) {
+                return res.render('productDetail', { product: product, usuarioLogueado: undefined });
+            } else {
+                return res.render('productDetail', { product: product, usuarioLogueado: req.session.usuarioLogueado });
+            }
+    })
     },
 
     admin: (req, res) => {

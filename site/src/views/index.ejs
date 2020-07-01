@@ -89,13 +89,13 @@
                             <section class="col-12 col-md-11 col-lg-11 product-box">
                                 <a href="/product/details/<%= product.id %> " class="col-12 col-lg-12">
                                     <figure class="col-12 col-lg-12 product-box_image">
-                                        <img src="/images/<%= product.image %> " alt="imagen de producto" class="col-12">
+                                        <img src="/images/imgProductos/<%= product.image %>" alt="imagen de <%= product.name %>" class="col-12">
                                     </figure>
                                     <article class="col-12 product-box_data">
                                         <h2 class="titulo_producto">
                                             <%= product.name %>
                                         </h2>
-                                        <% if (product.discount) { %>
+                                        <% if (product.discount > 0) { %>
                                             <span class="ml-auto precio_producto">$ <%= product.price %> </span>
                                             <span class="discountTagPosition">
                                             <i class="fas fa-tag discountTag"></i> <span class="discountTag"><%= product.discount %>% OFF </span>
