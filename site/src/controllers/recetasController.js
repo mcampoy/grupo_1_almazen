@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 let db = require('../database/models');
 
 const controller = {
@@ -53,7 +51,7 @@ const controller = {
             } else {
                 return res.render('recetasPorDietas', { recetas: recetas, usuarioLogueado: req.session.usuarioLogueado });
             }
-        })
+        }).catch((err) => console.error(err));
 
     },
 

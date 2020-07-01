@@ -1,30 +1,25 @@
-const fs = require('fs');
-const path = require('path');
-
-const productsdb = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/productsDataBase.json'), 'utf-8'));
-const recetas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/recetasDataBase.json'), 'utf-8'));
+let db = require('../database/models');
 
 const controller = {
 
     index: (req, res) => {
+        var products = db.Product.findAll({
+            order: [
+                ['id', "DESC"]
+            ],
+            limit: 3,
+        });
+        var recetas = db.Recipe.findAll();
 
-        const receta = recetas.find((receta) => {
-            return receta.id;
-        })
-
-        let products = [];
-        for (let product of productsdb) {
-            if (product.habilitado == 1) {
-                products.push(product);
+        Promise.all([products, recetas])
+        .then((results)=>{
+            if (req.session.usuarioLogueado == undefined) {
+                return res.render('index', { products: results[0], recetas: results[1], usuarioLogueado: undefined });
+            } else {
+                return res.render('index', { products: results[0], recetas: results[1], usuarioLogueado: req.session.usuarioLogueado });
             }
-        }
+        }).catch((err) => console.error(err));
 
-        //res.render('index', {products, receta});
-        if (req.session.usuarioLogueado == undefined) {
-            return res.render('index', { products, receta, usuarioLogueado: undefined });
-        } else {
-            return res.render('index', { products, receta, usuarioLogueado: req.session.usuarioLogueado });
-        }
     }
 };
 
