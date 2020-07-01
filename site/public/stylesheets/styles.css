@@ -1396,7 +1396,9 @@ img.singlutenLogo-recetas.logoSG-index {
 /* Estilos página de cada receta */
 
 .siteMap {
-    font-size: .8em;
+    font-size: .8em !important;
+    font-family: var(--fuenteMenu)!important;
+    margin-top: 2% !important;
 }
 
 .siteMap a {
@@ -1521,7 +1523,13 @@ figure img.sg-logo-receta {
     border: 0.1px solid #777;
     text-align: center;
     border-radius: 4px;
-    width: 40%;
+    width: 22%;
+}
+
+@media (min-width: 460px) {
+    #slcCantidad {
+        width: 13%;
+    }
 }
 
 .ingredientes-receta {

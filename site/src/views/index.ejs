@@ -95,7 +95,7 @@
                                         <h2 class="titulo_producto">
                                             <%= product.name %>
                                         </h2>
-                                        <% if (product.descuento) { %>
+                                        <% if (product.discount) { %>
                                             <span class="ml-auto precio_producto">$ <%= product.price %> </span>
                                             <span class="discountTagPosition">
                                             <i class="fas fa-tag discountTag"></i> <span class="discountTag"><%= product.discount %>% OFF </span>
@@ -123,27 +123,27 @@
         <div class="mb-1 col-12 col-sm-6 col-md-12 col-lg-12 d-flex justify-content-center">
             <section class="col-12 col-md-11 col-lg-11 d-flex product-box">
                 <!-- si va más de una receta, insertar el comienzo del for acá -->
-                <a href="/recetas/<%= recetas[0].id %>" class="col-12 col-md-12 col-lg-12 d-flex flex-wrap">
+                <a href="/recetas/<%= receta.id %>" class="col-12 col-md-12 col-lg-12 d-flex flex-wrap">
                     <figure class="col-11 col-md-12 col-lg-5 imagen_receta ">
-                        <% if (recetas[0].diet == "sin gluten") { %>
+                        <% if (receta.diet == "sin gluten") { %>
                             <!-- Sin es sin gluten añade el logo de sin tacc -->
-                            <img src="/images/recetas/<%= recetas[0].image %>" alt="imagen de <%= recetas[0].name %> " class="col-12">
+                            <img src="/images/recetas/<%= receta.image %>" alt="imagen de <%= receta.name %> " class="col-12">
                             <img class="singlutenLogo-recetas logoSG-index" src="/images/logos/sintaccLogo.png" alt="Logo de productos sin gluten">
 
                             <% } else { %>
 
-                                <img src="/images/recetas/<%= recetas[0].image %>" alt="imagen de <%= recetas[0].name %> " class="col-12">
+                                <img src="/images/recetas/<%= receta.image %>" alt="imagen de <%= receta.name %> " class="col-12">
                                 <% } %>
                     </figure>
                     <article class="col-11 col-md-12 col-lg-6 d-sm-block">
 
 
                         <h6 class="tipo_receta">
-                            <%= recetas[0].diet %>
+                            <%= receta.diet %>
                         </h6>
-                        <span class="titulo_receta"> <%= recetas[0].name %> </span>
+                        <span class="titulo_receta"> <%= receta.name %> </span>
                         <p class="descripcion_receta">
-                            <%= recetas[0].description %>
+                            <%= receta.description %>
                         </p>
                         <button class="col-5 col-md-4 col-lg-4 d-flex justify-content-center align-items-center btn_receta" onclick="window.location='/recetas/'">VER RECETA</button>
                     </article>

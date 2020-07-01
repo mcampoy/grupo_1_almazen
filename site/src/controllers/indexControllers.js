@@ -9,14 +9,14 @@ const controller = {
             ],
             limit: 3,
         });
-        var recetas = db.Recipe.findAll();
+        var receta = db.Recipe.findByPk(1);
 
-        Promise.all([products, recetas])
+        Promise.all([products, receta])
         .then((results)=>{
             if (req.session.usuarioLogueado == undefined) {
-                return res.render('index', { products: results[0], recetas: results[1], usuarioLogueado: undefined });
+                return res.render('index', { products: results[0], receta: results[1], usuarioLogueado: undefined });
             } else {
-                return res.render('index', { products: results[0], recetas: results[1], usuarioLogueado: req.session.usuarioLogueado });
+                return res.render('index', { products: results[0], receta: results[1], usuarioLogueado: req.session.usuarioLogueado });
             }
         }).catch((err) => console.error(err));
 

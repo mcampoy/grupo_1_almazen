@@ -51,7 +51,7 @@ const controller = {
             } else {
                 return res.render('recetasPorDietas', { recetas: recetas, usuarioLogueado: req.session.usuarioLogueado });
             }
-        }).catch((err) => console.error(err));
+        })
 
     },
 
