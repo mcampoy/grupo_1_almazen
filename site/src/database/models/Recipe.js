@@ -5,7 +5,7 @@ module.exports = (sequelize, dataTypes) => {
             id: {
                 type: dataTypes.INTEGER,
                 allowNull: false,
-                primaryKey:true,
+                primaryKey: true,
                 autoIncrement: true
             },
 
@@ -56,20 +56,25 @@ module.exports = (sequelize, dataTypes) => {
 
         });
 
-        Recipe.associate = function(models){
-            Recipe.hasMany(models.Ingredient,
-            {
-                as: 'ingredients',
-                foreignKey: 'id_recipe'
-            });
-        
-            Recipe.hasMany(models.Step,
-            {
-                as: 'steps',
-                foreignKey: 'id_recipe'
-            })
+    Recipe.associate = function(models) {
+        Recipe.hasMany(models.Ingredient, {
+            as: 'ingredients',
+            foreignKey: 'id_recipe'
+        });
 
-        }
+        Recipe.hasMany(models.Step, {
+            as: 'steps',
+            foreignKey: 'id_recipe'
+        });
+
+        Recipe.belongsToMany(models.Product, {
+            as: 'products',
+            through: 'product_recipe',
+            foreignKey: 'id_recipe',
+            otherKey: 'id_product',
+            timestamps: false,
+        });
+    }
 
     return Recipe; // Este retorno es lo que exporto
 }

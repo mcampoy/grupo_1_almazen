@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+let db = require('../database/models');
+let sequelize = db.sequelize;
 
 const { check, validationResult, body } = require('express-validator');
 
@@ -21,6 +23,7 @@ function getProducts() {
     } else {
         return []
     }
+
 };
 
 function getCategorias() {
@@ -115,11 +118,15 @@ const controller = {
 
     admin: (req, res) => {
         // res.render('productAdmin', { products });
-        if (req.session.usuarioLogueado == undefined) {
-            return res.render('productAdmin', { products, usuarioLogueado: undefined });
-        } else {
-            return res.render('productAdmin', { products, usuarioLogueado: req.session.usuarioLogueado });
-        }
+        db.Product.findAll()
+            .then(products => {
+                if (req.session.usuarioLogueado == undefined) {
+                    return res.render('productAdmin', { products: products, usuarioLogueado: undefined });
+                } else {
+                    return res.render('productAdmin', { products: products, usuarioLogueado: req.session.usuarioLogueado });
+                }
+            })
+            .catch((err) => console.error(err));
     },
 
     cart: (req, res) => {
@@ -132,37 +139,31 @@ const controller = {
     },
 
     adminShowDetails: (req, res) => {
-        let product;
-        if (typeof getProductById(req.params.id) != 'undefined') {
-            product = getProductById(req.params.id);
-        } else {
-            product = getProductById(Math.min.apply(null, products.map(function(a) { return a.id; })));
-        }
+        // db.Product.findByPk(req.params.id)
+        var product = db.Product.findByPk(req.params.id, {
+            include: [
+                { association: "diets" },
+                { association: "categories" },
+                { association: "recipes" }
+            ],
 
-        for (i = 0; i < categorias.length; i++) {
-            var xx = categorias[i].checked = (product.categoria.find((categoria) => {
-                return categoria == categorias[i].id;
-            })) ? 1 : 0;
-        }
+        });
+        var categories = db.Category.findAll();
+        var diets = db.Diet.findAll();
+        var recipes = db.Recipe.findAll();
 
-        for (i = 0; i < dietas.length; i++) {
-            var xx = dietas[i].checked = (product.dieta.find((dieta) => {
-                return dieta == dietas[i].id;
-            })) ? 1 : 0;
-        }
 
-        for (i = 0; i < recetas.length; i++) {
-            var xx = recetas[i].checked = (product.receta.find((receta) => {
-                return receta == recetas[i].id;
-            })) ? 1 : 0;
-        }
-
-        if (product == null) {
-            // Acá debería mostrar un mensaje de error
-            return res.redirect('/');
-        }
-
-        res.render('productAdminDetail', { product, categorias, dietas, recetas, edit: false });
+        Promise.all([product, categories, diets, recipes])
+            .then((results) => {
+                return res.render('productAdminDetail', {
+                    product: results[0],
+                    categories: results[1],
+                    diets: results[2],
+                    recipes: results[3],
+                    edit: false
+                });
+            })
+            .catch((err) => console.error(err));
     },
 
     adminEditDetails: (req, res) => {

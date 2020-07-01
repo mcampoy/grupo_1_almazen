@@ -23,7 +23,6 @@
     <div class="container-fluid">
         <!-- Upload product -->
         <div class="container-fluid align-content-around carga_producto">
-
             <!-- onsubmit="window.top.location.reload(true);" -->
             <!-- onsubmit="window.top.location.href = window.top.location.href; -->
             <form action="/product/admin?_method=PUT" method="post" enctype="multipart/form-data" onsubmit="window.top.location.href = '/product/admin';">
@@ -34,38 +33,38 @@
                             <div class="form-group col-12">
                                 <input name="id" type="text" class="form-control" id="id" required value="<%= product.id %>" style="display:none">
                                 <label class="titulo_carga_producto" for="codigo">Código del producto <span class="asterisco">*</span></label>
-                                <input name="codigo" maxlength="10" type="text" class="form-control" id="codigo" placeholder="Ingrese el código del producto." required value="<%= product.codigo %>" <% if (!edit) { %>readonly
+                                <input name="codigo" maxlength="10" type="text" class="form-control" id="codigo" placeholder="Ingrese el código del producto." required value="<%= product.code %>" <% if (!edit) { %>readonly
                                 <% } %>>
                             </div>
                             <div class="form-group col-12">
                                 <label class="titulo_carga_producto" for="nombre">Nombre del producto <span class="asterisco">*</span></label>
-                                <input name="nombre" maxlength="45" type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del producto." required value="<%= product.nombre %>" <% if (!edit) { %> readonly
+                                <input name="nombre" maxlength="45" type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del producto." required value="<%= product.name %>" <% if (!edit) { %> readonly
                                 <% } %>>
                             </div>
                             <div class="form-group col-12">
                                 <label class="titulo_carga_producto" for="descripcion_breve">Descripción breve <span class="asterisco">*</span></label>
-                                <input name="descripcion_breve" maxlength="150" type="text" class="form-control" id="descripcion_breve" required placeholder="Ingrese la descripción breve del producto." value="<%= product.descripcion_breve %>" <% if (!edit) { %>                                readonly
+                                <input name="descripcion_breve" maxlength="150" type="text" class="form-control" id="descripcion_breve" required placeholder="Ingrese la descripción breve del producto." value="<%= product.description_short %>" <% if (!edit) { %>                                readonly
                                 <% } %>>
                             </div>
                             <div class="form-group col-12">
                                 <label class="titulo_carga_producto" for="descripcionLarga">Descripción completa <span class="asterisco">*</span></label>
-                                <textarea name="descripcion" maxlength="500" class="form-control" id="descripcionLarga" required rows="3" placeholder="Ingrese la descripción completa del producto." <% if (!edit) { %> readonly <% } %>><%= product.descripcion %></textarea>
+                                <textarea name="descripcion" maxlength="500" class="form-control" id="descripcionLarga" required rows="3" placeholder="Ingrese la descripción completa del producto." <% if (!edit) { %> readonly <% } %>><%= product.description %></textarea>
                             </div>
 
                             <div class="form-group col-6 pl-0">
-                                <label class="titulo_carga_producto" for="precio">Precio <span class="asterisco">*</span></label>
+                                <label class="titulo_carga_producto" for="price">Precio <span class="asterisco">*</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">$</span>
                                     </div>
-                                    <input name="precio" type="number" min="0" class="form-control text-right" id="precio" required placeholder="0" value="<%= product.precio %>" <% if (!edit) { %> readonly
+                                    <input name="price" type="number" min="0" class="form-control text-right" id="price" required placeholder="0" value="<%= product.price %>" <% if (!edit) { %> readonly
                                     <% } %>>
                                 </div>
                             </div>
                             <div class="form-group col-6 pr-0">
-                                <label class="titulo_carga_producto" for="descuento">Descuento</label>
+                                <label class="titulo_carga_producto" for="discount">Descuento</label>
                                 <div class="input-group">
-                                    <input name="descuento" type="number" min="0" class="form-control text-right" id="descuento" placeholder="0" value="<%= product.descuento %>" <% if (!edit) { %> readonly
+                                    <input name="discount" type="number" min="0" class="form-control text-right" id="discount" placeholder="0" value="<%= product.discount %>" <% if (!edit) { %> readonly
                                     <% } %>>
                                         <div class="input-group-apend">
                                             <span class="input-group-text">%</span>
@@ -97,24 +96,24 @@
                                 <input name="stock" type="number" min="0" class="form-control d-inline-block col-6" id="stock" placeholder="0" value="<%=product.stock %>" <% if (!edit) { %> readonly
                                 <% } %>>
                             </div>
-                            <label class="titulo_carga_producto d-inline-block col-12" for="cantidad">Presentación</label>
+                            <label class="titulo_carga_producto d-inline-block col-12" for="quantity">Presentación</label>
 
                             <div class="form-group col-12">
-                                <input name="cantidad" type="number" min="0" class="form-control text-right d-inline-block col-7" id="cantidad" placeholder="0" value="<%= product.cantidad.cantidad %>" <% if (!edit) { %> readonly
+                                <input name="quantity" type="number" min="0" class="form-control text-right d-inline-block col-7" id="quantity" placeholder="0" value="<%= product.quantity %>" <% if (!edit) { %> readonly
                                 <% } %>>
-                                    <input name="unidad_medida" type="text" class="form-control  d-inline-block text-right col-4" id="unidad_medida" placeholder="gr." value="<%= product.cantidad.unidad_medida %>" <% if (!edit) { %> readonly
+                                    <input name="unit" type="text" class="form-control  d-inline-block text-right col-4" id="unit" placeholder="gr." value="<%= product.unit %>" <% if (!edit) { %> readonly
                                     <% } %>>
 
                             </div>
                             <div class="form-group col-12 container  align-self-center">
                                 <div class="form-check d-inline-block">
-                                    <input name="habilitado" type="checkbox" class="" id="habilitado" value="" <% if (product.habilitado) { %>checked
+                                    <input name="enabled" type="checkbox" class="" id="enabled" value="" <% if (product.enabled) { %>checked
                                     <% } %>
                                         <% if (!edit) { %> disabled
                                             <% } %>>
-                                                <label for="habilitado"></label>
+                                                <label for="enabled"></label>
                                 </div>
-                                <label for="habilitado" class="nombre_item d-inline-block">Habilitado</label>
+                                <label for="enabled" class="nombre_item d-inline-block">Habilitado</label>
                             </div>
                         </div>
 
@@ -155,59 +154,58 @@
                                 <div class="card-header">
                                     <ul class="nav nav-tabs card-header-tabs">
                                         <li class="nav-item">
-                                            <a class="nav-link active titulo_carga_producto font-weight-bold border-white" data-toggle="tab" href="#categorias">Categorías</a>
+                                            <a class="nav-link active titulo_carga_producto font-weight-bold border-white" data-toggle="tab" href="#categories">Categorías</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link titulo_carga_producto border-white" data-toggle="tab" href="#recetas">Recetas</a>
+                                            <a class="nav-link titulo_carga_producto border-white" data-toggle="tab" href="#recipes">Recetas</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link titulo_carga_producto border-white" data-toggle="tab" href="#dietas">Dietas</a>
+                                            <a class="nav-link titulo_carga_producto border-white" data-toggle="tab" href="#diets">Dietas</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="tab-content card-body">
-                                    <div class="tab-pane active" id="categorias">
-                                        <% categorias.forEach(categoria => { %>
+                                    <div class="tab-pane active" id="categories">
+                                        <% categories.forEach(category => { %>
                                             <div class="card_item text-left">
                                                 <div class="form-check d-inline-block">
-                                                    <input name="categoria" type="checkbox" class="" id="checkboxCategoria<%=categoria.id %>" value="<%=categoria.id %>" <% if (categoria.checked) {%> checked
-                                                    <% } %>
+                                                    <input name="category" type="checkbox" class="" id="checkboxcategory<%=category.id %>" value="<%=category.id %>" <% product.categories.forEach(ProdCategory=> { if (category.id==ProdCategory.id) {%> checked
+                                                    <% }}); %>
                                                         <% if (!edit) { %> disabled
                                                             <% } %>
                                                                 >
-                                                                <label for="checkboxCategoria<%=categoria.id %>"></label>
+                                                                <label for="checkboxcategory<%=category.id %>"></label>
                                                 </div>
-                                                <label for="checkboxCategoria<%=categoria.id %>" class="nombre_item d-inline-block"><%= categoria.nombre %></label>
+                                                <label for="checkboxcategory<%=category.id %>" class="nombre_item d-inline-block"><%= category.name %></label>
                                             </div>
                                             <% }) %>
                                     </div>
-                                    <div class="tab-pane" id="dietas">
-                                        <% dietas.forEach(dieta => { %>
+                                    <div class="tab-pane" id="diets">
+                                        <% diets.forEach(diet => { %>
                                             <div class="card_item text-left">
                                                 <div class="form-check d-inline-block">
-                                                    <input name="dieta" type="checkbox" class="" id="checkboxDieta<%=dieta.id %>" value="<%=dieta.id %>" <% if (dieta.checked) {%> checked
-                                                    <% } %>
+                                                    <input name="diet" type="checkbox" class="" id="checkboxdiet<%=diet.id %>" value="<%=diet.id %>" <% product.diets.forEach(ProdDiet=> { if (diet.id==ProdDiet.id) {%> checked
+                                                    <% }}); %>
                                                         <% if (!edit) { %> disabled
                                                             <% } %>
                                                                 >
-                                                                <label for="checkboxDieta<%=dieta.id %>"></label>
+                                                                <label for="checkboxdiet<%=diet.id %>"></label>
                                                 </div>
-                                                <label for="checkboxDieta<%=dieta.id %>" class="nombre_item d-inline-block"><%= dieta.nombre %></label>
+                                                <label for="checkboxdiet<%=diet.id %>" class="nombre_item d-inline-block"><%= diet.name %></label>
                                             </div>
                                             <% }) %>
                                     </div>
-                                    <div class="tab-pane " id="recetas">
-                                        <% recetas.forEach(receta => { %>
+                                    <div class="tab-pane " id="recipes">
+                                        <% recipes.forEach(recipe => { %>
                                             <div class="card_item text-left">
                                                 <div class="form-check d-inline-block">
-                                                    <input name="receta" type="checkbox" class="" id="checkboxReceta<%=receta.id %>" value="<%=receta.id %>" <% if (receta.checked) {%> checked
-                                                    <% } %>
+                                                    <input name="recipe" type="checkbox" class="" id="checkboxrecipe<%=recipe.id %>" value="<%=recipe.id %>" <% product.recipes.forEach(ProdRecipe=> { if (recipe.id==ProdRecipe.id) {%> checked
+                                                    <% }}); %>
                                                         <% if (!edit) { %> disabled
-                                                            <% } %>
-                                                                >
-                                                                <label for="checkboxReceta<%=receta.id %>"></label>
+                                                            <% } %> >
+                                                                <label for="checkboxrecipe<%=recipe.id %>"></label>
                                                 </div>
-                                                <label for="checkboxReceta<%=receta.id %>" class="nombre_item d-inline-block"><%= receta.nombre %></label>
+                                                <label for="checkboxrecipe<%=recipe.id %>" class="nombre_item d-inline-block"><%= recipe.name %></label>
                                             </div>
                                             <% }) %>
                                     </div>
@@ -230,7 +228,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
         var productID = document.getElementById('id').value;
-
 
         document.getElementById("btnConfSalir").onclick = function() {
             parent.location.href = "/product/admin"

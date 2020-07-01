@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const Diet = sequelize.define("Diet",
+    const Category = sequelize.define("Category",
 
         {
             id: {
@@ -11,38 +11,29 @@ module.exports = (sequelize, dataTypes) => {
 
             name: {
                 type: dataTypes.STRING,
-
-
-
             },
 
             enabled: {
                 type: dataTypes.INTEGER,
-
             },
 
         },
 
         {
-            tableName: 'diets', //Si el nombre de la tabla no coincide con el del modelo
+            tableName: 'categories', //Si el nombre de la tabla no coincide con el del modelo
             timestamps: false, //Si no tengo timestamps
 
         });
 
-    Diet.associate = function(models) {
-        // Diet.belongsTo(models.Recipe, {
-        //     as: 'recipes',
-        //     foreignKey: 'id_recipe'
-        // });
-
-        Diet.belongsToMany(models.Product, {
+    Category.associate = function(models) {
+        Category.belongsToMany(models.Product, {
             as: 'products',
-            through: 'product_diet',
-            foreignKey: 'id_diet',
+            through: 'product_category',
+            foreignKey: 'id_category',
             otherKey: 'id_product',
             timestamps: false,
         });
     }
 
-    return Diet; // Este retorno es lo que exporto
+    return Category; // Este retorno es lo que exporto
 }

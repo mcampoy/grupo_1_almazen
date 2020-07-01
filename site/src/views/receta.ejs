@@ -7,103 +7,99 @@
 
 <body>
     <!-- HEADER -->
+    <%- include("partials/header", {usuarioLogueado: usuarioLogueado}) %>
+        <!-- /HEADER -->
 
+        <!-- Redes Sociales Flotantes-->
+        <%-include('partials/redesSociales') %>
 
-    <!-- /HEADER -->
+            <!-- Contenedor de receta -->
+            <article class="container container-details">
+                <div class="row box-product-details">
 
-    <!-- Redes Sociales Flotantes-->
-    <%-include('partials/redesSociales') %>
-
-    <!-- Contenedor de receta -->
-    <article class="container container-details">
-        <div class="row box-product-details">
-
-            <!-- Sitemap -->
-            <div class="siteMap col-12">
-                <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/recetas/">Recetas</a>
-                <span> > </span>
-                <a href="/recetas/dieta/<%= receta.diet %>">
-                    <%= receta.diet %>
-                </a> <br><br>
-            </div>
-
-            <!-- Receta -->
-            <section class="col-12 col-lg-6 descripcion-receta">
-                <div class="encabezado-receta">
-                    <p class="categoria-receta">
-                        <%= receta.name %>
-                    </p>
-                    <h3 class="titulo-receta mb-2">
-                        <%= receta.name %>
-                    </h3>
-                    <span class="tiempo-coccion"><i class="far fa-clock"></i> <span class="reloj">
-                            <%= receta.preparation_time %> minutos </span> </span>
-                    <span class="dificultad"> <span class="dificulad"> - <i class="fas fa-utensil-spoon"></i>
-                            <%= receta.difficulty %> </span> </span>
-                </div>
-                <figure class="imagen-receta">
-                    <% if (receta.diet == "sin gluten") { %>
-                    <!-- Sin es sin gluten añade el logo de sin tacc -->
-                    <img src="/images/recetas/<%= receta.image %>" alt=" <%= receta.name %> " class="imagen-receta">
-                    <img class="singlutenLogo-recetas sg-logo-receta" src="/images/logos/sintaccLogo.png"
-                        alt="Logo de productos sin gluten">
-
-                    <% } else { %>
-                    <img src="/images/recetas/<%= receta.image %>" alt=" <%= receta.name %> " class="imagen-receta">
-                    <% } %>
-                </figure>
-
-                <div class="descripcion_receta">
-                    <p>
-                        <%= receta.description%>
-                    </p>
-                </div>
-
-                <!-- Productos -->
-                <div id="tarjetas" class="fondo-tarj-receta mb-0">
-
-
-                    <div class="ladofrente tarjeta-recetas productos">
-                        <h4 class="title-prod-receta">Nuestros productos para esta receta</h4>
-                        <div class="productos-en-receta">
-
-                        </div>
-
+                    <!-- Sitemap -->
+                    <div class="siteMap col-12">
+                        <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/recetas/">Recetas</a>
+                        <span> > </span>
+                        <a href="/recetas/dieta/<%= receta.diet %>">
+                            <%= receta.diet %>
+                        </a> <br><br>
                     </div>
 
+                    <!-- Receta -->
+                    <section class="col-12 col-lg-6 descripcion-receta">
+                        <div class="encabezado-receta">
+                            <p class="categoria-receta">
+                                <%= receta.name %>
+                            </p>
+                            <h3 class="titulo-receta mb-2">
+                                <%= receta.name %>
+                            </h3>
+                            <span class="tiempo-coccion"><i class="far fa-clock"></i> <span class="reloj">
+                            <%= receta.preparation_time %> minutos </span> </span>
+                            <span class="dificultad"> <span class="dificulad"> - <i class="fas fa-utensil-spoon"></i>
+                            <%= receta.difficulty %> </span> </span>
+                        </div>
+                        <figure class="imagen-receta">
+                            <% if (receta.diet == "sin gluten") { %>
+                                <!-- Sin es sin gluten añade el logo de sin tacc -->
+                                <img src="/images/recetas/<%= receta.image %>" alt=" <%= receta.name %> " class="imagen-receta">
+                                <img class="singlutenLogo-recetas sg-logo-receta" src="/images/logos/sintaccLogo.png" alt="Logo de productos sin gluten">
 
-                </div>
-            </section>
+                                <% } else { %>
+                                    <img src="/images/recetas/<%= receta.image %>" alt=" <%= receta.name %> " class="imagen-receta">
+                                    <% } %>
+                        </figure>
 
-            <div class="col-12 col-lg-6">
-                <div class="description-wrapper-details">
-                    <section class="col-12 product-details">
-                        <div class="short-description-receta">
+                        <div class="descripcion_receta">
+                            <p>
+                                <%= receta.description%>
+                            </p>
+                        </div>
 
-                            <!-- Acciones -->
-                            <div class="acciones-receta">
-                                <a class="accion-receta favorito" href="#" title=" Me gusta">
-                                    <i class="far fa-heart"></i>
-                                </a>
-                                <a class="accion-receta agregar" href="#" title="Agregar a mis recetarios">
-                                    <i class="fas fa-book"></i>
-                                </a>
-                                <a class="accion-receta compartir" href="#" title="Compartir">
-                                    <i class="fas fa-share-alt"></i>
-                                </a>
-                                <button type="button" class="boton  boton-central-receta" data-toggle="modal"
-                                    data-target="#lista-compras">
-                                    <i class="fas fa-tasks"></i>
-                                </button>
+                        <!-- Productos -->
+                        <div id="tarjetas" class="fondo-tarj-receta mb-0">
+
+
+                            <div class="ladofrente tarjeta-recetas productos">
+                                <h4 class="title-prod-receta">Nuestros productos para esta receta</h4>
+                                <div class="productos-en-receta">
+
+                                </div>
+
                             </div>
 
-                            <!-- /Acciones -->
+
+                        </div>
+                    </section>
+
+                    <div class="col-12 col-lg-6">
+                        <div class="description-wrapper-details">
+                            <section class="col-12 product-details">
+                                <div class="short-description-receta">
+
+                                    <!-- Acciones -->
+                                    <div class="acciones-receta">
+                                        <a class="accion-receta favorito" href="#" title=" Me gusta">
+                                            <i class="far fa-heart"></i>
+                                        </a>
+                                        <a class="accion-receta agregar" href="#" title="Agregar a mis recetarios">
+                                            <i class="fas fa-book"></i>
+                                        </a>
+                                        <a class="accion-receta compartir" href="#" title="Compartir">
+                                            <i class="fas fa-share-alt"></i>
+                                        </a>
+                                        <button type="button" class="boton  boton-central-receta" data-toggle="modal" data-target="#lista-compras">
+                                    <i class="fas fa-tasks"></i>
+                                </button>
+                                    </div>
+
+                                    <!-- /Acciones -->
 
 
-                            <form class="ingredientes-receta" method="#" action="#">
-                                <h2 class="titulo-ingredientes-receta">Ingredientes</h2>
-                                <h3 class="cantidad-porciones-receta">Para <select id="slcCantidad"
-                                        class="numero-cantidad-porciones-receta custom-select">
+                                    <form class="ingredientes-receta" method="#" action="#">
+                                        <h2 class="titulo-ingredientes-receta">Ingredientes</h2>
+                                        <h3 class="cantidad-porciones-receta">Para <select id="slcCantidad" class="numero-cantidad-porciones-receta custom-select">
                                         <!-- <div class="titulo-ajustar-porciones-receta">Ajustar porciones:</div> -->
 
                                         <option value="default"><%= receta.serving %> </option>
@@ -114,12 +110,12 @@
 
                                     </select> porciones</h3>
 
-                                <!-- INGREDIENTES -->
-                                <% for( let ingrediente of receta.ingredients ) { %>
+                                        <!-- INGREDIENTES -->
+                                        <% for( let ingrediente of receta.ingredients ) { %>
 
-                                <div class="ingrediente-receta checkbox">
+                                            <div class="ingrediente-receta checkbox">
 
-                                    <label class="label-check nombre_item">
+                                                <label class="label-check nombre_item">
                                         <input class="check checkbox-original checkbox-ingrediente-receta"
                                             type="checkbox" name="ingredientes" value="">
                                         <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
@@ -128,62 +124,58 @@
                                         <span class="descripcion-ingrediente-receta">
                                             <%= ingrediente.name %></span>
                                     </label>
-                                </div>
+                                            </div>
 
-                                <% } %>
+                                            <% } %>
 
-                                <!-- Checkbox para seleccionar todos los ingredientes -->
-                                <div class="checkbox">
-                                    <label class="label-seleccionar-todos">
+                                                <!-- Checkbox para seleccionar todos los ingredientes -->
+                                                <div class="checkbox">
+                                                    <label class="label-seleccionar-todos">
                                         <i class="fas fa-tasks"></i> <input id="checkAll"
                                             class="check checkbox-original checkbox-seleccionar-todos" type="checkbox">
                                         <span class="checkbox-reemplazo"></span>
                                         Seleccionar todos
                                     </label>
-                                </div>
+                                                </div>
 
-                                <button type="submit" class="boton  boton-central-receta" data-toggle="modal"
-                                    data-target="#lista-compras">
+                                                <button type="submit" class="boton  boton-central-receta" data-toggle="modal" data-target="#lista-compras">
                                     Agregar a lista de compras
                                 </button>
 
-                                <!-- MODAL: LSITA DE COMPRAS -->
-                                <div class="modal fade" id="lista-compras" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Lista de compras</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
+                                                <!-- MODAL: LSITA DE COMPRAS -->
+                                                <div class="modal fade" id="lista-compras" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Lista de compras</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                ...
-                                            </div>
-                                            <!-- <div class="modal-footer">
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                ...
+                                                            </div>
+                                                            <!-- <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                                     <button type="button" class="btn btn-primary">Save changes</button>
                                                                 </div> -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- / MODAL: LSITA DE COMPRAS -->
-                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- / MODAL: LSITA DE COMPRAS -->
+                                    </form>
 
-                            <!-- PREPARACIÓN -->
-                            <div class="preparacion-receta">
-                                <h2 class="titulo-preparacion-receta">Preparación</h2>
-                                <h3 class="subtitulo-preparacion-receta">Seguí los pasos de la receta aquí y tachá los
-                                    que ya completaste o miralos en la vista de cocina.</h3>
+                                    <!-- PREPARACIÓN -->
+                                    <div class="preparacion-receta">
+                                        <h2 class="titulo-preparacion-receta">Preparación</h2>
+                                        <h3 class="subtitulo-preparacion-receta">Seguí los pasos de la receta aquí y tachá los que ya completaste o miralos en la vista de cocina.</h3>
 
 
-                                <% for( let i = 0; i < receta.steps.length; i++ ) { %>
+                                        <% for( let i = 0; i < receta.steps.length; i++ ) { %>
 
-                                <div class="pasos-preparacion-receta">
-                                    <div class="paso-preparacion-receta">
-                                        <label for="checkbox-original" class="label-pasos" style="line-height: 1.6em;">
+                                            <div class="pasos-preparacion-receta">
+                                                <div class="paso-preparacion-receta">
+                                                    <label for="checkbox-original" class="label-pasos" style="line-height: 1.6em;">
                                             <input class="checkbox-original checkbox-paso-preparacion-receta"
                                                 type="checkbox">
                                             <span class="checkbox-reemplazo checkbox-paso-preparacion-receta"></span>
@@ -191,33 +183,31 @@
                                             <span id="paso" class="paso-receta"> <%= receta.steps[i].description %>
                                             </span>
                                         </label>
-                                    </div>
-                                </div>
-                                <% } %>
+                                                </div>
+                                            </div>
+                                            <% } %>
 
-                                <button type="button" class="boton boton-central-receta" data-toggle="modal"
-                                    data-target="#pasos">
+                                                <button type="button" class="boton boton-central-receta" data-toggle="modal" data-target="#pasos">
                                     Vista de cocina
                                 </button>
-                            </div>
+                                    </div>
 
-                            <!-- MODAL: VISTA DE COCINA -->
-                            <div class="modal fade" id="pasos" tabindex="-1" role="dialog"
-                                aria-labelledby="modalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <!-- MODAL: VISTA DE COCINA -->
+                                    <div class="modal fade" id="pasos" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
 
-                                        <!-- HEADER MODAL -->
-                                        <div class="modal-header modal-header-receta">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">
-                                                <%= receta.name %>
-                                            </h5>
-                                            <h6 class="procedimientos">
-                                                </span> <span>Total de pasos a seguir:</span>
-                                                <br><br> <span class="cantidad_pasos"><%= receta.steps.length %> </h6>
+                                                <!-- HEADER MODAL -->
+                                                <div class="modal-header modal-header-receta">
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">
+                                                        <%= receta.name %>
+                                                    </h5>
+                                                    <h6 class="procedimientos">
+                                                        </span> <span>Total de pasos a seguir:</span>
+                                                        <br><br> <span class="cantidad_pasos"><%= receta.steps.length %> </h6>
                                         </div>
 
                                         <!-- BODY MODAL -->
@@ -235,142 +225,133 @@
                                                     <div class="carousel-item active">
                                                         <div class="paso-carrusel">
                                                             <span class="numero-paso-carrusel"></span>
-                                                        </div>
-
-                                                        <!-- PRESENTACIÓN DE PASOS -->
-                                                        <p class="descripcion-paso-carrusel instruccion_carrusel">
-                                                            Desplázate hacia la derecha para ir viendo los pasos de esta
-                                                            deliciosa receta. <br></p>
-                                                        <img src="/images/horneando.svg" alt="" class="horneando">
-                                                    </div>
-
-                                                    <!-- PASOS -->
-                                                    <% for( let i = 0; i < receta.steps.length; i++ ) { %>
-                                                    <div class="carousel-item ">
-                                                        <div class="paso-carrusel">
-                                                            <span class="numero-paso-carrusel"><%= i + 1  %> </span>
-                                                            <p class="descripcion-paso-carrusel">
-                                                                <%= receta.steps[i].description %>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <% } %>
-
                                                 </div>
 
-                                                <!-- BOTONES PREVIO Y SIGUIENTE -->
-                                                <a class="carousel-control-prev" href="#carouselExampleIndicators"
-                                                    role="button" data-slide="prev">
-                                                    <span class="receta-prev carousel-control-prev"
-                                                        aria-hidden="true"><i class="fas fa-arrow-left"></i></span>
-                                                    <span class="sr-only">Previous</span>
-                                                </a>
-                                                <a class="carousel-control-next" href="#carouselExampleIndicators"
-                                                    role="button" data-slide="next">
-                                                    <span class="receta-next carousel-control-next"
-                                                        aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
-                                                    <span class="sr-only">Next</span>
-                                                </a>
+                                                <!-- PRESENTACIÓN DE PASOS -->
+                                                <p class="descripcion-paso-carrusel instruccion_carrusel">
+                                                    Desplázate hacia la derecha para ir viendo los pasos de esta deliciosa receta. <br></p>
+                                                <img src="/images/horneando.svg" alt="" class="horneando">
                                             </div>
+
+                                            <!-- PASOS -->
+                                            <% for( let i = 0; i < receta.steps.length; i++ ) { %>
+                                                <div class="carousel-item ">
+                                                    <div class="paso-carrusel">
+                                                        <span class="numero-paso-carrusel"><%= i + 1  %> </span>
+                                                        <p class="descripcion-paso-carrusel">
+                                                            <%= receta.steps[i].description %>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <% } %>
+
                                         </div>
 
+                                        <!-- BOTONES PREVIO Y SIGUIENTE -->
+                                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                            <span class="receta-prev carousel-control-prev" aria-hidden="true"><i class="fas fa-arrow-left"></i></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                            <span class="receta-next carousel-control-next" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
                                     </div>
                                 </div>
-                            </div>
 
                         </div>
-                    </section>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </article>
 
-    <!-- /Receta -->
+                </div>
+                </section>
+                </div>
+                </div>
+                </div>
+            </article>
 
-    <!-- FOOTER -->
-    <%- include("partials/footer") %>
-    <!-- /FOOTER -->
+            <!-- /Receta -->
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
-    </script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-    <script>
-        // Seleccionar todos con jquery
-        $("#checkAll").click(function () {
-            $(".check").prop('checked', $(this).prop('checked'));
-        });
+            <!-- FOOTER -->
+            <%- include("partials/footer") %>
+                <!-- /FOOTER -->
 
-        // Tachar los pasos cuando los seleccionamos
-        let pasos = document.querySelectorAll('.paso-receta')
-        console.log(pasos);
-        for (const paso of pasos) {
-            paso.addEventListener('click', function () {
-                paso.classList.toggle('tachado-paso')
-            })
-        }
+                <!-- Scripts -->
+                <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+                </script>
+                <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+                </script>
+                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+                </script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+                </script>
+                <script>
+                    // Seleccionar todos con jquery
+                    $("#checkAll").click(function() {
+                        $(".check").prop('checked', $(this).prop('checked'));
+                    });
 
-
-        //  FUNCIÓN PARA AJUSTAS LAS CANTIDADES DE LA RECETA
-
-
-        window.addEventListener('load', () => {
-
-            let slcCantidad = document.getElementById('slcCantidad')
-            let porciones = () => {
-                return slcCantidad.value
-            }
-            slcCantidad.addEventListener("change", porciones)
-            let cantidades = document.getElementsByClassName("cantidad-ingrediente-receta")
-            console.log(cantidades)
-            let doble = function (n) {
-                return n = n * 2
-            }
-            let triple = function (n) {
-                return n = n * 3
-            }
-            let cuadruple = function (n) {
-                return n * 4
-            }
-            let quintuple = function (n) {
-                return n * 5
-            }
-
-            slcCantidad.addEventListener('change', () => {
-                for (let cantidad of cantidades) {
-
-                    switch (slcCantidad.value) {
-                        case "doble":
-                            cantidad.innerHTML = doble(cantidad.outerText)
-                            break;
-                        case "triple":
-                            cantidad.innerHTML = triple(cantidad.outerText)
-                            break;
-                        case "cuadruple":
-                            cantidad.innerHTML = cuadruple(cantidad.outerText)
-                            break;
-                        case "quintuple":
-                            cantidad.innerHTML = quintuple(cantidad.outerText)
-                            break;
-                        case "default":
-                            cantidad.innerHTML = location.reload()
+                    // Tachar los pasos cuando los seleccionamos
+                    let pasos = document.querySelectorAll('.paso-receta')
+                    console.log(pasos);
+                    for (const paso of pasos) {
+                        paso.addEventListener('click', function() {
+                            paso.classList.toggle('tachado-paso')
+                        })
                     }
-                }
-            })
 
-        })
-    </script>
-    <!-- /Scripts -->
-    </div>
+
+                    //  FUNCIÓN PARA AJUSTAS LAS CANTIDADES DE LA RECETA
+
+
+                    window.addEventListener('load', () => {
+
+                        let slcCantidad = document.getElementById('slcCantidad')
+                        let porciones = () => {
+                            return slcCantidad.value
+                        }
+                        slcCantidad.addEventListener("change", porciones)
+                        let cantidades = document.getElementsByClassName("cantidad-ingrediente-receta")
+                        console.log(cantidades)
+                        let doble = function(n) {
+                            return n = n * 2
+                        }
+                        let triple = function(n) {
+                            return n = n * 3
+                        }
+                        let cuadruple = function(n) {
+                            return n * 4
+                        }
+                        let quintuple = function(n) {
+                            return n * 5
+                        }
+
+                        slcCantidad.addEventListener('change', () => {
+                            for (let cantidad of cantidades) {
+
+                                switch (slcCantidad.value) {
+                                    case "doble":
+                                        cantidad.innerHTML = doble(cantidad.outerText)
+                                        break;
+                                    case "triple":
+                                        cantidad.innerHTML = triple(cantidad.outerText)
+                                        break;
+                                    case "cuadruple":
+                                        cantidad.innerHTML = cuadruple(cantidad.outerText)
+                                        break;
+                                    case "quintuple":
+                                        cantidad.innerHTML = quintuple(cantidad.outerText)
+                                        break;
+                                    case "default":
+                                        cantidad.innerHTML = location.reload()
+                                }
+                            }
+                        })
+
+                    })
+                </script>
+                <!-- /Scripts -->
+                </div>
 
 </body>
 
