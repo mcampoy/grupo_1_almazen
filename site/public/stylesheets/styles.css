@@ -1822,11 +1822,38 @@ figure img.sg-logo-receta {
     z-index: 100;
 }
 
+.img-tarjeta-prod {
+    margin-bottom: 0;
+}
+
+.name-product-card {
+    margin-bottom: 2%;
+}
+
+.description-prod-card {
+    font-family: var(--fontSizeDescripcionProducto);
+    color: var(--colorDescripcionProducto);
+    text-align: left;
+    margin-top: 2%;
+    height: 40px;
+}
+
+.quantity-prod-card {
+    font-family: var(--fontSizeDescripcionProducto);
+    color: var(--colorDescripcionProducto);
+    font-size: .5em;
+    margin-left: 2%;
+}
+
+.verDetalle {
+    color: var(--colorMenu);
+    position: relative;
+    right: -60%;
+}
+
 .social-bar img:hover {
     border-radius: 50%;
     background-color: var(--colorBtnLoginHover);
-    
-    
 }
 
 @media screen and (min-width: 425px) and (max-width: 1024px) {

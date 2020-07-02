@@ -2,10 +2,20 @@
 
 <div class="ladofrente tarjeta-recetas">
     <a href="details/<%= product.id %>">
-        <figure class="img-tarjeta-receta">
-            <img src="/images/imgProductos/<%= product.image %>" alt="<%= product.name %>">
+        <figure class="img-tarjeta-receta img-tarjeta-prod">
+            <img src="/images/imgProductos/<%= product.image %>" alt="Imagen de <%= product.name %>">
         </figure>
-        <h3 class="tituloscard"><%= product.name %></h3>
-        <span class='descripcion_receta descripcion_tarjeta_receta'><%= product.description_short %></span>
+        <h3 class="tituloscard name-product-card"><%= product.name %> <br> <span class="quantity-prod-card"><%= product.quantity %> <%= product.unit %></span></h3>
+        <p class="description-prod-card"><%= product.description_short %> <br></p>
+        <% if (product.discount > 0) { %>
+            <span class="ml-auto precio_producto">$ <%= product.price %> </span>
+            <span class="discountTagPosition">
+            <i class="fas fa-tag discountTag"></i> <span class="discountTag"><%= product.discount %>% OFF </span>
+            </span>
+            <% }else { %>
+                <span class="ml-auto precio_producto">$ <%= product.price %> </span>
+                <% } %>
+            <br>
+        <a class="verDetalle" href="details/<%= product.id %>">Ver más detalles</a>
     </a>
 </div>
