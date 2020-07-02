@@ -6,24 +6,6 @@ let sequelize = db.sequelize;
 const { check, validationResult, body } = require('express-validator');
 
 
-
-function saveProduct(product) {
-    let esNuevo = true;
-    products.forEach((productoExistente, index) => {
-        if (productoExistente.id == product.id) {
-            esNuevo = false;
-            if (typeof product.image == 'undefined')
-                product.image = products[index].image;
-            products[index] = product;
-        }
-    });
-
-    if (esNuevo == true) products.push(product);
-    fs.writeFileSync(productsPath, JSON.stringify(products, null, ' '));
-}
-
-
-
 const controller = {
     productsList: (req, res) => {
 
@@ -70,7 +52,7 @@ const controller = {
 
     adminDetails: (req, res) => {
         var product = [];
-
+        console.log(req.params.id);
         if (req.params.id != 0) {
             //Edito un producto existente
             product = db.Product.findByPk(req.params.id, {
@@ -101,22 +83,25 @@ const controller = {
         var categories = db.Category.findAll();
         var diets = db.Diet.findAll();
         var recipes = db.Recipe.findAll();
-        var edit = (req.params.edit == "edit");
+        var edit = req.params.edit;
 
         Promise.all([product, categories, diets, recipes])
             .then((results) => {
+                console.log(results[0]);
+                console.log("edit");
+                console.log(edit);
                 return res.render('productAdminDetail', {
                     product: results[0],
                     categories: results[1],
                     diets: results[2],
                     recipes: results[3],
-                    edit: edit,
+                    edit: edit, //null, 1 edito, 2 nuevo
                 });
             })
             .catch((err) => console.error(err));
     },
 
-    adminSaveDetails: (req, res, next) => {
+    adminUpdate: (req, res, next) => {
         let errors = validationResult(req);
         let product = {
             id: parseInt(req.body.id),
@@ -188,7 +173,78 @@ const controller = {
             //res.render('productAdminDetail', { product, categorias, dietas, recetas, edit: false })
 
         } else {
-            return res.render('productAdminDetail', { product, categories, diets, recipes, edit: true, errors: errors.errors });
+            return res.render('productAdminDetail', { product, categories, diets, recipes, edit: 1, errors: errors.errors });
+        }
+
+    },
+
+    adminCreate: (req, res, next) => {
+        let errors = validationResult(req);
+        let product = {
+            code: req.body.code,
+            name: req.body.name,
+            description: req.body.description,
+            description_short: req.body.description_short,
+            quantity: parseInt(req.body.quantity),
+            unit: req.body.unit,
+            price: parseInt(req.body.price),
+            discount: parseInt(req.body.discount),
+            stock: parseInt(req.body.stock),
+            categories: req.body.categories,
+            recipes: req.body.recipes,
+            diets: req.body.diets
+        }
+
+        if (!Array.isArray(product.diets)) {
+            product.diets = [product.diets];
+        }
+
+        if (!Array.isArray(product.recipes)) {
+            product.recipes = [product.recipes];
+        }
+
+        if (!Array.isArray(product.categories)) {
+            product.categories = [product.categories];
+        }
+
+
+        if (typeof req.file !== 'undefined') {
+            product.image = req.file.filename //si  se seleccionó algún archivo de imagen
+        } else if (
+            typeof req.body.imageName == 'undefined' ||
+            req.body.imageName == 'deleted') {
+            product.image = "defaultProduct.jpg"; // si no se seleccionó y (se borró la imagen que tenía o es producto nuevo)
+        } else {
+            product.image = req.body.imageName;
+        }
+
+        if (typeof req.body.enabled !== 'undefined') {
+            product.enabled = true;
+        } else {
+            product.enabled = false;
+        }
+
+        if (errors.isEmpty()) {
+
+            db.Product.create({ //falta guardar categories, diets y recipes en associations
+                code: product.code,
+                name: product.name,
+                description: product.description,
+                description_short: product.description_short,
+                quantity: product.quantity,
+                unit: product.unit,
+                price: product.price,
+                discount: product.discount,
+                stock: product.stock,
+                image: product.image,
+                enabled: product.enabled,
+            }); ///faltaría después de un then buscar el nuevo producto y mostrarlo
+
+
+            //return res.render('productAdminDetail', { product, categories, diets, recipes, edit: 0 });
+
+        } else {
+            return res.render('productAdminDetail', { product, categories, diets, recipes, edit: 2, errors: errors.errors });
         }
 
     },

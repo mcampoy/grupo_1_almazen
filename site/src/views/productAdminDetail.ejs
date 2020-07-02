@@ -25,30 +25,30 @@
         <div class="container-fluid align-content-around carga_producto">
             <!-- onsubmit="window.top.location.reload(true);" -->
             <!-- onsubmit="window.top.location.href = window.top.location.href; -->
-            <form action="/product/admin?_method=PUT" method="post" enctype="multipart/form-data" onsubmit="window.top.location.href = '/product/admin';">
+            <form action="/product/admin<% if (edit == '1') { %>?_method=PUT<% } %>" method="post" enctype="multipart/form-data" onsubmit="window.top.location.href = '/product/admin';">
                 <div class="row">
                     <!-- COLUMNA 1 - NOMBRE Y DESCRIPCIÓN -->
                     <div class="container left-column  order-1 col-11 col-md-5 col-lg-4 d-block">
                         <div class="row mt-5 mt-md-0">
                             <div class="form-group col-12">
-                                <input name="id" type="text" class="form-control" id="id" required value="<%= product.id %>" style="display:none">
+                                <input name="id" type="text" class="form-control" id="id" value="<%= product.id %>" style="display:none">
                                 <label class="titulo_carga_producto" for="code">Código del producto <span class="asterisco">*</span></label>
-                                <input name="code" maxlength="10" type="text" class="form-control" id="code" placeholder="Ingrese el código del producto." required value="<%= product.code %>" <% if (!edit) { %>readonly
+                                <input name="code" maxlength="10" type="text" class="form-control" id="code" placeholder="Ingrese el código del producto." required value="<%= product.code %>" <% if (edit !='1' && edit !='2' ) { %>readonly
                                 <% } %>>
                             </div>
                             <div class="form-group col-12">
                                 <label class="titulo_carga_producto" for="name">Nombre del producto <span class="asterisco">*</span></label>
-                                <input name="name" maxlength="45" type="text" class="form-control" id="name" placeholder="Ingrese el nombre del producto." required value="<%= product.name %>" <% if (!edit) { %> readonly
+                                <input name="name" maxlength="45" type="text" class="form-control" id="name" placeholder="Ingrese el nombre del producto." required value="<%= product.name %>" <% if (edit !='1' && edit !='2' ) { %> readonly
                                 <% } %>>
                             </div>
                             <div class="form-group col-12">
                                 <label class="titulo_carga_producto" for="description_short">Descripción breve <span class="asterisco">*</span></label>
-                                <input name="description_short" maxlength="150" type="text" class="form-control" id="description_short" required placeholder="Ingrese la descripción breve del producto." value="<%= product.description_short %>" <% if (!edit) { %>                                readonly
+                                <input name="description_short" maxlength="150" type="text" class="form-control" id="description_short" required placeholder="Ingrese la descripción breve del producto." value="<%= product.description_short %>" <% if (edit !='1' && edit !='2' ) { %>                                readonly
                                 <% } %>>
                             </div>
                             <div class="form-group col-12">
                                 <label class="titulo_carga_producto" for="description">Descripción completa <span class="asterisco">*</span></label>
-                                <textarea name="description" maxlength="500" class="form-control" id="description" required rows="3" placeholder="Ingrese la descripción completa del producto." <% if (!edit) { %> readonly <% } %>><%= product.description %></textarea>
+                                <textarea name="description" maxlength="500" class="form-control" id="description" required rows="3" placeholder="Ingrese la descripción completa del producto." <% if (edit !='1' && edit !='2' ) { %> readonly <% } %>><%= product.description %></textarea>
                             </div>
 
                             <div class="form-group col-6 pl-0">
@@ -57,14 +57,14 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">$</span>
                                     </div>
-                                    <input name="price" type="number" min="0" class="form-control text-right" id="price" required placeholder="0" value="<%= product.price %>" <% if (!edit) { %> readonly
+                                    <input name="price" type="number" min="0" class="form-control text-right" id="price" required placeholder="0" value="<%= product.price %>" <% if (edit !='1' && edit !='2' ) { %> readonly
                                     <% } %>>
                                 </div>
                             </div>
                             <div class="form-group col-6 pr-0">
                                 <label class="titulo_carga_producto" for="discount">Descuento</label>
                                 <div class="input-group">
-                                    <input name="discount" type="number" min="0" class="form-control text-right" id="discount" placeholder="0" value="<%= product.discount %>" <% if (!edit) { %> readonly
+                                    <input name="discount" type="number" min="0" class="form-control text-right" id="discount" placeholder="0" value="<%= product.discount %>" <% if (edit !='1' && edit !='2' ) { %> readonly
                                     <% } %>>
                                         <div class="input-group-apend">
                                             <span class="input-group-text">%</span>
@@ -93,23 +93,22 @@
                         <div class="col-12 container-fluid align-content-between">
                             <div class="form-group ">
                                 <label class="titulo_carga_producto d-inline-block col-5" for="stock">Stock</label>
-                                <input name="stock" type="number" min="0" class="form-control d-inline-block col-6" id="stock" placeholder="0" value="<%=product.stock %>" <% if (!edit) { %> readonly
+                                <input name="stock" type="number" min="0" class="form-control d-inline-block col-6" id="stock" placeholder="0" value="<%=product.stock %>" <% if (edit !='1' && edit !='2' ) { %> readonly
                                 <% } %>>
                             </div>
                             <label class="titulo_carga_producto d-inline-block col-12" for="quantity">Presentación</label>
 
                             <div class="form-group col-12">
-                                <input name="quantity" type="number" min="0" class="form-control text-right d-inline-block col-7" id="quantity" placeholder="0" value="<%= product.quantity %>" <% if (!edit) { %> readonly
+                                <input name="quantity" type="number" min="0" class="form-control text-right d-inline-block col-7" id="quantity" placeholder="0" value="<%= product.quantity %>" <% if (edit !='1' && edit !='2' ) { %> readonly
                                 <% } %>>
-                                    <input name="unit" type="text" class="form-control  d-inline-block text-right col-4" id="unit" placeholder="gr." value="<%= product.unit %>" <% if (!edit) { %> readonly
+                                    <input name="unit" type="text" class="form-control  d-inline-block text-right col-4" id="unit" placeholder="gr." value="<%= product.unit %>" <% if (edit !='1' && edit !='2' ) { %> readonly
                                     <% } %>>
-
                             </div>
                             <div class="form-group col-12 container  align-self-center">
                                 <div class="form-check d-inline-block">
                                     <input name="enabled" type="checkbox" class="" id="enabled" value="" <% if (product.enabled) { %>checked
                                     <% } %>
-                                        <% if (!edit) { %> disabled
+                                        <% if (edit != '1' && edit !='2') { %> disabled
                                             <% } %>>
                                                 <label for="enabled"></label>
                                 </div>
@@ -171,7 +170,7 @@
                                                 <div class="form-check d-inline-block">
                                                     <input name="category" type="checkbox" class="" id="checkboxcategory<%=category.id %>" value="<%=category.id %>" <% product.categories.forEach(ProdCategory=> { if (category.id==ProdCategory.id) {%> checked
                                                     <% }}); %>
-                                                        <% if (!edit) { %> disabled
+                                                        <% if (edit != '1' && edit !='2') { %> disabled
                                                             <% } %>
                                                                 >
                                                                 <label for="checkboxcategory<%=category.id %>"></label>
@@ -186,7 +185,7 @@
                                                 <div class="form-check d-inline-block">
                                                     <input name="diet" type="checkbox" class="" id="checkboxdiet<%=diet.id %>" value="<%=diet.id %>" <% product.diets.forEach(ProdDiet=> { if (diet.id==ProdDiet.id) {%> checked
                                                     <% }}); %>
-                                                        <% if (!edit) { %> disabled
+                                                        <% if (edit != '1' && edit !='2') { %> disabled
                                                             <% } %>
                                                                 >
                                                                 <label for="checkboxdiet<%=diet.id %>"></label>
@@ -201,7 +200,7 @@
                                                 <div class="form-check d-inline-block">
                                                     <input name="recipe" type="checkbox" class="" id="checkboxrecipe<%=recipe.id %>" value="<%=recipe.id %>" <% product.recipes.forEach(ProdRecipe=> { if (recipe.id==ProdRecipe.id) {%> checked
                                                     <% }}); %>
-                                                        <% if (!edit) { %> disabled
+                                                        <% if (edit != '1' && edit !='2') { %> disabled
                                                             <% } %> >
                                                                 <label for="checkboxrecipe<%=recipe.id %>"></label>
                                                 </div>
