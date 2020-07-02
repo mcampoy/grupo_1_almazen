@@ -8,105 +8,145 @@
 
 <body>
     <!-- HEADER -->
-    <%- include("partials/header", {usuarioLogueado: user}) %>
+    <!--< % - include("partials/header", {usuarioLogueado: user})  % >
         <!-- /HEADER -->
-        <div class="container-fluid d-flex" id="">
+        <div class="wrapper">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    
 
-            <!-- Sidebar -->
-            <div class="bg-light border-right col col-lg-2" id="">
-                <!-- DATOS USUARIO-->
-                <img src="/users-avatar/<%= user.avatar %>" alt="Imagen de usuario" class="img-fluid rounded-circle d-flex mx-auto userProfileImage mt-3" style="width: 80px;">
-                <div class="sidebar-heading">
-                    <h4>Bienvenido,
-                        <%= user.name%>
-                    </h4>
+                        <img src="/users-avatar/avatar-1593036167353.png" class="dropdown-toggle d-flex justify-content-center mx-auto" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="30%" style="border-radius: 50%;" alt="Imagen de suario">
+                        <div class="d-flex justify-content-center mx-auto ">
+                            <h4 class="userNameLogProfile">Usuario</h4>
+                          </div>
+                        
+    
                 </div>
-
-                <!-- MENU LATERAL -->
-                <div class="list-group list-group-flush col d-flex flex-sm">
-                    <a href="#" class="list-group-item list-group-item-action bg-light d-flex">Editar perfil</a>
-                    <a href="#historial" class="list-group-item list-group-item-action bg-light d-flex">Historial de compras</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Favoritos</a>
-                    <a href="#recetarios" class="list-group-item list-group-item-action bg-light">Recetarios</a>
-
-                </div>
-            </div>
-            <!-- /#sidebar-wrapper -->
-
-            <!-- Page Content -->
-            <div class="col col-lg-10 d-sm-block" id="page-content-wrapper">
-                <!-- --- --- -- -- -- Historial de compras --- --- -- -- -- -->
-                <h5 id="historial" class="col-12 d-flex justify-content-center TituloDestacados mb-2">Historial de compras</h5>
-
-                <div class="table-responsive">
+    
+                <ul class="">
+                    
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">PERFIL</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="#">Editar Perfil</a>
+                            </li>
+                            <li>
+                                <a href="#">Eliminar</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    
+                   
+                    <li>
+                        <a href="#">Historial de compras</a>
+                    </li>
+                    <li>
+                        <a href="#">Productos Favoritos</a>
+                    </li>
+                </ul>
+    
+                <ul class="list-unstyled CTAs">
+                    <li>
+                        <a href="#p" class=".btnSidebar">Volver al inicio</a>
+                    </li>
+                    <li>
+                        <a href="#" class=".btnSidebar">Ver todos los productos</a>
+                    </li>
+                </ul>
+            </nav>
+    
+            <!-- Page Content  -->
+            <div id="content" class="mb-2">
+    
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+    
+                        <button type="button" id="sidebarCollapse" class="btn btn-info">
+                                <i class="fas fa-angle-right"></i>
+                            
+                        </button>
+                       
+    
+                        
+                    </div>
+                </nav>
+    
+                <h2 class="TituloDestacados">Historial de compras</h2>
+                <div class="tableHistorial">
                     <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Numero de Orden</th>
-                                <th scope="col">Producto</th>
-                                <th scope="col">Fecha</th>
-                                <th scope="col">Monto</th>
-                            </tr>
+                        <thead class="cabezalTabla">
+                          <tr>
+                            <th scope="col">N°Orden</th>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Precio</th>
+                          </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">001</th>
-                                <td>Cúrcuma en polvo x 100g</td>
-                                <td>20/06/2020</td>
-                                <td>$200</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">003</th>
-                                <td>Cacao x 100g</td>
-                                <td>25/06/2020</td>
-                                <td>$300</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">002</th>
-                                <td>Stevia </td>
-                                <td>20/06/2020</td>
-                                <td>$100</td>
-                            </tr>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Stevia</td>
+                            <td>Endulzante natural</td>
+                            <td>$170</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Cacao</td>
+                            <td>Amargo en polvo</td>
+                            <td>$300</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Maca</td>
+                            <td>en polvo</td>
+                            <td>$200</td>
+                          </tr>
                         </tbody>
-                    </table>
+                      </table>
+                      
+                      
                 </div>
-                <h5 id="recetarios" class="col-12 d-flex justify-content-center TituloDestacados mb-2">Recetarios</h5>
-
-                <div class="" id="tarjetas">
-
-                    <div class="ladofrente">
-                        <img src="/images/alimentos-saludables.jpg" alt="Alimentos saludables">
-                        <h3 class="tituloscard">Come alimentos variados</h3>
-                        <span class='tipsaludable'>Necesitamos más de 40 nutrientes diferentes y ningún alimento por sí solo puede proporcionarlos todos. El suministro de alimentos que existe hoy en día facilita tomar una amplia variedad de alimentos, tanto comprando alimentos frescos como comprando comidas preparadas.</span>
-
-                    </div>
-
-                    <div class="ladofrente">
-                        <img src="/images/platosaludable.jpg" alt="Alimentos saludables">
-                        <h3 class="tituloscard">Alimentos ricos en hidratos de carbono</h3>
-                        <span class='tipsaludable'>Más de la mitad de las calorías de su dieta, es decir el 60 % aproximadamente, deben venir de estos alimentos. Lo ideal es aumentar la ingesta de fibra con el aporte de pan integral, la pasta integrales y otros cereales.</span>
-                    </div>
-
-                    <div class="ladofrente">
-                        <img src="/images/frutassaludables.jpg" alt="Alimentos saludables">
-                        <h3 class="tituloscard">Come muchas frutas y verduras</h3>
-                        <span class='tipsaludable'>La mayor parte de la gente no come la suficiente cantidad de estos alimentos que proporcionan importantes nutrientes protectores. Intenta comer al menos cinco raciones al día y proba nuevas recetas o vea qué platos preparados están disponibles en el supermercado.</span>
-                    </div>
-                </div>
-
-                <h5 id="favoritos" class="col-12 d-flex justify-content-center TituloDestacados mb-2">Productos favoritos</h5>
+    
+                <div class="line"></div>
+    
+                <h2 class="TituloDestacados">Lorem Ipsum Dolor</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    
+                <div class="line"></div>
+    
+                <h2>Lorem Ipsum Dolor</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    
+                <div class="line"></div>
+    
+                <h3>Lorem Ipsum Dolor</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
-
-
         </div>
+    
+      
+        </div >
         <!-- FOOTER -->
         <%- include("partials/footer") %>
             <!-- /FOOTER -->
+        <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-            <!-- SCRIPTS -->
-            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+            
 
 </body>
 

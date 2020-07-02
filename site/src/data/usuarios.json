@@ -68,5 +68,13 @@
   "email": "caro@dh.com",
   "password": "$2b$10$4stR4gEsVETYenit7X9LfesbjTbTHOn7OE1Wzd8BhynKKiCrVwyqG",
   "avatar": "avatar-1593122104569.jpg"
+ },
+ {
+  "id": 11,
+  "name": "Hernan",
+  "email": "gomezhernangonzalo@gmail.com",
+  "password": "$2b$10$aA6Gx90g5qdCKUH58mj98.1qYEH7nOQTpaAhTTUQ4wtEMZsLghUGi",
+  "remember": "on",
+  "avatar": "avatar-1593484712649.png"
  }
 ]
