@@ -97,7 +97,7 @@
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-9 iframeDetailsContainer">
 
-                    <iframe id="iframeDetails" class="container-fluid" src="/product/adminShow/1" frameborder="0" onload='resizeIframe(this)'></iframe>
+                    <iframe id="iframeDetails" class="container-fluid" src="/product/admin/1" frameborder="0" onload='resizeIframe(this)'></iframe>
                 </div>
 
             </div>
@@ -143,13 +143,16 @@
         function editar() {
             bloquearProducto();
             var iframe = document.getElementById('iframeDetails');
-            iframe.src = `/product/adminEdit/${productID}`;
+            //iframe.src = `/product/adminEdit/${productID}`;
+            iframe.src = `/product/admin/${productID}/edit`;
         }
 
         function crear() {
             bloquearProducto();
             var iframe = document.getElementById('iframeDetails');
-            iframe.src = `/product/adminEdit/0`;
+            // iframe.src = `/product/adminEdit/0`;
+            iframe.src = `/product/admin/0/edit`;
+
         }
 
         function bloquearProducto() {
@@ -177,7 +180,9 @@
                 var value = $(this).find('td:first').html();
                 productID = value.trim()
                 var iframe = document.getElementById('iframeDetails');
-                iframe.src = `/product/adminShow/${productID}`;
+                // iframe.src = `/product/adminShow/${productID}`;
+                iframe.src = `/product/admin/${productID}`;
+
             }
 
         });

@@ -32,23 +32,23 @@
                         <div class="row mt-5 mt-md-0">
                             <div class="form-group col-12">
                                 <input name="id" type="text" class="form-control" id="id" required value="<%= product.id %>" style="display:none">
-                                <label class="titulo_carga_producto" for="codigo">Código del producto <span class="asterisco">*</span></label>
-                                <input name="codigo" maxlength="10" type="text" class="form-control" id="codigo" placeholder="Ingrese el código del producto." required value="<%= product.code %>" <% if (!edit) { %>readonly
+                                <label class="titulo_carga_producto" for="code">Código del producto <span class="asterisco">*</span></label>
+                                <input name="code" maxlength="10" type="text" class="form-control" id="code" placeholder="Ingrese el código del producto." required value="<%= product.code %>" <% if (!edit) { %>readonly
                                 <% } %>>
                             </div>
                             <div class="form-group col-12">
-                                <label class="titulo_carga_producto" for="nombre">Nombre del producto <span class="asterisco">*</span></label>
-                                <input name="nombre" maxlength="45" type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del producto." required value="<%= product.name %>" <% if (!edit) { %> readonly
+                                <label class="titulo_carga_producto" for="name">Nombre del producto <span class="asterisco">*</span></label>
+                                <input name="name" maxlength="45" type="text" class="form-control" id="name" placeholder="Ingrese el nombre del producto." required value="<%= product.name %>" <% if (!edit) { %> readonly
                                 <% } %>>
                             </div>
                             <div class="form-group col-12">
-                                <label class="titulo_carga_producto" for="descripcion_breve">Descripción breve <span class="asterisco">*</span></label>
-                                <input name="descripcion_breve" maxlength="150" type="text" class="form-control" id="descripcion_breve" required placeholder="Ingrese la descripción breve del producto." value="<%= product.description_short %>" <% if (!edit) { %>                                readonly
+                                <label class="titulo_carga_producto" for="description_short">Descripción breve <span class="asterisco">*</span></label>
+                                <input name="description_short" maxlength="150" type="text" class="form-control" id="description_short" required placeholder="Ingrese la descripción breve del producto." value="<%= product.description_short %>" <% if (!edit) { %>                                readonly
                                 <% } %>>
                             </div>
                             <div class="form-group col-12">
-                                <label class="titulo_carga_producto" for="descripcionLarga">Descripción completa <span class="asterisco">*</span></label>
-                                <textarea name="descripcion" maxlength="500" class="form-control" id="descripcionLarga" required rows="3" placeholder="Ingrese la descripción completa del producto." <% if (!edit) { %> readonly <% } %>><%= product.description %></textarea>
+                                <label class="titulo_carga_producto" for="description">Descripción completa <span class="asterisco">*</span></label>
+                                <textarea name="description" maxlength="500" class="form-control" id="description" required rows="3" placeholder="Ingrese la descripción completa del producto." <% if (!edit) { %> readonly <% } %>><%= product.description %></textarea>
                             </div>
 
                             <div class="form-group col-6 pl-0">
@@ -77,7 +77,7 @@
                     <div class=" mt-2 mt-lg-0 mb-2 order-3 order-lg-2 container-fluid center-column col-10 col-md-4 col-lg-2 ">
                         <label class="titulo_carga_producto col-11 text-center ">Imagen</label>
                         <div class=" col-12 text-center d-flex justify-content-center previewImage " id="image-preview-div">
-                            <img id="preview-img" src="/images/<%=product.image %>">
+                            <img id="preview-img" src="/images/imgProductos/<%=product.image %>">
                         </div>
                         <div class="col-12 row  align-items-center form-group d-flex justify-content-center align-content-middle ">
                             <% if (edit) { %>
@@ -247,7 +247,7 @@
 
         function deleteImage() {
             var output = document.getElementById('preview-img');
-            output.src = "/images/defaultProduct.jpg";
+            output.src = "/images/imgProductos/defaultProduct.jpg";
             var output3 = document.getElementById('image');
             output3.value = null;
             var output3 = document.getElementById('imageName');

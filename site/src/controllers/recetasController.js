@@ -6,11 +6,9 @@ const controller = {
 
         db.Recipe.findAll()
             .then(recetas => {
-                if (req.session.usuarioLogueado == undefined) {
-                    return res.render('recetas', { recetas: recetas, usuarioLogueado: undefined });
-                } else {
-                    return res.render('recetas', { recetas: recetas, usuarioLogueado: req.session.usuarioLogueado });
-                }
+
+                return res.render('recetas', { recetas: recetas, usuarioLogueado: req.session.usuarioLogueado });
+
             })
             .catch((err) => console.error(err));
     },
@@ -28,11 +26,9 @@ const controller = {
                 if (receta == null) {
                     return res.redirect('/');
                 }
-                if (req.session.usuarioLogueado == undefined) {
-                    return res.render('receta', { receta, usuarioLogueado: undefined });
-                } else {
-                    return res.render('receta', { receta, usuarioLogueado: req.session.usuarioLogueado });
-                }
+
+                return res.render('receta', { receta, usuarioLogueado: req.session.usuarioLogueado });
+
             })
             .catch((err) => console.error(err));
     },
@@ -41,17 +37,15 @@ const controller = {
     category: (req, res) => {
 
         db.Recipe.findAll({
-            where: {
-                diet: req.params.dieta
-            }
-        })
-        .then((recetas)=>{
-            if (req.session.usuarioLogueado == undefined) {
-                return res.render('recetasPorDietas', { recetas: recetas, usuarioLogueado: undefined });
-            } else {
+                where: {
+                    diet: req.params.dieta
+                }
+            })
+            .then((recetas) => {
+
                 return res.render('recetasPorDietas', { recetas: recetas, usuarioLogueado: req.session.usuarioLogueado });
-            }
-        })
+
+            })
 
     },
 

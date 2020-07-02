@@ -60,12 +60,9 @@ app.use(function(err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
-    //res.render('404');
-    if (req.session.usuarioLogueado == undefined) {
-        return res.render('404', { usuarioLogueado: undefined });
-    } else {
-        return res.render('404', { usuarioLogueado: req.session.usuarioLogueado });
-    }
+
+    return res.render('404', { usuarioLogueado: req.session.usuarioLogueado });
+
 });
 
 module.exports = app;

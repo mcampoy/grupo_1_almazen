@@ -6,12 +6,6 @@ const { check, validationResult, body } = require('express-validator');
 // let sequelize = db.sequelize;
 
 
-// ************ Function to Read an HTML File ************
-function readHTML(fileName) {
-    let htmlFile = fs.readFileSync(path.join(__dirname, `/../views/${fileName}.html`), 'utf-8');
-    return htmlFile;
-}
-
 let usuariosPath = path.resolve(__dirname, '../data/usuarios.json');
 
 
@@ -50,31 +44,14 @@ function getUserById(id) {
     return users.find(user => user.id == id)
 };
 
-// FUNCIONES DE PRODUCTOS
-let productsPath = path.resolve(__dirname, '../data/productsDataBase.json');
-const products = getProducts();
-
-function getProducts() {
-    let productsJson = fs.readFileSync(productsPath, 'utf-8');
-
-    if (productsJson != ' ') {
-        return JSON.parse(productsJson)
-    } else {
-        return []
-    }
-};
-
 
 // CONTROLLERS DE USUARIO
 const controller = {
-   
+
     reg: (req, res) => {
-        //res.render('register');
-        if (req.session.usuarioLogueado == undefined) {
-            return res.render('register', { usuarioLogueado: undefined });
-        } else {
-            return res.render('register', { usuarioLogueado: req.session.usuarioLogueado });
-        }
+
+        return res.render('register', { usuarioLogueado: req.session.usuarioLogueado });
+
     },
 
     create: (req, res, next) => {
@@ -105,29 +82,20 @@ const controller = {
             if (user.email == "admin@almazen.com") //administrador, después modificar condición
             {
                 req.session.usuarioLogueado.isAdmin = true;
-                //res.redirect('/');
             }
-            //res.redirect(`profile/${user.id}`);
-            res.redirect('/');
+
+            return res.redirect('/');
 
         } else {
-            //return res.render("register", { errors: errors.errors })
-            if (req.session.usuarioLogueado == undefined) {
-                return res.render("register", { errors: errors.errors, usuarioLogueado: undefined });
-            } else {
-                return res.render("register", { errors: errors.errors, usuarioLogueado: req.session.usuarioLogueado });
-            }
 
+            return res.render("register", { errors: errors.errors, usuarioLogueado: req.session.usuarioLogueado });
         }
 
     },
     log: (req, res) => {
-        //res.render('login');
-        if (req.session.usuarioLogueado == undefined) {
-            return res.render("login", { usuarioLogueado: undefined });
-        } else {
-            return res.render("login", { usuarioLogueado: req.session.usuarioLogueado });
-        }
+
+        return res.render("login", { usuarioLogueado: req.session.usuarioLogueado });
+
     },
 
     access: (req, res) => {
@@ -144,29 +112,20 @@ const controller = {
             if (user.email == "admin@almazen.com") //administrador, después modificar condición
             {
                 req.session.usuarioLogueado.isAdmin = true;
-                res.redirect('/');
+                return res.redirect('/');
             }
-            //res.redirect(`profile/${user.id}`);
-            res.redirect(`/`);
+            return res.redirect(`/`);
 
         } else {
 
-            //return res.render("login", { errors: errors.errors });
-            if (req.session.usuarioLogueado == undefined) {
-                return res.render("login", { errors: errors.errors, usuarioLogueado: undefined });
-            } else {
-                return res.render("login", { errors: errors.errors, usuarioLogueado: req.session.usuarioLogueado });
-            }
+            return res.render("login", { errors: errors.errors, usuarioLogueado: req.session.usuarioLogueado });
         }
     },
 
     profile: function(req, res) {
 
-        //let user = getUserById(req.params.id)
-        //res.render('profile', { user });
         if (req.session.usuarioLogueado == undefined) {
-            //return res.render('profile', { user, usuarioLogueado: undefined });
-            res.render("login", { usuarioLogueado: undefined });
+            return res.render("login", { usuarioLogueado: undefined });
         } else {
             return res.render('profile', { user: req.session.usuarioLogueado });
         }
@@ -178,7 +137,7 @@ const controller = {
                 res.clearCookie("recordarme"); //eliminamos la cookie
             }
             mensaje = "Se cerró la sesión exitosamente";
-            res.redirect('/');
+            return res.redirect('/');
         });
     }
 };

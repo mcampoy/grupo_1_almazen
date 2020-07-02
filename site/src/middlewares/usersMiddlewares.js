@@ -89,21 +89,21 @@ let usersMiddlewares = {
         if (req.session.usuarioLogueado != undefined) {
             next();
         } else {
-            res.redirect('/users/login');
+            return res.redirect('/users/login');
         }
     },
     guestValidation: function(req, res, next) {
         if (req.session.usuarioLogueado == undefined) {
             next();
         } else {
-            res.redirect('/');
+            return res.redirect('/');
         }
     },
     adminValidation: function(req, res, next) {
         if (req.session.usuarioLogueado != undefined && req.session.usuarioLogueado.isAdmin) {
             next();
         } else {
-            res.redirect('/');
+            return res.redirect('/');
         }
     },
     rememberUser: function(req, res, next) {
@@ -116,7 +116,7 @@ let usersMiddlewares = {
                 if (user.email == "admin@almazen.com") //administrador, después modificar condición
                 {
                     req.session.usuarioLogueado.isAdmin = true;
-                    res.redirect('/');
+                    return res.redirect('/');
                 }
             }
         }

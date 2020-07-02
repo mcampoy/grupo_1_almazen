@@ -12,13 +12,11 @@ const controller = {
         var receta = db.Recipe.findByPk(1);
 
         Promise.all([products, receta])
-        .then((results)=>{
-            if (req.session.usuarioLogueado == undefined) {
-                return res.render('index', { products: results[0], receta: results[1], usuarioLogueado: undefined });
-            } else {
+            .then((results) => {
+
                 return res.render('index', { products: results[0], receta: results[1], usuarioLogueado: req.session.usuarioLogueado });
-            }
-        }).catch((err) => console.error(err));
+
+            }).catch((err) => console.error(err));
 
     }
 };

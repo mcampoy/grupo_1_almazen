@@ -11,11 +11,13 @@ router.get('/details/:id', productsControllers.details);
 router.get('/cart', productsControllers.cart);
 router.get('/admin', usersMiddlewares.adminValidation, productsControllers.admin);
 
-
-router.get('/adminShow/:id', productsControllers.adminShowDetails);
-router.get('/adminEdit/:id', productsControllers.adminEditDetails);
+router.get('/admin/:id/:edit?', productsControllers.adminDetails);
+//router.get('/admin/edit/:id', productsControllers.adminEditDetails); //id:0 para indicar producto nuevo
 
 router.delete('/admin', usersMiddlewares.adminValidation, productsMiddlewares.productDeleteValidation, productsControllers.delete);
-router.put('/admin', usersMiddlewares.adminValidation, productsMiddlewares.productSaveValidation, middUploadFile.uploadFile, productsControllers.adminSaveDetails);
+// router.put('/admin', usersMiddlewares.adminValidation, productsMiddlewares.productSaveValidation, middUploadFile.uploadFile, productsControllers.adminSaveDetails);
+router.put('/admin', middUploadFile.uploadFile, productsControllers.adminSaveDetails);
+
+//router.post('/admin', usersMiddlewares.adminValidation, productsMiddlewares.productSaveValidation, middUploadFile.uploadFile, productsControllers.adminSaveNewDetails);
 
 module.exports = router;
