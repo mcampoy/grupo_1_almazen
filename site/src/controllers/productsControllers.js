@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 let db = require('../database/models');
-let sequelize = db.sequelize;
+let Sequelize = db.sequelize;
+const Op = Sequelize.Op;
 
 const { check, validationResult, body } = require('express-validator');
 
@@ -43,11 +44,11 @@ const controller = {
             .catch((err) => console.error(err));
     },
 
-    cart: (req, res) => {
+    // cart: (req, res) => {
 
-        return res.render('productCart', { usuarioLogueado: req.session.usuarioLogueado });
+    //     return res.render('productCart', { usuarioLogueado: req.session.usuarioLogueado });
 
-    },
+    // },
 
 
     adminDetails: (req, res) => {
@@ -259,7 +260,7 @@ const controller = {
             })
         }
         return res.redirect('/product/admin');
-    }
+    },
 
 
     // adminEditDetails: (req, res) => {
@@ -312,6 +313,21 @@ const controller = {
     // },
 
 
+
+    // INTENTO DE IMPLEMENTAR BUSCADOR
+
+    // find: (req, res) => {
+    //     db.Product.findAll({
+    //         name: {
+    //             [db.Sequelize.Op.like]: '%req.body%'
+    //         }
+    //     })
+    //     .then((products)=>{
+    //         console.log(products)
+    //         // return res.render('header', {products, usuarioLogueado: req.session.usuarioLogueado })
+    //     })
+
+    // }
 };
 
 module.exports = controller;
