@@ -1207,6 +1207,11 @@ label {
     color: red;
     font-size: 1.9em;
 }
+.editar {
+    align-items: center;
+    color: var(--colorMenu);
+    font-size: 1.9em;
+}
 
 .total {
     font-size: 1.5em;
@@ -2237,7 +2242,8 @@ input#password.form-control {
 }
 .wrapper {
     display: flex;
-    width: 100%;
+    width: 100wh;
+    max-width: 100%;
     align-items: stretch;
 }
 .btn-info{
@@ -2369,12 +2375,19 @@ a.article:hover {
     width: 100wh;
     padding: 20px;
     min-height: 100vh;
+    max-width: 100wh;
+    
     transition: all 0.3s;
+    
 }
+
 .cabezalTabla{
     background: var(--colorBtnRegister); 
   }
-  
+.avatarProfile{
+    max-width: 42px;
+    width: 30%;
+}
 
 /* --- Mediaqueries profile --- */
 
@@ -2387,6 +2400,12 @@ a.article:hover {
     }
     #sidebarCollapse span {
         display: none;
+    }
+    .tableHistorial{
+        width: 90%;
+        max-width: 100%;
+        
+         
     }
 }
 

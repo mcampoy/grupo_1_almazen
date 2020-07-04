@@ -8,7 +8,7 @@
 
 <body>
     <!-- HEADER -->
-    <!--< % - include("partials/header", {usuarioLogueado: user})  % >
+    
         <!-- /HEADER -->
         <div class="wrapper">
             <!-- Sidebar  -->
@@ -26,11 +26,14 @@
     
                 <ul class="">
                     
+                        
+            
+                        
                     <li class="active">
-                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">PERFIL</a>
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user-circle"></i> PERFIL</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
                             <li>
-                                <a href="#">Editar Perfil</a>
+                                <a href="#editarPerfil"> Editar Perfil</a>
                             </li>
                             <li>
                                 <a href="#">Eliminar</a>
@@ -41,16 +44,20 @@
                     
                    
                     <li>
-                        <a href="#">Historial de compras</a>
+                        <a href="#historial"><i class="fas fa-shopping-cart"></i> Historial de compras</a>
                     </li>
                     <li>
-                        <a href="#">Productos Favoritos</a>
+                        <a href="#"><i class="fas fa-heart"></i> Productos Favoritos</a>
                     </li>
+                    <li>
+                        <a href="#"><i class="fas fa-stream"></i> Lista usuarios(ADMIN)</a>
+                    </li>
+                    
                 </ul>
     
                 <ul class="list-unstyled CTAs">
                     <li>
-                        <a href="#p" class=".btnSidebar">Volver al inicio</a>
+                        <a href="/" class=".btnSidebar">Volver al inicio</a>
                     </li>
                     <li>
                         <a href="#" class=".btnSidebar">Ver todos los productos</a>
@@ -73,15 +80,56 @@
                         
                     </div>
                 </nav>
-    
-                <h2 class="TituloDestacados">Historial de compras</h2>
-                <div class="tableHistorial">
+
+                <!-- -- -- -- EDICION PERFIL -- -- -- -->
+                <section id="editarPerfil">
+                    <h2 class="TituloDestacados">Editar perfil</h2>
+                    <form method="post" action="/users/edit" id="miFormulario" enctype="multipart/form-data" class="col-10">
+                        <div class="form-campos">
+                            <!-- nombre -->
+                            <div class="form-group">
+                                <label class="modal-label" for="nombre">Editar nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="name" aria-describedby="nombre" placeholder="user.name" required />
+                            </div>
+
+                            <!-- email -->
+                            <div class="form-group">
+                                <label class="modal-label" for="exampleInputEmail1">Editar email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="user.email" required />
+                            </div>
+
+                            <!-- password -->
+                            <div class="form-group">
+                                <label class="modal-label" for="contraseña">Editar contraseña</label>
+                                <input type="password" class="form-control" id="contraseña" name="password" aria-describedby="password" name="password" placeholder="user.password" required />
+                            </div>
+
+                            <!-- validación -->
+                            <div class="form-group">
+                                <label class="modal-label" for="validation">Repetir la nueva contraseña</label>
+                                <input type="password" class="form-control" id="validation" aria-describedby="validation" name="validation" placeholder="Repetí tu contraseña" required />
+                            </div>
+
+                            <!-- carga de imágenes -->
+                            <div class="form-group">
+                                <label class="modal-label" for="avatar">Cargá una nueva imagen</label>
+                                <input type="file" class="form-control-imagen" id="avatar" name="avatar" required />
+                            </div>
+                        </div>
+                </section>
+                <!-- -- -- -- FIN EDICION PERFIL -- -- -- -->
+                <div class="line"></div>
+                <!-- -- -- -- HISTORIAL DE COMPRAS -- -- -- -->
+                <section id="historial">
+                    <h2 class="TituloDestacados">Historial de compras</h2>
+                    <div class="tableHistorial table-responsive-sm-md">
                     <table class="table">
                         <thead class="cabezalTabla">
                           <tr>
                             <th scope="col">N°Orden</th>
                             <th scope="col">Producto</th>
                             <th scope="col">Descripción</th>
+                            <th scope="col">Cantidad</th>
                             <th scope="col">Precio</th>
                           </tr>
                         </thead>
@@ -90,40 +138,117 @@
                             <th scope="row">1</th>
                             <td>Stevia</td>
                             <td>Endulzante natural</td>
+                            <td>2 unidades</td>
                             <td>$170</td>
                           </tr>
                           <tr>
                             <th scope="row">2</th>
                             <td>Cacao</td>
                             <td>Amargo en polvo</td>
+                            <td>1 unidad</td>
                             <td>$300</td>
                           </tr>
                           <tr>
                             <th scope="row">3</th>
                             <td>Maca</td>
                             <td>en polvo</td>
+                            <td>5 unidades</td>
                             <td>$200</td>
                           </tr>
                         </tbody>
                       </table>
                       
                       
-                </div>
-    
+                    </div>
+                </section>
+                <!-- -- -- -- FIN HISTORIAL DE COMPRAS -- -- -- -->
+                
+                
                 <div class="line"></div>
-    
-                <h2 class="TituloDestacados">Lorem Ipsum Dolor</h2>
+                
+                <!-- -- -- -- PRODUCTOS FAVORITOS -- -- -- -->
+                <h2 class="TituloDestacados">Productos Favoritos</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    
+                <!-- -- -- -- FIN PRODUCTOS FAVORITOS -- -- -- -->
+                
                 <div class="line"></div>
-    
-                <h2>Lorem Ipsum Dolor</h2>
+
+                <!-- -- -- -- RECETARIOS -- -- -- -->
+                <h2 class="TituloDestacados">RECETARIOS</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    
+                <!-- -- -- -- FIN RECETARIOS -- -- -- -->
+                
                 <div class="line"></div>
-    
-                <h3>Lorem Ipsum Dolor</h3>
+
+                <!-- -- -- -- LISTA USUARIOS ADMIN -- -- -- -->
+                <h2 class="TituloDestacados">LISTA USUARIOS</h2>
+                <div class="tableHistorial">
+                    <table class="table col-12">
+                        <thead class="cabezalTabla">
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Avatar</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">Editar / Eliminar</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td><img class="img-fluid avatarProfile" src="/images/profile.svg" alt=""></td>
+                            <td>Rafael</td>
+                            <td>rafael@almazen.com</td>
+                            <td>*************</td>
+                            <td><a href="#"><i class="fas fa-pencil-alt editar"></i></a>
+                                <a href="#"><i
+                                class="far fa-times-circle eliminar"></i></a></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td><img class="avatarProfile" src="/images/profile.svg" alt=""></td>
+                            <td>Agustín</td>
+                            <td>agustin@almazen.com</td>
+                            <td>*************</td>
+                            <td><a href="#"><i class="fas fa-pencil-alt editar"></i></a>
+                                <a href="#"><i
+                                class="far fa-times-circle eliminar"></i></a></td>
+                          </tr>
+                          <tr class="">
+                            <th scope="row">3</th>
+                            <td class=""><img class="img-fluid avatarProfile" src="/users-avatar/avatar-1593036167353.png" alt=""></td>
+                            <td class="">Matias</td>
+                            <td class="">matias@almazen.com</td>
+                            <td class="">*************</td>
+                            <td class="m-auto"><a href="#"><i class="fas fa-pencil-alt editar"></i></a>
+                                <a href="#"><i
+                                class="far fa-times-circle eliminar"></i></a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      
+                      
+                    </div>
+
+                
+                <!-- -- -- -- FIN LISTA USUARIOS ADMIN -- -- -- -->
+                
+                <div class="line"></div>
+
+                <!-- -- -- -- CATEGORIAS ADMIN -- -- -- -->
+                <h2 class="TituloDestacados">CATEGORÍAS ADMIN</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <!-- -- -- -- FIN CATEGORIAS ADMIN -- -- -- -->
+                
+                <div class="line"></div>
+
+                <!-- -- -- -- RECETAS ADMIN -- -- -- -->
+                <h2 class="TituloDestacados">RECETAS ADMIN</h2>
+                <p>Recetas</p>
+                <!-- -- -- -- FIN RECETAS ADMIN -- -- -- -->
+                
+                <div class="line"></div>
             </div>
         </div>
     

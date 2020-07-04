@@ -46,5 +46,19 @@ module.exports = (sequelize, dataTypes) => {
             timestamps: false, //Si no tengo timestamps
 
         });
+        /*
+        User.associate = function(models) {
+            User.belongsToMany(models.Product, {
+                as: 'product',
+                through: 'cart',
+                foreignKey: 'id_products',
+                timestamps: false,
+            });
+            
+            User.belongsTo(models.Cart, {
+                    as: 'cart',
+                    foreignKey: 'id_users',
+                    timestamps: false,
+                });*/
     return User; // Este retorno es lo que exporto
 }
