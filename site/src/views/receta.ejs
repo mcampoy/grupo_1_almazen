@@ -57,7 +57,6 @@
                             </p>
                         </div>
 
-                        
 
                         <!-- Productos -->
                         <!-- <div id="tarjetas" class="fondo-tarj-receta mb-0">
@@ -118,7 +117,7 @@
                                             <div class="ingrediente-receta checkbox">
 
                                                 <label for="check<%= [i] %>"  class="label-check nombre_item">
-                                                    <input id="check<%= [i] %>" class="check ingrediente checkbox-original checkbox-ingrediente-receta" type="checkbox" name="product<%= [i] %>" value="<%= receta.ingredients[i].quantity %> <%= receta.ingredients[i].unit %> <%= receta.ingredients[i].name %>" onclick="if(this.checked)localStorage.setItem(this.id,this.value);else localStorage.removeItem(this.id);">
+                                                    <input id="check<%= [i] %>" class="check ingrediente checkbox-original checkbox-ingrediente-receta" type="checkbox" name="product<%= [i] %>" value="<%= receta.ingredients[i].quantity %> <%= receta.ingredients[i].unit %> <%= receta.ingredients[i].name %>" onclick="if(this.checked)sessionStorage.setItem(this.id,this.value);else sessionStorage.removeItem(this.id);">
                                                     <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
                                                     <span class="cantidad-ingrediente-receta"> <%= receta.ingredients[i].quantity %></span>
                                                     <span class="unidad-ingrediente-receta"> <%= receta.ingredients[i].unit %> </span>
@@ -359,17 +358,15 @@
 
                             document.getElementById('log').innerHTML= '<h4>' + 'Para esta receta necesito comprar' + '</h4><br>';
 
-                            for (var i=0; i<localStorage.length; i++){
-                                var key = localStorage.key(i);
+                            for (var i=0; i<sessionStorage.length; i++){
+                                var key = sessionStorage.key(i);
                                 document.getElementById(key).checked=1;
-                                document.getElementById('log').innerHTML+= '<li>' + localStorage.getItem(key) + '</li>';
+                                document.getElementById('log').innerHTML+= '<li>' + sessionStorage.getItem(key) + '</li>';
                             }
-                            
+
                             if(!i)document.getElementById('log').innerHTML+= '<h6 style="color:red; text-align:center">' + '¡Nada! ¡Tengo todo lo que necesito!' + '</h6>';
                     })
                 </script>
-                <!-- /Scripts -->
-                </div>
 
 </body>
 

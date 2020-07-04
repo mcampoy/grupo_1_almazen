@@ -493,7 +493,7 @@ footer .fila1 {
 /* --  ICONOS REDES FOOTER -- */
 
 footer .redes {
-    list-stylelist: none;
+    list-style: none;
     width: 100%;
 }
 
@@ -2428,3 +2428,13 @@ a.article:hover {
     flex-wrap: wrap;
     justify-content: center;
 }
+
+/* #show_password {
+    background-color: var(--colorBtnRegister);
+    border:1 solid var(--colorBtnRegister);
+}
+
+#show_password:hover {
+    background-color: var(--colorMenu);
+    border:1 solid var(--colorMenu);
+} */
