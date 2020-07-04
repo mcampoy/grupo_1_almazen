@@ -225,33 +225,8 @@
     <!-- Fin DIV Container-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        var productID = document.getElementById('id').value;
 
-        document.getElementById("btnConfSalir").onclick = function() {
-            parent.location.href = "/product/admin"
-        }
-
-        function previewImage(event) {
-            var reader = new FileReader();
-            reader.onload = function() {
-                var output = document.getElementById('preview-img');
-                output.src = reader.result;
-                var output3 = document.getElementById('imageName');
-                output3.value = event.target.files[0].name;
-            }
-
-            reader.readAsDataURL(event.target.files[0]);
-        }
-
-        function deleteImage() {
-            var output = document.getElementById('preview-img');
-            output.src = "/images/imgProductos/defaultProduct.jpg";
-            var output3 = document.getElementById('image');
-            output3.value = null;
-            var output3 = document.getElementById('imageName');
-            output3.value = "deleted";
-        }
+    <script type='text/javascript' src="/js/productAdminDetails.js">
     </script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">

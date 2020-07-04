@@ -50,10 +50,10 @@ const controller = {
 
     // },
 
-
+    //MUESTRRA LA VISTA DENTRO DEL IFRAME DE DETALLES DEL PRODUCTO SELECCIONADO
+    // Recibe como parámetros el id del producto y edit (null muestra, 1 edito, 2 nuevo)
     adminDetails: (req, res) => {
         var product = [];
-        console.log(req.params.id);
         if (req.params.id != 0) {
             //Edito un producto existente
             product = db.Product.findByPk(req.params.id, {
@@ -88,9 +88,6 @@ const controller = {
 
         Promise.all([product, categories, diets, recipes])
             .then((results) => {
-                console.log(results[0]);
-                console.log("edit");
-                console.log(edit);
                 return res.render('productAdminDetail', {
                     product: results[0],
                     categories: results[1],
@@ -103,7 +100,6 @@ const controller = {
     },
 
     adminUpdate: (req, res, next) => {
-        let errors = validationResult(req);
         let product = {
             id: parseInt(req.body.id),
             code: req.body.code,
@@ -149,6 +145,8 @@ const controller = {
             product.enabled = false;
         }
 
+        let errors = validationResult(req);
+
         if (errors.isEmpty()) {
 
             db.Product.update({ //falta guardar categories, diets y recipes en associations
@@ -180,7 +178,6 @@ const controller = {
     },
 
     adminCreate: (req, res, next) => {
-        let errors = validationResult(req);
         let product = {
             code: req.body.code,
             name: req.body.name,
@@ -225,6 +222,7 @@ const controller = {
             product.enabled = false;
         }
 
+        let errors = validationResult(req);
         if (errors.isEmpty()) {
 
             db.Product.create({ //falta guardar categories, diets y recipes en associations

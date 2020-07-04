@@ -23,8 +23,6 @@ const usersController = require('../controllers/usersControllers');
 // ************ Middlewares Require ************
 var usersMiddlewares = require('../middlewares/usersMiddlewares');
 
-
-
 /* LOGIN */
 router.get('/login', usersMiddlewares.guestValidation, usersController.log);
 router.post('/login', usersMiddlewares.guestValidation, usersMiddlewares.loginValidation, usersController.access);
@@ -35,12 +33,10 @@ router.get('/create', usersMiddlewares.guestValidation, usersController.reg);
 router.post('/create', upload.any(), usersMiddlewares.guestValidation, usersMiddlewares.registerValidation, usersController.create);
 
 /*PERFIL DEL USUARIO*/
-// router.get('/profile/:id', usersMiddlewares.loggedUserValidation, usersController.profile);
 router.get('/profile', usersMiddlewares.loggedUserValidation, usersController.profile);
 
 
 /* CERRAR SESIÓN */
 router.get('/logout', usersMiddlewares.loggedUserValidation, usersController.logout);
-
 
 module.exports = router;
