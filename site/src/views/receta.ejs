@@ -57,6 +57,7 @@
                             </p>
                         </div>
 
+
                         <!-- Productos -->
                         <!-- <div id="tarjetas" class="fondo-tarj-receta mb-0">
 
@@ -80,8 +81,8 @@
 
                                     <!-- Acciones -->
                                     <div class="acciones-receta">
-                                        <a class="accion-receta favorito" href="#" title=" Me gusta">
-                                            <i class="far fa-heart"></i>
+                                        <a  class="accion-receta favorito" href="#" title="Me gusta">
+                                            <i id="corazon" class="far fa-heart"></i>
                                         </a>
                                         <a class="accion-receta agregar" href="#" title="Agregar a mis recetarios">
                                             <i class="fas fa-book"></i>
@@ -111,36 +112,30 @@
                                     </select> porciones</h3>
 
                                         <!-- INGREDIENTES -->
-                                        <% for( let ingrediente of receta.ingredients ) { %>
+                                        <% for( let i = 0; i < receta.ingredients.length; i++ ) { %>
 
                                             <div class="ingrediente-receta checkbox">
 
-                                                <label class="label-check nombre_item">
-                                        <input class="check checkbox-original checkbox-ingrediente-receta"
-                                            type="checkbox" name="ingredientes" value="">
-                                        <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
-                                        <span class="cantidad-ingrediente-receta"> <%= ingrediente.quantity %></span>
-                                        <span class="unidad-ingrediente-receta"> <%= ingrediente.unit %> </span>
-                                        <span class="descripcion-ingrediente-receta">
-                                            <%= ingrediente.name %></span>
-                                    </label>
+                                                <label for="check<%= [i] %>"  class="label-check nombre_item">
+                                                    <input id="check<%= [i] %>" class="check ingrediente checkbox-original checkbox-ingrediente-receta" type="checkbox" name="product<%= [i] %>" value="<%= receta.ingredients[i].quantity %> <%= receta.ingredients[i].unit %> <%= receta.ingredients[i].name %>" onclick="if(this.checked)sessionStorage.setItem(this.id,this.value);else sessionStorage.removeItem(this.id);">
+                                                    <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
+                                                    <span class="cantidad-ingrediente-receta"> <%= receta.ingredients[i].quantity %></span>
+                                                    <span class="unidad-ingrediente-receta"> <%= receta.ingredients[i].unit %> </span>
+                                                    <span class="descripcion-ingrediente-receta"><%= receta.ingredients[i].name %></span>
+                                                </label>
+
                                             </div>
 
-                                            <% } %>
+                                        <% } %>
 
                                                 <!-- Checkbox para seleccionar todos los ingredientes -->
                                                 <div class="checkbox">
-                                                    <label class="label-seleccionar-todos">
-                                        <i class="fas fa-tasks"></i> <input id="checkAll"
-                                            class="check checkbox-original checkbox-seleccionar-todos" type="checkbox">
-                                        <span class="checkbox-reemplazo"></span>
-                                        Seleccionar todos
-                                    </label>
+                                                    <label class="label-seleccionar-todos"> <i class="fas fa-tasks"></i> 
+                                                        <input id="checkAll" class="check checkbox-original checkbox-seleccionar-todos" type="checkbox" > Seleccionar todos
+                                                    </label>
                                                 </div>
 
-                                                <button type="submit" class="boton  boton-central-receta" data-toggle="modal" data-target="#lista-compras">
-                                    Agregar a lista de compras
-                                </button>
+                                                <button type="submit" class="boton  boton-central-receta" > Agregar a lista de compras</button>
 
                                                 <!-- MODAL: LSITA DE COMPRAS -->
                                                 <div class="modal fade" id="lista-compras" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -148,13 +143,12 @@
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title" id="exampleModalLabel">Lista de compras</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>
+                                                                </button>
                                                             </div>
-                                                            <div class="modal-body">
-                                                                ...
-                                                            </div>
+                                                        <div class="modal-body">
+                                                            <div id="log"></div>
+                                                        </div>
                                                             <!-- <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                                     <button type="button" class="btn btn-primary">Save changes</button>
@@ -174,15 +168,13 @@
                                         <% for( let i = 0; i < receta.steps.length; i++ ) { %>
 
                                             <div class="pasos-preparacion-receta">
-                                                <div class="paso-preparacion-receta">
+                                            <div class="paso-preparacion-receta">
                                                     <label for="checkbox-original" class="label-pasos" style="line-height: 1.6em;">
-                                            <input class="checkbox-original checkbox-paso-preparacion-receta"
-                                                type="checkbox">
-                                            <span class="checkbox-reemplazo checkbox-paso-preparacion-receta"></span>
-                                            <span class="numero-paso-preparacion-receta"> <%= i + 1 %>. </span>
-                                            <span id="paso" class="paso-receta"> <%= receta.steps[i].description %>
-                                            </span>
-                                        </label>
+                                                         <input class="checkbox-original checkbox-paso-preparacion-receta" type="checkbox">
+                                                            <span class="checkbox-reemplazo checkbox-paso-preparacion-receta"></span>
+                                                            <span class="numero-paso-preparacion-receta"> <%= i + 1 %>. </span>
+                                                            <span id="paso" class="paso-receta"> <%= receta.steps[i].description %></span>
+                                                    </label>
                                                 </div>
                                             </div>
                                             <% } %>
@@ -331,10 +323,10 @@
 
                                 switch (slcCantidad.value) {
                                     case "doble":
-                                        cantidad.innerHTML = doble(cantidad.outerText)
+                                    cantidad.innerHTML = doble(cantidad.outerText)
                                         break;
                                     case "triple":
-                                        cantidad.innerHTML = triple(cantidad.outerText)
+                                    cantidad.innerHTML = triple(cantidad.outerText)
                                         break;
                                     case "cuadruple":
                                         cantidad.innerHTML = cuadruple(cantidad.outerText)
@@ -347,11 +339,34 @@
                                 }
                             }
                         })
+                    
+                        // CAMBIAR CORAZÓN EN FAVORITO
+                        let corazon = document.querySelector('#corazon')
+                        corazon.addEventListener('click', function(){
+                            if(corazon.classList.contains('far')){
+                                corazon.classList.remove('far')
+                                corazon.classList.add('fas')
+                            }else{
+                                corazon.classList.remove('fas')
+                                corazon.classList.add('far')
+                            }
+                            // corazon.classList.toggle('fas')
+                            console.log('click')
+                        })
 
+                        //  AGREGAR A LA LISTA DE COMPRAS
+
+                            document.getElementById('log').innerHTML= '<h4>' + 'Para esta receta necesito comprar' + '</h4><br>';
+
+                            for (var i=0; i<sessionStorage.length; i++){
+                                var key = sessionStorage.key(i);
+                                document.getElementById(key).checked=1;
+                                document.getElementById('log').innerHTML+= '<li>' + sessionStorage.getItem(key) + '</li>';
+                            }
+
+                            if(!i)document.getElementById('log').innerHTML+= '<h6 style="color:red; text-align:center">' + '¡Nada! ¡Tengo todo lo que necesito!' + '</h6>';
                     })
                 </script>
-                <!-- /Scripts -->
-                </div>
 
 </body>
 
