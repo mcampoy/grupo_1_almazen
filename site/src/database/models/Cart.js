@@ -32,23 +32,6 @@ module.exports = (sequelize, dataTypes) => {
         tableName: 'cart', //Si el nombre de la tabla no coincide con el del modelo
         timestamps: true, //Si no tengo timestamps
     });
-    /*Cart.associate = function(models) {
-        Cart.belongsToMany(models.User, {
-            as: 'users',
-            through: 'product_diet',
-            foreignKey: 'id_user',
-            timestamps: false,
-        });
-
-        Cart.belongsToMany(models.Product, {
-            as: 'products',
-            through: 'product_category',
-            foreignKey: 'id_products',
-            timestamps: false,
-        });
-
-       
-    };*/
   
     return Cart; // Este retorno es lo que exporto
     }
