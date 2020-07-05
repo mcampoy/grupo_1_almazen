@@ -1,23 +1,26 @@
 var editando = false;
+
 window.addEventListener("load", function() {
     if (!editando) {
-        var filas = document.querySelectorAll("#tablaProductos tr");
+        var filas = document.querySelectorAll("#tablaProductos tr.filaProducto");
         filas.forEach(function(fila) {
-            fila.addEventListener("click", function() {
-                fila.parentNode.childNodes.forEach(function(child) {
-                    if (child.nodeName == "TR") {
-                        child.classList.remove('selected');
-                    }
-                });
-                fila.classList.add('selected');
-                var value = fila.querySelector('td').innerHTML;
-                productID = value.trim();
-                var iframe = document.getElementById('iframeDetails');
-                iframe.src = `/product/admin/${productID}`;
-            })
-        });
+            fila.addEventListener("click", seleccionarFila, false);
+        })
     }
 })
+
+function seleccionarFila() {
+    this.parentNode.childNodes.forEach(function(child) {
+        if (child.nodeName == "TR") {
+            child.classList.remove('selected');
+        }
+    });
+    this.classList.add('selected');
+    var value = this.querySelector('td').innerHTML;
+    productID = value.trim();
+    var iframe = document.getElementById('iframeDetails');
+    iframe.src = `/product/admin/${productID}`;
+}
 
 function buscar() {
     var input, filter, table, tr, td, i, txtValue;
@@ -68,6 +71,14 @@ function bloquearProducto() {
     btnEditar.style.display = 'none';
     var searchInput = document.getElementById('searchInput');
     searchInput.disabled = true;
+    var filas = document.querySelectorAll("#tablaProductos tr");
+    filas.forEach(function(fila) {
+        if (fila.removeEventListener) { // For all major browsers, except IE 8 and earlier
+            fila.removeEventListener("click", seleccionarFila);
+        } else if (fila.detachEvent) { // For IE 8 and earlier versions
+            fila.detachEvent("click", seleccionarFila);
+        }
+    });
 }
 
 function resizeIframe(obj) {
