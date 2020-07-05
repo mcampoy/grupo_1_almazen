@@ -1,16 +1,19 @@
 <header class="container-fluid">
 
     <nav class="navbar navbar-expand-lg mobile">
-        <button class="navbar-toggler col-1" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler col-1" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <img src="/images/toggler_icon.png">
             <!--<i class="fa fa-bars"></i>-->
         </button>
-        <a href="/" role="button" class="col-1 col-md-4 col-lg-3 marca"><img src="/images/Logo.svg" alt="marca almazen" class="navbar-brand"></a>
+        <a href="/" role="button" class="col-1 col-md-4 col-lg-3 marca"><img src="/images/Logo.svg" alt="marca almazen"
+                class="navbar-brand"></a>
 
         <!--<div class="col-lg-2 d-flex">-->
         <!-- BOTON CARRITO -->
         <li class="col-1 mt-1 ml-1 d-inline-flex align-items-center carrito">
-            <a href="/cart" role="button" class="justify-content-center"><img src="/images/cart.svg" width="33px" alt="carrito"></a>
+            <a href="/cart" role="button" class="justify-content-center"><img src="/images/cart.svg" width="33px"
+                    alt="carrito"></a>
         </li>
         <!-- BOTON PERFIL | INGRESAR | REGISTRAR -->
         <div class="col-1 mt-1 ml-1 d-inline-flex align-items-center profile">
@@ -18,81 +21,95 @@
 
                 <% if (usuarioLogueado!=undefined) { %>
 
-                    <img src="/users-avatar/<%= usuarioLogueado.avatar %>" class="dropdown-toggle " id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="40px" style="border-radius: 50%;" alt="Imagen de suario">
+                <img src="/users-avatar/<%= usuarioLogueado.avatar %>" class="dropdown-toggle " id="dropdownMenuOffset"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="40px"
+                    style="border-radius: 50%;" alt="Imagen de suario">
 
-                    <div class="userNameLog">
-                        <%= usuarioLogueado.name %>
-                    </div>
+                <div class="userNameLog">
+                    <%= usuarioLogueado.name %>
+                </div>
 
-                    <% } else { %>
+                <% } else { %>
 
-                        <img src="/images/profile.svg" class="dropdown-toggle userLogImage" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="40px" alt="Imagen de suario">
-                        <% } %>
-                            <div class="dropdown-menu dropdown-menu-right adminin-menu" aria-labelledby="dropdownMenuOffset">
-                                <% if (usuarioLogueado==undefined) { %>
+                <img src="/images/profile.svg" class="dropdown-toggle userLogImage" id="dropdownMenuOffset"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="40px"
+                    alt="Imagen de suario">
+                <% } %>
+                <div class="dropdown-menu dropdown-menu-right adminin-menu" aria-labelledby="dropdownMenuOffset">
+                    <% if (usuarioLogueado==undefined) { %>
 
-                                    <!-- LOGIN  -->
-                                    <!-- Button trigger modal login -->
-                                    <button type="button" class="btn btn-primary btn-login-header" data-toggle="modal" data-target="#Login">
-                            INGRESAR
-                        </button>
+                    <!-- LOGIN  -->
+                    <!-- Button trigger modal login -->
+                    <button type="button" class="btn btn-primary btn-login-header" data-toggle="modal"
+                        data-target="#Login">
+                        INGRESAR
+                    </button>
 
-                                    <!-- /* CREAR CUENTA */ -->
-                                    <button type="button" class="btn btn-primary btn-login-header" data-toggle="modal" data-target="#Register">
-                            CREAR CUENTA
-                        </button>
+                    <!-- /* CREAR CUENTA */ -->
+                    <button type="button" class="btn btn-primary btn-login-header" data-toggle="modal"
+                        data-target="#Register">
+                        CREAR CUENTA
+                    </button>
 
-                                    <% } else {%>
+                    <% } else {%>
 
-                                        <% if (usuarioLogueado.isAdmin==true) { %>
-                                            <!-- /* MENÚ DE ADMINSITRADOR */ -->
-                                            <!-- /* PRODUCTOS */ -->
-                                            <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
-                            PRODUCTOS
-                        </button>
+                    <% if (usuarioLogueado.isAdmin==true) { %>
+                    <!-- /* MENÚ DE ADMINSITRADOR */ -->
+                    <!-- /* PRODUCTOS */ -->
+                    <button type="button" class="btn btn-primary btn-login-header"
+                        onclick="location.href='/product/admin/'">
+                        PRODUCTOS
+                    </button>
 
-                                            <!-- /* RECETAS */ -->
-                                            <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
-                            RECETAS
-                        </button>
+                    <!-- /* RECETAS */ -->
+                    <button type="button" class="btn btn-primary btn-login-header"
+                        onclick="location.href='/product/admin/'">
+                        RECETAS
+                    </button>
 
-                                            <!-- /* TIPS */ -->
-                                            <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
-                            TIPS
-                        </button>
+                    <!-- /* TIPS */ -->
+                    <button type="button" class="btn btn-primary btn-login-header"
+                        onclick="location.href='/product/admin/'">
+                        TIPS
+                    </button>
 
-                                            <!-- /* CATEGORIAS */ -->
-                                            <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
-                            CATEGORIAS
-                        </button>
+                    <!-- /* CATEGORIAS */ -->
+                    <button type="button" class="btn btn-primary btn-login-header"
+                        onclick="location.href='/product/admin/'">
+                        CATEGORIAS
+                    </button>
 
-                                            <!-- /* CATEGORIAS */ -->
-                                            <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
-                            USUARIOS
-                        </button>
+                    <!-- /* CATEGORIAS */ -->
+                    <button type="button" class="btn btn-primary btn-login-header"
+                        onclick="location.href='/product/admin/'">
+                        USUARIOS
+                    </button>
 
-                                            <% } else {%>
+                    <% } else {%>
 
-                                                <!-- /* VER PERFIL */ -->
-                                                <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/users/profile'">
-                            VER PERFIL
-                        </button>
+                    <!-- /* VER PERFIL */ -->
+                    <button type="button" class="btn btn-primary btn-login-header"
+                        onclick="location.href='/users/profile'">
+                        VER PERFIL
+                    </button>
 
-                                                <% }%>
+                    <% }%>
 
-                                                    <!-- /* CERRAR SESIÓN */ -->
-                                                    <button type="button" class="btn btn-primary btn-login-header hoverlogout" onclick="location.href='/users/logout'">
-                            CERRAR SESIÓN
-                        </button>
+                    <!-- /* CERRAR SESIÓN */ -->
+                    <button type="button" class="btn btn-primary btn-login-header hoverlogout"
+                        onclick="location.href='/users/logout'">
+                        CERRAR SESIÓN
+                    </button>
 
-                                                    <% }%>
+                    <% }%>
 
-                            </div>
+                </div>
 
             </div>
 
-            <!-- Modal Login-->
-            <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- MODAL LOGIN-->
+            <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header-login">
@@ -127,8 +144,10 @@
                                         <!-- dejar en blanco el formulario o enviar -->
                                         <div class="user form-group">
                                             <button class="login" role="button" type="reset">Borrar</button>
-                                            <button class="register" role="button" type="submit" value="enviar">Ingresar</button>
-                                            <p class="remember"><input type="checkbox" name="remember" id="remember"> Recordarme</p>
+                                            <button class="register" role="button" type="submit"
+                                                value="enviar">Ingresar</button>
+                                            <p class="remember"><input type="checkbox" name="remember" id="remember">
+                                                Recordarme</p>
                                         </div>
                                     </form>
                                 </div>
@@ -138,8 +157,9 @@
                 </div>
             </div>
 
-            <!-- Modal Register-->
-            <div class="modal fade" id="Register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- MODAL REGISTRO-->
+            <div class="modal fade" id="Register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header-login">
@@ -152,44 +172,57 @@
                             <section class="contenedor-formulario-login">
                                 <div id="page-wrapper">
 
-                                    <form method="post" action="/users/create" id="miFormulario" enctype="multipart/form-data">
+                                    <form method="post" action="/users/create" id="miFormulario"
+                                        enctype="multipart/form-data">
                                         <div class="form-campos">
                                             <!-- nombre -->
                                             <div class="form-group">
                                                 <label class="modal-label" for="nombre">NOMBRE</label>
-                                                <input type="text" class="form-control" id="nombre" name="name" aria-describedby="nombre" placeholder="Ejemplo: Carolina" required />
+                                                <input type="text" class="form-control" id="nombre" name="name"
+                                                    aria-describedby="nombre" placeholder="Ejemplo: Carolina"
+                                                    required />
                                             </div>
 
                                             <!-- email -->
                                             <div class="form-group">
                                                 <label class="modal-label" for="exampleInputEmail1">EMAIL</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Ejemplo: almazen@gmail.com" required />
+                                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                                    name="email" aria-describedby="emailHelp"
+                                                    placeholder="Ejemplo: almazen@gmail.com" required />
                                             </div>
 
                                             <!-- password -->
                                             <div class="form-group">
                                                 <label class="modal-label" for="contraseña">CONTRASEÑA</label>
-                                                <input type="password" class="form-control" id="contraseña" name="password" aria-describedby="password" name="password" placeholder="Ingresá una contraseña" required />
+                                                <input type="password" class="form-control" id="contraseña"
+                                                    name="password" aria-describedby="password" name="password"
+                                                    placeholder="Ingresá una contraseña" required />
                                             </div>
 
                                             <!-- validación -->
                                             <div class="form-group">
                                                 <label class="modal-label" for="validation">REPETÍ TU CONTRASEÑA</label>
-                                                <input type="password" class="form-control" id="validation" aria-describedby="validation" name="validation" placeholder="Repetí tu contraseña" required />
+                                                <input type="password" class="form-control" id="validation"
+                                                    aria-describedby="validation" name="validation"
+                                                    placeholder="Repetí tu contraseña" required />
                                             </div>
 
                                             <!-- carga de imágenes -->
                                             <div class="form-group">
                                                 <label class="modal-label" for="avatar">CARGÁ UNA IMAGEN</label>
-                                                <input type="file" class="form-control-imagen" id="avatar" name="avatar" required />
+                                                <input type="file" class="form-control-imagen" id="avatar" name="avatar"
+                                                    required />
                                             </div>
                                         </div>
 
                                         <!-- dejar en blanco el formulario o enviar -->
                                         <div class="user form-group">
-                                            <button class="login align-items-center justify-content-center" role="button" type="reset">Borrar</button>
-                                            <button class="register align-items-center justify-content-center" role="button" type="submit">Enviar</button>
-                                            <p class="remember"><input type="checkbox" name="remember" id="remember"> Recordarme</p>
+                                            <button class="login align-items-center justify-content-center"
+                                                role="button" type="reset">Borrar</button>
+                                            <button class="register align-items-center justify-content-center"
+                                                role="button" type="submit">Enviar</button>
+                                            <p class="remember"><input type="checkbox" name="remember" id="remember">
+                                                Recordarme</p>
 
                                         </div>
                                     </form>
@@ -203,8 +236,10 @@
 
 
         <!-- FORMULARIO DE BUSQUEDA -->
-        <form action="product/find" method="post" class="search-form col-12 col-lg-3 d-flex justify-content-center input-group">
-            <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="form-control search-form_input col-10">
+        <form action="product/find" method="post"
+            class="search-form col-12 col-lg-3 d-flex justify-content-center input-group">
+            <input type="text" name="search" placeholder="Buscar productos, marcas y más"
+                class="form-control search-form_input col-10">
             <button type="submit" class="search-form_button col-2"><i class="fas fa-search"></i></button>
         </form>
 
@@ -213,7 +248,8 @@
 
         <!-- MENU COLAPSABLE -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="ml-1 col-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center justify-content-around navbar-nav">
+            <ul
+                class="ml-1 col-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center justify-content-around navbar-nav">
 
                 <!-- BOTON PRODUCTOS -->
                 <li class="col-12 col-md-12 col-lg-2 mt-1 d-flex  justify-content-center align-items-center">
@@ -239,16 +275,16 @@
     </nav>
 </header>
 <% if (typeof errors != 'undefined') { %>
-    <div class="col-12 users-errors ">
-        <ul>
-            <!-- <h4><i class="fas fa-exclamation-triangle"></i>¡Vaya! Algo ha salido mal</h4> -->
-            <% for(let error of errors) { %>
-                <div id="error-messege">
-                    <li><i class="fas fa-times-circle"></i>
-                        <%= error.msg %>
-                    </li>
-                </div>
-                <% } %>
-        </ul>
-    </div>
-    <% } %>
+<div class="col-12 users-errors ">
+    <ul>
+        <!-- <h4><i class="fas fa-exclamation-triangle"></i>¡Vaya! Algo ha salido mal</h4> -->
+        <% for(let error of errors) { %>
+        <div id="error-messege">
+            <li><i class="fas fa-times-circle"></i>
+                <%= error.msg %>
+            </li>
+        </div>
+        <% } %>
+    </ul>
+</div>
+<% } %>

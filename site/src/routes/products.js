@@ -8,7 +8,7 @@ const middUploadFile = require('../middlewares/middUploadFile');
 
 router.get('/', productsControllers.productsList);
 router.get('/details/:id', productsControllers.details);
-router.get('/category/:id_category', productsControllers.category)
+router.get('/category/:id', productsControllers.category)
 
 // router.get('/cart', productsControllers.cart);
 

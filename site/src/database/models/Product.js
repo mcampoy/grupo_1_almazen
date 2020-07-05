@@ -6,6 +6,12 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
+
+        id_category: {
+            type: dataTypes.INTEGER,
+            allowNull: false,
+        },
+
         name: {
             type: dataTypes.STRING(45),
             allowNull: false,
@@ -64,11 +70,17 @@ module.exports = (sequelize, dataTypes) => {
             timestamps: false,
         });
 
-        Product.belongsToMany(models.Category, {
+        // Product.belongsToMany(models.Category, {
+        //     as: 'categories',
+        //     through: 'product_category',
+        //     foreignKey: 'id_product',
+        //     otherKey: 'id_category',
+        //     timestamps: false,
+        // });
+
+        Product.belongsTo(models.Category, {
             as: 'categories',
-            through: 'product_category',
-            foreignKey: 'id_product',
-            otherKey: 'id_category',
+            foreignKey: 'id_category',
             timestamps: false,
         });
 

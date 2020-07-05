@@ -29,31 +29,61 @@ const controller = {
     category: (req, res) => {
 
         let categories = db.Category.findAll()
-        let products = db.Product.findAll({
-            where: {
-                id_category: req.params.id_category
-            }
+        // let products = db.Product.findAll({
+        //     include: [{
+        //         association: "categories"
+        //     }],
+        //     where: {
+        //         id_category: req.params.id_category
+        //     }
+        // })
+        // Promise.all([products, categories])
+        //     .then((results) => {
+
+        //         return res.render('productByCategory', { products: results[0], categories: results[1], usuarioLogueado: req.session.usuarioLogueado });
+
+        //     }).catch((err) => console.error(err));
+
+       let category = db.Category.findByPk(req.params.id, {
+            include: [{
+                        association: "products"
+                    }]
         })
-        Promise.all([products, categories])
+        Promise.all([category, categories])
             .then((results) => {
-
-                return res.render('productByCategory', { products: results[0], categories: results[1], usuarioLogueado: req.session.usuarioLogueado });
-
-            }).catch((err) => console.error(err));
+        
+            return res.render('productByCategory', { category: results[0], categories: results[1], usuarioLogueado: req.session.usuarioLogueado });
+        }).catch((err) => console.error(err));
 
     },
 
     details: (req, res) => {
-
-        db.Product.findByPk(req.params.id)
-            .then((product) => {
-
-                if (product == null) {
+        let category = db.Category.findByPk(req.params.id, {
+            include: [{
+                        association: "products"
+                    }]
+        })
+        let product = db.Product.findByPk(req.params.id,{
+            include: [{
+                        association: "categories"
+                    }]
+        })
+        Promise.all([category, product])
+            .then((results) => {
+                if (results[1] == null) {
                     return res.redirect('/');
                 }
-                return res.render('productDetail', { product: product, usuarioLogueado: req.session.usuarioLogueado });
+            return res.render('productDetail', { category: results[0], product: results[1], usuarioLogueado: req.session.usuarioLogueado });
+        }).catch((err) => console.error(err));
 
-            })
+        // db.Product.findByPk(req.params.id)
+        //     .then((product) => {
+
+        //         if (product == null) {
+        //             return res.redirect('/');
+        //         }
+        //         return res.render('productDetail', { product: product, usuarioLogueado: req.session.usuarioLogueado });
+        //     }).catch((err) => console.error(err));
     },
 
     admin: (req, res) => {

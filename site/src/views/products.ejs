@@ -22,26 +22,23 @@
                 <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/product/">Productos</a>
                 <span> <br><br>
                 </div> -->
-        <div class="caja mb-3">
-        <!-- menú de categorías -->
-        <div class="col-12 col-md-1 products_categories">
+        <div class="row rowContainer caja mb-3">
+        <!-- MENÚ POR CATEGORÍA -->
+        <div class="col-12 col-md-2 products_categories">
             <h3 class="categories_title">Categorías</h3>
             <ul class="categoryList">
                 <% for( let i = 0; i < categories.length; i++ ) { %>
-                
                     <li class="categories-items">
                         <a href="/product/category/<%= categories[i].id %>" class="categories_names"> <%= categories[i].name %> </a>
                     </li>
-               
                 <% } %>
             </ul>
-
         </div>
 
 
-                <div class="container col-12 col-md-11 container-tarjetas-productos mt-5" id="tarjetas-productos">
+        <div class="container col-12 col-md-10 container-tarjetas-productos mt-5" id="tarjetas">
+            <h3 class="col-12 titulo_seccion tituloProd">Nuestros productos</h3>
 
-                    <h3 class="col-12 titulo_seccion tituloProd">Nuestros productos</h3>
                     <% for (let product of products) { %>
                         <%- include('partials/productCard', {product}) %>
                             <% } %>
@@ -50,7 +47,7 @@
 
             <!-- FOOTER -->
             <%- include("partials/footer") %>
-                <!-- /FOOTER -->
+            <!-- /FOOTER -->
 
                 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
                 </script>

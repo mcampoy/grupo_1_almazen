@@ -2457,10 +2457,13 @@ a.article:hover {
     background-color: var(--colorMenu);
     border:1 solid var(--colorMenu);
 } */
-
+.rowContainer {
+    margin-right: 50px;
+    border-radius: 4px;
+}
 #tarjetas-productos {
-    width: 100%;
-    max-width: 2000px;
+    /* width: 100%;
+    max-width: 2000px; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -2474,10 +2477,17 @@ a.article:hover {
 .tituloProd {
     margin-left: 21%;
     padding-left: 0;
+    text-transform: capitalize;
 }
 
 .products_categories {
-    padding: 8% 0 0 5%;
+    padding: 0 0 0 5%;
+    background-color: #FFF;
+}
+
+.byCategory {
+    padding: 0 0 0 5%;
+
 }
 
 .categories_title{
@@ -2489,7 +2499,10 @@ a.article:hover {
 .categoryList {
     list-style: none;
 }
-
+.categories-items:hover{
+    border-bottom: 2px solid var(--colorMenu);
+    margin-right: 5%;
+}
 
 .categories_names{
     text-decoration: none;
@@ -2498,8 +2511,13 @@ a.article:hover {
     font-weight: 400;
     font-size: 1.2em;
     text-transform: capitalize;
+    padding-left: 2%;
 }
 
 .categories_names:hover {
     color: var(--colorMenu);
+}
+
+.categoryDetail {
+    text-transform: capitalize;
 }
