@@ -20,9 +20,8 @@ module.exports = (sequelize, dataTypes) => {
         },
 
         {
-            tableName: 'categories', //Si el nombre de la tabla no coincide con el del modelo
-            timestamps: false, //Si no tengo timestamps
-
+            tableName: 'categories',
+            timestamps: false,
         });
 
     Category.associate = function(models) {
@@ -35,5 +34,5 @@ module.exports = (sequelize, dataTypes) => {
         });
     }
 
-    return Category; // Este retorno es lo que exporto
+    return Category;
 }

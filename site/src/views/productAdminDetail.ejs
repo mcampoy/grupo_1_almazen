@@ -168,7 +168,8 @@
                                         <% categories.forEach(category => { %>
                                             <div class="card_item text-left">
                                                 <div class="form-check d-inline-block">
-                                                    <input name="category" type="checkbox" class="" id="checkboxcategory<%=category.id %>" value="<%=category.id %>" <% product.categories.forEach(ProdCategory=> { if (category.id==ProdCategory.id) {%> checked
+                                                    <input name="categories" type="checkbox" class="" id="checkboxcategory<%=category.id %>" value="<%=category.id %>" <% product.categories.forEach(ProdCategory=> { if (category.id==ProdCategory.id) {%>
+                                                    checked
                                                     <% }}); %>
                                                         <% if (edit != '1' && edit !='2') { %> disabled
                                                             <% } %>
@@ -183,7 +184,7 @@
                                         <% diets.forEach(diet => { %>
                                             <div class="card_item text-left">
                                                 <div class="form-check d-inline-block">
-                                                    <input name="diet" type="checkbox" class="" id="checkboxdiet<%=diet.id %>" value="<%=diet.id %>" <% product.diets.forEach(ProdDiet=> { if (diet.id==ProdDiet.id) {%> checked
+                                                    <input name="diets" type="checkbox" class="" id="checkboxdiet<%=diet.id %>" value="<%=diet.id %>" <% product.diets.forEach(ProdDiet=> { if (diet.id==ProdDiet.id) {%> checked
                                                     <% }}); %>
                                                         <% if (edit != '1' && edit !='2') { %> disabled
                                                             <% } %>
@@ -198,7 +199,7 @@
                                         <% recipes.forEach(recipe => { %>
                                             <div class="card_item text-left">
                                                 <div class="form-check d-inline-block">
-                                                    <input name="recipe" type="checkbox" class="" id="checkboxrecipe<%=recipe.id %>" value="<%=recipe.id %>" <% product.recipes.forEach(ProdRecipe=> { if (recipe.id==ProdRecipe.id) {%> checked
+                                                    <input name="recipes" type="checkbox" class="" id="checkboxrecipe<%=recipe.id %>" value="<%=recipe.id %>" <% product.recipes.forEach(ProdRecipe=> { if (recipe.id==ProdRecipe.id) {%> checked
                                                     <% }}); %>
                                                         <% if (edit != '1' && edit !='2') { %> disabled
                                                             <% } %> >

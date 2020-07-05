@@ -24,8 +24,8 @@ module.exports = (sequelize, dataTypes) => {
         },
 
         {
-            tableName: 'diets', //Si el nombre de la tabla no coincide con el del modelo
-            timestamps: false, //Si no tengo timestamps
+            tableName: 'diets',
+            timestamps: false,
 
         });
 
@@ -44,5 +44,5 @@ module.exports = (sequelize, dataTypes) => {
         });
     }
 
-    return Diet; // Este retorno es lo que exporto
+    return Diet;
 }

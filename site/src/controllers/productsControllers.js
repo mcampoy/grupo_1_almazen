@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 let db = require('../database/models');
 let Sequelize = db.sequelize;
 const Op = Sequelize.Op;
@@ -50,7 +48,7 @@ const controller = {
 
     // },
 
-    //MUESTRRA LA VISTA DENTRO DEL IFRAME DE DETALLES DEL PRODUCTO SELECCIONADO
+    //MUESTRA LA VISTA DENTRO DEL IFRAME DE DETALLES DEL PRODUCTO SELECCIONADO
     // Recibe como parámetros el id del producto y edit (null muestra, 1 edito, 2 nuevo)
     adminDetails: (req, res) => {
         var product = [];
@@ -149,7 +147,7 @@ const controller = {
 
         if (errors.isEmpty()) {
 
-            db.Product.update({ //falta guardar categories, diets y recipes en associations
+            db.Product.update({
                 code: product.code,
                 name: product.name,
                 description: product.description,
@@ -168,11 +166,81 @@ const controller = {
                 }
             });
 
+            //Borro las relaciones antiguas con categorìas
+            db.ProductCategory.destroy({
+                where: {
+                    id_product: product.id
+                }
+            }).then(
+                //Creo las relaciones exitentes con categorías
+                product.categories.forEach(idCategory => {
+                    db.ProductCategory.create({
+                        id_product: product.id,
+                        id_category: idCategory
+                    })
+                })
+            )
 
-            //res.render('productAdminDetail', { product, categorias, dietas, recetas, edit: false })
+            //Borro las relaciones antiguas con dietas
+            db.ProductDiet.destroy({
+                where: {
+                    id_product: product.id
+                }
+            }).then(
+                //Creo las relaciones exitentes con dietas
+                product.diets.forEach(idDiet => {
+                    db.ProductDiet.create({
+                        id_product: product.id,
+                        id_diet: idDiet
+                    })
+                })
+            )
+
+            //Borro las relaciones antiguas con recetas
+            db.ProductRecipe.destroy({
+                where: {
+                    id_product: product.id
+                }
+            }).then(
+                //Creo las relaciones exitentes con recetas
+                product.recipes.forEach(idRecipe => {
+                    db.ProductRecipe.create({
+                        id_product: product.id,
+                        id_recipe: idRecipe
+                    })
+                })
+            ).then(() => {
+                var categories = db.Category.findAll();
+                var diets = db.Diet.findAll();
+                var recipes = db.Recipe.findAll();
+                Promise.all([categories, diets, recipes])
+                    .then((results) => {
+                        return res.render('productAdminDetail', {
+                            product: product,
+                            categories: results[0],
+                            diets: results[1],
+                            recipes: results[2],
+                        });
+                    })
+                    .catch((err) => console.error(err));
+            })
 
         } else {
-            return res.render('productAdminDetail', { product, categories, diets, recipes, edit: 1, errors: errors.errors });
+            var categories = db.Category.findAll();
+            var diets = db.Diet.findAll();
+            var recipes = db.Recipe.findAll();
+            Promise.all([categories, diets, recipes])
+                .then((results) => {
+                    return res.render('productAdminDetail', {
+                        product: product,
+                        categories: results[0],
+                        diets: results[1],
+                        recipes: results[2],
+                        edit: 1,
+                        errors: errors.errors
+                    });
+                })
+                .catch((err) => console.error(err));
         }
 
     },
@@ -225,7 +293,7 @@ const controller = {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
 
-            db.Product.create({ //falta guardar categories, diets y recipes en associations
+            db.Product.create({
                 code: product.code,
                 name: product.name,
                 description: product.description,
@@ -237,79 +305,89 @@ const controller = {
                 stock: product.stock,
                 image: product.image,
                 enabled: product.enabled,
-            }); ///faltaría después de un then buscar el nuevo producto y mostrarlo
+            }).then((prod) => {
+
+                //Creo las relaciones exitentes con categorías
+                product.categories.forEach(idCategory => {
+                    db.ProductCategory.create({
+                        id_product: prod.id,
+                        id_category: idCategory
+                    })
+                });
+
+                //Creo las relaciones exitentes con dietas
+                product.diets.forEach(idDiet => {
+                    db.ProductDiet.create({
+                        id_product: prod.id,
+                        id_diet: idDiet
+                    })
+                });
+
+                //Creo las relaciones exitentes con recetas
+                product.recipes.forEach(idRecipe => {
+                    db.ProductRecipe.create({
+                        id_product: prod.id,
+                        id_recipe: idRecipe
+                    })
+                });
 
 
-            //return res.render('productAdminDetail', { product, categories, diets, recipes, edit: 0 });
+                var categories = db.Category.findAll();
+                var diets = db.Diet.findAll();
+                var recipes = db.Recipe.findAll();
+                Promise.all([categories, diets, recipes])
+                    .then((results) => {
+                        return res.render('productAdminDetail', {
+                            product: product,
+                            categories: results[0],
+                            diets: results[1],
+                            recipes: results[2],
+                        });
+                    })
+                    .catch((err) => console.error(err));
+            });
 
         } else {
-            return res.render('productAdminDetail', { product, categories, diets, recipes, edit: 2, errors: errors.errors });
+            var categories = db.Category.findAll();
+            var diets = db.Diet.findAll();
+            var recipes = db.Recipe.findAll();
+            Promise.all([categories, diets, recipes])
+                .then((results) => {
+                    return res.render('productAdminDetail', {
+                        product: product,
+                        categories: results[0],
+                        diets: results[1],
+                        recipes: results[2],
+                        edit: 2,
+                        errors: errors.errors
+                    });
+                })
+                .catch((err) => console.error(err));
         }
 
     },
+
 
     delete: (req, res, next) => {
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
 
-            db.Product.destroy({ //PRIMERO TENGO QUE BORRAR LAS RELACIONES EN LAS TABLAS PIVOT, FALTA HACER ESTO
+            db.ProductCategory.destroy({
+                where: { id_product: req.body.id }
+            })
+            db.ProductDiet.destroy({
+                where: { id_product: req.body.id }
+            })
+            db.ProductRecipe.destroy({
+                where: { id_product: req.body.id }
+            })
+            db.Product.destroy({
                 where: { id: req.body.id }
             })
         }
         return res.redirect('/product/admin');
     },
-
-
-    // adminEditDetails: (req, res) => {
-    //     let product = [];
-    //     if (req.params.id == "0") {
-    //         product.id = productIdGenerator();
-    //         product.codigo = "";
-    //         product.nombre = "";
-    //         product.descripcion = "";
-    //         product.descripcion_breve = "";
-    //         product.cantidad = [cantidad = 100, unidad_medida = "gr."];
-    //         product.precio = 0;
-    //         product.descuento = 0;
-    //         product.stock = 0;
-    //         product.image = "defaultProduct.jpg";
-    //         product.habilitado = true;
-    //         product.categoria = [];
-    //         product.receta = [];
-    //         product.dieta = [];
-
-    //     } else {
-    //         product = getProductById(req.params.id);
-    //         if (product == null) {
-    //             // Acá debería mostrar un mensaje de error
-    //             return res.redirect('/');
-    //         }
-    //     }
-
-
-    //     for (i = 0; i < categorias.length; i++) {
-    //         var xx = categorias[i].checked = (product.categoria.find((categoria) => {
-    //             return categoria == categorias[i].id;
-    //         })) ? 1 : 0;
-    //     }
-
-    //     for (i = 0; i < dietas.length; i++) {
-    //         var xx = dietas[i].checked = (product.dieta.find((dieta) => {
-    //             return dieta == dietas[i].id;
-    //         })) ? 1 : 0;
-    //     }
-
-    //     for (i = 0; i < recetas.length; i++) {
-    //         var xx = recetas[i].checked = (product.receta.find((receta) => {
-    //             return receta == recetas[i].id;
-    //         })) ? 1 : 0;
-    //     }
-
-    //     res.render('productAdminDetail', { product, categorias, dietas, recetas, edit: true });
-
-    // },
-
 
 
     // INTENTO DE IMPLEMENTAR BUSCADOR
