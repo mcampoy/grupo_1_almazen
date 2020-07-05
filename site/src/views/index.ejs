@@ -122,7 +122,6 @@
     <section id="recetas" class="mb-5 row container-fluid Recetas">
         <div class="mb-1 col-12 col-sm-6 col-md-12 col-lg-12 d-flex justify-content-center">
             <section class="col-12 col-md-11 col-lg-11 d-flex product-box">
-                <!-- si va más de una receta, insertar el comienzo del for acá -->
                 <a href="/recetas/<%= receta.id %>" class="col-12 col-md-12 col-lg-12 d-flex flex-wrap">
                     <figure class="col-11 col-md-12 col-lg-5 imagen_receta ">
                         <% if (receta.diet == "sin gluten") { %>
@@ -148,7 +147,7 @@
                         <button class="col-5 col-md-4 col-lg-4 d-flex justify-content-center align-items-center btn_receta" onclick="window.location='/recetas/'">VER RECETA</button>
                     </article>
                 </a>
-                <!-- Cierre del for de recetas -->
+
             </section>
         </div>
     </section>

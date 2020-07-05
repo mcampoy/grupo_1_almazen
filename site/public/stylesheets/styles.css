@@ -2457,3 +2457,49 @@ a.article:hover {
     background-color: var(--colorMenu);
     border:1 solid var(--colorMenu);
 } */
+
+#tarjetas-productos {
+    width: 100%;
+    max-width: 2000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 3% 0;
+}
+
+.tarjetaProd {
+    margin:1%;
+}
+
+.tituloProd {
+    margin-left: 21%;
+    padding-left: 0;
+}
+
+.products_categories {
+    padding: 8% 0 0 5%;
+}
+
+.categories_title{
+    font-family: var(--fuenteGeneral);
+    color: var(--colorTituloGeneral);
+    font-size: 1.5em;
+}
+
+.categoryList {
+    list-style: none;
+}
+
+
+.categories_names{
+    text-decoration: none;
+    color: var(--colorTituloSeccion);
+    font-family: var(--fuenteGeneral);
+    font-weight: 400;
+    font-size: 1.2em;
+    text-transform: capitalize;
+}
+
+.categories_names:hover {
+    color: var(--colorMenu);
+}

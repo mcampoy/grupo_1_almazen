@@ -7,16 +7,40 @@ const { check, validationResult, body } = require('express-validator');
 
 const controller = {
     productsList: (req, res) => {
-
-        db.Product.findAll({
+        let categories = db.Category.findAll()
+        let products = db.Product.findAll({
                 where: {
                     enabled: 1
                 }
             })
-            .then((productos) => {
+            Promise.all([products, categories])
+            .then((results) => {
 
-                return res.render('products', { productos, usuarioLogueado: req.session.usuarioLogueado });
-            })
+                return res.render('products', { products: results[0], categories: results[1], usuarioLogueado: req.session.usuarioLogueado });
+
+            }).catch((err) => console.error(err));
+            // .then((productos) => {
+
+            //     return res.render('products', { productos, usuarioLogueado: req.session.usuarioLogueado });
+            // })
+    },
+
+
+    category: (req, res) => {
+
+        let categories = db.Category.findAll()
+        let products = db.Product.findAll({
+            where: {
+                id_category: req.params.id_category
+            }
+        })
+        Promise.all([products, categories])
+            .then((results) => {
+
+                return res.render('productByCategory', { products: results[0], categories: results[1], usuarioLogueado: req.session.usuarioLogueado });
+
+            }).catch((err) => console.error(err));
+
     },
 
     details: (req, res) => {

@@ -22,31 +22,36 @@
                 <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/product/">Productos</a>
                 <span> <br><br>
                 </div> -->
-        <div class="caja mb-3">
-        <!-- menú de categorías -->
-        <div class="col-12 col-md-1 products_categories">
-            <h3 class="categories_title">Categorías</h3>
-            <ul class="categoryList">
-                <% for( let i = 0; i < categories.length; i++ ) { %>
-                
-                    <li class="categories-items">
-                        <a href="/product/category/<%= categories[i].id %>" class="categories_names"> <%= categories[i].name %> </a>
-                    </li>
-               
-                <% } %>
-            </ul>
+        <div class="col-12 caja mb-3">
+                <!-- menú de categorías -->
+                <div class="col-12 col-md-1 products_categories">
+                    <h3 class="categories_title">Categorías</h3>
+                    <ul class="categoryList">
+                            <li class="categories-items">
+                            <a href="/product/" class="categories_names"> Todos </a>
+                            </li>
+                        <% for( let i = 0; i < categories.length; i++ ) { %>
 
-        </div>
+                            <li class="categories-items">
+                                <a href="/product/category/<%= categories[i].id %>" class="categories_names"> <%= categories[i].name %> </a>
+                            </li>
+
+                        <% } %>
+                    </ul>
+
+                </div>
 
 
-                <div class="container col-12 col-md-11 container-tarjetas-productos mt-5" id="tarjetas-productos">
+                <div class="container col-md-11 container-tarjetas-productos mt-5" id="tarjetas-productos">
+                    
 
-                    <h3 class="col-12 titulo_seccion tituloProd">Nuestros productos</h3>
+                    <h3 class="col-12 titulo_seccion tituloProd"> Especias </h3>
+                       
                     <% for (let product of products) { %>
                         <%- include('partials/productCard', {product}) %>
                             <% } %>
                 </div>
-            </div>
+        </div>
 
             <!-- FOOTER -->
             <%- include("partials/footer") %>

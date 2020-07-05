@@ -42,18 +42,11 @@ const controller = {
                 }
             })
             .then((recetas) => {
-
                 return res.render('recetasPorDietas', { recetas: recetas, usuarioLogueado: req.session.usuarioLogueado });
-
             })
+            .catch((err) => console.error(err));
 
     },
-
-    listaCompras: (req, res) => {
-        let prodSelecc = {...req.body };
-        console.log(prodSelecc);
-        res.send('hola', { prodSelecc })
-    }
 };
 
 module.exports = controller;

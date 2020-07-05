@@ -8,7 +8,11 @@ const middUploadFile = require('../middlewares/middUploadFile');
 
 router.get('/', productsControllers.productsList);
 router.get('/details/:id', productsControllers.details);
+router.get('/category/:id_category', productsControllers.category)
+
 // router.get('/cart', productsControllers.cart);
+
+
 router.get('/admin', usersMiddlewares.adminValidation, productsControllers.admin);
 router.get('/admin/:id/:edit?', productsControllers.adminDetails); //// edit: null muestro, 1 edito, 2 nuevo //id:0 para indicar producto nuevo
 
