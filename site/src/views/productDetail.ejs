@@ -2,24 +2,24 @@
 <html lang="en">
 
 <head>
-    <%- include("partials/head", {title: "Cúrcuma"}) %>
+    <%- include("partials/head", {title: product.name}) %>
 </head>
 
 <body>
     <!-- HEADER -->
     <%- include("partials/header", {usuarioLogueado: usuarioLogueado}) %>
-    <!-- /HEADER -->
+        <!-- /HEADER -->
 
-    <!-- Redes Sociales Flotantes-->
-    <%-include('partials/redesSociales') %>
+        <!-- Redes Sociales Flotantes-->
+        <%-include('partials/redesSociales') %>
 
-    <!-- Details products -->
-    <article class="container container-details">
-        <div class="row box-product-details">
+            <!-- Details products -->
+            <article class="container container-details">
+                <div class="row box-product-details">
 
-            <!-- Sitemap -->
-            <div class="siteMap col-12 mb-1">
-                <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/product/">Productos</a><span> </span><a class="categoryDetail" href="/product/category/<%= product.id_category %>"><span> > </span> <%= product.categories.name %>  </a><span> <br><br>
+                    <!-- Sitemap -->
+                    <div class="siteMap col-12 mb-1">
+                        <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/product/">Productos</a><span> </span><a class="categoryDetail" href="/product/category/<%= product.id_category %>"><span> > </span> <%= product.categories.name %>  </a><span> <br><br>
                 </div>
 
             <figure class="col-12 col-lg-6 imagen-detalles">
@@ -49,82 +49,73 @@
                                 <div class="col-6 col-lg-12 precio-descuento">
                                     <span class="div-precio-descuento">
                                         <span class="tachado">$<%= product.price %></span>
-                                        <span class="discount"> / <%= product.discount %>% OFF</span>
-                                    </span>
-                                    <h3 class="precio_detalles">
-                                        $
-                                        <%= product.price - (product.price / 100 * product.discount) %>
-                                    </h3>
-                                </div>
+                        <span class="discount"> / <%= product.discount %>% OFF</span>
+                        </span>
+                        <h3 class="precio_detalles">
+                            $
+                            <%= product.price - (product.price / 100 * product.discount) %>
+                        </h3>
+                    </div>
 
-                                <% } else { %>
+                    <% } else { %>
 
-                                <h3 class="col-6 col-lg-12 precio_detalles sindescuento">$
-                                    <%= product.price %>
-                                </h3>
+                        <h3 class="col-6 col-lg-12 precio_detalles sindescuento">$
+                            <%= product.price %>
+                        </h3>
 
-                                <% } %>
+                        <% } %>
 
 
-                                <div class="col-6 col-lg-12 box-quantity-detalles">
+                            <div class="col-6 col-lg-12 box-quantity-detalles">
 
-                                    <div class="quantity-selector-text"> Cantidad: </div>
+                                <div class="quantity-selector-text"> Cantidad: </div>
 
-                                    <input type="number" name="cantidad" id="" class="quantity-selector-detalles" min="1" max="<%= product.stock %>" maxlength="<%= product.stock %>" value="1">
-                                       
-                                        <!-- <option class="active">1 unidad</option>
+                                <input type="number" name="cantidad" id="" class="quantity-selector-detalles" min="1" max="<%= product.stock %>" maxlength="<%= product.stock %>" value="1">
+
+                                <!-- <option class="active">1 unidad</option>
                                         <option class="option">2 unidades</option>
                                         <option class="option">3 unidades</option>
                                         <option class="option">4 unidades</option>
                                         <option class="option">5 unidades</option>
                                     </select>
-                                    <input > --> 
+                                    <input > -->
 
-                                </div>
                             </div>
-
-                            <div class="vip-actions-wrapper  vip-actions-wrapper--cart-item botones-detalles">
-                                <div class="vip-actions item-actions u-clearfix">
-                                    <div class="row vip-action-primary-details">
-
-                                        <input type="submit" data-js="vip-action-primary" form="productInfo"
-                                            title="curcuma" value="Comprar ahora"
-                                            class="col-12 col-md-5 col-lg-4 primary ui-button ui-button--primary  vip-narrow-button"
-                                            onclick="window.location='/product/cart'">
-
-                                        <input type="submit" data-js="vip-action-cart" form="productInfo"
-                                            title="curcuma" value="Agregar al carrito"
-                                            class="col-12 col-md-5 col-lg-4 secondary ui-button ui-button--secondary"
-                                            onclick="window.location='/#'">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-
-                    </section>
                 </div>
-            </div>
-        </div>
-    </article>
-    <!-- /Details products -->
 
-    <!-- FOOTER -->
-    <%- include("partials/footer") %>
-    <!-- /FOOTER -->
+                <div class="vip-actions-wrapper  vip-actions-wrapper--cart-item botones-detalles">
+                    <div class="vip-actions item-actions u-clearfix">
+                        <div class="row vip-action-primary-details">
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-    <!-- /Scripts -->
-    </div>
+                            <input type="submit" data-js="vip-action-primary" form="productInfo" title="curcuma" value="Comprar ahora" class="col-12 col-md-5 col-lg-4 primary ui-button ui-button--primary  vip-narrow-button" onclick="window.location='/product/cart'">
+
+                            <input type="submit" data-js="vip-action-cart" form="productInfo" title="curcuma" value="Agregar al carrito" class="col-12 col-md-5 col-lg-4 secondary ui-button ui-button--secondary" onclick="window.location='/#'">
+
+                        </div>
+                    </div>
+                </div>
+                </form>
+
+                </section>
+                </div>
+                </div>
+                </div>
+            </article>
+            <!-- /Details products -->
+
+            <!-- FOOTER -->
+            <%- include("partials/footer") %>
+                <!-- /FOOTER -->
+
+                <!-- Scripts -->
+                <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+                </script>
+                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+                </script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+                </script>
+                <!-- /Scripts -->
+                </div>
 </body>
 
 </html>

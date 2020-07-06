@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <%- include('partials/head') %>
+    <%- include('partials/head', {title: receta.name}) %>
 </head>
 
 <body>
@@ -20,7 +20,8 @@
                     <!-- Sitemap -->
                     <div class="siteMap col-12">
                         <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/recetas/">Recetas</a>
-                        <span> > </span> <a href="/recetas/dieta/<%= receta.diet %>">
+                        <span> > </span>
+                        <a href="/recetas/dieta/<%= receta.diet %>">
                             <%= receta.diet %>
                         </a> <br><br>
                     </div>
@@ -80,7 +81,7 @@
 
                                     <!-- Acciones -->
                                     <div class="acciones-receta">
-                                        <a  class="accion-receta favorito" href="#" title="Me gusta">
+                                        <a class="accion-receta favorito" href="#" title="Me gusta">
                                             <i id="corazon" class="far fa-heart"></i>
                                         </a>
                                         <a class="accion-receta agregar" href="#" title="Agregar a mis recetarios">
@@ -115,7 +116,7 @@
 
                                             <div class="ingrediente-receta checkbox">
 
-                                                <label for="check<%= [i] %>"  class="label-check nombre_item">
+                                                <label for="check<%= [i] %>" class="label-check nombre_item">
                                                     <input id="check<%= [i] %>" class="check ingrediente checkbox-original checkbox-ingrediente-receta" type="checkbox" name="product<%= [i] %>" value="<%= receta.ingredients[i].quantity %> <%= receta.ingredients[i].unit %> <%= receta.ingredients[i].name %>" onclick="if(this.checked)sessionStorage.setItem(this.id,this.value);else sessionStorage.removeItem(this.id);">
                                                     <span class="checkbox-reemplazo checkbox-ingrediente-receta"></span>
                                                     <span class="cantidad-ingrediente-receta"> <%= receta.ingredients[i].quantity %></span>
@@ -125,7 +126,7 @@
 
                                             </div>
 
-                                        <% } %>
+                                            <% } %>
 
                                                 <!-- Checkbox para seleccionar todos los ingredientes -->
                                                 <div class="checkbox">
@@ -134,22 +135,22 @@
                                                     </label>
                                                 </div>
 
-                                                <button type="submit" class="boton  boton-central-receta" > Agregar a lista de compras</button>
+                                                <button type="submit" class="boton  boton-central-receta"> Agregar a lista de compras</button>
 
                                                 <!-- MODAL: LSITA DE COMPRAS -->
                                                 <div class="modal fade" id="lista-compras" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                               
+
                                                                 <h5 class="modal-title headerModalListaCompras" id="ModalCompras">Lista de compras</h5>
 
                                                                 <button type="button" class="close" id="closeList" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
-                                                        <div class="modal-body">
-                                                            <div id="log"></div>
-                                                        </div>
+                                                            <div class="modal-body">
+                                                                <div id="log"></div>
+                                                            </div>
                                                             <!-- <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                                     <button type="button" class="btn btn-primary">Save changes</button>
@@ -169,7 +170,7 @@
                                         <% for( let i = 0; i < receta.steps.length; i++ ) { %>
 
                                             <div class="pasos-preparacion-receta">
-                                            <div class="paso-preparacion-receta">
+                                                <div class="paso-preparacion-receta">
                                                     <label for="checkbox-original" class="label-pasos" style="line-height: 1.6em;">
                                                          <input class="checkbox-original checkbox-paso-preparacion-receta" type="checkbox">
                                                             <span class="checkbox-reemplazo checkbox-paso-preparacion-receta"></span>
@@ -322,10 +323,10 @@
 
                                 switch (slcCantidad.value) {
                                     case "doble":
-                                    cantidad.innerHTML = doble(cantidad.outerText)
+                                        cantidad.innerHTML = doble(cantidad.outerText)
                                         break;
                                     case "triple":
-                                    cantidad.innerHTML = triple(cantidad.outerText)
+                                        cantidad.innerHTML = triple(cantidad.outerText)
                                         break;
                                     case "cuadruple":
                                         cantidad.innerHTML = cuadruple(cantidad.outerText)
@@ -338,14 +339,14 @@
                                 }
                             }
                         })
-                    
+
                         // CAMBIAR CORAZÓN EN FAVORITO
                         let corazon = document.querySelector('#corazon')
-                        corazon.addEventListener('click', function(){
-                            if(corazon.classList.contains('far')){
+                        corazon.addEventListener('click', function() {
+                            if (corazon.classList.contains('far')) {
                                 corazon.classList.remove('far')
                                 corazon.classList.add('fas')
-                            }else{
+                            } else {
                                 corazon.classList.remove('fas')
                                 corazon.classList.add('far')
                             }
@@ -355,15 +356,15 @@
 
                         //  AGREGAR A LA LISTA DE COMPRAS
 
-                            document.getElementById('log').innerHTML= '<h4 id="Ineed">' + 'Para esta receta necesito comprar:' + '</h4><br>';
+                        document.getElementById('log').innerHTML = '<h4 id="Ineed">' + 'Para esta receta necesito comprar:' + '</h4><br>';
 
-                            for (var i=0; i<sessionStorage.length; i++){
-                                var key = sessionStorage.key(i);
-                                document.getElementById(key).checked=1;
-                                document.getElementById('log').innerHTML+= '<li class="itemList">' + sessionStorage.getItem(key) + '</li>';
-                            }
+                        for (var i = 0; i < sessionStorage.length; i++) {
+                            var key = sessionStorage.key(i);
+                            document.getElementById(key).checked = 1;
+                            document.getElementById('log').innerHTML += '<li class="itemList">' + sessionStorage.getItem(key) + '</li>';
+                        }
 
-                            if(!i)document.getElementById('log').innerHTML+= '<h6 id="nada">' + '¡Nada! ¡Tengo todo lo que necesito!' + '<br>' + '<br>' + '<i class="far fa-smile-wink" id="smile"></i>' + '</h6>';
+                        if (!i) document.getElementById('log').innerHTML += '<h6 id="nada">' + '¡Nada! ¡Tengo todo lo que necesito!' + '<br>' + '<br>' + '<i class="far fa-smile-wink" id="smile"></i>' + '</h6>';
                     })
                 </script>
 

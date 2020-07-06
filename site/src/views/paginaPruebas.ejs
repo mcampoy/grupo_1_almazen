@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include('partials/head') %>
-</head>
-<body>
- 
-        <!-- /HEADER -->
 
-        <!-- Redes Sociales Flotantes-->
-        <%-include('partials/redesSociales') %>
-    
-    
-    
-    <h1>Recetas:</h1>
-    <ul class="contenedor">
-        <% for( let recipe of recipes) { %>
-            <li class="title">
-                <%= recipe.name %> <br> <br>
-                <img src="/images/recetas/<%= recipe.image %>" alt="<%= recipe.name %>" style="width: 48px; border-radius: 50%;"><br> <br>
-                <%= recipe.description %> <br><br>
-            </li>
-        <% } %>
-    </ul>
+<head>
+    <%- include('partials/head', {title: "Agregar producto"}) %>
+</head>
+
+<body>
+
+    <!-- /HEADER -->
+
+    <!-- Redes Sociales Flotantes-->
+    <%-include('partials/redesSociales') %>
+
+
+
+        <h1>Recetas:</h1>
+        <ul class="contenedor">
+            <% for( let recipe of recipes) { %>
+                <li class="title">
+                    <%= recipe.name %> <br> <br>
+                        <img src="/images/recetas/<%= recipe.image %>" alt="<%= recipe.name %>" style="width: 48px; border-radius: 50%;"><br> <br>
+                        <%= recipe.description %> <br><br>
+                </li>
+                <% } %>
+        </ul>
 </body>
+
 </html>

@@ -1,10 +1,18 @@
-const fs = require('fs');
-const path = require('path');
+let db = require('../database/models');
 
 const controller = {
-    reg: (req, res) => {
+    list: (req, res) => {
 
-        return res.render("tarjetas", { usuarioLogueado: req.session.usuarioLogueado });
+        db.Tip.findAll({
+            where: {
+                enabled: 1
+            }
+        }).then((tips) => {
+
+            console.log(tips);
+            return res.render("tips", { tips: tips, usuarioLogueado: req.session.usuarioLogueado });
+
+        }).catch((err) => console.error(err));
     }
 };
 

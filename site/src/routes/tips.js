@@ -6,6 +6,6 @@ const router = express.Router();
 const tipsController = require('../controllers/tipsControllers');
 
 /* GET - tips page. */
-router.get('/tips', tipsController.reg);
+router.get('/tips', tipsController.list);
 
 module.exports = router;
