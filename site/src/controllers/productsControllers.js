@@ -2,21 +2,32 @@ let db = require('../database/models');
 let Sequelize = db.sequelize;
 const Op = Sequelize.Op;
 
-const { check, validationResult, body } = require('express-validator');
+const {
+    check,
+    validationResult,
+    body
+} = require('express-validator');
 
 
 const controller = {
     productsList: (req, res) => {
         let categories = db.Category.findAll()
         let products = db.Product.findAll({
-                where: {
-                    enabled: 1
-                }
-            })
-            Promise.all([products, categories])
+            where: {
+                enabled: 1,
+                stock: {
+                    [db.Sequelize.Op.gte]: 1
+                },
+            }
+        })
+        Promise.all([products, categories])
             .then((results) => {
 
-                return res.render('products', { products: results[0], categories: results[1], usuarioLogueado: req.session.usuarioLogueado });
+                return res.render('products', {
+                    products: results[0],
+                    categories: results[1],
+                    usuarioLogueado: req.session.usuarioLogueado
+                });
 
             }).catch((err) => console.error(err));
     },
@@ -24,41 +35,52 @@ const controller = {
     category: (req, res) => {
 
         let categories = db.Category.findAll()
-       let category = db.Category.findByPk(req.params.id, {
-            include: [ "products"]
+        let category = db.Category.findByPk(req.params.id, {
+            include: ["products"]
         })
         Promise.all([category, categories])
             .then((results) => {
 
-            return res.render('productByCategory', { category: results[0], categories: results[1], usuarioLogueado: req.session.usuarioLogueado });
-        }).catch((err) => console.error(err));
+                return res.render('productByCategory', {
+                    category: results[0],
+                    categories: results[1],
+                    usuarioLogueado: req.session.usuarioLogueado
+                });
+            }).catch((err) => console.error(err));
     },
 
     details: (req, res) => {
         let category = db.Category.findByPk(req.params.id, {
             include: [{
-                        association: "products"
-                    }]
+                association: "products"
+            }]
         })
-        let product = db.Product.findByPk(req.params.id,{
+        let product = db.Product.findByPk(req.params.id, {
             include: [{
-                        association: "categories"
-                    }]
+                association: "categories"
+            }]
         })
         Promise.all([category, product])
             .then((results) => {
                 if (results[1] == null) {
                     return res.redirect('/');
                 }
-            return res.render('productDetail', { category: results[0], product: results[1], usuarioLogueado: req.session.usuarioLogueado });
-        }).catch((err) => console.error(err));
+                return res.render('productDetail', {
+                    category: results[0],
+                    product: results[1],
+                    usuarioLogueado: req.session.usuarioLogueado
+                });
+            }).catch((err) => console.error(err));
     },
 
     admin: (req, res) => {
         db.Product.findAll()
             .then(products => {
 
-                return res.render('productAdmin', { products: products, usuarioLogueado: req.session.usuarioLogueado });
+                return res.render('productAdmin', {
+                    products: products,
+                    usuarioLogueado: req.session.usuarioLogueado
+                });
 
             })
             .catch((err) => console.error(err));
@@ -77,10 +99,15 @@ const controller = {
         if (req.params.id != 0) {
             //Edito un producto existente
             product = db.Product.findByPk(req.params.id, {
-                include: [
-                    { association: "diets" },
-                    { association: "categories" },
-                    { association: "recipes" }
+                include: [{
+                        association: "diets"
+                    },
+                    {
+                        association: "categories"
+                    },
+                    {
+                        association: "recipes"
+                    }
                 ],
             });
         } else {
@@ -396,16 +423,24 @@ const controller = {
         if (errors.isEmpty()) {
 
             db.ProductCategory.destroy({
-                where: { id_product: req.body.id }
+                where: {
+                    id_product: req.body.id
+                }
             })
             db.ProductDiet.destroy({
-                where: { id_product: req.body.id }
+                where: {
+                    id_product: req.body.id
+                }
             })
             db.ProductRecipe.destroy({
-                where: { id_product: req.body.id }
+                where: {
+                    id_product: req.body.id
+                }
             })
             db.Product.destroy({
-                where: { id: req.body.id }
+                where: {
+                    id: req.body.id
+                }
             })
         }
         return res.redirect('/product/admin');

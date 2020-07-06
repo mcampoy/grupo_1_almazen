@@ -20,7 +20,7 @@ const controller = {
 
         var receta = db.Recipe.findByPk(1);
         var sales = db.Product.findAll({
-            where:{
+            where: {
                 enabled: 1,
                 discount: {
                     [db.Sequelize.Op.gte]: 1
@@ -30,12 +30,17 @@ const controller = {
                 },
             },
             limit: 3,
-            });
+        });
 
         Promise.all([products, receta, sales])
             .then((results) => {
 
-                return res.render('index', { products: results[0], receta: results[1], sales: results[2], usuarioLogueado: req.session.usuarioLogueado });
+                return res.render('index', {
+                    products: results[0],
+                    receta: results[1],
+                    sales: results[2],
+                    usuarioLogueado: req.session.usuarioLogueado
+                });
 
             }).catch((err) => console.error(err));
 

@@ -47,7 +47,9 @@
             <h3 class="col-12 titulo_seccion tituloProd"> <%= category.name %> </h3>
 
             <% for (let product of category.products) { %>
+            <% if (product.stock > 0 && product.enabled == 1) { %>
             <%- include('partials/productCard', {product}) %>
+            <% } %>
             <% } %>
         </div>
     </div>

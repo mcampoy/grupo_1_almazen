@@ -42,9 +42,9 @@
 
             <% for (let product of products) { %>
             <!-- Verifico que haya stock y que esté habilitado -->
-            <% if (product.stock > 0 && product.enabled == 1) { %>
+
             <%- include('partials/productCard', {product}) %>
-            <% } %>
+
             <% } %>
         </div>
     </div>
