@@ -2,20 +2,53 @@
 
 <div class="ladofrente col-md-3 tarjeta-recetas tarjetaProd">
     <a href="/product/details/<%= product.id %>">
-        <figure class="img-tarjeta-receta img-tarjeta-prod">
+        <figure class="img-tarjeta-receta" id="img-tarjeta-prod">
             <img src="/images/imgProductos/<%= product.image %>" alt="Imagen de <%= product.name %>">
         </figure>
-        <h3 class="tituloscard name-product-card"><%= product.name %> <br> <span class="quantity-prod-card"><%= product.quantity %> <%= product.unit %></span></h3>
-        <p class="description-prod-card"><%= product.description_short %> <br></p>
-        <% if (product.discount > 0) { %>
+    </a>
+
+    <div class="row">
+        <div class="col-9 productPrice">
+            <% if (product.discount > 0) { %>
             <span class="ml-auto precio_producto">$ <%= product.price %> </span>
             <span class="discountTagPosition">
-            <i class="fas fa-tag discountTag"></i> <span class="discountTag"><%= product.discount %>% OFF </span>
+                <i class="fas fa-tag discountTag"></i> <span class="discountTag"><%= product.discount %>% OFF
+                </span>
             </span>
             <% }else { %>
-                <span class="ml-auto precio_producto">$ <%= product.price %> </span>
-                <% } %>
-            <br>
-        <a class="verDetalle" href="details/<%= product.id %>">Ver más detalles</a>
-    </a>
+            <span class="ml-auto precio_producto">$ <%= product.price %> </span>
+            <% } %>
+        </div>
+        <i class="far fa-heart col-3 prodFav" id="prodFav"></i>
+    </div>
+
+    <span class="col-9 tituloscard name-product-card"> <%= product.name %> </span> <span
+        class="col-3 quantity-prod-card"><%= product.quantity %> <%= product.unit %></span>
+    <!-- <p class="description-prod-card"><%= product.description_short %></p> -->
+
+    <!-- <div class="row showMore">
+                    <a class="col-12 verDetalle" href="details/<%= product.id %>">Ver más detalles</a> -->
+    <!-- </div> -->
+    <button class="col-8 col-lg-7 mt-3 d-flex justify-content-center align-items-center btn_producto"
+        onclick="window.location='/cart/'">AGREGAR AL CARRITO</button>
 </div>
+
+
+<script>
+    // CAMBIAR CORAZÓN EN FAVORITO
+    let favs = document.querySelectorAll('.prodFav')
+    for (let fav of favs) {
+    fav.addEventListener('click', function () {
+        if (fav.classList.contains('far')) {
+            fav.classList.remove('far')
+            fav.classList.add('fas')
+        } else {
+            fav.classList.remove('fas')
+            fav.classList.add('far')
+        }
+    
+    
+        // corazon.classList.toggle('fas')
+        console.log('click')
+    })}
+</script>

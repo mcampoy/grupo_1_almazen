@@ -45,9 +45,7 @@ const controller = {
         //     }).catch((err) => console.error(err));
 
        let category = db.Category.findByPk(req.params.id, {
-            include: [{
-                        association: "products"
-                    }]
+            include: [ "products"]
         })
         Promise.all([category, categories])
             .then((results) => {

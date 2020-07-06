@@ -141,8 +141,10 @@
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Lista de compras</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>
+                                                               
+                                                                <h5 class="modal-title headerModalListaCompras" id="ModalCompras">Lista de compras</h5>
+
+                                                                <button type="button" class="close" id="closeList" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
                                                         <div class="modal-body">
@@ -293,8 +295,6 @@
 
 
                     //  FUNCIÓN PARA AJUSTAS LAS CANTIDADES DE LA RECETA
-
-
                     window.addEventListener('load', () => {
 
                         let slcCantidad = document.getElementById('slcCantidad')
@@ -355,15 +355,15 @@
 
                         //  AGREGAR A LA LISTA DE COMPRAS
 
-                            document.getElementById('log').innerHTML= '<h4>' + 'Para esta receta necesito comprar' + '</h4><br>';
+                            document.getElementById('log').innerHTML= '<h4 id="Ineed">' + 'Para esta receta necesito comprar:' + '</h4><br>';
 
                             for (var i=0; i<sessionStorage.length; i++){
                                 var key = sessionStorage.key(i);
                                 document.getElementById(key).checked=1;
-                                document.getElementById('log').innerHTML+= '<li>' + sessionStorage.getItem(key) + '</li>';
+                                document.getElementById('log').innerHTML+= '<li class="itemList">' + sessionStorage.getItem(key) + '</li>';
                             }
 
-                            if(!i)document.getElementById('log').innerHTML+= '<h6 style="color:red; text-align:center">' + '¡Nada! ¡Tengo todo lo que necesito!' + '</h6>';
+                            if(!i)document.getElementById('log').innerHTML+= '<h6 id="nada">' + '¡Nada! ¡Tengo todo lo que necesito!' + '<br>' + '<br>' + '<i class="far fa-smile-wink" id="smile"></i>' + '</h6>';
                     })
                 </script>
 

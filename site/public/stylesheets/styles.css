@@ -1844,12 +1844,17 @@ figure img.sg-logo-receta {
     z-index: 100;
 }
 
-.img-tarjeta-prod {
-    margin-bottom: 0;
+#img-tarjeta-prod img {
+    margin-bottom: 0 !important;
 }
 
 .name-product-card {
-    margin-bottom: 2%;
+    color: var(--colorTituloProducto);
+    font-size: 1.2em;
+    font-family: var(--fuenteTituloProducto);
+    font-weight: var(--fontweightTituloProducto);
+    text-align: start;
+    padding: 0;
 }
 
 .description-prod-card {
@@ -1863,15 +1868,18 @@ figure img.sg-logo-receta {
 .quantity-prod-card {
     font-family: var(--fontSizeDescripcionProducto);
     color: var(--colorDescripcionProducto);
-    font-size: .5em;
-    margin-left: 2%;
+    font-weight: 400;
+    font-size: 1em;
+    padding-left: 2%;
 }
 
-.verDetalle {
-    color: var(--colorMenu);
-    position: relative;
-    right: -60%;
+.productPrice {
+    font-family: var(--fontPrecioProducto);
+    font-weight: var(--fontweightPrecioProducto);
+    padding: 0;
 }
+
+
 
 .social-bar img:hover {
     border-radius: 50%;
@@ -2457,13 +2465,15 @@ a.article:hover {
     background-color: var(--colorMenu);
     border:1 solid var(--colorMenu);
 } */
-.rowContainer {
-    margin-right: 50px;
-    border-radius: 4px;
+
+
+@media (min-width: 1024PX){
+    .rowContainer {
+        margin-right: 50px;
+    }
 }
+
 #tarjetas-productos {
-    /* width: 100%;
-    max-width: 2000px; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -2520,4 +2530,53 @@ a.article:hover {
 
 .categoryDetail {
     text-transform: capitalize;
+}
+
+#prodFav {
+    color: var(--colorMenu);
+    font-size: 1.2em;
+    text-align: right;
+    align-self: center;
+}
+
+.headerModalListaCompras {
+    text-align: center;
+    font-family: var(--fuenteCategoriaProducto);
+    font-size: var(--fontSizeMenuFooter);
+}
+
+#ModalCompras {
+    display: block;
+    margin: 0 auto;
+    font-family: var(--fontSizeTituloReceta);
+    font-size: var(--fontSizeTipoReceta);
+}
+
+#closeList {
+    margin-left: 0;
+    align-self: start;
+}
+#Ineed {
+    font-family: var(--fuenteCategoriaProducto);
+    font-size: .8em;
+    text-align: start;
+    color: var(--colorTituloGeneral)
+}
+
+#nada {
+    text-align: center;
+    margin-bottom: 5%;
+    color: #CF664F;
+    font-size: 1.2em;
+}
+
+#smile {
+    font-size: 2em;
+    color: var(--colorSeccionInfo);
+}
+
+.itemList {
+    padding-left: 5%;
+    color: var(--colorTituloProducto);
+    font-family: var(--fuenteMenu);
 }
