@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include("partials/head", {title: "Nuestros productos"}) %>
+
+</head>
+
+<body>
+    <!-- HEADER -->
+    <%- include("partials/header", {usuarioLogueado: usuarioLogueado}) %>
+    <!-- /HEADER -->
+
+    <!-- Redes Sociales Flotantes-->
+    <%-include('partials/redesSociales') %>
+
+    <% if (products == '' && recetas == '') { %>
+
+    <div class="mb-3">
+        <h3 class="noFound">No hay resultados <br> que coincidan con tu búsqueda <br><i id="searchGlass" class="fas fa-search"></i></h3>
+    </div>
+
+    <% }else { %>
+
+    <% if (products != '') { %>
+    <div class="row rowContainer caja mb-3">
+        <div class="container col-12 col-md-10 container-tarjetas-productos mt-5" id="tarjetas">
+            <h3 class="col-12 titulo_seccion">Productos relacionados con tu búsqueda</h3>
+
+            <% for (let product of products) { %>
+            <%- include('partials/productCard', {product}) %>
+            <% } %>
+        </div>
+    </div>
+    <% } %>
+
+    <% if (recetas != '') { %>
+    <div class="row rowContainer caja mb-3">
+        <div class="container col-12 col-md-10 container-tarjetas-productos mt-5" id="tarjetas">
+            <h3 class="col-12 titulo_seccion">Recetas relacionadas con tu búsqueda</h3>
+            <% for( let receta of recetas) { %>
+            <%- include("partials/tarjetaReceta", {receta}) %>
+            <% } %>
+        </div>
+        <% } %>
+    </div>
+    <% } %>
+
+    <!-- FOOTER -->
+    <%- include("partials/footer") %>
+    <!-- /FOOTER -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

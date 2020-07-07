@@ -2661,3 +2661,61 @@ a.article:hover {
     color: var(--colorTituloProducto);
     font-family: var(--fuenteMenu);
 }
+
+/* CARD PRODUCTOS RELACIONADOS */
+
+.relProd {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    margin: 2px;
+}
+
+.relProdImg {
+margin: 2% 0;
+padding: 2%;
+}
+
+.relProd a {
+    text-decoration: none;
+}
+
+.relProdContainer, .relProd, .relProdWrapp, .contentProdRel {
+    padding: 0;
+}
+
+.contentProdRel {
+    padding-top: 3%;
+}
+
+.contentProdRel p, h6 {
+    margin: 0;
+}
+
+.prodRelName {
+    font-family: var(--fuenteTituloProducto);
+    color: var(--colorTituloProducto);
+    font-size: 1em;
+}
+
+.prodRelCategory {
+    font-family: var(--fuenteDescripcionProducto);
+    color: var(--colorTituloGeneral);
+    text-transform: capitalize;
+}
+
+.noFound {
+    text-align: center;
+    padding: 10% 0;
+    font-family: var(--fuenteSlider);
+    font-size: 2em;
+    font-weight: var(--fontweightSlider);
+    align-self: center;
+    color: var(--colorMenu);
+}
+
+#searchGlass{
+    font-size: 2em;
+    color: var(--colorMenu);
+    padding-top: 2%;
+}

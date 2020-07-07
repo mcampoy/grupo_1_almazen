@@ -1,5 +1,5 @@
 let db = require('../database/models');
-let Sequelize = db.sequelize;
+const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 const {
@@ -449,18 +449,29 @@ const controller = {
 
     // INTENTO DE IMPLEMENTAR BUSCADOR
 
-    // find: (req, res) => {
-    //     db.Product.findAll({
-    //         name: {
-    //             [db.Sequelize.Op.like]: '%req.body%'
-    //         }
-    //     })
-    //     .then((products)=>{
-    //         console.log(products)
-    //         // return res.render('header', {products, usuarioLogueado: req.session.usuarioLogueado })
-    //     })
+    find: (req, res) => {
+      let products =
+        db.Product.findAll({
+            where: {
+            enabled: 1,
+            name: {[Op.like]: `%${req.body.search}%`}
+        }
+        })
 
-    // }
+        let recetas = 
+        db.Recipe.findAll({
+            where: {
+            enabled: 1,
+            name: {[Op.like]: `%${req.body.search}%`}
+        }
+        })
+
+        Promise.all([products, recetas])
+        .then((results) => {
+            return res.render('search', {products: results[0], recetas: results[1], usuarioLogueado: req.session.usuarioLogueado })
+        })
+
+    }
 };
 
 module.exports = controller;

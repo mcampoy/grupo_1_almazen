@@ -114,6 +114,79 @@
     </article>
     <!-- /Details products -->
 
+    <!-- PRODUCTOS RELALCIONADOS -->
+    <div class="container relProdContainer">
+        <div class="row">
+
+            <div class="col-12 col-md-4 relProd">
+                <a href="">
+                    <div class="container relProdWrapp">
+                        <div class="row">
+                            <figure class="col-6 relProdImg">
+                                <img src="/images/imgProductos/<%= product.image %>" style="width: 100%;" alt="">
+                            </figure>
+                            <div class="col-6 contentProdRel">
+                                <h5 class="prodRelName"><%= product.name %></h5>
+                                <p class="prodRelCategory"><%= product.categories.name %></p>
+                                <p>$<%= product.price %></p>
+                            </div>
+                            <!-- <div class="col-12">
+                                <p><%= product.description_short %> </p>
+                            </div> -->
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-12 col-md-4 relProd">
+                <a href="">
+                    <div class="container relProdWrapp">
+                        <div class="row">
+                            <figure class="col-6 relProdImg">
+                                <img src="/images/imgProductos/<%= product.image %>" style="width: 100%;" alt="">
+                            </figure>
+                            <div class="col-6 contentProdRel">
+                                <h5 class="prodRelName"><%= product.name %></h5>
+                                <p class="prodRelCategory"><%= product.categories.name %></p>
+                                <p>$<%= product.price %></p>
+                            </div>
+                            <!-- <div class="col-12">
+                                <p><%= product.description_short %> </p>
+                            </div> -->
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-12 col-md-4 relProd">
+                <a href="">
+                    <div class="container relProdWrapp">
+                        <div class="row">
+                            <figure class="col-6 relProdImg">
+                                <img src="/images/imgProductos/<%= product.image %>" style="width: 100%;" alt="">
+                            </figure>
+                            <div class="col-6 contentProdRel">
+                                <h5 class="prodRelName"><%= product.name %></h5>
+                                <p class="prodRelCategory"><%= product.categories.name %></p>
+                                <p>$<%= product.price %></p>
+                            </div>
+                            <!-- <div class="col-12">
+                                <p><%= product.description_short %> </p>
+                            </div> -->
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            
+            
+        </div>
+    </div>
+    <!-- /PRODUCTOS RELALCIONADOS -->
+
+
+
+
     <!-- FOOTER -->
     <%- include("partials/footer") %>
     <!-- /FOOTER -->
