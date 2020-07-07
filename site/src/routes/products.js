@@ -20,6 +20,7 @@ router.delete('/admin', usersMiddlewares.adminValidation, productsMiddlewares.de
 router.put('/admin', usersMiddlewares.adminValidation, productsMiddlewares.editProductValidation, middUploadFile.uploadFile, productsControllers.adminUpdate);
 router.post('/admin', usersMiddlewares.adminValidation, productsMiddlewares.newProductValidation, middUploadFile.uploadFile, productsControllers.adminCreate);
 
+// Buscador
 router.post('/find', productsControllers.find)
 
 module.exports = router;

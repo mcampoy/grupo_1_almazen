@@ -2672,15 +2672,18 @@ a.article:hover {
 }
 
 .relProdImg {
-margin: 2% 0;
-padding: 2%;
+    margin: 2% 0;
+    padding: 2%;
 }
 
 .relProd a {
     text-decoration: none;
 }
 
-.relProdContainer, .relProd, .relProdWrapp, .contentProdRel {
+.relProdContainer,
+.relProd,
+.relProdWrapp,
+.contentProdRel {
     padding: 0;
 }
 
@@ -2688,7 +2691,8 @@ padding: 2%;
     padding-top: 3%;
 }
 
-.contentProdRel p, h6 {
+.contentProdRel p,
+h6 {
     margin: 0;
 }
 
@@ -2714,7 +2718,7 @@ padding: 2%;
     color: var(--colorMenu);
 }
 
-#searchGlass{
+#searchGlass {
     font-size: 2em;
     color: var(--colorMenu);
     padding-top: 2%;
