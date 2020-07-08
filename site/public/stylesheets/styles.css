@@ -2664,13 +2664,6 @@ a.article:hover {
 
 /* CARD PRODUCTOS RELACIONADOS */
 
-.relProd {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-    margin: 2px;
-}
-
 .relProdImg {
     margin: 2% 0;
     padding: 2%;
@@ -2689,24 +2682,36 @@ a.article:hover {
 
 .contentProdRel {
     padding-top: 3%;
+    padding-left: 4%;
 }
 
-.contentProdRel p,
-h6 {
+.contentProdRel p, h6 {
     margin: 0;
 }
 
 .prodRelName {
     font-family: var(--fuenteTituloProducto);
     color: var(--colorTituloProducto);
-    font-size: 1em;
+    padding-top: 8%;
+    margin-bottom: 0;
+    font-size: 1.2em;
 }
 
 .prodRelCategory {
     font-family: var(--fuenteDescripcionProducto);
     color: var(--colorTituloGeneral);
     text-transform: capitalize;
+    font-size: smaller;
 }
+
+.prodRelPrice {
+    font-family: var(--fontPrecioProducto);
+    color: var(--colorDescripcionProducto);
+    font-size: var(--fontPrecioProducto);
+    font-weight: var(--fontweightPrecioProducto);
+}
+
+/* VISTAS DEL BUSCADOR */
 
 .noFound {
     text-align: center;

@@ -115,77 +115,36 @@
     <!-- /Details products -->
 
     <!-- PRODUCTOS RELALCIONADOS -->
-    <div class="container relProdContainer">
-        <div class="row">
+    <div class="container relProdContainer mb-5">
+        <h3 class="mt-5 mb-3" style="text-align: center;"">Productos relacionados</h3>
+        <div class=" row">
+
+            <% for( let prodRelated of related ) { %>
 
             <div class="col-12 col-md-4 relProd">
-                <a href="">
+                <a href="/product/details/<%= prodRelated.id %>">
                     <div class="container relProdWrapp">
                         <div class="row">
                             <figure class="col-6 relProdImg">
-                                <img src="/images/imgProductos/<%= product.image %>" style="width: 100%;" alt="">
+                                <img src="/images/imgProductos/<%= prodRelated.image %>" style="width: 100%;" alt="">
                             </figure>
                             <div class="col-6 contentProdRel">
-                                <h5 class="prodRelName"><%= product.name %></h5>
-                                <p class="prodRelCategory"><%= product.categories.name %></p>
-                                <p>$<%= product.price %></p>
+                                <h5 class="prodRelName"><%= prodRelated.name %></h5>
+                                <p class="prodRelCategory"><%= prodRelated.categories.name %></p>
+                                <p class="prodRelPrice">$<%= prodRelated.price %></p>
                             </div>
                             <!-- <div class="col-12">
-                                <p><%= product.description_short %> </p>
-                            </div> -->
+                                            <p><%= product.description_short %> </p>
+                                        </div> -->
                         </div>
                     </div>
                 </a>
             </div>
-            
-            <div class="col-12 col-md-4 relProd">
-                <a href="">
-                    <div class="container relProdWrapp">
-                        <div class="row">
-                            <figure class="col-6 relProdImg">
-                                <img src="/images/imgProductos/<%= product.image %>" style="width: 100%;" alt="">
-                            </figure>
-                            <div class="col-6 contentProdRel">
-                                <h5 class="prodRelName"><%= product.name %></h5>
-                                <p class="prodRelCategory"><%= product.categories.name %></p>
-                                <p>$<%= product.price %></p>
-                            </div>
-                            <!-- <div class="col-12">
-                                <p><%= product.description_short %> </p>
-                            </div> -->
-                        </div>
-                    </div>
-                </a>
-            </div>
-            
-            <div class="col-12 col-md-4 relProd">
-                <a href="">
-                    <div class="container relProdWrapp">
-                        <div class="row">
-                            <figure class="col-6 relProdImg">
-                                <img src="/images/imgProductos/<%= product.image %>" style="width: 100%;" alt="">
-                            </figure>
-                            <div class="col-6 contentProdRel">
-                                <h5 class="prodRelName"><%= product.name %></h5>
-                                <p class="prodRelCategory"><%= product.categories.name %></p>
-                                <p>$<%= product.price %></p>
-                            </div>
-                            <!-- <div class="col-12">
-                                <p><%= product.description_short %> </p>
-                            </div> -->
-                        </div>
-                    </div>
-                </a>
-            </div>
-            
-            
-            
-        </div>
+
+            <% } %>
+    </div>
     </div>
     <!-- /PRODUCTOS RELALCIONADOS -->
-
-
-
 
     <!-- FOOTER -->
     <%- include("partials/footer") %>

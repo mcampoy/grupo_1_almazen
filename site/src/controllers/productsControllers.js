@@ -50,17 +50,33 @@ const controller = {
     },
 
     details: (req, res) => {
+        
         let category = db.Category.findByPk(req.params.id, {
             include: [{
                 association: "products"
-            }]
+            }],
         })
+
         let product = db.Product.findByPk(req.params.id, {
             include: [{
                 association: "categories"
             }]
         })
-        Promise.all([category, product])
+
+        let related = db.Product.findAll({
+            include: [{
+                association: "categories"
+            }],
+            where: {
+                enabled: 1,
+                id: {[Op.not]: req.params.id},
+            },
+            order: [
+                ['id', "DESC"]
+            ],
+            limit: 3,
+        })
+        Promise.all([category, product, related])
             .then((results) => {
                 if (results[1] == null) {
                     return res.redirect('/');
@@ -68,6 +84,7 @@ const controller = {
                 return res.render('productDetail', {
                     category: results[0],
                     product: results[1],
+                    related: results[2],
                     usuarioLogueado: req.session.usuarioLogueado
                 });
             }).catch((err) => console.error(err));

@@ -38,17 +38,18 @@
     // CAMBIAR CORAZÓN EN FAVORITO
     let favs = document.querySelectorAll('.prodFav')
     for (let fav of favs) {
-    fav.addEventListener('click', function () {
-        if (fav.classList.contains('far')) {
-            fav.classList.remove('far')
-            fav.classList.add('fas')
-        } else {
-            fav.classList.remove('fas')
-            fav.classList.add('far')
-        }
-    
-    
-        // corazon.classList.toggle('fas')
-        console.log('click')
-    })}
+        fav.addEventListener('click', function () {
+            if (fav.classList.contains('far')) {
+                fav.classList.remove('far')
+                fav.classList.add('fas')
+            } else {
+                fav.classList.remove('fas')
+                fav.classList.add('far')
+            }
+
+
+            // corazon.classList.toggle('fas')
+            console.log('click')
+        })
+    }
 </script>
