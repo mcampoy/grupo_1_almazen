@@ -168,9 +168,8 @@
                                         <% categories.forEach(category => { %>
                                             <div class="card_item text-left">
                                                 <div class="form-check d-inline-block">
-                                                    <input name="categories" type="checkbox" class="" id="checkboxcategory<%=category.id %>" value="<%=category.id %>" <% product.categories.forEach(ProdCategory=> { if (category.id==ProdCategory.id) {%>
-                                                    checked
-                                                    <% }}); %>
+                                                    <input name="id_category" type="checkbox" onclick="onlyOne(this)" class="" id="checkboxcategory<%=category.id %>" value="<%=category.id %>" <% if (category.id==product.id_category) {%> checked
+                                                    <% }; %>
                                                         <% if (edit != '1' && edit !='2') { %> disabled
                                                             <% } %>
                                                                 >

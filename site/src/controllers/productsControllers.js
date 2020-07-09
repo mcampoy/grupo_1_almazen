@@ -38,8 +38,10 @@ const controller = {
         let category = db.Category.findByPk(req.params.id, {
             include: ["products"]
         })
+        console.log(category);
         Promise.all([category, categories])
             .then((results) => {
+                console.log(category);
 
                 return res.render('productByCategory', {
                     category: results[0],
@@ -69,7 +71,9 @@ const controller = {
             }],
             where: {
                 enabled: 1,
-                id: {[Op.not]: req.params.id},
+                id: {
+                    [Op.not]: req.params.id
+                },
             },
             order: [
                 ['id_category', "ASC"]
@@ -93,12 +97,10 @@ const controller = {
     admin: (req, res) => {
         db.Product.findAll()
             .then(products => {
-
                 return res.render('productAdmin', {
                     products: products,
                     usuarioLogueado: req.session.usuarioLogueado
                 });
-
             })
             .catch((err) => console.error(err));
     },
@@ -120,9 +122,6 @@ const controller = {
                         association: "diets"
                     },
                     {
-                        association: "categories"
-                    },
-                    {
                         association: "recipes"
                     }
                 ],
@@ -141,7 +140,7 @@ const controller = {
             product.stock = 0;
             product.image = "defaultProduct.jpg";
             product.enabled = true;
-            product.categories = [];
+            product.category = null;
             product.recipes = [];
             product.diets = [];
         }
@@ -175,7 +174,7 @@ const controller = {
             price: parseInt(req.body.price),
             discount: parseInt(req.body.discount),
             stock: parseInt(req.body.stock),
-            categories: req.body.categories,
+            id_category: req.body.id_category,
             recipes: req.body.recipes,
             diets: req.body.diets
         }
@@ -187,11 +186,6 @@ const controller = {
         if (!Array.isArray(product.recipes)) {
             product.recipes = [product.recipes];
         }
-
-        if (!Array.isArray(product.categories)) {
-            product.categories = [product.categories];
-        }
-
 
         if (typeof req.file !== 'undefined') {
             product.image = req.file.filename //si  se seleccionó algún archivo de imagen
@@ -210,6 +204,7 @@ const controller = {
         }
 
         let errors = validationResult(req);
+        console.log(errors);
 
         if (errors.isEmpty()) {
 
@@ -224,6 +219,7 @@ const controller = {
                 discount: product.discount,
                 stock: product.stock,
                 image: product.image,
+                id_category: product.id_category,
                 enabled: product.enabled,
 
             }, {
@@ -232,20 +228,6 @@ const controller = {
                 }
             });
 
-            //Borro las relaciones antiguas con categorìas
-            db.ProductCategory.destroy({
-                where: {
-                    id_product: product.id
-                }
-            }).then(
-                //Creo las relaciones exitentes con categorías
-                product.categories.forEach(idCategory => {
-                    db.ProductCategory.create({
-                        id_product: product.id,
-                        id_category: idCategory
-                    })
-                })
-            )
 
             //Borro las relaciones antiguas con dietas
             db.ProductDiet.destroy({
@@ -322,11 +304,11 @@ const controller = {
             price: parseInt(req.body.price),
             discount: parseInt(req.body.discount),
             stock: parseInt(req.body.stock),
-            categories: req.body.categories,
+            category: req.body.id_category,
             recipes: req.body.recipes,
             diets: req.body.diets
         }
-
+        console.log(req.body);
         if (!Array.isArray(product.diets)) {
             product.diets = [product.diets];
         }
@@ -335,9 +317,6 @@ const controller = {
             product.recipes = [product.recipes];
         }
 
-        if (!Array.isArray(product.categories)) {
-            product.categories = [product.categories];
-        }
 
 
         if (typeof req.file !== 'undefined') {
@@ -351,12 +330,14 @@ const controller = {
         }
 
         if (typeof req.body.enabled !== 'undefined') {
-            product.enabled = true;
+            product.enabled = 1;
         } else {
-            product.enabled = false;
+            product.enabled = 0;
         }
 
         let errors = validationResult(req);
+        console.log(errors);
+
         if (errors.isEmpty()) {
 
             db.Product.create({
@@ -370,16 +351,10 @@ const controller = {
                 discount: product.discount,
                 stock: product.stock,
                 image: product.image,
+                id_category: product.category,
                 enabled: product.enabled,
             }).then((prod) => {
 
-                //Creo las relaciones exitentes con categorías
-                product.categories.forEach(idCategory => {
-                    db.ProductCategory.create({
-                        id_product: prod.id,
-                        id_category: idCategory
-                    })
-                });
 
                 //Creo las relaciones exitentes con dietas
                 product.diets.forEach(idDiet => {
@@ -436,14 +411,9 @@ const controller = {
 
     delete: (req, res, next) => {
         let errors = validationResult(req);
-
+        console.log(errors);
         if (errors.isEmpty()) {
 
-            db.ProductCategory.destroy({
-                where: {
-                    id_product: req.body.id
-                }
-            })
             db.ProductDiet.destroy({
                 where: {
                     id_product: req.body.id
@@ -467,26 +437,30 @@ const controller = {
     // INTENTO DE IMPLEMENTAR BUSCADOR
 
     find: (req, res) => {
-      let products =
-        db.Product.findAll({
-            where: {
-            enabled: 1,
-            name: {[Op.like]: `%${req.body.search}%`}
-        }
-        })
+        let products =
+            db.Product.findAll({
+                where: {
+                    enabled: 1,
+                    name: {
+                        [Op.like]: `%${req.body.search}%`
+                    }
+                }
+            })
 
-        let recetas = 
-        db.Recipe.findAll({
-            where: {
-            enabled: 1,
-            name: {[Op.like]: `%${req.body.search}%`}
-        }
-        })
+        let recetas =
+            db.Recipe.findAll({
+                where: {
+                    enabled: 1,
+                    name: {
+                        [Op.like]: `%${req.body.search}%`
+                    }
+                }
+            })
 
         Promise.all([products, recetas])
-        .then((results) => {
-            return res.render('search', {products: results[0], recetas: results[1], usuarioLogueado: req.session.usuarioLogueado })
-        })
+            .then((results) => {
+                return res.render('search', { products: results[0], recetas: results[1], usuarioLogueado: req.session.usuarioLogueado })
+            })
 
     }
 };

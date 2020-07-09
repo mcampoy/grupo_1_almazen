@@ -8,194 +8,204 @@
 
 <body>
     <!-- HEADER -->
-    
-        <!-- /HEADER -->
-        <div class="wrapper">
-            <!-- Sidebar  -->
-            <nav id="sidebar">
-                <div class="sidebar-header">
-                    
 
-                        <img src="/users-avatar/avatar-1593036167353.png" class="dropdown-toggle d-flex justify-content-center mx-auto" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="30%" style="border-radius: 50%;" alt="Imagen de suario">
-                        <div class="d-flex justify-content-center mx-auto ">
-                            <h4 class="userNameLogProfile">Usuario</h4>
-                          </div>
-                        
-    
+    <!-- /HEADER -->
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+
+
+                <img src="/users-avatar/avatar-1593036167353.png" class="dropdown-toggle d-flex justify-content-center mx-auto" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="30%" style="border-radius: 50%;"
+                    alt="Imagen de suario">
+                <div class="d-flex justify-content-center mx-auto ">
+                    <h4 class="userNameLogProfile">Usuario</h4>
                 </div>
-    
-                <ul class="">
-                    
-                        
-            
-                        
-                    <li class="active">
-                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user-circle"></i> PERFIL</a>
-                        <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li>
-                                <a href="#editarPerfil"> Editar Perfil</a>
-                            </li>
-                            <li>
-                                <a href="#">Eliminar</a>
-                            </li>
-                            
-                        </ul>
-                    </li>
-                    
-                   
-                    <li>
-                        <a href="#historial"><i class="fas fa-shopping-cart"></i> Historial de compras</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fas fa-heart"></i> Productos Favoritos</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fas fa-stream"></i> Lista usuarios(ADMIN)</a>
-                    </li>
-                    
-                </ul>
-    
-                <ul class="list-unstyled CTAs">
-                    <li>
-                        <a href="/" class=".btnSidebar">Volver al inicio</a>
-                    </li>
-                    <li>
-                        <a href="#" class=".btnSidebar">Ver todos los productos</a>
-                    </li>
-                </ul>
-            </nav>
-    
-            <!-- Page Content  -->
-            <div id="content" class="mb-2">
-    
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid">
-    
-                        <button type="button" id="sidebarCollapse" class="btn btn-info">
+
+
+            </div>
+
+            <ul class="">
+
+
+
+
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user-circle"></i> PERFIL</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#editarPerfil"> Editar Perfil</a>
+                        </li>
+                        <li>
+                            <a href="#">Eliminar</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="#historial"><i class="fas fa-shopping-cart"></i> Historial de compras</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-heart"></i> Productos Favoritos</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-stream"></i> Lista usuarios(ADMIN)</a>
+                </li>
+
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="/" class=".btnSidebar">Volver al inicio</a>
+                </li>
+                <li>
+                    <a href="#" class=".btnSidebar">Ver todos los productos</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="mb-2">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
                                 <i class="fas fa-angle-right"></i>
                             
                         </button>
-                       
-    
-                        
-                    </div>
-                </nav>
 
-                <!-- -- -- -- EDICION PERFIL -- -- -- -->
-                <section id="editarPerfil">
-                    <h2 class="TituloDestacados">Editar perfil</h2>
-                    <form method="post" action="/users/edit" id="miFormulario" enctype="multipart/form-data" class="col-10">
-                        <div class="form-campos">
-                            <!-- nombre -->
-                            <div class="form-group">
-                                <label class="modal-label" for="nombre">Editar nombre</label>
-                                <input type="text" class="form-control" id="nombre" name="name" aria-describedby="nombre" placeholder="user.name" required />
-                            </div>
 
-                            <!-- email -->
-                            <div class="form-group">
-                                <label class="modal-label" for="exampleInputEmail1">Editar email</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="user.email" required />
-                            </div>
 
-                            <!-- password -->
-                            <div class="form-group">
-                                <label class="modal-label" for="contraseña">Editar contraseña</label>
-                                <input type="password" class="form-control" id="contraseña" name="password" aria-describedby="password" name="password" placeholder="user.password" required />
-                            </div>
+                </div>
+            </nav>
 
-                            <!-- validación -->
-                            <div class="form-group">
-                                <label class="modal-label" for="validation">Repetir la nueva contraseña</label>
-                                <input type="password" class="form-control" id="validation" aria-describedby="validation" name="validation" placeholder="Repetí tu contraseña" required />
-                            </div>
-
-                            <!-- carga de imágenes -->
-                            <div class="form-group">
-                                <label class="modal-label" for="avatar">Cargá una nueva imagen</label>
-                                <input type="file" class="form-control-imagen" id="avatar" name="avatar" required />
-                            </div>
+            <!-- -- -- -- EDICION PERFIL -- -- -- -->
+            <section id="editarPerfil">
+                <h2 class="TituloDestacados">Editar perfil</h2>
+                <form method="post" action="/users/profile" id="miFormulario" enctype="multipart/form-data" class="col-10">
+                    <div class="form-campos">
+                        <!-- nombre -->
+                        <div class="form-group">
+                            <label class="modal-label" for="nombre">Editar nombre</label>
+                            <input type="text" class="form-control" value="<%=user.name%>" id="nombre" name="name" aria-describedby="nombre" placeholder="user.name" />
                         </div>
-                </section>
-                <!-- -- -- -- FIN EDICION PERFIL -- -- -- -->
-                <div class="line"></div>
-                <!-- -- -- -- HISTORIAL DE COMPRAS -- -- -- -->
-                <section id="historial">
-                    <h2 class="TituloDestacados">Historial de compras</h2>
-                    <div class="tableHistorial table-responsive-sm-md">
+
+                        <!-- email -->
+                        <div class="form-group">
+                            <label class="modal-label" for="exampleInputEmail1">Editar email</label>
+                            <input type="email" class="form-control" value="<%=user.email%>" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="user.email" />
+                        </div>
+
+                        <!-- password -->
+                        <div class="form-group">
+                            <label class="modal-label" for="contraseña">Editar contraseña</label>
+                            <input type="password" class="form-control" value="<%=user.password%>" id="contraseña" name="password" aria-describedby="password" name="password" placeholder="user.password" />
+                        </div>
+
+                        <!-- validación -->
+                        <div class="form-group">
+                            <label class="modal-label" for="validation">Repetir la nueva contraseña</label>
+                            <input type="password" class="form-control" value="<%=user.password%>" id="validation" aria-describedby="validation" name="validation" placeholder="Repetí tu contraseña" />
+                        </div>
+
+                        <!-- carga de imágenes -->
+                        <div class="form-group">
+                            <label class="modal-label" for="avatar">Cargá una nueva imagen</label>
+                            <input type="file" class="form-control-imagen" id="avatar" name="avatar" />
+                        </div>
+
+                        <!-- dejar en blanco el formulario o enviar -->
+                        <div class="user form-group">
+                            <button class="login align-items-center justify-content-center" role="button" type="reset">Borrar</button>
+                            <button class="register align-items-center justify-content-center" role="button" type="submit">Enviar</button>
+                        </div>
+
+                    </div>
+            </section>
+            <!-- -- -- -- FIN EDICION PERFIL -- -- -- -->
+            <div class="line"></div>
+            <!-- -- -- -- HISTORIAL DE COMPRAS -- -- -- -->
+            <section id="historial">
+                <h2 class="TituloDestacados">Historial de compras</h2>
+                <div class="tableHistorial table-responsive-sm-md">
                     <table class="table">
                         <thead class="cabezalTabla">
-                          <tr>
-                            <th scope="col">N°Orden</th>
-                            <th scope="col">Producto</th>
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Precio</th>
-                          </tr>
+                            <tr>
+                                <th scope="col">N°Orden</th>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Precio</th>
+                            </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Stevia</td>
-                            <td>Endulzante natural</td>
-                            <td>2 unidades</td>
-                            <td>$170</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Cacao</td>
-                            <td>Amargo en polvo</td>
-                            <td>1 unidad</td>
-                            <td>$300</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Maca</td>
-                            <td>en polvo</td>
-                            <td>5 unidades</td>
-                            <td>$200</td>
-                          </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Stevia</td>
+                                <td>Endulzante natural</td>
+                                <td>2 unidades</td>
+                                <td>$170</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Cacao</td>
+                                <td>Amargo en polvo</td>
+                                <td>1 unidad</td>
+                                <td>$300</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Maca</td>
+                                <td>en polvo</td>
+                                <td>5 unidades</td>
+                                <td>$200</td>
+                            </tr>
                         </tbody>
-                      </table>
-                      
-                      
-                    </div>
-                </section>
-                <!-- -- -- -- FIN HISTORIAL DE COMPRAS -- -- -- -->
-                
-                
-                <div class="line"></div>
-                
-                <!-- -- -- -- PRODUCTOS FAVORITOS -- -- -- -->
-                <h2 class="TituloDestacados">Productos Favoritos</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <!-- -- -- -- FIN PRODUCTOS FAVORITOS -- -- -- -->
-                
-                <div class="line"></div>
+                    </table>
 
-                <!-- -- -- -- RECETARIOS -- -- -- -->
-                <h2 class="TituloDestacados">RECETARIOS</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <!-- -- -- -- FIN RECETARIOS -- -- -- -->
-                
-                <div class="line"></div>
 
-                <!-- -- -- -- LISTA USUARIOS ADMIN -- -- -- -->
-                <h2 class="TituloDestacados">LISTA USUARIOS</h2>
-                <div class="tableHistorial">
-                    <table class="table col-12">
-                        <thead class="cabezalTabla">
-                          <tr>
+                </div>
+            </section>
+            <!-- -- -- -- FIN HISTORIAL DE COMPRAS -- -- -- -->
+
+
+            <div class="line"></div>
+
+            <!-- -- -- -- PRODUCTOS FAVORITOS -- -- -- -->
+            <h2 class="TituloDestacados">Productos Favoritos</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <!-- -- -- -- FIN PRODUCTOS FAVORITOS -- -- -- -->
+
+            <div class="line"></div>
+
+            <!-- -- -- -- RECETARIOS -- -- -- -->
+            <h2 class="TituloDestacados">RECETARIOS</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <!-- -- -- -- FIN RECETARIOS -- -- -- -->
+
+            <div class="line"></div>
+
+            <!-- -- -- -- LISTA USUARIOS ADMIN -- -- -- -->
+            <h2 class="TituloDestacados">LISTA USUARIOS</h2>
+            <div class="tableHistorial">
+                <table class="table col-12">
+                    <thead class="cabezalTabla">
+                        <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Avatar</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Email</th>
                             <th scope="col">Password</th>
                             <th scope="col">Editar / Eliminar</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
                             <th scope="row">1</th>
                             <td><img class="img-fluid avatarProfile" src="/images/profile.svg" alt=""></td>
                             <td>Rafael</td>
@@ -204,8 +214,8 @@
                             <td><a href="#"><i class="fas fa-pencil-alt editar"></i></a>
                                 <a href="#"><i
                                 class="far fa-times-circle eliminar"></i></a></td>
-                          </tr>
-                          <tr>
+                        </tr>
+                        <tr>
                             <th scope="row">2</th>
                             <td><img class="avatarProfile" src="/images/profile.svg" alt=""></td>
                             <td>Agustín</td>
@@ -214,8 +224,8 @@
                             <td><a href="#"><i class="fas fa-pencil-alt editar"></i></a>
                                 <a href="#"><i
                                 class="far fa-times-circle eliminar"></i></a></td>
-                          </tr>
-                          <tr class="">
+                        </tr>
+                        <tr class="">
                             <th scope="row">3</th>
                             <td class=""><img class="img-fluid avatarProfile" src="/users-avatar/avatar-1593036167353.png" alt=""></td>
                             <td class="">Matias</td>
@@ -224,54 +234,55 @@
                             <td class="m-auto"><a href="#"><i class="fas fa-pencil-alt editar"></i></a>
                                 <a href="#"><i
                                 class="far fa-times-circle eliminar"></i></a></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      
-                      
-                    </div>
+                        </tr>
+                    </tbody>
+                </table>
 
-                
-                <!-- -- -- -- FIN LISTA USUARIOS ADMIN -- -- -- -->
-                
-                <div class="line"></div>
 
-                <!-- -- -- -- CATEGORIAS ADMIN -- -- -- -->
-                <h2 class="TituloDestacados">CATEGORÍAS ADMIN</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <!-- -- -- -- FIN CATEGORIAS ADMIN -- -- -- -->
-                
-                <div class="line"></div>
-
-                <!-- -- -- -- RECETAS ADMIN -- -- -- -->
-                <h2 class="TituloDestacados">RECETAS ADMIN</h2>
-                <p>Recetas</p>
-                <!-- -- -- -- FIN RECETAS ADMIN -- -- -- -->
-                
-                <div class="line"></div>
             </div>
-        </div>
-    
-      
-        </div >
-        <!-- FOOTER -->
-        <%- include("partials/footer") %>
-            <!-- /FOOTER -->
-        <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
+
+            <!-- -- -- -- FIN LISTA USUARIOS ADMIN -- -- -- -->
+
+            <div class="line"></div>
+
+            <!-- -- -- -- CATEGORIAS ADMIN -- -- -- -->
+            <h2 class="TituloDestacados">CATEGORÍAS ADMIN</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <!-- -- -- -- FIN CATEGORIAS ADMIN -- -- -- -->
+
+            <div class="line"></div>
+
+            <!-- -- -- -- RECETAS ADMIN -- -- -- -->
+            <h2 class="TituloDestacados">RECETAS ADMIN</h2>
+            <p>Recetas</p>
+            <!-- -- -- -- FIN RECETAS ADMIN -- -- -- -->
+
+            <div class="line"></div>
+        </div>
+    </div>
+
+
+    </div>
+    <!-- FOOTER -->
+    <%- include("partials/footer") %>
+        <!-- /FOOTER -->
+        <!-- jQuery CDN - Slim version (=without AJAX) -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <!-- Popper.JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#sidebarCollapse').on('click', function() {
+                    $('#sidebar').toggleClass('active');
+                });
             });
-        });
-    </script>
-            
+        </script>
+
 
 </body>
 

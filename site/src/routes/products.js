@@ -17,8 +17,8 @@ router.get('/admin', usersMiddlewares.adminValidation, productsControllers.admin
 router.get('/admin/:id/:edit?', productsControllers.adminDetails); //// edit: null muestro, 1 edito, 2 nuevo //id:0 para indicar producto nuevo
 
 router.delete('/admin', usersMiddlewares.adminValidation, productsMiddlewares.deleteProductValidation, productsControllers.delete);
-router.put('/admin', usersMiddlewares.adminValidation, productsMiddlewares.editProductValidation, middUploadFile.uploadFile, productsControllers.adminUpdate);
-router.post('/admin', usersMiddlewares.adminValidation, productsMiddlewares.newProductValidation, middUploadFile.uploadFile, productsControllers.adminCreate);
+router.put('/admin', middUploadFile.uploadFile, usersMiddlewares.adminValidation, productsMiddlewares.editProductValidation, productsControllers.adminUpdate);
+router.post('/admin', middUploadFile.uploadFile, usersMiddlewares.adminValidation, productsMiddlewares.newProductValidation, productsControllers.adminCreate);
 
 // Buscador
 router.post('/find', productsControllers.find)

@@ -1,5 +1,8 @@
 const fs = require('fs');
 const path = require('path');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+let db = require('../database/models');
 let bcrypt = require('bcrypt');
 const { check, validationResult, body } = require('express-validator');
 // let db = require('../database/models');
@@ -72,6 +75,17 @@ const controller = {
             }
             saveUser(user)
 
+            // creacion de usuario y almacenado en database
+
+            db.User.create({
+                name: req.body.name,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10),
+                avatar: req.files[0].filename,
+                role: 0,
+                enabled: 1
+            })
+
             req.session.usuarioLogueado = user;
             if (req.body.remember != undefined) {
                 // creamos una cookie de nombre "recordarme" que va a contener el email del usuario
@@ -139,6 +153,22 @@ const controller = {
             mensaje = "Se cerró la sesión exitosamente";
             return res.redirect('/');
         });
+    },
+
+    edit: function(req, res) {
+        db.User.update({
+            name: req.body.name,
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, 10),
+            avatar: req.files[0].filename,
+            role: 0,
+            enabled: 1
+        }, {
+            where: {
+                email: usuarioLogueado.email
+            }
+        })
+        return res.render('profile', { user: req.session.usuarioLogueado });
     }
 };
 

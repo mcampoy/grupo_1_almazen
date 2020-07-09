@@ -76,5 +76,19 @@
   "password": "$2b$10$aA6Gx90g5qdCKUH58mj98.1qYEH7nOQTpaAhTTUQ4wtEMZsLghUGi",
   "remember": "on",
   "avatar": "avatar-1593484712649.png"
+ },
+ {
+  "id": 12,
+  "name": "Ariel",
+  "email": "ariel@almazen.com",
+  "password": "$2b$10$HVwq6kmUTkmpWwtyXv0yG.2KgqzD1GKkRjuDRfUzoUTH8/8A5UeNy",
+  "avatar": "avatar-1594293744391.png"
+ },
+ {
+  "id": 13,
+  "name": "Pablo",
+  "email": "pablo@almazen.com",
+  "password": "$2b$10$vNsIF6GTl11ldcjkHJB.iekIR2vcE2f0Gtcp3Q5TvYfHsj6qizS1q",
+  "avatar": "avatar-1594293981937.jpg"
  }
 ]

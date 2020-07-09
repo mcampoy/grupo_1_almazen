@@ -44,15 +44,19 @@ function buscar() {
 }
 
 function borrar() {
-    document.getElementById("idProducto").value = productID;
-    document.getElementById("borrarForm").action = "/product/admin?_method=DELETE"
-    document.getElementById("borrarForm").submit();
+    if (productID) {
+        document.getElementById("idProducto").value = productID;
+        document.getElementById("borrarForm").action = "/product/admin?_method=DELETE"
+        document.getElementById("borrarForm").submit();
+    }
 }
 
 function editar() {
-    bloquearProducto();
-    var iframe = document.getElementById('iframeDetails');
-    iframe.src = `/product/admin/${productID}/1`;
+    if (productID) {
+        bloquearProducto();
+        var iframe = document.getElementById('iframeDetails');
+        iframe.src = `/product/admin/${productID}/1`;
+    }
 }
 
 function crear() {
