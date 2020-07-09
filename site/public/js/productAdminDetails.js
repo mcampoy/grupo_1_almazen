@@ -24,3 +24,11 @@ function deleteImage() {
     var output3 = document.getElementById('imageName');
     output3.value = "deleted";
 }
+
+
+function onlyOne(checkbox) {
+    var checkboxes = document.getElementsByName('id_category')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
