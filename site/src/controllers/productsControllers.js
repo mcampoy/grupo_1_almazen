@@ -50,7 +50,7 @@ const controller = {
     },
 
     details: (req, res) => {
-        
+
         let category = db.Category.findByPk(req.params.id, {
             include: [{
                 association: "products"
@@ -72,7 +72,7 @@ const controller = {
                 id: {[Op.not]: req.params.id},
             },
             order: [
-                ['id', "DESC"]
+                ['id_category', "ASC"]
             ],
             limit: 3,
         })
