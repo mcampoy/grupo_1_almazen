@@ -56,7 +56,7 @@ addEventListener('load', function () {
 
         if(passLogContent != '' && !passLength){
             e.preventDefault();
-            invalidPass .innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita. Debe tener al menos 8 caracteres' + '</p>';
+            invalidPass .innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita. Debe tener al menos 4 caracteres' + '</p>';
             iconoKey.style.backgroundColor = "#CF664F";
             passLog.style.border = "1px solid #CF664F";
         } else {

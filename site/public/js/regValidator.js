@@ -61,7 +61,7 @@ addEventListener('load', function () {
 
         if (passRegContent != '' && !passRegLength) {
             event.preventDefault();
-            invalidRegPass.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita. Debe tener al menos 8 caracteres' + '</p>';
+            invalidRegPass.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita. Debe tener al menos 4 caracteres' + '</p>';
             passReg.style.border = "1px solid #CF664F";
         } else {
             invalidRegPass.innerHTML = '';
@@ -109,11 +109,11 @@ addEventListener('load', function () {
             emptyAvatar.innerHTML = '';
         }
 
-        if (extension != '.jpg' && extension != '.png' && extension != '.jpeg' && extension != '.gif') {
+        if (avatarContent != '' && extension != '.jpg' && extension != '.png' && extension != '.jpeg' && extension != '.gif') {
             event.preventDefault();
-            invalidAvatar.innerHTML = "<p>" + 'Solo podés cargar archivos jpg, png, jpeg o gif' + '</p>';
+            invalidAvatar.innerHTML = "<p>" + 'Solo podés cargar archivos jpg, png, jpeg o gif' +  '</p>';
         } else {
-            invalidAvatar.innerHTML = "<p style = 'background-color: #6FCF97'>" + "¡Qué buena imagen!" + '</p>';
+            invalidAvatar.innerHTML = "";
         }
     })
 })

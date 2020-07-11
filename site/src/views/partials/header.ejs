@@ -138,12 +138,13 @@
                                             <!-- password -->
                                             <div class="form-group-login">
                                                 <label class="modal-label" for="password">CONTRASEÑA</label>
-                                                <span class="wrapper-email-login"><i id="keyIconLogM" class="fas fa-key"></i><input
-                                                        type="password" name="password" class="form-control"
-                                                        id="passwordLogM" aria-describedby="passwordLogM"
+                                                <span class="wrapper-email-login"><i id="keyIconLogM"
+                                                        class="fas fa-key"></i><input type="password" name="password"
+                                                        class="form-control" id="passwordLogM"
+                                                        aria-describedby="passwordLogM"
                                                         placeholder="Ingresá tu contraseña" /></span>
-                                                        <div class="emptyPassLogM logErrors"></div>
-                                                        <div class="invalidPassLogM logErrors"></div>
+                                                <div class="emptyPassLogM logErrors"></div>
+                                                <div class="invalidPassLogM logErrors"></div>
                                             </div>
                                         </div>
                                         <!-- dejar en blanco el formulario o enviar -->
@@ -168,66 +169,68 @@
 
                 btnLogM.addEventListener('click', function (evento) {
 
-                let formM = document.getElementById('loginFormM');
-                let emailLogM = document.getElementById('emailLogM');
-                let emailContentM = emailLogM.value;
-                let arrobaM = emailContentM.includes('@');
-                let emailLengthM = emailContentM.length >= 6 ? true : false;
-                // let extension = emailContent.includes('.')
-                let invalidEmailM = formM.querySelector('div.emptyEmailM');
-                let iconoEmailM = formM.querySelector('i#emailIconLogM');
-                let emptyEmailM = document.querySelector('div.emptyEmailM');
+                    let formM = document.getElementById('loginFormM');
+                    let emailLogM = document.getElementById('emailLogM');
+                    let emailContentM = emailLogM.value;
+                    let arrobaM = emailContentM.includes('@');
+                    let emailLengthM = emailContentM.length >= 6 ? true : false;
+                    // let extension = emailContent.includes('.')
+                    let invalidEmailM = formM.querySelector('div.emptyEmailM');
+                    let iconoEmailM = formM.querySelector('i#emailIconLogM');
+                    let emptyEmailM = document.querySelector('div.emptyEmailM');
 
-                if (emailContentM == '' || !emailLengthM) {
-                    evento.preventDefault();
-                    emptyEmailM.innerHTML = '<p>' +
-                        'Por favor, ingresá tu email o verificá que esté bien escrito' + '</p>';
-                    iconoEmailM.style.backgroundColor = "#CF664F";
-                    emailLogM.style.border = "1px solid #CF664F";
-                } else {
-                    emptyEmailM.innerHTML = '';
-                    iconoEmailM.style.backgroundColor = "#6FCF97";
-                    emailLogM.style.border = "1px solid #ced4da";
-                }
+                    if (emailContentM == '' || !emailLengthM) {
+                        evento.preventDefault();
+                        emptyEmailM.innerHTML = '<p>' +
+                            'Por favor, ingresá tu email o verificá que esté bien escrito' + '</p>';
+                        iconoEmailM.style.backgroundColor = "#CF664F";
+                        emailLogM.style.border = "1px solid #CF664F";
+                    } else {
+                        emptyEmailM.innerHTML = '';
+                        iconoEmailM.style.backgroundColor = "#6FCF97";
+                        emailLogM.style.border = "1px solid #ced4da";
+                    }
 
-                if (emailContentM != '' && !arrobaM) {
-                    evento.preventDefault();
-                    invalidEmailM.innerHTML = "<p>" +
-                        'Debés incluir el signo @ en la dirección de correo electrónico. La dirección ' +
-                        '<span style="font-weight: 600">' + emailContentM + '</span>' + ' no la incluye.' +
-                        '</p>';
-                    iconoEmailM.style.backgroundColor = "#CF664F";
-                    emailLogM.style.border = "1px solid #CF664F";
-                }
+                    if (emailContentM != '' && !arrobaM) {
+                        evento.preventDefault();
+                        invalidEmailM.innerHTML = "<p>" +
+                            'Debés incluir el signo @ en la dirección de correo electrónico. La dirección ' +
+                            '<span style="font-weight: 600">' + emailContentM + '</span>' + ' no la incluye.' +
+                            '</p>';
+                        iconoEmailM.style.backgroundColor = "#CF664F";
+                        emailLogM.style.border = "1px solid #CF664F";
+                    }
 
-                // VALIDACIÓN DEL CAMPO CONTRASEÑA DE LA VISTA MODAL
-                let passLogM = document.getElementById('passwordLogM');
-                let passLogContentM = passLogM.value;
-                let emptyPassM = formM.querySelector('div.emptyPassLogM');
-                let invalidPassM = formM.querySelector('div.invalidPassLogM');
-                let passLengthM = passLogContentM.length >= 8 ? true : false;
-                let iconoKeyM = formM.querySelector('i#keyIconLogM');
+                    // VALIDACIÓN DEL CAMPO CONTRASEÑA DE LA VISTA MODAL
+                    let passLogM = document.getElementById('passwordLogM');
+                    let passLogContentM = passLogM.value;
+                    let emptyPassM = formM.querySelector('div.emptyPassLogM');
+                    let invalidPassM = formM.querySelector('div.invalidPassLogM');
+                    let passLengthM = passLogContentM.length >= 4 ? true : false;
+                    let iconoKeyM = formM.querySelector('i#keyIconLogM');
 
-                if (passLogContentM == '') {
-                    evento.preventDefault();
-                    emptyPassM.innerHTML = '<p>' + 'Por favor, ingresá tu contraseña' + '</p>';
-                    iconoKeyM.style.backgroundColor = "#CF664F";
-                    passLogM.style.border = "1px solid #CF664F";
-                } else {
-                    emptyPassM.innerHTML = '';
-                    iconoKeyM.style.backgroundColor = "#6FCF97";
-                    passLogM.style.border = "1px solid #ced4da";
-                }
+                    if (passLogContentM == '') {
+                        evento.preventDefault();
+                        emptyPassM.innerHTML = '<p>' + 'Por favor, ingresá tu contraseña' + '</p>';
+                        iconoKeyM.style.backgroundColor = "#CF664F";
+                        passLogM.style.border = "1px solid #CF664F";
+                    } else {
+                        emptyPassM.innerHTML = '';
+                        iconoKeyM.style.backgroundColor = "#6FCF97";
+                        passLogM.style.border = "1px solid #ced4da";
+                    }
 
-                if (passLogContentM != '' && !passLengthM) {
-                    evento.preventDefault();
-                    invalidPassM.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita. Debe tener al menos 8 caracteres' + '</p>';
-                    iconoKeyM.style.backgroundColor = "#CF664F";
-                    passLogM.style.border = "1px solid #CF664F";
-                } else {
-                    invalidPassM.innerHTML = '';
-                    passLogM.style.border = "1px solid #ced4da";
-                }
+                    if (passLogContentM != '' && !passLengthM) {
+                        evento.preventDefault();
+                        invalidPassM.innerHTML = "<p>" +
+                            'Revisá que la contraseña esté bien escrita. Debe tener al menos 4 caracteres' +
+                            '</p>';
+                        iconoKeyM.style.backgroundColor = "#CF664F";
+                        passLogM.style.border = "1px solid #CF664F";
+                    } else {
+                        invalidPassM.innerHTML = '';
+                        passLogM.style.border = "1px solid #ced4da";
+                    }
                 })
             </script>
 
@@ -246,31 +249,36 @@
                             <section class="contenedor-formulario-login">
                                 <div id="page-wrapper">
 
-                                    <form method="post" action="/users/create" id="miFormulario"
+                                    <form method="post" action="/users/create" id="registerFormM"
                                         enctype="multipart/form-data">
                                         <div class="form-campos">
                                             <!-- nombre -->
                                             <div class="form-group">
                                                 <label class="modal-label" for="nombre">NOMBRE</label>
-                                                <input type="text" class="form-control" id="nombre" name="name"
-                                                    aria-describedby="nombre" placeholder="Ejemplo: Carolina"
-                                                    required />
+                                                <input type="text" class="form-control" id="nameRegM" name="name"
+                                                    aria-describedby="nombre" placeholder="Ejemplo: Carolina" />
+                                                <div class="emptyNameM logErrors"></div>
                                             </div>
 
                                             <!-- email -->
                                             <div class="form-group">
                                                 <label class="modal-label" for="exampleInputEmail1">EMAIL</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                                    name="email" aria-describedby="emailHelp"
-                                                    placeholder="Ejemplo: almazen@gmail.com" required />
+                                                <input type="text" class="form-control" id="emailRegM" name="email"
+                                                    aria-describedby="emailHelp "
+                                                    placeholder="Ejemplo: almazen@gmail.com" />
+                                                <div class="invalidRegEmailM logErrors"></div>
+                                                <div class="emptyRegEmailM logErrors"></div>
                                             </div>
 
                                             <!-- password -->
                                             <div class="form-group">
                                                 <label class="modal-label" for="contraseña">CONTRASEÑA</label>
-                                                <input type="password" class="form-control" id="contraseña"
+                                                <input type="password" class="form-control" id="passwordRegM"
                                                     name="password" aria-describedby="password" name="password"
-                                                    placeholder="Ingresá una contraseña" required />
+                                                    placeholder="Ingresá una contraseña" />
+                                                <div class="emptyPassRegM logErrors"></div>
+                                                <div class="invalidPassRegM logErrors"></div>
+
                                             </div>
 
                                             <!-- validación -->
@@ -278,14 +286,18 @@
                                                 <label class="modal-label" for="validation">REPETÍ TU CONTRASEÑA</label>
                                                 <input type="password" class="form-control" id="validationM"
                                                     aria-describedby="validation" name="validation"
-                                                    placeholder="Repetí tu contraseña" required />
+                                                    placeholder="Repetí tu contraseña" />
+                                                <div class="emptyValidationM logErrors"></div>
+                                                <div class="invalidValidationM logErrors"></div>
                                             </div>
 
                                             <!-- carga de imágenes -->
                                             <div class="form-group">
                                                 <label class="modal-label" for="avatar">CARGÁ UNA IMAGEN</label>
-                                                <input type="file" class="form-control-imagen" id="avatarM" name="avatar"
-                                                    required />
+                                                <input type="file" class="form-control-imagen" id="avatarM"
+                                                    name="avatar" />
+                                                <div class="emptyAvatarM logErrors"></div>
+                                                <div class="invalidAvatarM logErrors"></div>
                                             </div>
                                         </div>
 
@@ -293,8 +305,9 @@
                                         <div class="user form-group">
                                             <button class="login align-items-center justify-content-center"
                                                 role="button" type="reset">Borrar</button>
-                                            <button class="register align-items-center justify-content-center"
-                                                role="button" type="submit">Enviar</button>
+                                            <button id="btnRegM"
+                                                class="register align-items-center justify-content-center" role="button"
+                                                type="submit">Enviar</button>
                                             <p class="remember"><input type="checkbox" name="remember" id="remember">
                                                 Recordarme</p>
 
@@ -306,6 +319,133 @@
                     </div>
                 </div>
             </div>
+
+            <!-- VALIDACION REGISTRO MODAL -->
+            <script>
+                let btnRegM = document.getElementById('btnRegM');
+                btnRegM.addEventListener('click', function (even) {
+                    // VALIDACIÓN CAMPO EMAIL MODAL REGISTRO
+                    let nameRegM = document.querySelector('input#nameRegM');
+                    let nameRegContentM = nameRegM.value;
+                    let emptyNameM = document.querySelector('div.emptyNameM');
+
+                    if (nameRegContentM = '' || nameRegContentM.length < 2) {
+                        even.preventDefault();
+                        emptyNameM.innerHTML = '<p>' +
+                            'Por favor, ingresá tu nombre. Debe tener al menos dos caracteres' + '</p>';
+                        nameRegM.style.border = "1px solid #CF664F";
+                    } else {
+                        emptyNameM.innerHTML = '';
+                        nameRegM.style.border = "1px solid #ced4da";
+                    }
+
+                    // VALIDACIÓN CAMPO EMAiL DE LA VISTA REGISTRO
+                    let emailRegM = document.getElementById('emailRegM');
+                    let emailRegContentM = emailRegM.value;
+                    let arrobaRegM = emailRegContentM.includes('@');
+                    let emailRegLengthM = emailRegContentM.length >= 6 ? true : false;
+                    let invalidRegEmailM = document.querySelector('div.emptyRegEmailM');
+                    let emptyRegEmailM = document.querySelector('div.emptyRegEmailM');
+
+                    if (emailRegContentM == '' || !emailRegLengthM) {
+                        even.preventDefault();
+                        emptyRegEmailM.innerHTML = '<p>' +
+                            'Por favor, ingresá tu email o verificá que esté bien escrito' + '</p>';
+                        emailRegM.style.border = "1px solid #CF664F";
+                    } else {
+                        emptyRegEmailM.innerHTML = '';
+                        emailRegM.style.border = "1px solid #ced4da";
+                    }
+
+                    if (emailRegContentM != '' && !arrobaRegM) {
+                        even.preventDefault();
+                        invalidRegEmailM.innerHTML = "<p>" +
+                            'Debés incluir el signo @ en la dirección de correo electrónico. La dirección ' +
+                            '<span style="font-weight: 600">' + emailRegContentM + '</span>' +
+                            ' no la incluye.' + '</p>';
+                        emailRegM.style.border = "1px solid #CF664F";
+                    }
+
+                    // VALIDACIÓN DEL CAMPO CONTRASEÑA DE LA VISTA REGISTRO
+                    let passRegM = document.querySelector('input#passwordRegM');
+                    let passRegContentM = passRegM.value;
+                    let emptyRegPassM = document.querySelector('div.emptyPassRegM');
+                    let invalidRegPassM = document.querySelector('div.invalidPassRegM');
+                    let passRegLengthM = passRegContentM.length >= 4 ? true : false;
+
+                    if (passRegContentM == '') {
+                        even.preventDefault();
+                        emptyRegPassM.innerHTML = '<p>' + 'Por favor, ingresá tu contraseña' + '</p>';
+                        passRegM.style.border = "1px solid #CF664F";
+                    } else {
+                        emptyRegPassM.innerHTML = '';
+                        passRegM.style.border = "1px solid #ced4da";
+                    }
+
+                    if (passRegContentM != '' && !passRegLengthM) {
+                        even.preventDefault();
+                        invalidRegPassM.innerHTML = "<p>" +
+                            'Revisá que la contraseña esté bien escrita. Debe tener al menos 4 caracteres' +
+                            '</p>';
+                        passRegM.style.border = "1px solid #CF664F";
+                    } else {
+                        invalidRegPassM.innerHTML = '';
+                        passRegM.style.border = "1px solid #ced4da";
+                    }
+
+                    // VALIDACIÓN DEL CAMPO VALIDACIÓN DE LA VISTA REGISTRO
+                    let validationM = document.querySelector('input#validationM');
+
+                    let validationContentM = validationM.value;
+                    let emptyValidationM = registerFormM.querySelector('div.emptyValidationM');
+                    let invalidValidationM = registerFormM.querySelector('div.invalidValidationM');
+
+                    if (validationContentM == '') {
+                        even.preventDefault();
+                        emptyValidationM.innerHTML = '<p>' + 'Por favor, repetí tu contraseña' + '</p>';
+                        validationM.style.border = "1px solid #CF664F";
+                    } else {
+                        emptyValidationM.innerHTML = '';
+                        validationM.style.border = "1px solid #ced4da";
+                    }
+
+                    if (passRegContentM != validationContentM) {
+                        even.preventDefault();
+                        invalidValidationM.innerHTML = "<p>" + 'Revisá que las contraseñas coincidan' + '</p>';
+                        validationM.style.border = "1px solid #CF664F";
+                    } else {
+                        invalidValidationM.innerHTML = '';
+                        validationM.style.border = "1px solid #ced4da";
+                    }
+
+                    // VALIDACIÓN DEL CAMPO AVATAR DE LA VISTA REGISTRO
+                    let avatarM = document.querySelector('input#avatarM');
+                    let avatarContentM = avatarM.value;
+                    extensionM = (avatarContentM.substring(avatarContentM.lastIndexOf("."))).toLowerCase();
+                    // console.log(extension)
+                    let emptyAvatarM = registerFormM.querySelector('div.emptyAvatarM');
+                    let invalidAvatarM = registerFormM.querySelector('div.invalidAvatarM');
+
+                    if (avatarContentM == '') {
+                        even.preventDefault();
+                        emptyAvatarM.innerHTML = "<p>" + '¡No te olvides de cargar una imagen!' + '</p>';
+                    } else {
+                        emptyAvatarM.innerHTML = '';
+                    }
+
+                    if (avatarContentM != '' && extensionM != '.jpg' && extensionM != '.png' && extensionM !=
+                        '.jpeg' && extensionM !=
+                        '.gif') {
+                        even.preventDefault();
+                        invalidAvatarM.innerHTML = "<p>" + 'Solo podés cargar archivos jpg, png, jpeg o gif' +
+                            '</p>';
+                    } else {
+                        invalidAvatarM.innerHTML = "";
+                    }
+
+
+                })
+            </script>
         </div>
 
 
