@@ -90,5 +90,19 @@
   "email": "pablo@almazen.com",
   "password": "$2b$10$vNsIF6GTl11ldcjkHJB.iekIR2vcE2f0Gtcp3Q5TvYfHsj6qizS1q",
   "avatar": "avatar-1594293981937.jpg"
+ },
+ {
+  "id": 14,
+  "name": "matias",
+  "email": "mat@mat.com",
+  "password": "$2b$10$k/aS4nNxA2b/pY0.tlwk7eazsoD.Vsy3d2KW8DLX8XqIUXqp0FiAu",
+  "avatar": "avatar-1594309827654.png"
+ },
+ {
+  "id": 15,
+  "name": "Matías Campoy",
+  "email": "matias@jmail.com",
+  "password": "$2b$10$9Qyqne05QVkE5avyk50sN.V7CmKbgrj35QRCZ44dO5FHbAMMKlZOS",
+  "avatar": "avatar-1594409920437.png"
  }
 ]

@@ -12,81 +12,100 @@
 
     <!-- HEADER -->
     <%- include("partials/header", {usuarioLogueado: usuarioLogueado}) %>
-        <!-- /HEADER -->
+    <!-- /HEADER -->
 
-        <section class="contenedor-formulario col-12 col-lg-6 mt-0">
-            <div id="page-wrapper ">
+    <section class="contenedor-formulario col-12 col-lg-6 mt-0">
+        <div id="page-wrapper ">
 
-                <form method="post" action="/users/create" id="miFormulario" enctype="multipart/form-data">
-                    <div class="form-campos">
-                        <!-- nombre -->
-                        <div class="form-group">
-                            <label class="modal-label" for="nombre">NOMBRE</label>
-                            <input type="text" class="form-control" id="nombre" name="name" aria-describedby="nombre" placeholder="Ejemplo: Carolina" required />
-                        </div>
+            <form method="post" action="/users/create" id="registerForm" enctype="multipart/form-data">
+                <div class="form-campos">
+                    <!-- nombre -->
+                    <div class="form-group">
+                        <label class="modal-label" for="nombre">NOMBRE</label>
+                        <input type="text" class="form-control" id="nameReg" name="name" aria-describedby="nombre"
+                            placeholder="Ejemplo: Carolina"  />
+                            <div class="emptyName logErrors"></div>
+                    </div>
 
-                        <!-- email -->
-                        <div class="form-group">
-                            <label class="modal-label" for="exampleInputEmail1 ">EMAIL</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp " placeholder="Ejemplo: almazen@gmail.com" required />
-                        </div>
+                    <!-- email -->
+                    <div class="form-group">
+                        <label class="modal-label" for="exampleInputEmail1 ">EMAIL</label>
+                        <input type="text" class="form-control" id="emailReg" name="email"
+                            aria-describedby="emailHelp " placeholder="Ejemplo: almazen@gmail.com" />
+                        <div class="invalidRegEmail logErrors"></div>
+                        <div class="emptyRegEmail logErrors"></div>
+                    </div>
 
-                        <!-- password -->
-                        <div class="form-group">
-                            <label class="modal-label" for="contraseña">CONTRASEÑA</label>
-                            <input type="password" class="form-control" id="contraseña" name="password" aria-describedby="password" name="password" placeholder="Ingresá una contraseña" required />
-                        </div>
-
-                        <!-- MOSTRAR/OCULTAR CONTRASEÑA -->
-                        <!-- <div class="form-group">
+                    <!-- password -->
+                    <div class="form-group">
+                        <label class="modal-label" for="contraseña">CONTRASEÑA</label>
+                        <input type="password" class="form-control" id="passwordReg" name="password"
+                            aria-describedby="password" name="password" placeholder="Ingresá una contraseña"  />
+                        <div class="emptyPassReg logErrors"></div>
+                        <div class="invalidPassReg logErrors"></div>
+                    </div>
+                    
+                    <!-- MOSTRAR/OCULTAR CONTRASEÑA -->
+                    <!-- <div class="form-group">
                         <label class="modal-label" for="password">CONTRASEÑA</label>
                         <div class="input-group">
                             <input ID="txtPassword" type="Password" Class="form-control" name="password"
-                                aria-describedby="password" placeholder="Ingresá una contraseña" required />
+                            aria-describedby="password" placeholder="Ingresá una contraseña" required />
                             <div class="input-group-append">
                                 <button id="show_password" class="btn btn-primary" type="button"
-                                    onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                                onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                             </div>
                         </div>
                     </div> -->
-
-                        <!-- validación -->
-                        <div class="form-group">
-                            <label class="modal-label" for="validation">REPETÍ TU CONTRASEÑA</label>
-                            <input type="password" class="form-control" id="validation" aria-describedby="validation" name="validation" placeholder="Repetí tu contraseña" required />
-                        </div>
-
-
-                        <!-- carga de imágenes -->
-                        <div class="form-group">
-                            <label class="modal-label" for="avatar">CARGÁ UNA IMAGEN</label>
-                            <input type="file" class="form-control-imagen" id="avatar" name="avatar" required />
-                        </div>
+                    
+                    <!-- validación -->
+                    <div class="form-group">
+                        <label class="modal-label" for="validation">REPETÍ TU CONTRASEÑA</label>
+                        <input type="password" class="form-control" id="validation" aria-describedby="validation"
+                        name="validation" placeholder="Repetí tu contraseña"  />
+                        <div class="emptyValidation logErrors"></div>
+                        <div class="invalidValidation logErrors"></div>
                     </div>
 
-                    <!-- dejar en blanco el formulario o enviar -->
-                    <div class="user form-group">
-                        <button class="login align-items-center justify-content-center" role="button" type="reset">Borrar</button>
-                        <button class="register align-items-center justify-content-center" role="button" type="submit">Enviar</button>
+
+                    <!-- carga de imágenes -->
+                    <div class="form-group">
+                        <label class="modal-label" for="avatar">CARGÁ UNA IMAGEN</label>
+                        <input type="file" class="form-control-imagen" id="avatar" name="avatar"  />
+                        <div class="emptyAvatar logErrors"></div>
+                        <div class="invalidAvatar logErrors"></div>
                     </div>
-                </form>
-            </div>
-        </section>
+                </div>
 
-        <!-- FOOTER -->
-        <%- include("partials/footer") %>
-            <!-- /FOOTER -->
+                <!-- dejar en blanco el formulario o enviar -->
+                <div class="user form-group">
+                    <button class="login align-items-center justify-content-center" role="button"
+                        type="reset">Borrar</button>
+                    <button class="register align-items-center justify-content-center" role="button"
+                        type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </section>
 
-            </div>
-            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-            </script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-            </script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-            </script>
+    <!-- FOOTER -->
+    <%- include("partials/footer") %>
+    <!-- /FOOTER -->
 
-            <!-- MOSTRAR/COULTAR CONTRASEÑA -->
-            <!-- <script type="text/javascript">
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script type='text/javascript' src="/js/regValidator.js"></script>
+
+    <!-- MOSTRAR/COULTAR CONTRASEÑA -->
+    <!-- <script type="text/javascript">
     function mostrarPassword(){
             var cambio = document.getElementById("txtPassword");
             if(cambio.type == "password"){

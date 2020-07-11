@@ -122,29 +122,34 @@
                             <section class="contenedor-formulario-login">
                                 <div id="page-wrapper">
 
-                                    <form method="post" action="/users/login" id="miFormulario">
+                                    <form method="post" action="/users/login" id="loginFormM">
                                         <div class="form-campos">
                                             <!-- email -->
                                             <div class="form-group-login">
                                                 <label class="modal-label" for="email">EMAIL</label>
-                                                <span class="wrapper-email-login"><i
-                                                        class="fas fa-envelope mail-modal"></i><input type="email"
-                                                        class="form-control" id="email" aria-describedby="email"
-                                                        name="email" placeholder="Ingresá tu email" required /></span>
+                                                <span class="wrapper-email-login"><i id="emailIconLogM"
+                                                        class="fas fa-envelope mail-modal"></i> <input type="text"
+                                                        class="form-control" id="emailLogM" aria-describedby="email"
+                                                        name="email" placeholder="Ingresá tu email" /></span>
+                                                <div class="invalidEmailM logErrors"></div>
+                                                <div class="emptyEmailM logErrors"></div>
                                             </div>
+
                                             <!-- password -->
                                             <div class="form-group-login">
                                                 <label class="modal-label" for="password">CONTRASEÑA</label>
-                                                <span class="wrapper-email-login"><i class="fas fa-key"></i><input
+                                                <span class="wrapper-email-login"><i id="keyIconLogM" class="fas fa-key"></i><input
                                                         type="password" name="password" class="form-control"
-                                                        id="password" aria-describedby="password"
-                                                        placeholder="Ingresá tu contraseña" required /></span>
+                                                        id="passwordLogM" aria-describedby="passwordLogM"
+                                                        placeholder="Ingresá tu contraseña" /></span>
+                                                        <div class="emptyPassLogM logErrors"></div>
+                                                        <div class="invalidPassLogM logErrors"></div>
                                             </div>
                                         </div>
                                         <!-- dejar en blanco el formulario o enviar -->
                                         <div class="user form-group">
                                             <button class="login" role="button" type="reset">Borrar</button>
-                                            <button class="register" role="button" type="submit"
+                                            <button id="btnLogM" class="register" role="button" type="submit"
                                                 value="enviar">Ingresar</button>
                                             <p class="remember"><input type="checkbox" name="remember" id="remember">
                                                 Recordarme</p>
@@ -156,6 +161,75 @@
                     </div>
                 </div>
             </div>
+
+            <script>
+                // VALIDACIÓN DEL CAMPO EMAIL EN EL LOGIN MODAL
+                let btnLogM = document.getElementById('btnLogM');
+
+                btnLogM.addEventListener('click', function (evento) {
+
+                let formM = document.getElementById('loginFormM');
+                let emailLogM = document.getElementById('emailLogM');
+                let emailContentM = emailLogM.value;
+                let arrobaM = emailContentM.includes('@');
+                let emailLengthM = emailContentM.length >= 6 ? true : false;
+                // let extension = emailContent.includes('.')
+                let invalidEmailM = formM.querySelector('div.emptyEmailM');
+                let iconoEmailM = formM.querySelector('i#emailIconLogM');
+                let emptyEmailM = document.querySelector('div.emptyEmailM');
+
+                if (emailContentM == '' || !emailLengthM) {
+                    evento.preventDefault();
+                    emptyEmailM.innerHTML = '<p>' +
+                        'Por favor, ingresá tu email o verificá que esté bien escrito' + '</p>';
+                    iconoEmailM.style.backgroundColor = "#CF664F";
+                    emailLogM.style.border = "1px solid #CF664F";
+                } else {
+                    emptyEmailM.innerHTML = '';
+                    iconoEmailM.style.backgroundColor = "#6FCF97";
+                    emailLogM.style.border = "1px solid #ced4da";
+                }
+
+                if (emailContentM != '' && !arrobaM) {
+                    evento.preventDefault();
+                    invalidEmailM.innerHTML = "<p>" +
+                        'Debés incluir el signo @ en la dirección de correo electrónico. La dirección ' +
+                        '<span style="font-weight: 600">' + emailContentM + '</span>' + ' no la incluye.' +
+                        '</p>';
+                    iconoEmailM.style.backgroundColor = "#CF664F";
+                    emailLogM.style.border = "1px solid #CF664F";
+                }
+
+                // VALIDACIÓN DEL CAMPO CONTRASEÑA DE LA VISTA MODAL
+                let passLogM = document.getElementById('passwordLogM');
+                let passLogContentM = passLogM.value;
+                let emptyPassM = formM.querySelector('div.emptyPassLogM');
+                let invalidPassM = formM.querySelector('div.invalidPassLogM');
+                let passLengthM = passLogContentM.length >= 8 ? true : false;
+                let iconoKeyM = formM.querySelector('i#keyIconLogM');
+
+                if (passLogContentM == '') {
+                    evento.preventDefault();
+                    emptyPassM.innerHTML = '<p>' + 'Por favor, ingresá tu contraseña' + '</p>';
+                    iconoKeyM.style.backgroundColor = "#CF664F";
+                    passLogM.style.border = "1px solid #CF664F";
+                } else {
+                    emptyPassM.innerHTML = '';
+                    iconoKeyM.style.backgroundColor = "#6FCF97";
+                    passLogM.style.border = "1px solid #ced4da";
+                }
+
+                if (passLogContentM != '' && !passLengthM) {
+                    evento.preventDefault();
+                    invalidPassM.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita. Debe tener al menos 8 caracteres' + '</p>';
+                    iconoKeyM.style.backgroundColor = "#CF664F";
+                    passLogM.style.border = "1px solid #CF664F";
+                } else {
+                    invalidPassM.innerHTML = '';
+                    passLogM.style.border = "1px solid #ced4da";
+                }
+                })
+            </script>
 
             <!-- MODAL REGISTRO-->
             <div class="modal fade" id="Register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -202,7 +276,7 @@
                                             <!-- validación -->
                                             <div class="form-group">
                                                 <label class="modal-label" for="validation">REPETÍ TU CONTRASEÑA</label>
-                                                <input type="password" class="form-control" id="validation"
+                                                <input type="password" class="form-control" id="validationM"
                                                     aria-describedby="validation" name="validation"
                                                     placeholder="Repetí tu contraseña" required />
                                             </div>
@@ -210,7 +284,7 @@
                                             <!-- carga de imágenes -->
                                             <div class="form-group">
                                                 <label class="modal-label" for="avatar">CARGÁ UNA IMAGEN</label>
-                                                <input type="file" class="form-control-imagen" id="avatar" name="avatar"
+                                                <input type="file" class="form-control-imagen" id="avatarM" name="avatar"
                                                     required />
                                             </div>
                                         </div>
@@ -274,6 +348,7 @@
 
     </nav>
 </header>
+
 <% if (typeof errors != 'undefined') { %>
 <div class="col-12 users-errors ">
     <ul>

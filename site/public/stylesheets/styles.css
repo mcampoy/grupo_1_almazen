@@ -968,7 +968,7 @@ label {
     margin-bottom: 20px;
 }
 
-#miFormulario {
+#loginForm {
     display: block;
     text-align: center;
 }
@@ -2728,3 +2728,26 @@ a.article:hover {
     color: var(--colorMenu);
     padding-top: 2%;
 }
+
+/* #email {
+    background-color: red;
+} */
+
+
+.logErrors p {
+    margin-top: 1%;
+    margin-bottom: 0;
+    padding: 10px;
+    border-radius: 4px;
+    color: white;
+    background-color: #CF664F;
+    font-size: .9em;
+    text-align: center;
+    font-weight: 400;
+    font-family: var(--fuenteGeneral);
+}
+
+
+
+
+
