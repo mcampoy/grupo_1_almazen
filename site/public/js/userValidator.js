@@ -40,7 +40,7 @@ addEventListener('load', function () {
         let passLogContent = passLog.value;
         let emptyPass = form.querySelector('div.emptyPassLog');
         let invalidPass = form.querySelector('div.invalidPassLog');
-        let passLength = passLogContent.length >= 8 ? true : false;
+        let passLength = passLogContent.length >= 4 ? true : false;
         let iconoKey = form.querySelector('i#keyIconLog');
 
         if (passLogContent == '') {

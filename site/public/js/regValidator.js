@@ -48,7 +48,7 @@ addEventListener('load', function () {
         let passRegContent = passReg.value;
         let emptyRegPass = registerForm.querySelector('div.emptyPassReg');
         let invalidRegPass = registerForm.querySelector('div.invalidPassReg');
-        let passRegLength = passRegContent.length >= 8 ? true : false;
+        let passRegLength = passRegContent.length >= 4 ? true : false;
 
         if (passRegContent == '') {
             event.preventDefault();
