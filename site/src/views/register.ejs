@@ -23,15 +23,15 @@
                     <div class="form-group">
                         <label class="modal-label" for="nombre">NOMBRE</label>
                         <input type="text" class="form-control" id="nameReg" name="name" aria-describedby="nombre"
-                            placeholder="Ejemplo: Carolina"  />
+                            placeholder="Ejemplo: Carolina" required/>
                             <div class="emptyName logErrors"></div>
                     </div>
 
                     <!-- email -->
                     <div class="form-group">
                         <label class="modal-label" for="exampleInputEmail1 ">EMAIL</label>
-                        <input type="text" class="form-control" id="emailReg" name="email"
-                            aria-describedby="emailHelp " placeholder="Ejemplo: almazen@gmail.com" />
+                        <input type="email" class="form-control" id="emailReg" name="email"
+                            aria-describedby="emailHelp " placeholder="Ejemplo: almazen@gmail.com" required/>
                         <div class="invalidRegEmail logErrors"></div>
                         <div class="emptyRegEmail logErrors"></div>
                     </div>
@@ -40,11 +40,11 @@
                     <div class="form-group">
                         <label class="modal-label" for="contraseña">CONTRASEÑA</label>
                         <input type="password" class="form-control" id="passwordReg" name="password"
-                            aria-describedby="password" name="password" placeholder="Ingresá una contraseña"  />
+                            aria-describedby="password" name="password" placeholder="Ingresá una contraseña" required/>
                         <div class="emptyPassReg logErrors"></div>
                         <div class="invalidPassReg logErrors"></div>
                     </div>
-                    
+
                     <!-- MOSTRAR/OCULTAR CONTRASEÑA -->
                     <!-- <div class="form-group">
                         <label class="modal-label" for="password">CONTRASEÑA</label>
@@ -62,7 +62,7 @@
                     <div class="form-group">
                         <label class="modal-label" for="validation">REPETÍ TU CONTRASEÑA</label>
                         <input type="password" class="form-control" id="validation" aria-describedby="validation"
-                        name="validation" placeholder="Repetí tu contraseña"  />
+                        name="validation" placeholder="Repetí tu contraseña" required/>
                         <div class="emptyValidation logErrors"></div>
                         <div class="invalidValidation logErrors"></div>
                     </div>
@@ -71,7 +71,7 @@
                     <!-- carga de imágenes -->
                     <div class="form-group">
                         <label class="modal-label" for="avatar">CARGÁ UNA IMAGEN</label>
-                        <input type="file" class="form-control-imagen" id="avatar" name="avatar"  />
+                        <input type="file" class="form-control-imagen" id="avatar" name="avatar" required/>
                         <div class="emptyAvatar logErrors"></div>
                         <div class="invalidAvatar logErrors"></div>
                     </div>

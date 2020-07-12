@@ -104,6 +104,7 @@
 
             </div>
 
+            <!-- FIN DE LA SECCIÓN MODAL DE LOGIN Y REGISTER -->
             <!-- MODAL LOGIN-->
             <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
@@ -124,10 +125,10 @@
                                             <!-- email -->
                                             <div class="form-group-login ">
                                                 <label class="modal-label" for="email">EMAIL</label>
-                                                <span class="wrapper-email-login"><i id="emailIconLogM"
-                                                        class="fas fa-envelope mail-modal"></i> <input type="text"
+                                                <span class="wrapper-email-login"><input type="email"
                                                         class="form-control" id="emailLogM" aria-describedby="email"
-                                                        name="email" placeholder="Ingresá tu email" /></span>
+                                                        name="email" placeholder="Ingresá tu email" required/><i id="emailIconLogM"
+                                                        class="fas fa-envelope mail-modal"></i></span>
                                                 <div class="invalidEmailM logErrors"></div>
                                                 <div class="emptyEmailM logErrors"></div>
                                             </div>
@@ -135,11 +136,11 @@
                                             <!-- password -->
                                             <div class="form-group-login">
                                                 <label class="modal-label" for="password">CONTRASEÑA</label>
-                                                <span class="wrapper-email-login"><i id="keyIconLogM"
-                                                        class="fas fa-key"></i><input type="password" name="password"
+                                                <span class="wrapper-email-login"><input type="password" name="password"
                                                         class="form-control" id="passwordLogM"
                                                         aria-describedby="passwordLogM"
-                                                        placeholder="Ingresá tu contraseña" /></span>
+                                                        placeholder="Ingresá tu contraseña" required/><i id="keyIconLogM"
+                                                        class="fas fa-key"></i></span>
                                                 <div class="emptyPassLogM logErrors"></div>
                                                 <div class="invalidPassLogM logErrors"></div>
                                             </div>
@@ -253,16 +254,16 @@
                                             <div class="form-group">
                                                 <label class="modal-label" for="nombre">NOMBRE</label>
                                                 <input type="text" class="form-control" id="nameRegM" name="name"
-                                                    aria-describedby="nombre" placeholder="Ejemplo: Carolina" />
+                                                    aria-describedby="nombre" placeholder="Ejemplo: Carolina" required/>
                                                 <div class="emptyNameM logErrors"></div>
                                             </div>
 
                                             <!-- email -->
                                             <div class="form-group">
                                                 <label class="modal-label" for="exampleInputEmail1">EMAIL</label>
-                                                <input type="text" class="form-control" id="emailRegM" name="email"
+                                                <input type="email" class="form-control" id="emailRegM" name="email"
                                                     aria-describedby="emailHelp "
-                                                    placeholder="Ejemplo: almazen@gmail.com" />
+                                                    placeholder="Ejemplo: almazen@gmail.com" required/>
                                                 <div class="invalidRegEmailM logErrors"></div>
                                                 <div class="emptyRegEmailM logErrors"></div>
                                             </div>
@@ -272,7 +273,7 @@
                                                 <label class="modal-label" for="contraseña">CONTRASEÑA</label>
                                                 <input type="password" class="form-control" id="passwordRegM"
                                                     name="password" aria-describedby="password" name="password"
-                                                    placeholder="Ingresá una contraseña" />
+                                                    placeholder="Ingresá una contraseña" required/>
                                                 <div class="emptyPassRegM logErrors"></div>
                                                 <div class="invalidPassRegM logErrors"></div>
 
@@ -283,7 +284,7 @@
                                                 <label class="modal-label" for="validation">REPETÍ TU CONTRASEÑA</label>
                                                 <input type="password" class="form-control" id="validationM"
                                                     aria-describedby="validation" name="validation"
-                                                    placeholder="Repetí tu contraseña" />
+                                                    placeholder="Repetí tu contraseña" required/>
                                                 <div class="emptyValidationM logErrors"></div>
                                                 <div class="invalidValidationM logErrors"></div>
                                             </div>
@@ -292,7 +293,7 @@
                                             <div class="form-group d-flex flex-wrap col-12 justify-content-center align-items-center">
                                                 <label class="modal-label" for="avatar">CARGÁ UNA IMAGEN</label>
                                                 <input type="file" class="form-control-imagen" id="avatarM"
-                                                    name="avatar" />
+                                                    name="avatar" required/>
                                                 <div class="emptyAvatarM logErrors"></div>
                                                 <div class="invalidAvatarM logErrors"></div>
                                             </div>
@@ -444,6 +445,7 @@
                 })
             </script>
         </div>
+        <!-- FIN DE LA SECCIÓN MODAL DE LOGIN Y REGISTER -->
 
         <!-- FORMULARIO DE BUSQUEDA -->
         <form action="/product/find" method="post"
@@ -453,7 +455,7 @@
             <button type="submit" class="search-form_button col-3"><i class="fas fa-search"></i></button>
         </form>
         <!-- FIN FORMULARIO DE BUSQUEDA -->
-        
+
         <!-- CONTENEDOR DE RESULTADOS DE BÚSQUEDA -->
 
         <button class="navbar-toggler col-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

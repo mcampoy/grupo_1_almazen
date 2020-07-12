@@ -2532,8 +2532,6 @@ a.article:hover {
     .tableHistorial {
         width: 90%;
         max-width: 100%;
-
-
     }
 }
 
@@ -2568,13 +2566,6 @@ a.article:hover {
     background-color: var(--colorMenu);
     border:1 solid var(--colorMenu);
 } */
-
-
-@media (min-width: 1024PX) {
-    .rowContainer {
-        /*margin-right: 50px;*/
-    }
-}
 
 #tarjetas-productos {
     display: flex;
@@ -2816,9 +2807,7 @@ a.article:hover {
         display: flex;
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-       
         padding: 0.1em;
     }
-    
 
 
