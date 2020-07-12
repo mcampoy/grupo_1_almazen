@@ -113,10 +113,6 @@ header {
 
 /* MENU */
 
-.navbar-nav {
-    align-items: flex-end;
-    justify-content: flex-end;
-}
 
 
 /* ENLACES MENU */
@@ -168,10 +164,6 @@ header {
     border-color: #fff;
 }
 
-.navbar-brand {
-    display: inline-block;
-    margin-right: 0px;
-}
 
 
 /* DROPDOWN MENU */
@@ -214,7 +206,7 @@ header {
 
 .user button.register {
     color: #fff;
-    background: var(--colorBtnLoginHover);
+    background: var(--colorBtnRegister);
     border-radius: 6px;
     font-family: var(--fuenteMenuBtn);
     font-size: 0.8em;
@@ -225,7 +217,7 @@ header {
 
 .user button.register:hover {
     color: #fff;
-    background: var(--colorBtnRegister);
+    background: var(--colorMenu);
 }
 
 
@@ -1263,8 +1255,6 @@ label {
 
 /* Estilos mobile */
 
-@media (min-width: 320px) {}
-
 @media (min-width: 425px) {
     .precio_carrito {
         order: 5;
@@ -1276,15 +1266,14 @@ label {
 
     .copyright {
         margin-top: 2%;
+        text-align: center;
+        justify-content: center;
     }
 
     .iconos {
         margin: 0 auto;
     }
 
-    .menu-newsletter {
-        display: none;
-    }
 
     .carousel-inner {
         height: auto;
@@ -1335,10 +1324,14 @@ label {
 
     .copy {
         justify-content: center;
+        text-align: center;
+        justify-content: center;
     }
 
     .copyright {
         margin-top: 2%;
+        text-align: center;
+        justify-content: center;
     }
 
     .iconos {
@@ -1353,9 +1346,7 @@ label {
         order: 1;
     }
 
-    .menu-newsletter {
-        display: none;
-    }
+
 
 }
 
@@ -1364,11 +1355,14 @@ label {
 
 @media (min-width: 1023px) {
     .copy {
-        justify-content: start;
+        justify-content: center;
+        text-align: center;
     }
 
     .copyright {
         margin-top: 2%;
+        justify-content: center;
+        text-align: center;
     }
 
     .iconos {
@@ -1550,6 +1544,9 @@ figure img.sg-logo-receta {
 }
 
 @media (min-width: 1023px) {
+    .navbar-toggler{
+        display: none;
+    }
     .short-description-receta {
         padding-left: 10%;
         margin-top: 35px;
@@ -2102,25 +2099,21 @@ hr {
     border-radius: 4px
 }
 
-.navbar-toggler {
-    order: -3;
-}
 
-@media(min-width:900px) {
+
+@media(min-width:767px) {
     .marca {
-        order: -3;
-        display: flex;
-    }
-
-    .navbar-brand {
-        display: flex;
-        margin-right: 1rem;
+        margin: 0px;
+        padding:0px;
+        order: -4;
+        
     }
 
     .carrito {
-        order: 4;
-        /* -2 */
-        padding: 2em;
+        margin: 0px;
+        padding:0px;
+        order:-3;
+        padding:1em;
 
     }
 
@@ -2133,25 +2126,21 @@ hr {
     }
 
     .profile {
-        order: 5;
+        order: -2;
         cursor: pointer;
-        /* -1 */
     }
 
     .form-control {
-        order: -2;
-        /* 2 */
+        order: -1;
     }
 
     .search-form_button {
-        order: -1;
-        /* 3 */
+        order: 0;
     }
 
-    .navbar-nav {
-        order: 0;
-        /* 5 */
-        margin-right: 1;
+    .navbar-nav{
+        padding: 1em;
+        order:1;
     }
 }
 
@@ -2272,6 +2261,31 @@ hr {
     .fa-key {
         font-size: 2em;
     }
+    .marca{
+        margin: 0px;
+        padding:0px;
+        order:-3;
+          
+       }    
+       .carrito{
+           margin: 0px;
+           padding:0px;
+           order:-2;
+           padding:1em;
+       }
+       .profile{
+           order:-1;
+       }
+       .form-control{
+       order:-3;
+       }
+       .search-form_button{
+       order:-2;
+       }
+       .navbar-nav{
+           padding: 1em;
+           order:-1;
+       }
 }
 
 .modal-label {
@@ -2548,7 +2562,7 @@ a.article:hover {
 
 @media (min-width: 1024PX) {
     .rowContainer {
-        margin-right: 50px;
+        /*margin-right: 50px;*/
     }
 }
 
@@ -2564,13 +2578,13 @@ a.article:hover {
 }
 
 .tituloProd {
-    margin-left: 21%;
-    padding-left: 0;
+    margin-left: 0px;
+    padding-left: 8%;
     text-transform: capitalize;
 }
 
 .products_categories {
-    padding: 0 0 0 5%;
+    padding: 1% 0 0 2%;
     background-color: #FFF;
 }
 
@@ -2746,8 +2760,55 @@ a.article:hover {
     font-weight: 400;
     font-family: var(--fuenteGeneral);
 }
-
-
-
+@media(min-width:769px) {
+    .marca{
+     margin: 0px;
+     padding:0px;
+     order:-3;
+       
+    }    
+    .carrito{
+        margin: 0px;
+        padding:0px;
+        order:4;
+        padding:1em;
+    }
+    .profile{
+        order:5;
+    }
+    .form-control{
+    order:-3;
+    }
+    .search-form_button{
+    order:-2;
+    }
+    .navbar-nav{
+        padding: 1em;
+        order:-1;
+    }
+    .navbar-toggler{
+        order:10;
+    }
+    
+    }
+    .logo{margin:0px; padding: 1%;}
+    .marca{
+        margin:0px; padding: 5px;
+    }
+    .navbar-toggler {
+        padding: 0px}
+    .imgProfile, .imgCarrito{
+        margin:0px; padding:1px;
+    }
+    .navbar {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+       
+        padding: 0.1em;
+    }
+    
 
 

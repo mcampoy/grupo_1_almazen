@@ -12,6 +12,9 @@ module.exports = (sequelize, dataTypes) => {
             name: {
                 type: dataTypes.STRING,
             },
+            img_category: {
+                type: dataTypes.STRING,
+            },
 
             enabled: {
                 type: dataTypes.INTEGER,

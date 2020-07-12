@@ -29,6 +29,7 @@
             <ul class="categoryList">
                 <% for( let i = 0; i < categories.length; i++ ) { %>
                 <li class="categories-items">
+                    <img src="/images/imgCategory/<%= categories[i].img_category %>">
                     <a href="/product/category/<%= categories[i].id %>" class="categories_names">
                         <%= categories[i].name %> </a>
                 </li>
