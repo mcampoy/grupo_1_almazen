@@ -2317,7 +2317,17 @@ input#password.form-control {
 .profile {
     cursor: pointer;
 }
-
+.label-profile{
+    display: block;
+    font-weight: 700;
+    color: var(--colorMenu);
+    font-family: var(--fuenteMenu);
+    font-size: 0.9em;
+    font-weight: var(--fontweightMenu);
+    letter-spacing: 0.030em;
+    padding-top: 1%;
+    text-align: left;
+    }
 .profile img:hover {
     transform: scale(0.1);
     -webkit-transform: scale(1.09);

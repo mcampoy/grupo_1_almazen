@@ -141,7 +141,7 @@ const controller = {
         if (req.session.usuarioLogueado == undefined) {
             return res.render("login", { usuarioLogueado: undefined });
         } else {
-            return res.render('profile', { user: req.session.usuarioLogueado });
+            return res.render('profile', { user: req.session.usuarioLogueado, usuarioLogueado: req.session.usuarioLogueado });
         }
     },
 
