@@ -308,7 +308,6 @@ const controller = {
             recipes: req.body.recipes,
             diets: req.body.diets
         }
-        console.log(req.body);
         if (!Array.isArray(product.diets)) {
             product.diets = [product.diets];
         }

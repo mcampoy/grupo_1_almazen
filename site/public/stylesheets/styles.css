@@ -114,7 +114,6 @@ header {
 /* MENU */
 
 
-
 /* ENLACES MENU */
 
 .navbar-nav a {
@@ -136,12 +135,10 @@ header {
 .search-form_button {
     background-color: var(--colorBtnRegister);
     border-radius: 0px 5px 5px 0px;
-
 }
 
 .search-form_button:hover {
     background-color: var(--colorMenu);
-
 }
 
 .fa-search {
@@ -163,7 +160,6 @@ header {
     color: --colorBtnRegister;
     border-color: #fff;
 }
-
 
 
 /* DROPDOWN MENU */
@@ -572,11 +568,9 @@ footer .menu-newsletter button {
     menu {
         display: none;
     }
-
     .btn-toggle-navbar {
         display: none;
     }
-
     .menu-collapse .enlaces ul {
         display: flex;
         flex-direction: column;
@@ -590,11 +584,9 @@ footer .menu-newsletter button {
     .logofooter {
         margin-bottom: 1.5em;
     }
-
     .copy {
         order: 2;
     }
-
     .redes {
         order: 1;
     }
@@ -1120,21 +1112,17 @@ label {
     .precio-descuento {
         padding-left: 5%;
     }
-
     .precio_producto-detalles {
         margin-left: 12%;
     }
-
     .precio_detalles {
         /* font-size: 2.5em; */
         text-align: center;
         margin-top: 3%;
     }
-
     .box-quantity-detalles {
         flex-direction: column;
     }
-
     .quantity-selector-detalles {
         margin-left: 0;
         align-self: auto;
@@ -1146,19 +1134,15 @@ label {
         font-weight: 700;
         margin-top: 5%;
     }
-
     .vip-actions-wrapper {
         margin: 5% 0;
     }
-
     .vip-action-primary-details {
         justify-content: space-around;
     }
-
     .secondary {
         margin: 0;
     }
-
 }
 
 
@@ -1168,57 +1152,47 @@ label {
     .description-wrapper-details {
         margin: 0 3%;
     }
-
     .short-description-detalles {
         padding-left: 10%;
     }
-
     .precio_detalles {
         text-align: right;
         margin-bottom: 1em;
     }
-
     .precio_producto-detalles {
         display: flex;
         align-content: center;
         margin: 10% 0;
         justify-content: flex-end;
     }
-
     .precio_producto-detalles h3 {
         /* font-size: 2.5em; */
         font-weight: 700;
         text-align: right;
     }
-
     .precio-descuento {
         text-align: end;
         font-size: 1.3em;
     }
-
     .box-quantity-detalles {
         justify-content: flex-end;
         margin-bottom: 10px;
         flex-direction: row;
     }
-
     .quantity-selector-detalles {
         margin-left: 6%;
         width: 15%;
         margin-top: 0;
     }
-
     .vip-action-primary-details {
         margin-top: 1em;
         justify-content: flex-end;
     }
-
     .primary {
         max-width: 170px;
         margin-right: 3%;
         padding: 0 15px;
     }
-
     .secondary {
         max-width: 170px;
         padding: 10px 10px;
@@ -1259,32 +1233,25 @@ label {
     .precio_carrito {
         order: 5;
     }
-
     .box-quantity-carrito {
         order: 1;
     }
-
     .copyright {
         margin-top: 2%;
         text-align: center;
         justify-content: center;
     }
-
     .iconos {
         margin: 0 auto;
     }
-
-
     .carousel-inner {
         height: auto;
     }
-
     .carousel-caption {
         margin-bottom: 0px;
         padding: 1%;
         width: 40%;
     }
-
     .epigrafe {
         font-size: 1em;
     }
@@ -1297,23 +1264,18 @@ label {
     .elemento-info {
         flex-direction: column;
     }
-
     .elemento-info p {
         text-align: center;
     }
-
     .elemento-info span {
         display: none;
     }
-
     menu {
         display: none;
     }
-
     .btn-toggle-navbar {
         display: none;
     }
-
     .menu-collapse .enlaces ul {
         display: flex;
         flex-direction: column;
@@ -1321,33 +1283,25 @@ label {
         align-items: center;
         justify-content: center;
     }
-
     .copy {
         justify-content: center;
         text-align: center;
         justify-content: center;
     }
-
     .copyright {
         margin-top: 2%;
         text-align: center;
         justify-content: center;
     }
-
     .iconos {
         margin: 0 auto;
     }
-
     .precio_carrito {
         order: 5;
     }
-
     .box-quantity-carrito {
         order: 1;
     }
-
-
-
 }
 
 
@@ -1358,29 +1312,23 @@ label {
         justify-content: center;
         text-align: center;
     }
-
     .copyright {
         margin-top: 2%;
         justify-content: center;
         text-align: center;
     }
-
     .iconos {
         margin-left: auto;
     }
-
     .elemento-info {
         flex-direction: row;
     }
-
     .elemento-info p {
         text-align: left;
     }
-
     .elemento-info span {
         display: block;
     }
-
     .menu-newsletter {
         display: none;
     }
@@ -1544,7 +1492,7 @@ figure img.sg-logo-receta {
 }
 
 @media (min-width: 1023px) {
-    .navbar-toggler{
+    .navbar-toggler {
         display: none;
     }
     .short-description-receta {
@@ -1819,7 +1767,6 @@ figure img.sg-logo-receta {
         padding-top: 12%;
         height: 10px;
     }
-
     .horneando {
         display: block;
         width: 20%;
@@ -1927,8 +1874,6 @@ figure img.sg-logo-receta {
     padding: 0;
 }
 
-
-
 .social-bar img:hover {
     border-radius: 50%;
     background-color: var(--colorBtnLoginHover);
@@ -1964,11 +1909,9 @@ figure img.sg-logo-receta {
     .cardCarrito {
         margin: 3vh auto
     }
-
     .navbar-expand-lg {
         display: block;
     }
-
 }
 
 .cartCarrito {
@@ -1984,11 +1927,9 @@ figure img.sg-logo-receta {
         border-bottom-left-radius: unset;
         border-top-right-radius: 1rem
     }
-
     .precio_producto_carrito {
         font-size: .2em;
     }
-
 }
 
 .summary {
@@ -2008,6 +1949,26 @@ figure img.sg-logo-receta {
     font-size: var(--fontSizeDescripcionProducto);
     font-family: var(--fuenteTituloProducto);
     font-weight: var(--fontweightDescripcionProducto);
+}
+
+.cartItem .controls {
+    height: 1.5rem;
+    cursor: pointer;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #eee;
+}
+
+.cartItem span:nth-child(1),
+.cartItem span:nth-child(3) {
+    border: 1px solid cornflowerblue;
+    color: cornflowerblue;
+    background: #fff;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 0 0.5rem;
+    display: block;
 }
 
 .btn-finalizar-compra {
@@ -2041,11 +2002,9 @@ figure img.sg-logo-receta {
         border-top-right-radius: unset;
         border-bottom-left-radius: 1rem
     }
-
     .img-carrito {
         display: none;
     }
-
     .select-cart {
         order: 5
     }
@@ -2099,48 +2058,37 @@ hr {
     border-radius: 4px
 }
 
-
-
 @media(min-width:767px) {
     .marca {
         margin: 0px;
-        padding:0px;
+        padding: 0px;
         order: -4;
-        
     }
-
     .carrito {
         margin: 0px;
-        padding:0px;
-        order:-3;
-        padding:1em;
-
+        padding: 0px;
+        order: -3;
+        padding: 1em;
     }
-
     .carrito:hover {
-
         transform: scale(0.1);
         -webkit-transform: scale(1.09);
         -o-transform: scale(1.09);
         -moz-transform: scale(1.09);
     }
-
     .profile {
         order: -2;
         cursor: pointer;
     }
-
     .form-control {
         order: -1;
     }
-
     .search-form_button {
         order: 0;
     }
-
-    .navbar-nav{
+    .navbar-nav {
         padding: 1em;
-        order:1;
+        order: 1;
     }
 }
 
@@ -2256,36 +2204,34 @@ hr {
 }
 
 @media (min-width: 768px) {
-
     .mail-modal,
     .fa-key {
         font-size: 2em;
     }
-    .marca{
+    .marca {
         margin: 0px;
-        padding:0px;
-        order:-3;
-          
-       }    
-       .carrito{
-           margin: 0px;
-           padding:0px;
-           order:-2;
-           padding:1em;
-       }
-       .profile{
-           order:-1;
-       }
-       .form-control{
-       order:-3;
-       }
-       .search-form_button{
-       order:-2;
-       }
-       .navbar-nav{
-           padding: 1em;
-           order:-1;
-       }
+        padding: 0px;
+        order: -3;
+    }
+    .carrito {
+        margin: 0px;
+        padding: 0px;
+        order: -2;
+        padding: 1em;
+    }
+    .profile {
+        order: -1;
+    }
+    .form-control {
+        order: -3;
+    }
+    .search-form_button {
+        order: -2;
+    }
+    .navbar-nav {
+        padding: 1em;
+        order: -1;
+    }
 }
 
 .modal-label {
@@ -2317,7 +2263,8 @@ input#password.form-control {
 .profile {
     cursor: pointer;
 }
-.label-profile{
+
+.label-profile {
     display: block;
     font-weight: 700;
     color: var(--colorMenu);
@@ -2327,7 +2274,8 @@ input#password.form-control {
     letter-spacing: 0.030em;
     padding-top: 1%;
     text-align: left;
-    }
+}
+
 .profile img:hover {
     transform: scale(0.1);
     -webkit-transform: scale(1.09);
@@ -2342,7 +2290,6 @@ input#password.form-control {
     border-radius: 0;
     margin-bottom: 40px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-
 }
 
 .navbarProfile-btn {
@@ -2478,7 +2425,9 @@ a.article:hover {
     color: #fff !important;
 }
 
+
 /* --- Contenido Profile --- */
+
 #sidebar ul li a .btnSidebar {
     color: #fff;
     background: var(--colorMenu);
@@ -2500,9 +2449,7 @@ a.article:hover {
     padding: 20px;
     min-height: 100vh;
     max-width: 100wh;
-
     transition: all 0.3s;
-
 }
 
 .cabezalTabla {
@@ -2514,28 +2461,28 @@ a.article:hover {
     width: 30%;
 }
 
+
 /* --- Mediaqueries profile --- */
 
 @media (max-width: 768px) {
     #sidebar {
         margin-left: -250px;
     }
-
     #sidebar.active {
         margin-left: 0;
     }
-
     #sidebarCollapse span {
         display: none;
     }
-
     .tableHistorial {
         width: 90%;
         max-width: 100%;
     }
 }
 
+
 /* ESTILOS HEADER LOGEADO */
+
 .adminin-menu button {
     display: block;
 }
@@ -2556,6 +2503,7 @@ a.article:hover {
     flex-wrap: wrap;
     justify-content: center;
 }
+
 
 /* #show_password {
     background-color: var(--colorBtnRegister);
@@ -2591,7 +2539,6 @@ a.article:hover {
 
 .byCategory {
     padding: 0 0 0 5%;
-
 }
 
 .categories_title {
@@ -2677,6 +2624,7 @@ a.article:hover {
     font-family: var(--fuenteMenu);
 }
 
+
 /* CARD PRODUCTOS RELACIONADOS */
 
 .relProdImg {
@@ -2700,7 +2648,8 @@ a.article:hover {
     padding-left: 4%;
 }
 
-.contentProdRel p, h6 {
+.contentProdRel p,
+h6 {
     margin: 0;
 }
 
@@ -2726,6 +2675,7 @@ a.article:hover {
     font-weight: var(--fontweightPrecioProducto);
 }
 
+
 /* VISTAS DEL BUSCADOR */
 
 .noFound {
@@ -2744,10 +2694,10 @@ a.article:hover {
     padding-top: 2%;
 }
 
+
 /* #email {
     background-color: red;
 } */
-
 
 .logErrors p {
     margin-top: 1%;
@@ -2761,53 +2711,62 @@ a.article:hover {
     font-weight: 400;
     font-family: var(--fuenteGeneral);
 }
+
 @media(min-width:769px) {
-    .marca{
-     margin: 0px;
-     padding:0px;
-     order:-3;
-       
-    }    
-    .carrito{
+    .marca {
         margin: 0px;
-        padding:0px;
-        order:4;
-        padding:1em;
+        padding: 0px;
+        order: -3;
     }
-    .profile{
-        order:5;
-    }
-    .form-control{
-    order:-3;
-    }
-    .search-form_button{
-    order:-2;
-    }
-    .navbar-nav{
+    .carrito {
+        margin: 0px;
+        padding: 0px;
+        order: 4;
         padding: 1em;
-        order:-1;
     }
-    .navbar-toggler{
-        order:10;
+    .profile {
+        order: 5;
     }
-    
+    .form-control {
+        order: -3;
     }
-    .logo{margin:0px; padding: 1%;}
-    .marca{
-        margin:0px; padding: 5px;
+    .search-form_button {
+        order: -2;
+    }
+    .navbar-nav {
+        padding: 1em;
+        order: -1;
     }
     .navbar-toggler {
-        padding: 0px}
-    .imgProfile, .imgCarrito{
-        margin:0px; padding:1px;
+        order: 10;
     }
-    .navbar {
-        position: relative;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        padding: 0.1em;
-    }
+}
 
+.logo {
+    margin: 0px;
+    padding: 1%;
+}
 
+.marca {
+    margin: 0px;
+    padding: 5px;
+}
+
+.navbar-toggler {
+    padding: 0px
+}
+
+.imgProfile,
+.imgCarrito {
+    margin: 0px;
+    padding: 1px;
+}
+
+.navbar {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0.1em;
+}
