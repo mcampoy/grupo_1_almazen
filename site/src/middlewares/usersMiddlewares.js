@@ -107,7 +107,7 @@ let usersMiddlewares = {
         }
     },
     adminValidation: function(req, res, next) {
-        if (req.session.usuarioLogueado != undefined && req.session.usuarioLogueado.isAdmin) {
+        if (req.session.usuarioLogueado != undefined && req.session.usuarioLogueado.role==2) {
             next();
         } else {
             return res.redirect('/');
