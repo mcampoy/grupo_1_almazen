@@ -100,7 +100,7 @@ let usersMiddlewares = {
         }
     },
     adminValidation: function(req, res, next) {
-        if (req.session.usuarioLogueado != undefined && req.session.usuarioLogueado.isAdmin) {
+        if (req.session.usuarioLogueado != undefined && req.session.usuarioLogueado.role == 2) {
             next();
         } else {
             return res.redirect('/');
@@ -113,11 +113,6 @@ let usersMiddlewares = {
             let user = getUserByEmail(req.cookies.recordarme);
             if (user != null) {
                 req.session.usuarioLogueado = user; // logueamos al usuario
-                if (user.email == "admin@almazen.com") //administrador, después modificar condición
-                {
-                    req.session.usuarioLogueado.isAdmin = true;
-                    return res.redirect('/');
-                }
             }
         }
         next();
