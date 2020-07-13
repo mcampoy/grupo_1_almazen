@@ -5,11 +5,10 @@ window.addEventListener("load", function() {
 });
 
 function showCart() {
-    let cartProducts = CART.sort('name');
-
+    console.log("showCart");
     let cartList = document.getElementById('cartList');
-    let totalPriceProducts = 0;
-    let totalItems = 0;
+
+    let cartProducts = CART.sort('name');
     cartProducts.forEach(item => {
         let cartItem = document.createElement('div');
         cartItem.className = 'row main d-flex align-items-center justify-content-center cartItem item' + item.id;
@@ -47,8 +46,8 @@ function showCart() {
         //PRECIO UNITARIO
         let unitPriceDiv = document.createElement('div');
         unitPriceDiv.className = 'row';
-        let unitPriceH3 = document.createElement('h3');
-        unitPriceH3.className = 'titulo_producto mb-2';
+        let unitPriceH3 = document.createElement('p');
+        unitPriceH3.className = ' mb-2';
         let unitCost = new Intl.NumberFormat('en-CA', {
             style: 'currency',
             currency: 'CAD'
@@ -58,19 +57,6 @@ function showCart() {
         titleAndDescripDiv.appendChild(unitPriceDiv);
 
         cartItem.appendChild(titleAndDescripDiv);
-        //SELECTOR CANTIDAD PRODUCTO CARRITO
-        // let cantitadDiv = document.createElement('div');
-        // cantitadDiv.className = 'col custom-select mr-sm-2 select-cart';
-
-        // let cantidadSelect = document.createElement('select');
-        // cantidadSelect.setAttribute("id", "inlineFormCustomSelect");
-        // let options = '      <option selected value="1">1 unidad</option>';
-        // options += '      <option value="2">2 unidades</option>';
-        // options += '      <option value="3">3 unidades</option>';
-        // options += '      <option value="4">4 unidades</option>';
-        // cantidadSelect.innerHTML = options;
-        // cantitadDiv.appendChild(cantidadSelect);
-        // cartitem.appendChild(cantitadDiv);
 
         let controls = document.createElement('div');
         controls.className = 'controls col  mr-sm-2 select-cart';
@@ -97,9 +83,6 @@ function showCart() {
         cartItem.appendChild(controls);
         //PRECIO PRODUCTO CARRITO
 
-        // productData += '  <div class="col-4 col-md-3 text-right precio_producto-carrito">$ 44.<sup>00</sup></div>';
-        // //ÍCONO ELIMINAR PRODUCTO CARRITO
-        // productData += '  <div class="col"><a href="#"><i class="far fa-times-circle eliminar"></i></a></div>';
 
         let precioDiv = document.createElement('div');
         precioDiv.className = 'col-4 col-md-3 text-right precio_producto-carrito';
@@ -123,11 +106,24 @@ function showCart() {
         cartItem.appendChild(eliminarDiv);
         cartList.appendChild(cartItem);
 
+    });
+
+    showTotalItemsAndPrices();
+
+}
+
+
+
+function showTotalItemsAndPrices() {
+    let cartProducts = CART.sort('name');
+    let totalPriceProducts = 0;
+    let totalItems = 0;
+    cartProducts.forEach(item => {
+
         totalItems += item.qty;
         totalPriceProducts += item.price * (1 - item.discount / 100) * item.qty;
 
-    });
-
+    })
     document.querySelector(".qtyItems").innerHTML = totalItems + " items";
     let cost = new Intl.NumberFormat('en-CA', {
         style: 'currency',
@@ -148,13 +144,10 @@ function emptyCart() {
 function removeItem(id) {
 
     document.querySelector(".item" + id).remove();
-    //let cartProducts = CART.sort('name');
-    //document.querySelector(".qtyItems").innerHTML += cartProducts.length + " items";
-
     CART.remove(id);
-    let cartList = document.getElementById('cartList');
-    cartList.removeChild();
-    showCart();
+    showTotalItemsAndPrices();
+
+    //showCart();
     //window.location.href = window.location.href;
 }
 
@@ -167,9 +160,21 @@ function incrementCart(ev) {
     let item = CART.find(id);
     if (item) {
         qty.textContent = item.qty;
+
+        let qtytCost = new Intl.NumberFormat('en-CA', {
+            style: 'currency',
+            currency: 'CAD'
+        }).format(item.price * (1 - item.discount / 100) * item.qty);
+
+        let precioDiv = controls.parentElement.querySelector('.precio_producto-carrito');
+        precioDiv.innerText = qtytCost;
+        showTotalItemsAndPrices();
+
     } else {
-        document.getElementById('cart').removeChild(controls.parentElement);
+        document.getElementById('cartList').removeChild(controls.parentElement);
     }
+
+
 }
 
 function decrementCart(ev) {
@@ -181,23 +186,36 @@ function decrementCart(ev) {
     let item = CART.find(id);
     if (item) {
         qty.textContent = item.qty;
+
+
+        let qtytCost = new Intl.NumberFormat('en-CA', {
+            style: 'currency',
+            currency: 'CAD'
+        }).format(item.price * (1 - item.discount / 100) * item.qty);
+
+        let precioDiv = controls.parentElement.querySelector('.precio_producto-carrito');
+        precioDiv.innerText = qtytCost;
+        showTotalItemsAndPrices();
     } else {
-        document.getElementById('cart').removeChild(controls.parentElement);
+        document.getElementById('cartList').removeChild(controls.parentElement);
     }
 }
 
-function addItem(ev) {
-    ev.preventDefault();
-    let id = parseInt(ev.target.getAttribute('data-id'));
-    //CART.add(id, 1);
-    CART.add(id);
-    showCart();
-}
+// function addItem(ev) {
+//     ev.preventDefault();
+//     let id = parseInt(ev.target.getAttribute('data-id'));
+//     //CART.add(id, 1);
+//     CART.add(id);
+//     showCart();
+// }
 
-function errorMessage(err) {
-    //display the error message to the user
-    console.error(err);
-}
+// function errorMessage(err) {
+//     //display the error message to the user
+//     console.error(err);
+// }
+
+
+
 //     let title = document.createElement('h3');
 //     title.textContent = item.title;
 //     title.className = 'title'

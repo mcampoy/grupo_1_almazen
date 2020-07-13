@@ -45,8 +45,8 @@
 
                                     <% } else {%>
 
-                                        <% if (usuarioLogueado.isAdmin==true) { %>
-                                            <!-- /* MENÚ DE ADMINSITRADOR */ -->
+                                        <% if (usuarioLogueado.role==2) { %>
+                                            <!-- /* MENÚ DE ADMINISTRADOR */ -->
                                             <!-- /* PRODUCTOS */ -->
                                             <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
                         PRODUCTOS

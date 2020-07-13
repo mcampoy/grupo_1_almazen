@@ -112,3 +112,11 @@ const CART = {
         //NO impact on localStorage
     },
 };
+
+
+//para VISTA productDetails.ejs
+function comprarAhora(productId) {
+    console.log(`btnCargar${productId}`);
+    document.getElementById(`btnCargar${productId}`).click();
+    window.location.href = '/cart';
+}

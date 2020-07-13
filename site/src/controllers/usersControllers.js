@@ -96,11 +96,6 @@ const controller = {
                 res.cookie('recordarme', user.email, { expires: expiracion });
             }
 
-            if (user.email == "admin@almazen.com") //administrador, después modificar condición
-            {
-                req.session.usuarioLogueado.isAdmin = true;
-            }
-
             return res.redirect('/');
 
         } else {
@@ -136,12 +131,6 @@ const controller = {
                     // creamos una cookie de nombre "recordarme" que va a contener el email del usuario
                     let expiracion = new Date(Date.now() + 900000); //15 minutos
                     res.cookie('recordarme', usuario.email, { expires: expiracion });
-                };
-
-                if (usuario.email == "admin@almazen.com") //administrador, después modificar condición
-                {
-                    req.session.usuarioLogueado.isAdmin = true;
-                    return res.redirect('/');
                 };
 
                 return res.redirect(`/`);
