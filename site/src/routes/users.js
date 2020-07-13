@@ -35,7 +35,7 @@ router.post('/create', upload.any(), usersMiddlewares.guestValidation, usersMidd
 
 /*PERFIL DEL USUARIO*/
 router.get('/profile', usersMiddlewares.loggedUserValidation, usersController.profile);
-router.post('/profile', upload.any(), usersMiddlewares.loggedUserValidation, usersController.edit);
+router.post('/profile', upload.any(), usersMiddlewares.loggedUserValidation, usersMiddlewares.registerValidation, usersController.edit);
 
 //usersController.profile, usersMiddlewares.registerValidation,
 

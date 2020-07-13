@@ -2,12 +2,13 @@
 var fs = require('fs');
 var path = require('path');
 let bcrypt = require('bcrypt');
+let db = require('../database/models');
 var { check, validationResult, body } = require('express-validator');
 
 
 let usuariosPath = path.resolve(__dirname, '../data/usuarios.json');
 
-function getUsers() {
+/*function getUsers() {
     let usersJson = fs.readFileSync(usuariosPath, 'utf-8');
     if (usersJson != '') {
         return JSON.parse(usersJson)
@@ -19,7 +20,7 @@ function getUsers() {
 function getUserByEmail(email) {
     let users = getUsers()
     return users.find(user => user.email == email)
-};
+};*/
 
 // MIDDLEWARES USUARIOS
 let usersMiddlewares = {
@@ -39,15 +40,21 @@ let usersMiddlewares = {
         .exists().withMessage('Debés introducir una contraseña')
         .trim()
         .isLength({ min: 4 }).withMessage("La contaseña debe tener al menos 4 caracteres"),
-        body('email').custom(function(value) {
-            let users = getUsers();
-            for (let user of users) {
-                if (user.email == value) {
-                    return false;
-                };
-            }
-            return true
-        }).withMessage('El email con el que deseas registrarte pertenece a un/a usuario/a ya registrado/a'),
+        /*body('email').custom(function(value) {
+            let user = {
+                email: value,
+            };
+            db.User.findOne({
+                    where: {
+                        email: value
+                    }
+                }).then((usuario) => {
+                    if (usuario != undefined) {
+                        return false;
+                    }
+                    return true;
+                })
+        }).withMessage('El email con el que deseas registrarte pertenece a un/a usuario/a ya registrado/a'),*/
         body('password').custom((value, { req }) => {
             if (value !== req.body.validation) {
                 return false
