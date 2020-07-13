@@ -202,7 +202,7 @@ header {
 
 .user button.register {
     color: #fff;
-    background: var(--colorBtnRegister);
+    background: var(--colorMenu);
     border-radius: 6px;
     font-family: var(--fuenteMenuBtn);
     font-size: 0.8em;
@@ -571,13 +571,7 @@ footer .menu-newsletter button {
     .btn-toggle-navbar {
         display: none;
     }
-    .menu-collapse .enlaces ul {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-    }
+    
 }
 
 @media (min-width: 320px) {
@@ -589,6 +583,13 @@ footer .menu-newsletter button {
     }
     .redes {
         order: 1;
+    }
+    .menu-collapse .enlaces ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -1777,7 +1778,14 @@ figure img.sg-logo-receta {
     }
 }
 
-@media (min-width: 1024px) {}
+@media (max-width: 765px) {
+    .menu-collapse .enlaces ul {
+        display: inline-block;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+}
 
 
 /* Estilos de la pagina  Tips */
@@ -1882,6 +1890,9 @@ figure img.sg-logo-receta {
 @media screen and (min-width: 425px) and (max-width: 1024px) {
     .desktop {
         display: none;
+    }
+    .navbar-nav{
+        display:inline-block;
     }
 }
 

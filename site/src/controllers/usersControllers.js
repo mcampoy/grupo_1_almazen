@@ -8,45 +8,7 @@ const { check, validationResult, body } = require('express-validator');
 // let db = require('../database/models');
 // let sequelize = db.sequelize;
 
-
 let usuariosPath = path.resolve(__dirname, '../data/usuarios.json');
-
-
-// FUNCIONES GENÉRICAS
-/*function userIdGenerator() {
-    let users = getUsers();
-    if (users.length) {
-        return users.length + 1;
-    } else {
-        return 1;
-    }
-};
-
-function getUsers() {
-    let usersJson = fs.readFileSync(usuariosPath, 'utf-8');
-    if (usersJson != '') {
-        return JSON.parse(usersJson)
-    } else {
-        return []
-    }
-};
-
-function saveUser(user) {
-    let users = getUsers();
-    users.push(user);
-    fs.writeFileSync(usuariosPath, JSON.stringify(users, null, ' '))
-};
-
-function getUserByEmail(email) {
-    let users = getUsers()
-    return users.find(user => user.email == email)
-};
-
-function getUserById(id) {
-    let users = getUsers()
-    return users.find(user => user.id == id)
-};*/
-
 
 // CONTROLLERS DE USUARIO
 const controller = {
@@ -67,14 +29,6 @@ const controller = {
                 delete req.body.validation;
             }
 
-            /*let user = {
-                id: userIdGenerator(),
-                ...req.body,
-                password: bcrypt.hashSync(req.body.password, 10),
-                avatar: req.files[0].filename
-            }
-            saveUser(user)*/
-
             // creacion de usuario y almacenado en database
 
             let user = {
@@ -85,10 +39,18 @@ const controller = {
                 role: 0,
                 enabled: 1
             }
-
-            db.User.create(user);
-
-            req.session.usuarioLogueado = user;
+            db.User.findOne({
+                where: {
+                    email: user.email
+                }
+            }).then((usuario) => {
+                if (usuario != undefined) {
+                    return res.render("register", { usuarioLogueado: undefined });
+                } else {
+                    db.User.create(user);
+                    req.session.usuarioLogueado = user;
+                }
+            });
 
             if (req.body.remember != undefined) {
                 // creamos una cookie de nombre "recordarme" que va a contener el email del usuario
@@ -136,22 +98,6 @@ const controller = {
                 return res.redirect(`/`);
 
             });
-            /*let errors = validationResult(req);
-            if (errors.isEmpty()) {
-                let user = getUserByEmail(req.body.email)
-                req.session.usuarioLogueado = user;
-                if (req.body.remember != undefined) {
-                    // creamos una cookie de nombre "recordarme" que va a contener el email del usuario
-                    let expiracion = new Date(Date.now() + 900000); //15 minutos
-                    res.cookie('recordarme', user.email, { expires: expiracion });
-                }
-
-                if (user.email == "admin@almazen.com") //administrador, después modificar condición
-                {
-                    req.session.usuarioLogueado.isAdmin = true;
-                    return res.redirect('/');
-                }
-                return res.redirect(`/`);*/
 
         } else {
 
@@ -190,15 +136,17 @@ const controller = {
 
         db.User.update({
             name: user.name,
-            email: user.mail,
+            email: user.email,
             password: user.password,
             avatar: user.avatar
         }, {
             where: {
                 email: usuario.email
             }
-        })
-        return res.render('profile', { user: req.session.usuarioLogueado });
+        }).then((usuario) => {
+            req.session.usuarioLogueado = usuario;
+            return res.render('profile', { usuario: req.session.usuarioLogueado });
+        });
     }
 };
 

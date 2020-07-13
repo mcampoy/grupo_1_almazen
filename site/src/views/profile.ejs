@@ -3,19 +3,19 @@
 
 <head>
     <%- include("partials/head", {title: "Profile"}) %>
-    
+
 </head>
 
 <body>
     <!-- HEADER -->
-<!-- HEADER -->
-<%- include("partials/header", {usuarioLogueado: usuarioLogueado}) %>
-<!-- /HEADER -->
-    <!-- /HEADER -->
-    <div class="wrapper">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <!--<div class="sidebar-header">
+    <!-- HEADER -->
+    <%- include("partials/header", {usuarioLogueado: usuarioLogueado}) %>
+        <!-- /HEADER -->
+        <!-- /HEADER -->
+        <div class="wrapper">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+                <!--<div class="sidebar-header">
 
 
                 <img src="/users-avatar/avatar-1593036167353.png" class="dropdown-toggle d-flex justify-content-center mx-auto" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="30%" style="border-radius: 50%;"
@@ -27,162 +27,162 @@
 
             </div>-->
 
-            <ul class="">
+                <ul class="">
 
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user-circle"></i> PERFIL</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#editarPerfil"> Editar Perfil</a>
-                        </li>
-                        
-
-                    </ul>
-                </li>
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user-circle"></i> PERFIL</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="#editarPerfil"> Editar Perfil</a>
+                            </li>
 
 
-                <li>
-                    <a href="#historial"><i class="fas fa-shopping-cart"></i> Historial de compras</a>
-                </li>
-                <li>
-                    <a href="#favoritos"><i class="fas fa-heart"></i> Productos Favoritos</a>
-                </li>
-                <li>
-                    <a href="#recetarios"><i class="fas fa-heart"></i> Recetarios</a>
-                </li>
-                
+                        </ul>
+                    </li>
 
-            </ul>
 
-            <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="/" class=".btnSidebar">Volver al inicio</a>
-                </li>
-                <li>
-                    <a href="/product/" class=".btnSidebar">Ver todos los productos</a>
-                </li>
-            </ul>
-        </nav>
+                    <li>
+                        <a href="#historial"><i class="fas fa-shopping-cart"></i> Historial de compras</a>
+                    </li>
+                    <li>
+                        <a href="#favoritos"><i class="fas fa-heart"></i> Productos Favoritos</a>
+                    </li>
+                    <li>
+                        <a href="#recetarios"><i class="fas fa-heart"></i> Recetarios</a>
+                    </li>
 
-        <!-- Page Content  -->
-        <div id="content" class="mb-2">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+                </ul>
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <ul class="list-unstyled CTAs">
+                    <li>
+                        <a href="/" class=".btnSidebar">Volver al inicio</a>
+                    </li>
+                    <li>
+                        <a href="/product/" class=".btnSidebar">Ver todos los productos</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Page Content  -->
+            <div id="content" class="mb-2">
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+
+                        <button type="button" id="sidebarCollapse" class="btn btn-info">
                                 <i class="fas fa-angle-right"></i>
                             
                         </button>
 
 
 
-                </div>
-            </nav>
-            <!-- -- -- -- HISTORIAL DE COMPRAS -- -- -- -->
-            <section id="historial">
-                <h2 class="TituloDestacados">Historial de compras</h2>
-                <div class="tableHistorial table-responsive-sm-md">
-                    <table class="table">
-                        <thead class="cabezalTabla">
-                            <tr>
-                                <th scope="col">N°Orden</th>
-                                <th scope="col">Producto</th>
-                                <th scope="col">Descripción</th>
-                                <th scope="col">Cantidad</th>
-                                <th scope="col">Precio</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Stevia</td>
-                                <td>Endulzante natural</td>
-                                <td>2 unidades</td>
-                                <td>$170</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Cacao</td>
-                                <td>Amargo en polvo</td>
-                                <td>1 unidad</td>
-                                <td>$300</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Maca</td>
-                                <td>en polvo</td>
-                                <td>5 unidades</td>
-                                <td>$200</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    </div>
+                </nav>
+                <!-- -- -- -- HISTORIAL DE COMPRAS -- -- -- -->
+                <section id="historial">
+                    <h2 class="TituloDestacados">Historial de compras</h2>
+                    <div class="tableHistorial table-responsive-sm-md">
+                        <table class="table">
+                            <thead class="cabezalTabla">
+                                <tr>
+                                    <th scope="col">N°Orden</th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Stevia</td>
+                                    <td>Endulzante natural</td>
+                                    <td>2 unidades</td>
+                                    <td>$170</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Cacao</td>
+                                    <td>Amargo en polvo</td>
+                                    <td>1 unidad</td>
+                                    <td>$300</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Maca</td>
+                                    <td>en polvo</td>
+                                    <td>5 unidades</td>
+                                    <td>$200</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-
-                </div>
-            </section>
-            <!-- -- -- -- FIN HISTORIAL DE COMPRAS -- -- -- -->
-            <div class="line"></div>
-            <!-- -- -- -- PRODUCTOS FAVORITOS -- -- -- -->
-            <h2 class="TituloDestacados" id="favoritos">Productos Favoritos</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <!-- -- -- -- FIN PRODUCTOS FAVORITOS -- -- -- -->
-            <div class="line"></div>
-            <!-- -- -- -- RECETARIOS -- -- -- -->
-            <h2 class="TituloDestacados" id="recetarios">RECETARIOS</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <!-- -- -- -- FIN RECETARIOS -- -- -- -->
-            <div class="line"></div>
-            <!-- -- -- -- EDICION PERFIL -- -- -- -->
-            <section id="editarPerfil">
-                <h2 class="TituloDestacados">Editar perfil</h2>
-                <form method="post" action="/users/profile" id="miFormulario" enctype="multipart/form-data" class="col col-lg-8">
-                    <div class="form-campos">
-                        <!-- nombre -->
-                        <div class="form-group">
-                            <label class="modal-label label-profile" for="nombre">Editar nombre</label>
-                            <input type="text" class="form-control input-profile" value="<%=user.name%>" id="nombre" name="name" aria-describedby="nombre" placeholder="user.name" />
-                        </div>
-
-                        <!-- email -->
-                        <div class="form-group">
-                            <label class="modal-label label-profile" for="exampleInputEmail1">Editar email</label>
-                            <input type="email" class="form-control input-profile" value="<%=user.email%>" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="user.email" />
-                        </div>
-
-                        <!-- password -->
-                        <div class="form-group">
-                            <label class="modal-label label-profile" for="contraseña">Editar contraseña</label>
-                            <input type="password" class="form-control input-profile" value="<%=user.password%>" id="contraseña" name="password" aria-describedby="password" name="password" placeholder="user.password" />
-                        </div>
-
-                        <!-- validación -->
-                        <div class="form-group">
-                            <label class="modal-label label-profile" for="validation">Repetir la nueva contraseña</label>
-                            <input type="password" class="form-control input-profile" value="<%=user.password%>" id="validation" aria-describedby="validation" name="validation" placeholder="Repetí tu contraseña" />
-                        </div>
-
-                        <!-- carga de imágenes -->
-                        <div class="form-group">
-                            <label class="modal-label" for="avatar">Cargá una nueva imagen</label>
-                            <input type="file" class="form-control-imagen" id="avatar" name="avatar" />
-                        </div>
-
-                        <!-- dejar en blanco el formulario o enviar -->
-                        <div class="user form-group">
-                            <button class="login align-items-center justify-content-center" role="button" type="reset">Borrar</button>
-                            <button class="register align-items-center justify-content-center" role="button" type="submit">Enviar</button>
-                        </div>
 
                     </div>
-            </section>
-            <!-- -- -- -- FIN EDICION PERFIL -- -- -- -->
-            <div class="line"></div>
-            
+                </section>
+                <!-- -- -- -- FIN HISTORIAL DE COMPRAS -- -- -- -->
+                <div class="line"></div>
+                <!-- -- -- -- PRODUCTOS FAVORITOS -- -- -- -->
+                <h2 class="TituloDestacados" id="favoritos">Productos Favoritos</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <!-- -- -- -- FIN PRODUCTOS FAVORITOS -- -- -- -->
+                <div class="line"></div>
+                <!-- -- -- -- RECETARIOS -- -- -- -->
+                <h2 class="TituloDestacados" id="recetarios">RECETARIOS</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <!-- -- -- -- FIN RECETARIOS -- -- -- -->
+                <div class="line"></div>
+                <!-- -- -- -- EDICION PERFIL -- -- -- -->
+                <section id="editarPerfil">
+                    <h2 class="TituloDestacados">Editar perfil</h2>
+                    <form method="post" action="/users/profile" id="miFormulario" enctype="multipart/form-data" class="col col-lg-8">
+                        <div class="form-campos">
+                            <!-- nombre -->
+                            <div class="form-group">
+                                <label class="modal-label label-profile" for="nombre">Editar nombre</label>
+                                <input type="text" class="form-control input-profile" value="<%=user.name%>" id="nombre" name="name" aria-describedby="nombre" placeholder="user.name" />
+                            </div>
 
-            <!-- -- -- -- LISTA USUARIOS ADMIN -- -- -- - ->
+                            <!-- email -->
+                            <div class="form-group">
+                                <label class="modal-label label-profile" for="exampleInputEmail1">Editar email</label>
+                                <input type="email" class="form-control input-profile" value="<%=user.email%>" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="user.email" />
+                            </div>
+
+                            <!-- password -->
+                            <div class="form-group">
+                                <label class="modal-label label-profile" for="contraseña">Editar contraseña</label>
+                                <input type="password" class="form-control input-profile" value="<%=user.password%>" id="contraseña" name="password" aria-describedby="password" name="password" placeholder="user.password" />
+                            </div>
+
+                            <!--  validación -->
+                            <div class="form-group">
+                                <label class="modal-label label-profile" for="validation">Repetir la nueva contraseña</label>
+                                <input type="password" class="form-control input-profile" value="<%=user.password%>" id="validation" aria-describedby="validation" name="validation" placeholder="Repetí tu contraseña" />
+                            </div>
+
+                            <!-- carga de imágenes -->
+                            <div class="form-group">
+                                <label class="modal-label" for="avatar">Cargá una nueva imagen</label>
+                                <input type="file" class="form-control-imagen" id="avatar" name="avatar" />
+                            </div>
+
+                            <!-- dejar en blanco el formulario o enviar -->
+                            <div class="user form-group">
+                                <button class="login align-items-center justify-content-center" role="button" type="reset">Borrar</button>
+                                <button class="register align-items-center justify-content-center" role="button" type="submit">Enviar</button>
+                            </div>
+
+                        </div>
+                </section>
+                <!-- -- -- -- FIN EDICION PERFIL -- -- -- -->
+                <div class="line"></div>
+
+
+                <!-- -- -- -- LISTA USUARIOS ADMIN -- -- -- - ->
             <h2 class="TituloDestacados">LISTA USUARIOS</h2>
             <div class="tableHistorial">
                 <table class="table col-12">
@@ -236,34 +236,34 @@
 
             <!- - -- -- -- FIN LISTA USUARIOS ADMIN -- -- -- -->
 
-            <div class="line"></div>
+                <div class="line"></div>
 
-            
 
-            
+
+
+            </div>
         </div>
-    </div>
 
 
-    </div>
-    <!-- FOOTER -->
-    <%- include("partials/footer") %>
-        <!-- /FOOTER -->
-        <!-- jQuery CDN - Slim version (=without AJAX) -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <!-- Popper.JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-        <!-- Bootstrap JS -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-        <!--<script type='text/javascript' src="/js/profile.js"></script>-->
+        </div>
+        <!-- FOOTER -->
+        <%- include("partials/footer") %>
+            <!-- /FOOTER -->
+            <!-- jQuery CDN - Slim version (=without AJAX) -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <!-- Popper.JS -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+            <!-- Bootstrap JS -->
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+            <!--<script type='text/javascript' src="/js/profile.js"></script>-->
 
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('#sidebarCollapse').on('click', function() {
-                    $('#sidebar').toggleClass('active');
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#sidebarCollapse').on('click', function() {
+                        $('#sidebar').toggleClass('active');
+                    });
                 });
-            });
-        </script>
+            </script>
 
 
 </body>
