@@ -25,8 +25,9 @@ var usersMiddlewares = require('../middlewares/usersMiddlewares');
 
 /* LOGIN */
 router.get('/login', usersMiddlewares.guestValidation, usersController.log);
-router.post('/login', usersMiddlewares.guestValidation, usersMiddlewares.loginValidation, usersController.access);
+router.post('/login', usersMiddlewares.guestValidation, usersController.access);
 
+//usersMiddlewares.loginValidation,
 
 /* REGISTRO */
 router.get('/create', usersMiddlewares.guestValidation, usersController.reg);
@@ -34,8 +35,9 @@ router.post('/create', upload.any(), usersMiddlewares.guestValidation, usersMidd
 
 /*PERFIL DEL USUARIO*/
 router.get('/profile', usersMiddlewares.loggedUserValidation, usersController.profile);
-router.post('/profile', usersMiddlewares.loggedUserValidation, usersController.profile, usersMiddlewares.registerValidation, usersController.edit);
+router.post('/profile', upload.any(), usersMiddlewares.loggedUserValidation, usersController.edit);
 
+//usersController.profile, usersMiddlewares.registerValidation,
 
 /* CERRAR SESIÓN */
 router.get('/logout', usersMiddlewares.loggedUserValidation, usersController.logout);
