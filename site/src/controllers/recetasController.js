@@ -4,7 +4,11 @@ const controller = {
 
     recetaList: (req, res) => {
 
-        db.Recipe.findAll()
+        db.Recipe.findAll({
+            where:{
+                enabled: 1
+            }
+        })
             .then(recetas => {
 
                 return res.render('recetas', { recetas: recetas, usuarioLogueado: req.session.usuarioLogueado });
