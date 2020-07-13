@@ -393,7 +393,6 @@
                     let avatarM = document.querySelector('input#avatarM');
                     let avatarContentM = avatarM.value;
                     extensionM = (avatarContentM.substring(avatarContentM.lastIndexOf("."))).toLowerCase();
-                    // console.log(extension)
                     let emptyAvatarM = registerFormM.querySelector('div.emptyAvatarM');
                     let invalidAvatarM = registerFormM.querySelector('div.invalidAvatarM');
 
@@ -413,8 +412,6 @@
                     } else {
                         invalidAvatarM.innerHTML = "";
                     }
-
-
                 })
             </script>
         </div>
