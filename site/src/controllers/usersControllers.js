@@ -45,8 +45,8 @@ const controller = {
                         enabled: 1
                     }).then(user => {
                         req.session.usuarioLogueado = user;
-                        console.log("ñlaskdjfñalsdkjfañlsdkfjañsdlfjkasd");
-                        console.log(user);
+                        // console.log("ñlaskdjfñalsdkjfañlsdkfjañsdlfjkasd");
+                        // console.log(user);
                         if (req.body.remember != undefined) {
                             // creamos una cookie de nombre "recordarme" que va a contener el email del usuario
                             let expiracion = new Date(Date.now() + 900000); //15 minutos

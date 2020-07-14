@@ -21,21 +21,19 @@ let usersMiddlewares = {
         .exists().withMessage('Debés introducir una contraseña')
         .trim()
         .isLength({ min: 4 }).withMessage("La contaseña debe tener al menos 4 caracteres"),
-        /*body('email').custom(function(value) {
-            let user = {
-                email: value,
-            };
-            db.User.findOne({
-                    where: {
-                        email: value
-                    }
-                }).then((usuario) => {
-                    if (usuario != undefined) {
-                        return false;
-                    }
-                    return true;
-                })
-        }).withMessage('El email con el que deseas registrarte pertenece a un/a usuario/a ya registrado/a'),*/
+
+        // body('email').custom(function(value) {
+            
+        //     db.User.findAll({
+        //         where: {
+        //             email: value
+        //         }
+        //     })
+        //     .then((user)=> {
+        //         return !user?false:true
+        //     }).catch(error => console.log(error))
+        // }).withMessage('El email con el que querés crear tu cuenta pertenece a un/a usuario/a ya registrado/a'),
+
         body('password').custom((value, { req }) => {
             if (value !== req.body.validation) {
                 return false
