@@ -32,6 +32,17 @@ const controller = {
             }).catch((err) => console.error(err));
     },
 
+    offers: (req,res) => {
+        db.Product.findAll({
+            where: {
+                discount: { [Sequelize.Op.gte]: 1 }
+            }
+        })
+        .then(offers => {
+            return res.render('offers', {offers, usuarioLogueado: req.session.usuarioLogueado})
+        }).catch((err) => console.error(err));
+    },
+
     category: (req, res) => {
 
         let categories = db.Category.findAll()
