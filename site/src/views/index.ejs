@@ -79,7 +79,7 @@
                 </div>
                 <!-- -- -- -- SECCION PRODUCTOS DESTACADOS -- -- -->
                 <section id="productos" class="row container-fluid destacados">
-                    <h5 class="col-12 mt-3 d-flex justify-content-center TituloDestacados">Nuestras ofertas</h5>
+                    <h5 class="col-12 mt-5 mb-5 d-flex justify-content-center titulo_receta">Nuestras ofertas</h5>
 
                     <!-- OFERTAS -->
                     <% for ( let productSale of sales ) { %>
@@ -114,13 +114,14 @@
                             </section>
                         </div>
                         <% } %>
+                        <div class="d-flex justify-content-center col-12"><a href="/product/offers" class="enlace d-flex justify-content-center align-items-center">Ver más ofertas </a>
                 </section>
 
-                <a href="/product/offers">Ver más ofertas</a>
-
+                
+                </div>
                 <!-- PRODUCTOS -->
                 <section id="productos" class="row container-fluid destacados">
-                    <h5 class="col-12 mt-3 d-flex justify-content-center TituloDestacados">Nuestros productos destacados</h5>
+                    <h5 class="col-12 mt-5 mb-5 d-flex justify-content-center titulo_receta">Nuestros productos destacados</h5>
                     <% for ( let product of products ) { %>
 
                         <div class="mb-3 col-12 col-sm-6 col-md-6 col-lg-4  justify-content-center">
@@ -154,13 +155,13 @@
                         </div>
                         <% } %>
                 </section>
-
-                <a href="/product/">Ver más productos</a>
+                <div class="d-flex justify-content-center col-12"><a href="/product/" class="enlace d-flex justify-content-center">Ver más productos</a>
+                </div>
     </div>
 
     </section>
     <!-- -- -- -- SECCION RECETAS -- -- -->
-    <section id="recetas" class="mb-5 row container-fluid Recetas">
+    <section id="recetas" class=" mt-5 mb-5 row container-fluid Recetas">
         <div class="mb-1 col-12 col-sm-6 col-md-12 col-lg-12 d-flex justify-content-center">
             <section class="col-12 col-md-11 col-lg-11 d-flex product-box">
                 <a href="/recetas/<%= receta.id %>" class="col-12 col-md-12 col-lg-12 d-flex flex-wrap">

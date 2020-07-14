@@ -83,9 +83,16 @@ button a {
 a:hover {
     text-decoration: none;
 }
-
-
-/* */
+.enlace{
+    color: var(--colorMenu);
+    font-weight: 400;
+    font-size: 1.2em;
+    padding-bottom: 3px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-right: 1px solid var(--colorMenu);
+    border-left: 1px solid var(--colorMenu);
+}
 
 body {
     margin: 0 auto;
@@ -2572,7 +2579,7 @@ a.article:hover {
     color: var(--colorTituloSeccion);
     font-family: var(--fuenteGeneral);
     font-weight: 400;
-    font-size: 1.2em;
+    font-size: 1.1em;
     text-transform: capitalize;
     padding-left: 2%;
 }
