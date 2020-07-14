@@ -32,15 +32,17 @@ const controller = {
             }).catch((err) => console.error(err));
     },
 
-    offers: (req,res) => {
+    offers: (req, res) => {
         db.Product.findAll({
-            where: {
-                discount: { [Sequelize.Op.gte]: 1 }
-            }
-        })
-        .then(offers => {
-            return res.render('offers', {offers, usuarioLogueado: req.session.usuarioLogueado})
-        }).catch((err) => console.error(err));
+                where: {
+                    discount: {
+                        [Sequelize.Op.gte]: 1
+                    }
+                }
+            })
+            .then(offers => {
+                return res.render('offers', { offers, usuarioLogueado: req.session.usuarioLogueado })
+            }).catch((err) => console.error(err));
     },
 
     category: (req, res) => {
@@ -124,7 +126,7 @@ const controller = {
 
     //MUESTRA LA VISTA DENTRO DEL IFRAME DE DETALLES DEL PRODUCTO SELECCIONADO
     // Recibe como parámetros el id del producto y edit (null muestra, 1 edito, 2 nuevo)
-    adminDetails: (req, res) => {
+    adminDetails: (req, res, refresh = 0) => {
         var product = [];
         if (req.params.id != 0) {
             //Edito un producto existente
@@ -168,6 +170,7 @@ const controller = {
                     diets: results[2],
                     recipes: results[3],
                     edit: edit, //null, 1 edito, 2 nuevo
+                    refresh: refresh, //envío 1 para recargar pantalla ppal desde front 
                 });
             })
             .catch((err) => console.error(err));
@@ -185,7 +188,7 @@ const controller = {
             price: parseInt(req.body.price),
             discount: parseInt(req.body.discount),
             stock: parseInt(req.body.stock),
-            id_category: req.body.id_category,
+            id_category: parseInt(req.body.id_category),
             recipes: req.body.recipes,
             diets: req.body.diets
         }
@@ -209,80 +212,98 @@ const controller = {
         }
 
         if (typeof req.body.enabled !== 'undefined') {
-            product.enabled = true;
+            product.enabled = 1;
         } else {
-            product.enabled = false;
+            product.enabled = 0;
         }
 
         let errors = validationResult(req);
+        console.log(req.body);
         console.log(errors);
 
         if (errors.isEmpty()) {
-
-            db.Product.update({
+            if (product.id_category == undefined) product.id_category = null;
+            console.log("product.id_category");
+            console.log(product.id_category);
+            return db.Product.update({
                 code: product.code,
                 name: product.name,
                 description: product.description,
                 description_short: product.description_short,
-                quantity: product.quantity,
+                quantity: parseInt(product.quantity),
                 unit: product.unit,
-                price: product.price,
-                discount: product.discount,
-                stock: product.stock,
+                price: parseInt(product.price),
+                discount: parseInt(product.discount),
+                stock: parseInt(product.stock),
                 image: product.image,
-                id_category: product.id_category,
-                enabled: product.enabled,
+                id_category: parseInt(product.id_category),
+                enabled: (product.enabled),
 
             }, {
                 where: {
                     id: parseInt(req.body.id)
                 }
-            });
+            }).then((editedRows) => {
 
+                console.log("product.id_category");
+                console.log(product.id_category);
 
-            //Borro las relaciones antiguas con dietas
-            db.ProductDiet.destroy({
-                where: {
-                    id_product: product.id
-                }
-            }).then(
+                console.log("editedRows");
+                console.log(editedRows);
+                //Borro las relaciones antiguas con dietas
+                db.ProductDiet.destroy({
+                    where: {
+                        id_product: product.id
+                    }
+                })
+            }).then(() => {
                 //Creo las relaciones exitentes con dietas
-                product.diets.forEach(idDiet => {
-                    db.ProductDiet.create({
-                        id_product: product.id,
-                        id_diet: idDiet
-                    })
-                })
-            )
+                console.log("product.diets");
+                console.log(product.diets);
+                if (product.diets[0] != null) {
+                    console.log("CREANDO DIETAS");
 
-            //Borro las relaciones antiguas con recetas
-            db.ProductRecipe.destroy({
-                where: {
-                    id_product: product.id
+                    product.diets.forEach(idDiet => {
+                        db.ProductDiet.create({
+                            id_product: product.id,
+                            id_diet: idDiet
+                        })
+                    })
                 }
-            }).then(
-                //Creo las relaciones exitentes con recetas
-                product.recipes.forEach(idRecipe => {
-                    db.ProductRecipe.create({
-                        id_product: product.id,
-                        id_recipe: idRecipe
-                    })
+            }).then(() => {
+                //Borro las relaciones antiguas con recetas
+                db.ProductRecipe.destroy({
+                    where: {
+                        id_product: product.id
+                    }
                 })
-            ).then(() => {
-                var categories = db.Category.findAll();
-                var diets = db.Diet.findAll();
-                var recipes = db.Recipe.findAll();
-                Promise.all([categories, diets, recipes])
-                    .then((results) => {
-                        return res.render('productAdminDetail', {
-                            product: product,
-                            categories: results[0],
-                            diets: results[1],
-                            recipes: results[2],
-                        });
+            }).then(() => {
+                //Creo las relaciones exitentes con recetas
+                if (product.recipes[0] != null) {
+                    console.log("CREANDO RECETAS");
+                    product.recipes.forEach(idRecipe => {
+                        db.ProductRecipe.create({
+                            id_product: product.id,
+                            id_recipe: idRecipe
+                        })
                     })
-                    .catch((err) => console.error(err));
-            })
+                }
+            }).then(() => {
+                req.params.id = product.id;
+                controller.adminDetails(req, res, 1);
+
+                // Promise.all([categories, diets, recipes])
+                //     .then((results) => {
+                //         console.log(product);
+                //         return res.render('productAdminDetail', {
+                //             product: product,
+                //             categories: results[0],
+                //             diets: results[1],
+                //             recipes: results[2],
+                //         });
+                //     })
+                //     .catch((err) => console.error(err));
+            });
 
         } else {
             var categories = db.Category.findAll();
@@ -423,28 +444,36 @@ const controller = {
         let errors = validationResult(req);
         console.log(errors);
         if (errors.isEmpty()) {
-
-            db.ProductDiet.destroy({
+            console.log(req.body);
+            let promise1 = db.ProductDiet.destroy({
                 where: {
-                    id_product: req.body.id
+                    id_product: parseInt(req.body.id)
                 }
             })
-            db.ProductRecipe.destroy({
+            let promise2 = db.ProductRecipe.destroy({
                 where: {
-                    id_product: req.body.id
+                    id_product: parseInt(req.body.id)
                 }
             })
-            db.Product.destroy({
+            let promise3 = db.Product.destroy({
                 where: {
                     id: req.body.id
                 }
             })
+
+            Promise.all([promise1, promise2, promise3])
+                .then(() => {
+                    return res.redirect('/product/admin');
+
+                });
+
+        } else {
+            return res.redirect('/product/admin');
         }
-        return res.redirect('/product/admin');
     },
 
 
-    // INTENTO DE IMPLEMENTAR BUSCADOR
+    //BUSCADOR
 
     find: (req, res) => {
         let products =

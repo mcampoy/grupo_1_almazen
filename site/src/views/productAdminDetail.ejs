@@ -6,7 +6,9 @@
 </head>
 
 <body style="overflow:auto">
-
+    <script>
+        if ('<%= refresh %>' == 1) window.top.location.href = window.top.location.href;
+    </script>
     <div class="error">
         <% if (typeof errors != 'undefined') { %>
             <ul>
@@ -25,7 +27,8 @@
         <div class="container-fluid align-content-around carga_producto">
             <!-- onsubmit="window.top.location.reload(true);" -->
             <!-- onsubmit="window.top.location.href = window.top.location.href; -->
-            <form action="/product/admin<% if (edit == '1') { %>?_method=PUT<% } %>" method="post" enctype="multipart/form-data" onsubmit="window.top.location.href = '/product/admin';">
+            <!-- <form action="/product/admin<% if (edit == '1') { %>?_method=PUT<% } %>" method="post" enctype="multipart/form-data" onsubmit="window.top.location.href = '/product/admin';"> -->
+            <form action="/product/admin<% if (edit == '1') { %>?_method=PUT<% } %>" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <!-- COLUMNA 1 - NOMBRE Y DESCRIPCIÓN -->
                     <div class="container left-column  order-1 col-11 col-md-5 col-lg-4 d-block">

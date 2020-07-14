@@ -55,7 +55,7 @@ let productsMiddlewares = {
 
         check('unit')
         .trim()
-        .isLength({ max: 4 }).withMessage("La unidad de medida debe ser de hasta 4 caracteres"),
+        .isLength({ max: 10 }).withMessage("La unidad de medida debe ser de hasta 10 caracteres"),
 
 
         // body('code').custom(function(code) { // chequea que el prod. no exista antes de intentar agregarlo
@@ -119,7 +119,7 @@ let productsMiddlewares = {
 
         check('unit')
         .trim()
-        .isLength({ max: 4 }).withMessage("La unidad de medida debe ser de hasta 4 caracteres"),
+        .isLength({ max: 10 }).withMessage("La unidad de medida debe ser de hasta 10 caracteres"),
 
 
 

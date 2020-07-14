@@ -4,7 +4,7 @@ USE `almazen_db`;
 --
 -- Host: 127.0.0.1    Database: almazen_db
 -- ------------------------------------------------------
--- Server version	5.6.20
+-- Server version	5.6.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -96,35 +96,6 @@ LOCK TABLES `ingredients` WRITE;
 /*!40000 ALTER TABLE `ingredients` DISABLE KEYS */;
 INSERT INTO `ingredients` VALUES (1,1,1,250,'gr','de harina'),(2,1,2,2,'','bananas'),(3,1,3,125,'gr','de nueces picadas'),(4,1,4,125,'gr','de azúcar'),(5,1,5,50,'ml','de aceite vegetal'),(6,1,6,10,'gr','de leche en polvo'),(7,1,7,1,'','huevo'),(8,1,8,5,'gr','de bicarbonato'),(9,1,9,3,'gr','de sal'),(10,1,10,10,'gr',' de canela'),(11,1,11,3,'ml','de esencia de vainilla'),(12,3,1,500,'gr','de garbanzos'),(13,3,2,50,'gr','de sésamo o ajonjoli'),(14,3,3,2,'dientes','de ajo'),(15,3,4,150,'ml','jugo de limón'),(16,3,5,25,'ml','de aceite de oliva'),(17,3,6,8,'gr','de sal (opcional)'),(18,3,7,10,'gr','de comino'),(19,3,8,10,'gr','de pimentón dulce'),(20,2,1,350,'gr','de harina integral'),(21,2,2,200,'gr','de avena arrollada'),(22,2,3,125,'gr','de azúcar'),(23,2,4,50,'ml','de aceite de girasol'),(24,2,5,1,NULL,'banana madura'),(25,2,6,2,NULL,'peras a punto'),(26,2,7,5,'gr','de bicarbonato'),(27,2,8,3,'gr','de sal'),(28,2,9,100,'ml','de jugo de limón'),(29,2,10,15,NULL,'almendras');
 /*!40000 ALTER TABLE `ingredients` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `product_category`
---
-
-DROP TABLE IF EXISTS `product_category`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `product_category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_product` int(11) DEFAULT NULL,
-  `id_category` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `product_category_id_product_idx` (`id_product`),
-  KEY `product_category_id_category_idx` (`id_category`),
-  CONSTRAINT `product_category_id_category` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `product_category_id_product` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `product_category`
---
-
-LOCK TABLES `product_category` WRITE;
-/*!40000 ALTER TABLE `product_category` DISABLE KEYS */;
-INSERT INTO `product_category` VALUES (1,1,1),(2,1,3),(3,2,2),(4,2,4),(5,3,1),(6,3,2),(7,3,3),(8,3,4);
-/*!40000 ALTER TABLE `product_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -336,6 +307,14 @@ LOCK TABLES `users` WRITE;
 INSERT INTO `users` VALUES (1,'Admin','admin@almazen.com','$2b$10$9pE7FmVoYQZf/9uQRPx8veTEUcIX/P8grWwU9tVDYoOz3rjJnj9G2','avatar-1593119970177.png',2,1),(2,'Agustín','agus@almazen.com','$2b$10$ylEixrFkDrhtEBnxsdxPB.P1F9KRJ6qAE4K7awd0cxAd4JKBHctLq','avatar-1593022518948.jpg',0,1),(3,'Rafael','rafa@almazen.com','$2b$10$TfzxPZjDpjt8WFf/52eI.uyAEe/3W82klYAS3I7xee5.3YiaYPib6','avatar-1593083486227.png',0,1),(9,'Matías','mati@almazen.com','$2b$10$Fbwv0IQZzJMJme4cBfavY.qhvAVB3x/yMzJ5kqgZ0.oCRV4nSMFNK','avatar-1594647332809.jpg',0,1),(10,'Jes','jesus@jmail.com','$2b$10$gnEK/RJokaPuT23oUMeDVezvaVD05GxNOnGfNO2iCM5zI8vRt/rii','avatar-1594678384757.jpg',0,1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'almazen_db'
+--
+
+--
+-- Dumping routines for database 'almazen_db'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -346,4 +325,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-13 20:43:24
+-- Dump completed on 2020-07-14 14:35:11
