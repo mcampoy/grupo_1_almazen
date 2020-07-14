@@ -403,20 +403,9 @@ const controller = {
                     })
                 });
 
+                req.params.id = prod.id;
+                controller.adminDetails(req, res, 1);
 
-                var categories = db.Category.findAll();
-                var diets = db.Diet.findAll();
-                var recipes = db.Recipe.findAll();
-                Promise.all([categories, diets, recipes])
-                    .then((results) => {
-                        return res.render('productAdminDetail', {
-                            product: product,
-                            categories: results[0],
-                            diets: results[1],
-                            recipes: results[2],
-                        });
-                    })
-                    .catch((err) => console.error(err));
             });
 
         } else {
