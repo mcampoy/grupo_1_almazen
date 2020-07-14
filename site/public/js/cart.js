@@ -32,7 +32,7 @@ const CART = {
         if (match && match[0])
             return match[0];
     },
-    add(id, name, description_short, weight, unit, price, discount, image) {
+    add(id, name, description_short, weight, unit, price, discount, image, qty = 1) {
         //add a new item to the cart
         //check that it is not in the cart already
         if (CART.find(id)) {
@@ -47,7 +47,7 @@ const CART = {
                 price: price,
                 discount: discount,
                 image: image,
-                qty: 1,
+                qty: qty,
             };
             CART.contents.push(obj);
             //update localStorage

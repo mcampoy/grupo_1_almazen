@@ -91,7 +91,7 @@
 
                                                 <input type="button" data-js="vip-action-primary" form="productInfo" title="comprarAhora" value="Comprar ahora" class="col-12 col-md-5 col-lg-4 primary ui-button ui-button--primary  vip-narrow-button" onclick="comprarAhora('<%= product.id %>')">
 
-                                                <input id="btnCargar<%= product.id %>" type="button" data-js="vip-action-cart" form="productInfo" title="agregarCarrito" value="Agregar al carrito" class="col-12 col-md-5 col-lg-4 secondary ui-button ui-button--secondary" onclick='CART.add(parseInt("<%= product.id %>"),"<%= product.name %>","<%= product.description_short %>",parseInt("<%= product.quantity %>"),"<%= product.unit %>",parseInt("<%= product.price %>"),parseInt("<%= product.discount %>"),"<%= product.image %>",)'>
+                                                <input id="btnCargar<%= product.id %>" type="button" data-js="vip-action-cart" form="productInfo" title="agregarCarrito" value="Agregar al carrito" class="col-12 col-md-5 col-lg-4 secondary ui-button ui-button--secondary" onclick='CART.add(parseInt("<%= product.id %>"),"<%= product.name %>","<%= product.description_short %>",parseInt("<%= product.quantity %>"),"<%= product.unit %>",parseInt("<%= product.price %>"),parseInt("<%= product.discount %>"),"<%= product.image %>",parseInt(document.querySelector(".quantity-selector-detalles").value))'>
 
                                             </div>
                                         </div>
@@ -149,8 +149,6 @@
 
                 <!-- Scripts -->
                 <script type='text/javascript' src="/js/cart.js">
-                </script>
-                <script type='text/javascript'>
                 </script>
                 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
                 </script>

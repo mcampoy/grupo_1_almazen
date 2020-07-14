@@ -1,26 +1,7 @@
 // REQUERIMIENTOS
-var fs = require('fs');
-var path = require('path');
 let bcrypt = require('bcrypt');
 let db = require('../database/models');
 var { check, validationResult, body } = require('express-validator');
-
-
-let usuariosPath = path.resolve(__dirname, '../data/usuarios.json');
-
-/*function getUsers() {
-    let usersJson = fs.readFileSync(usuariosPath, 'utf-8');
-    if (usersJson != '') {
-        return JSON.parse(usersJson)
-    } else {
-        return []
-    }
-};
-
-function getUserByEmail(email) {
-    let users = getUsers()
-    return users.find(user => user.email == email)
-};*/
 
 // MIDDLEWARES USUARIOS
 let usersMiddlewares = {
@@ -69,27 +50,27 @@ let usersMiddlewares = {
         .trim()
         .isEmail().withMessage("El email no es válido"),
         body('email').custom(function(value) {
-            let users = getUsers();
-            for (let user of users) {
-                if (value == user.email) {
-                    return true;
-                }
-            }
-            return false;
+            // let users = getUsers();
+            // for (let user of users) {
+            //     if (value == user.email) {
+            //         return true;
+            //     }
+            // }
+            // return false;
         }).withMessage('No hemos encontrado ningún usuario registrado con ese email'),
         check('password')
         .exists().withMessage("Debés ingresar una contraseña")
         .trim()
         .isLength({ min: 4 }).withMessage('Contraseña inválida.'),
         body('password').custom(function(value) {
-            let users = getUsers();
-            for (let user of users) {
-                if (bcrypt.compareSync(value, user.password)) {
+            // let users = getUsers();
+            // for (let user of users) {
+            //     if (bcrypt.compareSync(value, user.password)) {
 
-                    return true;
-                }
-            }
-            return false
+            //         return true;
+            //     }
+            // }
+            // return false
         }).withMessage('Contraseña incorrecta')
     ],
     loggedUserValidation: function(req, res, next) {
@@ -107,7 +88,7 @@ let usersMiddlewares = {
         }
     },
     adminValidation: function(req, res, next) {
-        if (req.session.usuarioLogueado != undefined && req.session.usuarioLogueado.role==2) {
+        if (req.session.usuarioLogueado != undefined && req.session.usuarioLogueado.role == 2) {
             next();
         } else {
             return res.redirect('/');
@@ -117,15 +98,15 @@ let usersMiddlewares = {
         // si el usuario no está logueado pero tiene la cookie "recordarme" activa
         if (req.session.usuarioLogueado == undefined && req.cookies.recordarme != undefined) {
 
-            let user = getUserByEmail(req.cookies.recordarme);
-            if (user != null) {
-                req.session.usuarioLogueado = user; // logueamos al usuario
-                if (user.email == "admin@almazen.com") //administrador, después modificar condición
-                {
-                    req.session.usuarioLogueado.isAdmin = true;
-                    return res.redirect('/');
+            db.User.findOne({
+                where: {
+                    id: req.cookies.recordarme
                 }
-            }
+            }).then((user) => {
+                if (user != null) {
+                    req.session.usuarioLogueado = user; // logueamos al usuario
+                }
+            });
         }
         next();
     },

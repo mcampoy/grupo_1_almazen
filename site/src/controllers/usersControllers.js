@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 let db = require('../database/models');
@@ -7,8 +5,6 @@ let bcrypt = require('bcrypt');
 const { check, validationResult, body } = require('express-validator');
 // let db = require('../database/models');
 // let sequelize = db.sequelize;
-
-let usuariosPath = path.resolve(__dirname, '../data/usuarios.json');
 
 // CONTROLLERS DE USUARIO
 const controller = {
@@ -31,34 +27,36 @@ const controller = {
 
             // creacion de usuario y almacenado en database
 
-            let user = {
-                name: req.body.name,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10),
-                avatar: req.files[0].filename,
-                role: 0,
-                enabled: 1
-            }
+
             db.User.findOne({
                 where: {
-                    email: user.email
+                    email: req.body.email
                 }
             }).then((usuario) => {
                 if (usuario != undefined) {
                     return res.render("register", { usuarioLogueado: undefined });
                 } else {
-                    db.User.create(user);
-                    req.session.usuarioLogueado = user;
+                    db.User.create({
+                        name: req.body.name,
+                        email: req.body.email,
+                        password: bcrypt.hashSync(req.body.password, 10),
+                        avatar: req.files[0].filename,
+                        role: 0,
+                        enabled: 1
+                    }).then(user => {
+                        req.session.usuarioLogueado = user;
+                        console.log("ñlaskdjfñalsdkjfañlsdkfjañsdlfjkasd");
+                        console.log(user);
+                        if (req.body.remember != undefined) {
+                            // creamos una cookie de nombre "recordarme" que va a contener el email del usuario
+                            let expiracion = new Date(Date.now() + 900000); //15 minutos
+                            res.cookie('recordarme', user.id, { expires: expiracion });
+                        }
+                        return res.redirect('/');
+                    });
                 }
             });
 
-            if (req.body.remember != undefined) {
-                // creamos una cookie de nombre "recordarme" que va a contener el email del usuario
-                let expiracion = new Date(Date.now() + 900000); //15 minutos
-                res.cookie('recordarme', user.email, { expires: expiracion });
-            }
-
-            return res.redirect('/');
 
         } else {
 
@@ -84,20 +82,21 @@ const controller = {
                     email: user.email
                 }
             }).then((usuario) => {
-                let check = bcrypt.compareSync(user.password, usuario.password)
-                if (usuario != undefined && check == true) {
-                    req.session.usuarioLogueado = usuario;
-                };
+                if (usuario) {
+                    let check = bcrypt.compareSync(user.password, usuario.password)
+                    if (check == true) {
+                        req.session.usuarioLogueado = usuario;
 
-                if (req.body.remember != null) {
-                    // creamos una cookie de nombre "recordarme" que va a contener el email del usuario
-                    let expiracion = new Date(Date.now() + 900000); //15 minutos
-                    res.cookie('recordarme', usuario.email, { expires: expiracion });
-                };
-
+                        if (req.body.remember != null) {
+                            // creamos una cookie de nombre "recordarme" que va a contener el email del usuario
+                            let expiracion = new Date(Date.now() + 900000); //15 minutos
+                            res.cookie('recordarme', usuario.id, { expires: expiracion });
+                        };
+                    };
+                }
                 return res.redirect(`/`);
 
-            });
+            }).catch((err) => console.error(err));
 
         } else {
 
@@ -125,27 +124,33 @@ const controller = {
     },
 
     edit: function(req, res) {
-        let usuario = req.session.usuarioLogueado;
-
         let user = {
             name: req.body.name,
             email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-            avatar: req.files[0].filename,
+            // password: bcrypt.hashSync(req.body.password, 10),
+            // avatar: req.files[0].filename,
         }
 
         db.User.update({
             name: user.name,
             email: user.email,
-            password: user.password,
-            avatar: user.avatar
+            //password: user.password,
+            //avatar: user.avatar
         }, {
             where: {
-                email: usuario.email
+                id: req.session.usuarioLogueado.id
             }
-        }).then((usuario) => {
-            req.session.usuarioLogueado = usuario;
-            return res.render('profile', { usuario: req.session.usuarioLogueado });
+        }).then((count) => { //rows updated
+            db.User.findOne({
+                where: {
+                    id: req.session.usuarioLogueado.id
+                }
+            }).then((usuario) => {
+                console.log(usuario);
+                req.session.usuarioLogueado = usuario;
+                return res.render('profile', { user: req.session.usuarioLogueado, usuarioLogueado: req.session.usuarioLogueado });
+
+            });
         });
     }
 };
