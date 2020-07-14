@@ -1898,9 +1898,9 @@ figure img.sg-logo-receta {
     .desktop {
         display: none;
     }
-    .navbar-nav{
+    /* .navbar-nav{ */
         /* display:inline-block; */
-    }
+    /* } */
 }
 
 .caja {
