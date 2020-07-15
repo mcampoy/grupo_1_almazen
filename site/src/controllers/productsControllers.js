@@ -12,87 +12,106 @@ const {
 const controller = {
     // MOSTRAR TODOS LOS PRODUCTOS
     productsList: async (req, res) => {
-        let categories = await db.Category.findAll()
-        let products = await db.Product.findAll({
-            where: {
-                enabled: 1,
-                stock: {
-                    [db.Sequelize.Op.gte]: 1
-                },
-            }
-        })
-        return res.render('products', {
-                products,
-                categories,
-                usuarioLogueado: req.session.usuarioLogueado
+        try {
+            let categories = await db.Category.findAll()
+            let products = await db.Product.findAll({
+                where: {
+                    enabled: 1,
+                    stock: {
+                        [db.Sequelize.Op.gte]: 1
+                    },
+                }
             })
-            .catch((err) => console.error(err));
+            return res.render('products', {
+                    products,
+                    categories,
+                    usuarioLogueado: req.session.usuarioLogueado
+                })
+        } catch (err) {
+
+             console.error(err)
+        }
     },
 
     // MOSTRAR TODAS LAS OFERTAS
     offers: async (req, res) => {
-        let offers = await db.Product.findAll({
-            where: {
-                discount: {
-                    [Sequelize.Op.gte]: 1
+
+        try {
+            let offers = await db.Product.findAll({
+                where: {
+                    discount: {
+                        [Sequelize.Op.gte]: 1
+                    }
                 }
-            }
-        })
-        return res.render('offers', {
-                offers,
-                usuarioLogueado: req.session.usuarioLogueado
             })
-            .catch((err) => console.error(err));
+            return res.render('offers', {
+                    offers,
+                    usuarioLogueado: req.session.usuarioLogueado
+                })
+
+        } catch (err) {
+
+            console.error(err)
+       }
     },
 
     // MOSTRAR PRODUCTOS POR CATEGORÍA
     category: async (req, res) => {
+        try{
+            let categories = await db.Category.findAll()
+            let category = await db.Category.findByPk(req.params.id, {
+                include: ["products"]
+                })
 
-        let categories = await db.Category.findAll()
-        let category = await db.Category.findByPk(req.params.id, {
-            include: ["products"]
-        })
+            return res.render('productByCategory', {
+                    category,
+                    categories,
+                    usuarioLogueado: req.session.usuarioLogueado
+                })
 
-        return res.render('productByCategory', {
-                category,
-                categories,
-                usuarioLogueado: req.session.usuarioLogueado
-            })
-            .catch((err) => console.error(err));
+        } catch (err) {
+
+            console.error(err)
+       }
     },
 
     // MOSTRAR DETALLE DE PRODUCTO Y PRODUCTOS RELACIONADOS
     details: async (req, res) => {
+        try {
+        
+            let product = await db.Product.findByPk(req.params.id)
 
-        let product = await db.Product.findByPk(req.params.id)
+                if (product == null) {
+                    return res.redirect('/');
+                } else {
+                    let related = await db.Product.findAll({
+                        where: {
+                            enabled: 1,
+                            id: {
+                                [Op.not]: req.params.id
+                            },
+                            id_category: product.id_category
+                        },
+                        order: [
+                            ['name', "ASC"]
+                        ],
+                        limit: 3,
+                    });
 
-        if (product == null) {
-            return res.redirect('/');
-        } else {
-            let related = await db.Product.findAll({
-                where: {
-                    enabled: 1,
-                    id: {
-                        [Op.not]: req.params.id
-                    },
-                    id_category: product.id_category
-                },
-                order: [
-                    ['name', "ASC"]
-                ],
-                limit: 3,
-            });
+                    let category = await db.Category.findByPk(product.id_category)
 
-            let category = await db.Category.findByPk(product.id_category)
+                    return res.render('productDetail', {
+                            category,
+                            product,
+                            related,
+                            usuarioLogueado: req.session.usuarioLogueado
+                        })
+                }
 
-            return res.render('productDetail', {
-                    category,
-                    product,
-                    related,
-                    usuarioLogueado: req.session.usuarioLogueado
-                })
-                .catch((err) => console.error(err));
+        } catch (err) {
+            console.error(err)
         }
+
     },
 
     admin: (req, res) => {
@@ -419,29 +438,35 @@ const controller = {
 
     //BUSCADOR DE PRODUCTOS Y RECETAS
     find: async (req, res) => {
-        let products = await db.Product.findAll({
-            where: {
-                enabled: 1,
-                name: {
-                    [Op.like]: `%${req.body.search}%`
-                }
-            }
-        })
+        try {
 
-        let recetas = await db.Recipe.findAll({
-            where: {
-                enabled: 1,
-                name: {
-                    [Op.like]: `%${req.body.search}%`
+            let products = await db.Product.findAll({
+                where: {
+                    enabled: 1,
+                    name: {
+                        [Op.like]: `%${req.body.search}%`
+                    }
                 }
-            }
-        })
+            })
 
-        return res.render('search', {
-            products,
-            recetas,
-            usuarioLogueado: req.session.usuarioLogueado
-        })
+            let recetas = await db.Recipe.findAll({
+                where: {
+                    enabled: 1,
+                    name: {
+                        [Op.like]: `%${req.body.search}%`
+                    }
+                }
+            })
+
+            return res.render('search', {
+                products,
+                recetas,
+                usuarioLogueado: req.session.usuarioLogueado
+            })
+
+        } catch (err) {
+            console.error(err)
+        }
     }
 };
 
