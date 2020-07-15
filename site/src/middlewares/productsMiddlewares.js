@@ -125,8 +125,6 @@ let productsMiddlewares = {
 
 
         // body('code', 'id').custom(function(value1, value2) { // chequea que el código no sea igual al de otro producto
-        //     console.log(value1);
-        //     console.log(value2);
         //     return db.Product.findAll({
         //         where: {
         //             code: value1,
