@@ -3,7 +3,6 @@ const Op = Sequelize.Op;
 let db = require('../database/models');
 let bcrypt = require('bcrypt');
 const { check, validationResult, body } = require('express-validator');
-// let db = require('../database/models');
 // let sequelize = db.sequelize;
 
 // CONTROLLERS DE USUARIO

@@ -18,8 +18,7 @@ var tipsRouter = require('./routes/tips');
 var usersRouter = require('./routes/users');
 var cartRouter = require('./routes/cart');
 const { cart } = require('./controllers/productsControllers');
-// var registroRouter = require('./routes/registro');
-// const mainRouter = require('./routes/main');
+
 
 var app = express();
 
@@ -40,14 +39,12 @@ app.use(session({ secret: "mensaje secreto Almazen", resave: false, saveUninitia
 app.use(usersMiddlewares.rememberUser); // cookie de inicio de sesión con check de "recordarme" activado
 
 
-// app.use('/', mainRouter);
 app.use('/', indexRouter);
 app.use('/product', productsRouter);
 app.use('/recetas', recetasRouter);
 app.use('/tips', tipsRouter);
 app.use('/users', usersRouter);
 app.use('/cart', cartRouter);
-// app.use('/registro', registroRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
