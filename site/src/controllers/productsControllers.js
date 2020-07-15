@@ -51,10 +51,8 @@ const controller = {
         let category = db.Category.findByPk(req.params.id, {
             include: ["products"]
         })
-        console.log(category);
         Promise.all([category, categories])
             .then((results) => {
-                console.log(category);
 
                 return res.render('productByCategory', {
                     category: results[0],
@@ -65,46 +63,86 @@ const controller = {
     },
 
     details: (req, res) => {
+        console.log("sñflaksdjfñasdlkjf");
+        console.log(req.params);
 
-        let category = db.Category.findByPk(req.params.id, {
-            include: [{
-                association: "products"
-            }],
-        })
+        // let category = db.Category.findByPk(req.params.id, {
+        //     include: [{
+        //         association: "products"
+        //     }],
+        // })
 
-        let product = db.Product.findByPk(req.params.id, {
-            include: [{
-                association: "categories"
-            }]
-        })
+        // let product = db.Product.findByPk(req.params.id, {
+        //     include: [{
+        //         association: "categories"
+        //     }]
+        // })
 
-        let related = db.Product.findAll({
-            include: [{
-                association: "categories"
-            }],
-            where: {
-                enabled: 1,
-                id: {
-                    [Op.not]: req.params.id
-                },
-            },
-            order: [
-                ['id_category', "ASC"]
-            ],
-            limit: 3,
-        })
-        Promise.all([category, product, related])
-            .then((results) => {
-                if (results[1] == null) {
+        // let related = db.Product.findAll({
+        //     include: [{
+        //         association: "categories"
+        //     }],
+        //     where: {
+        //         enabled: 1,
+        //         id: {
+        //             [Op.not]: req.params.id
+        //         },
+        //     },
+        //     order: [
+        //         ['id_category', "ASC"]
+        //     ],
+        //     limit: 3,
+        // })
+
+        // Promise.all([category, product, related])
+        // .then((results) => {
+        //     if (results[1] == null) {
+        //         return res.redirect('/');
+        //     }
+        //     return res.render('productDetail', {
+        //         category: results[0],
+        //         product: results[1],
+        //         related: results[2],
+        //         usuarioLogueado: req.session.usuarioLogueado
+        //     });
+        // }).catch((err) => console.error(err));
+
+        db.Product.findByPk(req.params.id)
+            .then((product) => {
+                if (product == null) {
                     return res.redirect('/');
+                } else {
+
+                    console.log(product);
+                    let related = db.Product.findAll({
+                        where: {
+                            enabled: 1,
+                            id: {
+                                [Op.not]: req.params.id
+                            },
+                            id_category: product.id_category
+                        },
+                        order: [
+                            ['name', "ASC"]
+                        ],
+                        limit: 3,
+                    });
+
+
+                    let category = db.Category.findByPk(product.id_category)
+
+                    Promise.all([category, related])
+                        .then((results) => {
+                            return res.render('productDetail', {
+                                category: results[0],
+                                product: product,
+                                related: results[1],
+                                usuarioLogueado: req.session.usuarioLogueado
+                            });
+                        }).catch((err) => console.error(err));
+
                 }
-                return res.render('productDetail', {
-                    category: results[0],
-                    product: results[1],
-                    related: results[2],
-                    usuarioLogueado: req.session.usuarioLogueado
-                });
-            }).catch((err) => console.error(err));
+            })
     },
 
     admin: (req, res) => {
@@ -218,13 +256,10 @@ const controller = {
         }
 
         let errors = validationResult(req);
-        console.log(req.body);
-        console.log(errors);
 
         if (errors.isEmpty()) {
             if (product.id_category == undefined) product.id_category = null;
-            console.log("product.id_category");
-            console.log(product.id_category);
+
             return db.Product.update({
                 code: product.code,
                 name: product.name,
@@ -245,11 +280,6 @@ const controller = {
                 }
             }).then((editedRows) => {
 
-                console.log("product.id_category");
-                console.log(product.id_category);
-
-                console.log("editedRows");
-                console.log(editedRows);
                 //Borro las relaciones antiguas con dietas
                 db.ProductDiet.destroy({
                     where: {
@@ -258,11 +288,8 @@ const controller = {
                 })
             }).then(() => {
                 //Creo las relaciones exitentes con dietas
-                console.log("product.diets");
-                console.log(product.diets);
-                if (product.diets[0] != null) {
-                    console.log("CREANDO DIETAS");
 
+                if (product.diets[0] != null) {
                     product.diets.forEach(idDiet => {
                         db.ProductDiet.create({
                             id_product: product.id,
@@ -280,7 +307,6 @@ const controller = {
             }).then(() => {
                 //Creo las relaciones exitentes con recetas
                 if (product.recipes[0] != null) {
-                    console.log("CREANDO RECETAS");
                     product.recipes.forEach(idRecipe => {
                         db.ProductRecipe.create({
                             id_product: product.id,
@@ -291,18 +317,6 @@ const controller = {
             }).then(() => {
                 req.params.id = product.id;
                 controller.adminDetails(req, res, 1);
-
-                // Promise.all([categories, diets, recipes])
-                //     .then((results) => {
-                //         console.log(product);
-                //         return res.render('productAdminDetail', {
-                //             product: product,
-                //             categories: results[0],
-                //             diets: results[1],
-                //             recipes: results[2],
-                //         });
-                //     })
-                //     .catch((err) => console.error(err));
             });
 
         } else {
@@ -433,7 +447,6 @@ const controller = {
         let errors = validationResult(req);
         console.log(errors);
         if (errors.isEmpty()) {
-            console.log(req.body);
             let promise1 = db.ProductDiet.destroy({
                 where: {
                     id_product: parseInt(req.body.id)

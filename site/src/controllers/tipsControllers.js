@@ -9,7 +9,6 @@ const controller = {
             }
         }).then((tips) => {
 
-            console.log(tips);
             return res.render("tips", { tips: tips, usuarioLogueado: req.session.usuarioLogueado });
 
         }).catch((err) => console.error(err));

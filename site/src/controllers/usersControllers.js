@@ -3,7 +3,6 @@ const Op = Sequelize.Op;
 let db = require('../database/models');
 let bcrypt = require('bcrypt');
 const { check, validationResult, body } = require('express-validator');
-// let db = require('../database/models');
 // let sequelize = db.sequelize;
 
 // CONTROLLERS DE USUARIO
@@ -45,8 +44,7 @@ const controller = {
                         enabled: 1
                     }).then(user => {
                         req.session.usuarioLogueado = user;
-                        // console.log("ñlaskdjfñalsdkjfañlsdkfjañsdlfjkasd");
-                        // console.log(user);
+
                         if (req.body.remember != undefined) {
                             // creamos una cookie de nombre "recordarme" que va a contener el email del usuario
                             let expiracion = new Date(Date.now() + 900000); //15 minutos
@@ -146,7 +144,6 @@ const controller = {
                     id: req.session.usuarioLogueado.id
                 }
             }).then((usuario) => {
-                console.log(usuario);
                 req.session.usuarioLogueado = usuario;
                 return res.render('profile', { user: req.session.usuarioLogueado, usuarioLogueado: req.session.usuarioLogueado });
 
