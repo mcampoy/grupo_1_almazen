@@ -10,9 +10,10 @@ const {
 
 
 const controller = {
-    productsList: (req, res) => {
-        let categories = db.Category.findAll()
-        let products = db.Product.findAll({
+    // MOSTRAR TODOS LOS PRODUCTOS
+    productsList: async (req, res) => {
+        let categories = await db.Category.findAll()
+        let products = await db.Product.findAll({
             where: {
                 enabled: 1,
                 stock: {
@@ -20,129 +21,78 @@ const controller = {
                 },
             }
         })
-        Promise.all([products, categories])
-            .then((results) => {
-
-                return res.render('products', {
-                    products: results[0],
-                    categories: results[1],
-                    usuarioLogueado: req.session.usuarioLogueado
-                });
-
-            }).catch((err) => console.error(err));
-    },
-
-    offers: (req, res) => {
-        db.Product.findAll({
-                where: {
-                    discount: {
-                        [Sequelize.Op.gte]: 1
-                    }
-                }
+        return res.render('products', {
+                products,
+                categories,
+                usuarioLogueado: req.session.usuarioLogueado
             })
-            .then(offers => {
-                return res.render('offers', { offers, usuarioLogueado: req.session.usuarioLogueado })
-            }).catch((err) => console.error(err));
+            .catch((err) => console.error(err));
     },
 
-    category: (req, res) => {
+    // MOSTRAR TODAS LAS OFERTAS
+    offers: async (req, res) => {
+        let offers = await db.Product.findAll({
+            where: {
+                discount: {
+                    [Sequelize.Op.gte]: 1
+                }
+            }
+        })
+        return res.render('offers', {
+                offers,
+                usuarioLogueado: req.session.usuarioLogueado
+            })
+            .catch((err) => console.error(err));
+    },
 
-        let categories = db.Category.findAll()
-        let category = db.Category.findByPk(req.params.id, {
+    // MOSTRAR PRODUCTOS POR CATEGORÍA
+    category: async (req, res) => {
+
+        let categories = await db.Category.findAll()
+        let category = await db.Category.findByPk(req.params.id, {
             include: ["products"]
         })
-        Promise.all([category, categories])
-            .then((results) => {
 
-                return res.render('productByCategory', {
-                    category: results[0],
-                    categories: results[1],
-                    usuarioLogueado: req.session.usuarioLogueado
-                });
-            }).catch((err) => console.error(err));
+        return res.render('productByCategory', {
+                category,
+                categories,
+                usuarioLogueado: req.session.usuarioLogueado
+            })
+            .catch((err) => console.error(err));
     },
 
-    details: (req, res) => {
-        console.log("sñflaksdjfñasdlkjf");
-        console.log(req.params);
+    // MOSTRAR DETALLE DE PRODUCTO Y PRODUCTOS RELACIONADOS
+    details: async (req, res) => {
 
-        // let category = db.Category.findByPk(req.params.id, {
-        //     include: [{
-        //         association: "products"
-        //     }],
-        // })
+        let product = await db.Product.findByPk(req.params.id)
 
-        // let product = db.Product.findByPk(req.params.id, {
-        //     include: [{
-        //         association: "categories"
-        //     }]
-        // })
+        if (product == null) {
+            return res.redirect('/');
+        } else {
+            let related = await db.Product.findAll({
+                where: {
+                    enabled: 1,
+                    id: {
+                        [Op.not]: req.params.id
+                    },
+                    id_category: product.id_category
+                },
+                order: [
+                    ['name', "ASC"]
+                ],
+                limit: 3,
+            });
 
-        // let related = db.Product.findAll({
-        //     include: [{
-        //         association: "categories"
-        //     }],
-        //     where: {
-        //         enabled: 1,
-        //         id: {
-        //             [Op.not]: req.params.id
-        //         },
-        //     },
-        //     order: [
-        //         ['id_category', "ASC"]
-        //     ],
-        //     limit: 3,
-        // })
+            let category = await db.Category.findByPk(product.id_category)
 
-        // Promise.all([category, product, related])
-        // .then((results) => {
-        //     if (results[1] == null) {
-        //         return res.redirect('/');
-        //     }
-        //     return res.render('productDetail', {
-        //         category: results[0],
-        //         product: results[1],
-        //         related: results[2],
-        //         usuarioLogueado: req.session.usuarioLogueado
-        //     });
-        // }).catch((err) => console.error(err));
-
-        db.Product.findByPk(req.params.id)
-            .then((product) => {
-                if (product == null) {
-                    return res.redirect('/');
-                } else {
-
-                    console.log(product);
-                    let related = db.Product.findAll({
-                        where: {
-                            enabled: 1,
-                            id: {
-                                [Op.not]: req.params.id
-                            },
-                            id_category: product.id_category
-                        },
-                        order: [
-                            ['name', "ASC"]
-                        ],
-                        limit: 3,
-                    });
-
-
-                    let category = db.Category.findByPk(product.id_category)
-
-                    Promise.all([category, related])
-                        .then((results) => {
-                            return res.render('productDetail', {
-                                category: results[0],
-                                product: product,
-                                related: results[1],
-                                usuarioLogueado: req.session.usuarioLogueado
-                            });
-                        }).catch((err) => console.error(err));
-
-                }
-            })
+            return res.render('productDetail', {
+                    category,
+                    product,
+                    related,
+                    usuarioLogueado: req.session.usuarioLogueado
+                })
+                .catch((err) => console.error(err));
+        }
     },
 
     admin: (req, res) => {
@@ -155,12 +105,6 @@ const controller = {
             })
             .catch((err) => console.error(err));
     },
-
-    // cart: (req, res) => {
-
-    //     return res.render('productCart', { usuarioLogueado: req.session.usuarioLogueado });
-
-    // },
 
     //MUESTRA LA VISTA DENTRO DEL IFRAME DE DETALLES DEL PRODUCTO SELECCIONADO
     // Recibe como parámetros el id del producto y edit (null muestra, 1 edito, 2 nuevo)
@@ -442,7 +386,6 @@ const controller = {
 
     },
 
-
     delete: (req, res, next) => {
         let errors = validationResult(req);
         console.log(errors);
@@ -474,35 +417,31 @@ const controller = {
         }
     },
 
-
-    //BUSCADOR
-
-    find: (req, res) => {
-        let products =
-            db.Product.findAll({
-                where: {
-                    enabled: 1,
-                    name: {
-                        [Op.like]: `%${req.body.search}%`
-                    }
+    //BUSCADOR DE PRODUCTOS Y RECETAS
+    find: async (req, res) => {
+        let products = await db.Product.findAll({
+            where: {
+                enabled: 1,
+                name: {
+                    [Op.like]: `%${req.body.search}%`
                 }
-            })
+            }
+        })
 
-        let recetas =
-            db.Recipe.findAll({
-                where: {
-                    enabled: 1,
-                    name: {
-                        [Op.like]: `%${req.body.search}%`
-                    }
+        let recetas = await db.Recipe.findAll({
+            where: {
+                enabled: 1,
+                name: {
+                    [Op.like]: `%${req.body.search}%`
                 }
-            })
+            }
+        })
 
-        Promise.all([products, recetas])
-            .then((results) => {
-                return res.render('search', { products: results[0], recetas: results[1], usuarioLogueado: req.session.usuarioLogueado })
-            })
-
+        return res.render('search', {
+            products,
+            recetas,
+            usuarioLogueado: req.session.usuarioLogueado
+        })
     }
 };
 
