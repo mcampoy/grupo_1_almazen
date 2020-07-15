@@ -10,6 +10,7 @@ const {
 
 
 const controller = {
+    // MUESTRA LA PÁGINA DE TODOS LOS PRODUCTOS
     productsList: (req, res) => {
         let categories = db.Category.findAll()
         let products = db.Product.findAll({
@@ -32,6 +33,7 @@ const controller = {
             }).catch((err) => console.error(err));
     },
 
+    // MUESTRA LA PÁGINA CON TODOS LOS PRODUCTOS QUE ESTÉN EN OFERTA
     offers: (req, res) => {
         db.Product.findAll({
                 where: {
@@ -44,7 +46,8 @@ const controller = {
                 return res.render('offers', { offers, usuarioLogueado: req.session.usuarioLogueado })
             }).catch((err) => console.error(err));
     },
-
+    
+    // MUESTRA LOS PRODUCTOS ORDENADOS POR CATEGORÍA
     category: (req, res) => {
 
         let categories = db.Category.findAll()
@@ -62,50 +65,8 @@ const controller = {
             }).catch((err) => console.error(err));
     },
 
+    // MUESTRA LA PÁGINA DE DETALLE DE PRODUCTO Y PRODUCTOS RELACIONADOS SEGÚN LA CATEGORÍA
     details: (req, res) => {
-        console.log("sñflaksdjfñasdlkjf");
-        console.log(req.params);
-
-        // let category = db.Category.findByPk(req.params.id, {
-        //     include: [{
-        //         association: "products"
-        //     }],
-        // })
-
-        // let product = db.Product.findByPk(req.params.id, {
-        //     include: [{
-        //         association: "categories"
-        //     }]
-        // })
-
-        // let related = db.Product.findAll({
-        //     include: [{
-        //         association: "categories"
-        //     }],
-        //     where: {
-        //         enabled: 1,
-        //         id: {
-        //             [Op.not]: req.params.id
-        //         },
-        //     },
-        //     order: [
-        //         ['id_category', "ASC"]
-        //     ],
-        //     limit: 3,
-        // })
-
-        // Promise.all([category, product, related])
-        // .then((results) => {
-        //     if (results[1] == null) {
-        //         return res.redirect('/');
-        //     }
-        //     return res.render('productDetail', {
-        //         category: results[0],
-        //         product: results[1],
-        //         related: results[2],
-        //         usuarioLogueado: req.session.usuarioLogueado
-        //     });
-        // }).catch((err) => console.error(err));
 
         db.Product.findByPk(req.params.id)
             .then((product) => {
@@ -113,7 +74,6 @@ const controller = {
                     return res.redirect('/');
                 } else {
 
-                    console.log(product);
                     let related = db.Product.findAll({
                         where: {
                             enabled: 1,
@@ -128,7 +88,6 @@ const controller = {
                         limit: 3,
                     });
 
-
                     let category = db.Category.findByPk(product.id_category)
 
                     Promise.all([category, related])
@@ -140,7 +99,6 @@ const controller = {
                                 usuarioLogueado: req.session.usuarioLogueado
                             });
                         }).catch((err) => console.error(err));
-
                 }
             })
     },
@@ -155,12 +113,6 @@ const controller = {
             })
             .catch((err) => console.error(err));
     },
-
-    // cart: (req, res) => {
-
-    //     return res.render('productCart', { usuarioLogueado: req.session.usuarioLogueado });
-
-    // },
 
     //MUESTRA LA VISTA DENTRO DEL IFRAME DE DETALLES DEL PRODUCTO SELECCIONADO
     // Recibe como parámetros el id del producto y edit (null muestra, 1 edito, 2 nuevo)
@@ -336,7 +288,6 @@ const controller = {
                 })
                 .catch((err) => console.error(err));
         }
-
     },
 
     adminCreate: (req, res, next) => {
@@ -361,8 +312,6 @@ const controller = {
         if (!Array.isArray(product.recipes)) {
             product.recipes = [product.recipes];
         }
-
-
 
         if (typeof req.file !== 'undefined') {
             product.image = req.file.filename //si  se seleccionó algún archivo de imagen
@@ -442,7 +391,6 @@ const controller = {
 
     },
 
-
     delete: (req, res, next) => {
         let errors = validationResult(req);
         console.log(errors);
@@ -475,8 +423,7 @@ const controller = {
     },
 
 
-    //BUSCADOR
-
+    //BUSCADOR DE PRODUCTOS Y RECETAS
     find: (req, res) => {
         let products =
             db.Product.findAll({
