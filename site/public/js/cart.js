@@ -116,7 +116,6 @@ const CART = {
 
 //para VISTA productDetails.ejs
 function comprarAhora(productId) {
-    console.log(`btnCargar${productId}`);
     document.getElementById(`btnCargar${productId}`).click();
     window.location.href = '/cart';
 }

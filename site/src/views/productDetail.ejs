@@ -19,7 +19,7 @@
 
                     <!-- Sitemap -->
                     <div class="siteMap col-12 mb-1">
-                        <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/product/">Productos</a><span> </span><a class="categoryDetail" href="/product/category/<%= product.id_category %>"><span> > </span> <%= product.categories.name %>
+                        <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/product/">Productos</a><span> </span><a class="categoryDetail" href="/product/category/<%= product.id_category %>"><span> > </span> <%= category.name %>
                 </a><span> <span> > </span> <span> <strong class="productNameSM"><%= product.name %></strong> </span>
                         <br><br>
                     </div>
@@ -124,7 +124,7 @@
                                                 <%= prodRelated.name %>
                                             </h5>
                                             <p class="prodRelCategory">
-                                                <%= prodRelated.categories.name %>
+                                                <%= category.name %>
                                             </p>
                                             <p class="prodRelPrice">$
                                                 <%= prodRelated.price %>
