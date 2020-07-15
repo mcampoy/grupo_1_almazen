@@ -153,6 +153,24 @@ const controller = {
             });
         });
     }
+
+    // delete: (req, res) => {
+
+    //     db.User.destroy({
+    //         where: {
+    //             id: req.params.id
+    //         }
+    //     })
+    //     .then(()=>{
+    //         req.session.destroy(function(){
+    //             if (req.cookies.recordarme != undefined) {
+    //                res.clearCookie("recordarme");
+    //             }
+    //             return res.render("login",{ usuarioLogueado: undefined});
+    //          });
+    //     })
+    
+    // }
 };
 
 module.exports = controller;
