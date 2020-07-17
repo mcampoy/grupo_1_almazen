@@ -32,8 +32,9 @@ const controller = {
                     email: req.body.email
                 }
             }).then((usuario) => {
+
                 if (usuario != undefined) {
-                    return res.render("register", { usuarioLogueado: undefined });
+                    return res.render("register", {errors:[{msg: 'El email con el que intenta registrarse pertenece a un/a usuario/a ya registrado/a'}], usuarioLogueado: undefined });
                 } else {
                     db.User.create({
                         name: req.body.name,
