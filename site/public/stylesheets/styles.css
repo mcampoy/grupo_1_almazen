@@ -2520,7 +2520,7 @@ abbr[data-title] {
     transform: translateX(-40px);
     width: auto;
     white-space: nowrap;
-    background: #212529;
+    background:var(--colorMenu);
     color: #fff;
     border-radius: 2px;
     box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4);
