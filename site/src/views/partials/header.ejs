@@ -3,33 +3,34 @@
     <nav class="navbar navbar-expand-lg mobile d-flex flex-wrap align-items-center">
         <!-- LOGO -->
         <div class="col-8 col-md-6 col-lg-3 marca">
-            <a href="/" role="button" class="logo"><img src="/images/Logo.svg" alt="marca almazen" width="200px"></a>
+            <a href="/" role="button" class="logo" ><img src="/images/Logo.svg" alt="marca almazen" width="200px"></a>
         </div>
         <!-- FIN LOGO -->
 
         <!-- BOTON CARRITO -->
         <div class="col-1 col-md-2 col-lg-1 mt-1 d-flex align-items-center justify-content-end carrito">
-            <a href="/cart" role="button" class="justify-content-center"><img src="/images/cart.svg" width="31px" alt="carrito"></a>
+            <a href="/cart" role="button" class="justify-content-center" ><img src="/images/cart.svg" width="31px" alt="carrito"></a>
         </div>
         <!-- FIN BOTON CARRITO -->
         
         <!-- BOTON PERFIL | INGRESAR | REGISTRAR -->
-        <div class="col-1 col-md-2 col-lg-1 mt-1 d-flex justify-content-end profile align-items-center">
+        <div class="col-1 col-md-2 col-lg-1 mt-1 d-flex justify-content-end profile align-items-center" >
             <div class="dropdown mr-1">
 
                 <% if (usuarioLogueado!=undefined) { %>
 
-                    <img src="/users-avatar/<%= usuarioLogueado.avatar %>" class="dropdown-toggle " id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="40px" style="border-radius: 50%;" alt="Imagen de suario">
+                    <abbr  id="dropdownMenuOffset" data-toggle="dropdown"  aria-expanded="false" data-offset="10,50" data-title="<%= usuarioLogueado.name %>"><img src="/users-avatar/<%= usuarioLogueado.avatar %>"  width="40px" style="border-radius: 50%;" alt="Imagen de suario"></abbr>
+                    
 
-                    <div class="userNameLog">
+                    <!--<div class="userNameLog">
                         <%= usuarioLogueado.name %>
-                    </div>
+                    </div>-->
 
                     <% } else { %>
 
-                        <img src="/images/profile.svg" class="dropdown-toggle userLogImage imgProfile" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="35px" alt="Imagen de suario">
+                        <img src="/images/profile.svg"  class="dropdown-toggle userLogImage imgProfile" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="35px" alt="Imagen de suario">
                         <% } %>
-                            <div class="dropdown-menu dropdown-menu-right adminin-menu" aria-labelledby="dropdownMenuOffset">
+                        <div class="dropdown-menu dropdown-menu-right adminin-menu" aria-labelledby="dropdownMenuOffset">
                                 <% if (usuarioLogueado==undefined) { %>
 
                                     <!-- LOGIN  -->
@@ -437,7 +438,7 @@
 
                 <!-- BOTON PRODUCTOS -->
                 <li class="col-12 col-md-12 col-lg-2 mt-1 d-flex  justify-content-center align-items-center">
-                    <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/product/">PRODUCTOS</a>
+                    <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/product/" type="button" data-toggle="tooltip" data-placement="left" title="Tooltip on left">PRODUCTOS</a>
 
                 </li>
                 <!-- BOTON RECETAS -->
@@ -464,7 +465,7 @@
         <ul>
             <!-- <h4><i class="fas fa-exclamation-triangle"></i>¡Vaya! Algo ha salido mal</h4> -->
             <% for(let error of errors) { %>
-                <div id="error-messege">
+                <div class="d-flex justify-content-center mx-auto" id="error-messege">
                     <li><i class="fas fa-times-circle"></i>
                         <%= error.msg %>
                     </li>

@@ -116,8 +116,6 @@ header {
     margin: 1% 0px;
     width: 100%;
 }
-
-
 /* MENU */
 
 
@@ -2130,13 +2128,14 @@ hr {
 
 .users-errors li {
     padding-right: 1%;
-    margin-left: 10%;
+    margin-left: 1%;
     width: 100vw;
+    text-align: center;
 }
 
 @media (min-width: 769px) {
     .users-errors li {
-        margin-left: 30%;
+        margin-left: 1%;
     }
 }
 
@@ -2508,12 +2507,33 @@ a.article:hover {
 .hoverlogout:hover {
     background-color: #CF664F;
 }
-
-.userNameLog {
-    font-weight: 500;
-    font-weight: 500;
+abbr[data-title] {
     position: relative;
+    text-decoration: underline dotted; 
+  }
+  abbr[data-title]:hover::after,
+  abbr[data-title]:focus::after {
+    content: attr(data-title);
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    transform: translateX(-40px);
+    width: auto;
+    white-space: nowrap;
+    background: #212529;
+    color: #fff;
+    border-radius: 2px;
+    box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4);
+    font-size: 14px;
+    padding: 7px 7px;
+    text-align: right;
+  }
+.userNameLog {
+   
+    font-weight: 500;
+    font-weight: 500;
     right: 8%;
+    
 }
 
 .user-info-log {
