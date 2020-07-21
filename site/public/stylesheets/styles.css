@@ -2921,7 +2921,7 @@ h6 {
 
 .searchImg{
     width: 35%;
-    margin-right: 5%;
+    margin-right: 1%;
     padding: 1% 1% 1% 1%;
 }
 
@@ -2953,7 +2953,7 @@ h6 {
 
 .noFoundSearch{
     background-color: #FFF;
-    color: var(--colorDescripcionProducto);
+    color: #CF664F;
     font-family: var(--fuenteGeneral);
     font-weight: var(--fontweightTituloProducto);
     font-size: .8em;
@@ -2962,9 +2962,28 @@ h6 {
     text-align: center;
 }
 
+.minSearch{
+    background-color: #FFF;
+    color: #CF664F;
+    font-family: var(--fuenteGeneral);
+    font-weight: var(--fontweightTituloProducto);
+    font-size: .8em;
+    /* padding: 2% 28% 1% 0; */
+    margin-top: 0 !important;
+    /* text-align: center; */
+}
+
 .searchDiscount {
     font-family: var(--fontPrecioProducto);
     color: var(--colorSeccionInfo);
     font-weight: 400;
     font-size: .6em;
+}
+
+.searchQuantity {
+    /* display: block; */
+    font-family: var(--fuenteGeneral);
+    font-weight: 400;
+    color: var(--colorTituloGeneral);
+    font-size: .7em;
 }

@@ -25,9 +25,6 @@
     <span class="col-9 tituloscard name-product-card"> <%= product.name %> </span> <span class="col-3 quantity-prod-card"><%= product.quantity %> <%= product.unit %></span>
     <!-- <p class="description-prod-card"><%= product.description_short %></p> -->
 
-    <!-- <div class="row showMore">
-                    <a class="col-12 verDetalle" href="details/<%= product.id %>">Ver más detalles</a> -->
-    <!-- </div> -->
     <button class="col-8 col-lg-7 mt-3 d-flex justify-content-center align-items-center btn_producto" onclick='CART.add(parseInt("<%= product.id %>"),"<%= product.name %>","<%= product.description_short %>",parseInt("<%= product.quantity %>"),"<%= product.unit %>",parseInt("<%= product.price %>"),parseInt("<%= product.discount %>"),"<%= product.image %>")'>AGREGAR AL CARRITO</button>
 </div>
 
