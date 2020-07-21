@@ -83,7 +83,8 @@ button a {
 a:hover {
     text-decoration: none;
 }
-.enlace{
+
+.enlace {
     color: var(--colorMenu);
     font-weight: 400;
     font-size: 1.2em;
@@ -116,6 +117,7 @@ header {
     margin: 1% 0px;
     width: 100%;
 }
+
 /* MENU */
 
 
@@ -573,22 +575,26 @@ footer .menu-newsletter button {
     menu {
         display: none;
     }
+
     .btn-toggle-navbar {
         display: none;
     }
-    
+
 }
 
 @media (min-width: 320px) {
     .logofooter {
         margin-bottom: 1.5em;
     }
+
     .copy {
         order: 2;
     }
+
     .redes {
         order: 1;
     }
+
     .menu-collapse .enlaces ul {
         display: flex;
         flex-direction: row;
@@ -1118,17 +1124,21 @@ label {
     .precio-descuento {
         padding-left: 5%;
     }
+
     .precio_producto-detalles {
         margin-left: 12%;
     }
+
     .precio_detalles {
         /* font-size: 2.5em; */
         text-align: center;
         margin-top: 3%;
     }
+
     .box-quantity-detalles {
         flex-direction: column;
     }
+
     .quantity-selector-detalles {
         margin-left: 0;
         align-self: auto;
@@ -1140,12 +1150,15 @@ label {
         font-weight: 700;
         margin-top: 5%;
     }
+
     .vip-actions-wrapper {
         margin: 5% 0;
     }
+
     .vip-action-primary-details {
         justify-content: space-around;
     }
+
     .secondary {
         margin: 0;
     }
@@ -1158,47 +1171,57 @@ label {
     .description-wrapper-details {
         margin: 0 3%;
     }
+
     .short-description-detalles {
         padding-left: 10%;
     }
+
     .precio_detalles {
         text-align: right;
         margin-bottom: 1em;
     }
+
     .precio_producto-detalles {
         display: flex;
         align-content: center;
         margin: 10% 0;
         justify-content: flex-end;
     }
+
     .precio_producto-detalles h3 {
         /* font-size: 2.5em; */
         font-weight: 700;
         text-align: right;
     }
+
     .precio-descuento {
         text-align: end;
         font-size: 1.3em;
     }
+
     .box-quantity-detalles {
         justify-content: flex-end;
         margin-bottom: 10px;
         flex-direction: row;
     }
+
     .quantity-selector-detalles {
         margin-left: 6%;
         width: 15%;
         margin-top: 0;
     }
+
     .vip-action-primary-details {
         margin-top: 1em;
         justify-content: flex-end;
     }
+
     .primary {
         max-width: 170px;
         margin-right: 3%;
         padding: 0 15px;
     }
+
     .secondary {
         max-width: 170px;
         padding: 10px 10px;
@@ -1239,25 +1262,31 @@ label {
     .precio_carrito {
         order: 5;
     }
+
     .box-quantity-carrito {
         order: 1;
     }
+
     .copyright {
         margin-top: 2%;
         text-align: center;
         justify-content: center;
     }
+
     .iconos {
         margin: 0 auto;
     }
+
     .carousel-inner {
         height: auto;
     }
+
     .carousel-caption {
         margin-bottom: 0px;
         padding: 1%;
         width: 40%;
     }
+
     .epigrafe {
         font-size: 1em;
     }
@@ -1270,18 +1299,23 @@ label {
     .elemento-info {
         flex-direction: column;
     }
+
     .elemento-info p {
         text-align: center;
     }
+
     .elemento-info span {
         display: none;
     }
+
     menu {
         display: none;
     }
+
     .btn-toggle-navbar {
         display: none;
     }
+
     .menu-collapse .enlaces ul {
         display: flex;
         flex-direction: column;
@@ -1289,22 +1323,27 @@ label {
         align-items: center;
         justify-content: center;
     }
+
     .copy {
         justify-content: center;
         text-align: center;
         justify-content: center;
     }
+
     .copyright {
         margin-top: 2%;
         text-align: center;
         justify-content: center;
     }
+
     .iconos {
         margin: 0 auto;
     }
+
     .precio_carrito {
         order: 5;
     }
+
     .box-quantity-carrito {
         order: 1;
     }
@@ -1318,23 +1357,29 @@ label {
         justify-content: center;
         text-align: center;
     }
+
     .copyright {
         margin-top: 2%;
         justify-content: center;
         text-align: center;
     }
+
     .iconos {
         margin-left: auto;
     }
+
     .elemento-info {
         flex-direction: row;
     }
+
     .elemento-info p {
         text-align: left;
     }
+
     .elemento-info span {
         display: block;
     }
+
     .menu-newsletter {
         display: none;
     }
@@ -1501,6 +1546,7 @@ figure img.sg-logo-receta {
     .navbar-toggler {
         display: none;
     }
+
     .short-description-receta {
         padding-left: 10%;
         margin-top: 35px;
@@ -1773,6 +1819,7 @@ figure img.sg-logo-receta {
         padding-top: 12%;
         height: 10px;
     }
+
     .horneando {
         display: block;
         width: 20%;
@@ -1896,8 +1943,9 @@ figure img.sg-logo-receta {
     .desktop {
         display: none;
     }
+
     /* .navbar-nav{ */
-        /* display:inline-block; */
+    /* display:inline-block; */
     /* } */
 }
 
@@ -1925,6 +1973,7 @@ figure img.sg-logo-receta {
     .cardCarrito {
         margin: 3vh auto
     }
+
     .navbar-expand-lg {
         display: block;
     }
@@ -1943,6 +1992,7 @@ figure img.sg-logo-receta {
         border-bottom-left-radius: unset;
         border-top-right-radius: 1rem
     }
+
     .precio_producto_carrito {
         font-size: .2em;
     }
@@ -2018,9 +2068,11 @@ figure img.sg-logo-receta {
         border-top-right-radius: unset;
         border-bottom-left-radius: 1rem
     }
+
     .img-carrito {
         display: none;
     }
+
     .select-cart {
         order: 5
     }
@@ -2080,28 +2132,34 @@ hr {
         padding: 0px;
         order: -4;
     }
+
     .carrito {
         margin: 0px;
         padding: 0px;
         order: -3;
         padding: 1em;
     }
+
     .carrito:hover {
         transform: scale(0.1);
         -webkit-transform: scale(1.09);
         -o-transform: scale(1.09);
         -moz-transform: scale(1.09);
     }
+
     .profile {
         order: -2;
         cursor: pointer;
     }
+
     .form-control {
         order: -1;
     }
+
     .search-form_button {
         order: 0;
     }
+
     .navbar-nav {
         padding: 1em;
         order: 1;
@@ -2221,30 +2279,37 @@ hr {
 }
 
 @media (min-width: 768px) {
+
     .mail-modal,
     .fa-key {
         font-size: 2em;
     }
+
     .marca {
         margin: 0px;
         padding: 0px;
         order: -3;
     }
+
     .carrito {
         margin: 0px;
         padding: 0px;
         order: -2;
         padding: 1em;
     }
+
     .profile {
         order: -1;
     }
+
     .form-control {
         order: -3;
     }
+
     .search-form_button {
         order: -2;
     }
+
     .navbar-nav {
         padding: 1em;
         order: -1;
@@ -2485,12 +2550,15 @@ a.article:hover {
     #sidebar {
         margin-left: -250px;
     }
+
     #sidebar.active {
         margin-left: 0;
     }
+
     #sidebarCollapse span {
         display: none;
     }
+
     .tableHistorial {
         width: 90%;
         max-width: 100%;
@@ -2507,12 +2575,14 @@ a.article:hover {
 .hoverlogout:hover {
     background-color: #CF664F;
 }
+
 abbr[data-title] {
     position: relative;
-    text-decoration: underline dotted; 
-  }
-  abbr[data-title]:hover::after,
-  abbr[data-title]:focus::after {
+    text-decoration: underline dotted;
+}
+
+abbr[data-title]:hover::after,
+abbr[data-title]:focus::after {
     content: attr(data-title);
     position: absolute;
     right: 10px;
@@ -2520,20 +2590,21 @@ abbr[data-title] {
     transform: translateX(-40px);
     width: auto;
     white-space: nowrap;
-    background:var(--colorMenu);
+    background: var(--colorMenu);
     color: #fff;
     border-radius: 2px;
-    box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4);
+    box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
     font-size: 14px;
     padding: 7px 7px;
     text-align: right;
-  }
+}
+
 .userNameLog {
-   
+
     font-weight: 500;
     font-weight: 500;
     right: 8%;
-    
+
 }
 
 .user-info-log {
@@ -2756,25 +2827,31 @@ h6 {
         padding: 0px;
         order: -3;
     }
+
     .carrito {
         margin: 0px;
         padding: 0px;
         order: 4;
         padding: 1em;
     }
+
     .profile {
         order: 5;
     }
+
     .form-control {
         order: -3;
     }
+
     .search-form_button {
         order: -2;
     }
+
     .navbar-nav {
         padding: 1em;
         order: -1;
     }
+
     .navbar-toggler {
         order: 10;
     }
@@ -2807,4 +2884,68 @@ h6 {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     padding: 0.1em;
+}
+
+#divSerch {
+    position: absolute;
+    top: 110%;
+    left: 5%;
+    z-index: 999;
+    background-color: #fff;
+    width: 100%;
+    padding: 0;
+}
+
+#ulSearch {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f6f6f6;
+    color: #f6f6f6;
+    border-radius: 4px;
+}
+
+#ulSearch li a {
+    border: 1px solid #ddd;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    background-color: #fff;
+    margin-top: -8%;
+    padding: 1%;
+}
+
+#ulSearch li:first-child {
+    margin-top: 7%;
+}
+
+.searchImg{
+    width: 35%;
+    margin-right: 5%;
+    padding: 1% 1% 1% 1%;
+}
+
+.searchCategory, .searchName, .searchPrice {
+    display: block;
+}
+
+.searchCategory {
+    font-family: var(--fuenteGeneral);
+    color: var(--colorTituloGeneral);
+    font-size: .6em;
+    padding-top: 2%;
+}
+
+.searchName {
+    font-family: var(--fuenteGeneral);
+    color: var(--colorTituloGeneral);
+    font-weight: var(--fontweightTituloProducto);
+    font-size: .8em;
+
+}
+
+.searchPrice {
+    font-family: var(--fontPrecioProducto);
+    color: var(--colorMenu);
+    font-weight: var(--fontweightPrecioProducto);
 }

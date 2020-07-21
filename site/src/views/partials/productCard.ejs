@@ -1,6 +1,6 @@
 <!--  PARTIAL DE TARJETA DE PRODUCTOS -->
 
-<div class="ladofrente col-md-3 tarjeta-recetas tarjetaProd">
+<div id="<%= product.id %>" class="ladofrente col-md-3 tarjeta-recetas tarjetaProd prodFavId">
     <a href="/product/details/<%= product.id %>">
         <figure class="img-tarjeta-receta" id="img-tarjeta-prod">
             <img src="/images/imgProductos/<%= product.image %>" alt="Imagen de <%= product.name %>">
@@ -31,26 +31,5 @@
     <button class="col-8 col-lg-7 mt-3 d-flex justify-content-center align-items-center btn_producto" onclick='CART.add(parseInt("<%= product.id %>"),"<%= product.name %>","<%= product.description_short %>",parseInt("<%= product.quantity %>"),"<%= product.unit %>",parseInt("<%= product.price %>"),parseInt("<%= product.discount %>"),"<%= product.image %>")'>AGREGAR AL CARRITO</button>
 </div>
 
+<script type='text/javascript' src="/js/cart.js"></script>
 
-<script type='text/javascript' src="/js/cart.js">
-</script>
-
-<script>
-    // CAMBIAR CORAZÓN EN FAVORITO
-    let favs = document.querySelectorAll('.prodFav')
-    for (let fav of favs) {
-        fav.addEventListener('click', function() {
-            if (fav.classList.contains('far')) {
-                fav.classList.remove('far')
-                fav.classList.add('fas')
-            } else {
-                fav.classList.remove('fas')
-                fav.classList.add('far')
-            }
-
-
-            // corazon.classList.toggle('fas')
-            console.log('click')
-        })
-    }
-</script>
