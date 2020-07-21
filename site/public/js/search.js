@@ -31,7 +31,10 @@ window.addEventListener('load', function () {
                     let searchList = []
 
                     for (let i = 0; i < info.data.products.length; i++) {
-                    let productadd = '<li>' + '<a href="/product/details/' + info.data.products[i].id + '">' + '<img class="searchImg" src="/images/imgProductos/' + info.data.products[i].image + '">' + '<div>' + '<span class="searchCategory">' + 'Producto' + '</span>' + '<span class="searchName">' + info.data.products[i].name + '</span>' + '<span class="searchPrice">' + '$' + info.data.products[i].price + '</span>' + '</div>' + '</a>' + '</li>'
+
+                    let discount = info.data.products[i].discount > 1 ? info.data.products[i].discount + '% OFF': ''
+
+                    let productadd = '<li>' + '<a href="/product/details/' + info.data.products[i].id + '">' + '<img class="searchImg" src="/images/imgProductos/' + info.data.products[i].image + '">' + '<div>' + '<span class="searchCategory">' + 'Producto' + '</span>' + '<span class="searchName">' + info.data.products[i].name + '</span>' + '<span class="searchPrice">' + '$' + info.data.products[i].price + '</span>' + '   ' + '<span class="searchDiscount">' + discount  + '</span>' + '</div>' + '</a>' + '</li>'
 
                     searchList.push(productadd)
                     }
@@ -42,7 +45,13 @@ window.addEventListener('load', function () {
                     searchList.push(recipadd)
                 }
 
-                div.innerHTML = '<ul id="ulSearch">' +  searchList  + '</ul>'
+                if (searchList == 0) {
+                    div.innerHTML = '<ul id="ulSearch">' +  '<li class="noFoundSearch">' + 'No hay resultados que coincidan con la búsqueda' + '</li>'  + '</ul>'   
+                } else {
+                    
+                    div.innerHTML = '<ul id="ulSearch">' +  searchList  + '</ul>'
+                }
+
 
             }
             })

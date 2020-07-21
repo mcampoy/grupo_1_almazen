@@ -2925,7 +2925,7 @@ h6 {
     padding: 1% 1% 1% 1%;
 }
 
-.searchCategory, .searchName, .searchPrice {
+.searchCategory, .searchName {
     display: block;
 }
 
@@ -2948,4 +2948,23 @@ h6 {
     font-family: var(--fontPrecioProducto);
     color: var(--colorMenu);
     font-weight: var(--fontweightPrecioProducto);
+    font-size: .8em;
+}
+
+.noFoundSearch{
+    background-color: #FFF;
+    color: var(--colorDescripcionProducto);
+    font-family: var(--fuenteGeneral);
+    font-weight: var(--fontweightTituloProducto);
+    font-size: .8em;
+    padding: 2% 28% 1% 0;
+    margin-top: 0 !important;
+    text-align: center;
+}
+
+.searchDiscount {
+    font-family: var(--fontPrecioProducto);
+    color: var(--colorSeccionInfo);
+    font-weight: 400;
+    font-size: .6em;
 }
