@@ -15,7 +15,6 @@ window.addEventListener("load", function() {
             //savedFavs.push(fav)
 
             let prodId = this.id;
-            console.log(prodId);
 
             if (fav.classList.contains('far')) {
                 fav.classList.remove('far')
@@ -34,13 +33,6 @@ window.addEventListener("load", function() {
                     localStorage.setItem("prodFavs", favs);
                 }
 
-                //  let prods = document.querySelectorAll('div.prodFavId')
-
-                //  for( let i = 0; i < prods.length; i++ ){
-                //     let guardar =  prods[i].id
-                //       localStorage.setItem("favsProd", prods[i].id)
-                //       console.log(guardar)
-                //     }
 
             } else {
                 fav.classList.remove('fas')
