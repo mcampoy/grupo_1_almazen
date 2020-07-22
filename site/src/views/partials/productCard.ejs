@@ -19,7 +19,8 @@
                     <span class="ml-auto precio_producto">$ <%= product.price %> </span>
                     <% } %>
         </div>
-        <i class="far fa-heart col-3 prodFav" id="prodFav"></i>
+        <!-- <i class="far fa-heart col-3 prodFav" id="prodFav"></i> -->
+        <i class="far fa-heart col-3 prodFav" id="<%= product.id %>"></i>
     </div>
 
     <span class="col-9 tituloscard name-product-card"> <%= product.name %> </span> <span class="col-3 quantity-prod-card"><%= product.quantity %> <%= product.unit %></span>
@@ -29,4 +30,3 @@
 </div>
 
 <script type='text/javascript' src="/js/cart.js"></script>
-
