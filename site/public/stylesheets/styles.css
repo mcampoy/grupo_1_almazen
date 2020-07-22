@@ -94,6 +94,14 @@ a:hover {
     border-right: 1px solid var(--colorMenu);
     border-left: 1px solid var(--colorMenu);
 }
+.enlace:hover {
+    color: var(--colorBtnRegister);
+    border-top: 1px solid var(--colorMenu);
+    border-bottom: 1px solid var(--colorMenu);
+    border-left: none;
+    border-right: none;
+    transition: border-width 0.6s linear;
+  }
 
 body {
     margin: 0 auto;
@@ -249,6 +257,17 @@ header {
     margin-top: 5%;
     margin-bottom: 5%;
 }
+.counter{
+    color: #fff;
+    /*background-color:#5F9557;*/
+    padding:5px;
+    margin-bottom:20px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+}
 
 
 /* * * * * * SLIDER HOME * * * * * * */
@@ -266,7 +285,10 @@ header {
     font-weight: var(--fontweightSlider);
     text-align: left;
 }
-
+.img-fluider {
+    max-width: 100%;
+    min-width: 100%;
+    height: auto;}
 
 /* * * * * * SECCION INFORMACION * * * * * */
 
@@ -393,6 +415,21 @@ section a {
     font-weight: var(--fontweightMenuBtn);
     padding: 3% 4%;
     margin: 0 auto;
+}
+ .btn_producto:hover{
+    color: #fff;
+    background: var(--colorMenu);
+    border-radius: 6px;
+    font-family: var(--fuenteMenuBtn);
+    font-size: 0.8em;
+    font-weight: var(--fontweightMenuBtn);
+    padding: 3% 4%;
+    margin: 0 auto;
+}
+.btn_receta:hover{
+   
+    background: var(--colorMenu);
+    
 }
 
 
@@ -587,6 +624,7 @@ footer .menu-newsletter button {
     }
     .copy {
         order: 2;
+        text-align: center;
     }
     .redes {
         order: 1;
@@ -1263,6 +1301,7 @@ label {
     .epigrafe {
         font-size: 1em;
     }
+    
 }
 
 
@@ -1898,9 +1937,13 @@ figure img.sg-logo-receta {
     .desktop {
         display: none;
     }
-    /* .navbar-nav{ */
+    .logoImg{
+        max-width: 97%;
+    }
+/* .navbar-nav{ */
     /* display:inline-block; */
     /* } */
+    
 }
 
 .caja {
@@ -2081,6 +2124,10 @@ hr {
         margin: 0px;
         padding: 0px;
         order: -4;
+        
+    }
+    .navbar-nav li{
+        padding-bottom: 1%;
     }
     .carrito {
         margin: 0px;
@@ -2248,8 +2295,12 @@ hr {
         order: -2;
     }
     .navbar-nav {
-        padding: 1em;
+        padding: 1.2em;
         order: -1;
+    }
+    .navbar-nav li{
+        padding-bottom: 1%;
+        
     }
 }
 
@@ -2913,3 +2964,15 @@ h6 {
     color: var(--colorTituloGeneral);
     font-size: .7em;
 }
+
+
+  
+  .enlace:hover {
+    color: var(--colorBtnRegister);
+    border-top: 1px solid var(--colorMenu);
+    border-bottom: 1px solid var(--colorMenu);
+    border-left: none;
+    border-right: none;
+    transition: border-width 0.6s linear;
+  }
+ 
