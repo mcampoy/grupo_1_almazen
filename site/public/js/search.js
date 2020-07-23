@@ -26,7 +26,7 @@ window.addEventListener('load', function () {
 
                     div.innerHTML = ''
 
-                }else if(filter.length === 1) {
+                } else if (filter.length === 1) {
 
                     div.innerHTML = '<ul id="ulSearch" >' + '<li class="minSearch" style="padding-top: 1%">' + 'Debe ingresar 2 caracteres como mínimo' + '</li>' + '</ul>'
 
