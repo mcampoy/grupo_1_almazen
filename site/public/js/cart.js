@@ -36,7 +36,7 @@ const CART = {
         //add a new item to the cart
         //check that it is not in the cart already
         if (CART.find(id)) {
-            CART.increase(id, 1);
+            CART.increase(id, qty);
         } else {
             let obj = {
                 id: id,
