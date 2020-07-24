@@ -14,7 +14,7 @@ window.addEventListener('load', function () {
             "body": JSON.stringify(data)
         }
 
-        fetch("/api/products", settings)
+        fetch("/api/searchProd", settings)
             .then((response) => {
                 return response.json()
             })
