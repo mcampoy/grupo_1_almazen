@@ -163,9 +163,7 @@ addEventListener('load', function() {
         // VALIDACIÓN DEL CAMPO AVATAR DE LA VISTA REGISTRO
         let avatar = document.querySelector('input#avatar');
         let avatarContent = avatar.value;
-        console.log(avatarContent);
         extension = (avatarContent.substring(avatarContent.lastIndexOf("."))).toLowerCase();
-        console.log(extension)
         let emptyAvatar = registerForm.querySelector('div.emptyAvatar');
         let invalidAvatar = registerForm.querySelector('div.invalidAvatar');
 

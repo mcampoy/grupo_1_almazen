@@ -7,13 +7,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const CART = {
-    KEY: 'bkasjbdfkjasdkfjhaksdfjskd',
+    KEY: 'almazenCartKey',
     contents: [],
     init() {
         //check localStorage and initialize the contents of CART.contents
         let _contents = localStorage.getItem(CART.KEY);
         if (_contents) {
             CART.contents = JSON.parse(_contents);
+            let itemsQty = 0;
+            CART.contents.forEach(element => {
+                itemsQty += element.qty;
+            });
+            document.querySelector('.qtyItemsIcon').innerHTML = itemsQty;
         } else {
             CART.contents = [];
             CART.sync();
@@ -22,6 +27,11 @@ const CART = {
     async sync() {
         let _cart = JSON.stringify(CART.contents);
         await localStorage.setItem(CART.KEY, _cart);
+        let itemsQty = 0;
+        CART.contents.forEach(element => {
+            itemsQty += element.qty;
+        });
+        document.querySelector('.qtyItemsIcon').innerHTML = itemsQty;
     },
     find(id) {
         //find an item in the cart by its id

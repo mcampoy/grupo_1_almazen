@@ -94,6 +94,7 @@ a:hover {
     border-right: 1px solid var(--colorMenu);
     border-left: 1px solid var(--colorMenu);
 }
+
 .enlace:hover {
     color: var(--colorBtnRegister);
     border-top: 1px solid var(--colorMenu);
@@ -101,7 +102,7 @@ a:hover {
     border-left: none;
     border-right: none;
     transition: border-width 0.6s linear;
-  }
+}
 
 body {
     margin: 0 auto;
@@ -260,11 +261,12 @@ header {
     margin-top: 5%;
     margin-bottom: 5%;
 }
-.counter{
-    color: #fff;
+
+.counter {
+    color: red;
     /*background-color:#5F9557;*/
-    padding:5px;
-    margin-bottom:20px;
+    padding: 5px;
+    margin-bottom: 20px;
     border-radius: 50%;
     width: 20px;
     height: 20px;
@@ -288,10 +290,13 @@ header {
     font-weight: var(--fontweightSlider);
     text-align: left;
 }
+
 .img-fluider {
     max-width: 100%;
     min-width: 100%;
-    height: auto;}
+    height: auto;
+}
+
 
 /* * * * * * SECCION INFORMACION * * * * * */
 
@@ -419,7 +424,8 @@ section a {
     padding: 3% 4%;
     margin: 0 auto;
 }
- .btn_producto:hover{
+
+.btn_producto:hover {
     color: #fff;
     background: var(--colorMenu);
     border-radius: 6px;
@@ -429,10 +435,9 @@ section a {
     padding: 3% 4%;
     margin: 0 auto;
 }
-.btn_receta:hover{
-   
+
+.btn_receta:hover {
     background: var(--colorMenu);
-    
 }
 
 
@@ -1304,7 +1309,6 @@ label {
     .epigrafe {
         font-size: 1em;
     }
-    
 }
 
 
@@ -1940,13 +1944,12 @@ figure img.sg-logo-receta {
     .desktop {
         display: none;
     }
-    .logoImg{
+    .logoImg {
         max-width: 97%;
     }
-/* .navbar-nav{ */
+    /* .navbar-nav{ */
     /* display:inline-block; */
     /* } */
-    
 }
 
 .caja {
@@ -2127,9 +2130,8 @@ hr {
         margin: 0px;
         padding: 0px;
         order: -4;
-        
     }
-    .navbar-nav li{
+    .navbar-nav li {
         padding-bottom: 1%;
     }
     .carrito {
@@ -2301,9 +2303,8 @@ hr {
         padding: 1.2em;
         order: -1;
     }
-    .navbar-nav li{
+    .navbar-nav li {
         padding-bottom: 1%;
-        
     }
 }
 
@@ -2942,7 +2943,7 @@ h6 {
     text-align: center;
 }
 
-.minSearch{
+.minSearch {
     background-color: #FFF;
     color: #CF664F;
     font-family: var(--fuenteGeneral);
@@ -2968,14 +2969,11 @@ h6 {
     font-size: .7em;
 }
 
-
-  
-  .enlace:hover {
+.enlace:hover {
     color: var(--colorBtnRegister);
     border-top: 1px solid var(--colorMenu);
     border-bottom: 1px solid var(--colorMenu);
     border-left: none;
     border-right: none;
     transition: border-width 0.6s linear;
-  }
- 
+}

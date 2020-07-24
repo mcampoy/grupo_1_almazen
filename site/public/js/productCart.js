@@ -5,7 +5,6 @@ window.addEventListener("load", function() {
 });
 
 function showCart() {
-    console.log("showCart");
     let cartList = document.getElementById('cartList');
 
     let cartProducts = CART.sort('name');
