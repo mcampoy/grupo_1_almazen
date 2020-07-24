@@ -53,7 +53,7 @@ addEventListener('load', function() {
             passLog.style.border = "1px solid #ced4da";
         }
 
-        if (!regExp.test(passLogContent)) {
+        if (!regExp.test(passLogContent) && passLogContent != '') {
             event.preventDefault();
             invalidPass.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita' + '</p>';
             passLog.style.border = "1px solid #CF664F";
@@ -137,7 +137,7 @@ addEventListener('load', function() {
             passReg.style.border = "1px solid #ced4da";
         }
 
-        if (!regExp.test(passRegContent)) {
+        if (!regExp.test(passRegContent) && passRegContent != '') {
             event.preventDefault();
             invalidRegPass.innerHTML = "<p>" + 'Debe tener un mínimo de 8 caracteres, al menos una letra y un número' + '</p>';
             passReg.style.border = "1px solid #CF664F";
@@ -264,7 +264,7 @@ addEventListener('load', function() {
             passLogM.style.border = "1px solid #ced4da";
         }
 
-        if (!regExp.test(passLogContentM)) {
+        if (!regExp.test(passLogContentM) && passLogContentM != '') {
             event.preventDefault();
             invalidPassM.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita' + '</p>';
             passLogM.style.border = "1px solid #CF664F";
@@ -353,7 +353,7 @@ addEventListener('load', function() {
             passRegM.style.border = "1px solid #ced4da";
         }
 
-        if (!regExp.test(passRegContentM)) {
+        if (!regExp.test(passRegContentM) && passRegContentM != '') {
             event.preventDefault();
             invalidRegPassM.innerHTML = "<p>" + 'Debe tener un mínimo de 8 caracteres, al menos una letra y un número' + '</p>';
             passRegM.style.border = "1px solid #CF664F";

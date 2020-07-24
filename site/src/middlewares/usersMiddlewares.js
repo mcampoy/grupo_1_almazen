@@ -20,7 +20,7 @@ let usersMiddlewares = {
         check('password')
         .exists().withMessage('Por favor, ingresá tu contraseña')
         .trim()
-        .isLength({ min: 4 }).withMessage("Debe tener un mínimo de 8 caracteres, al menos una letra y un número"),
+        .isLength({ min: 8 }).withMessage("Debe tener un mínimo de 8 caracteres, al menos una letra y un número"),
 
         // body('email').custom(function(value) {
 
@@ -59,7 +59,7 @@ let usersMiddlewares = {
         check('password')
         .exists().withMessage("Debés ingresar una contraseña")
         .trim()
-        .isLength({ min: 4 }).withMessage('Revisá que la contraseña esté bien escrita'),
+        .isLength({ min: 8 }).withMessage('Revisá que la contraseña esté bien escrita'),
         body('password').custom(function(value) {
             // let users = getUsers();
             // for (let user of users) {
