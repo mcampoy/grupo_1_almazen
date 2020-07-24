@@ -219,13 +219,14 @@ header {
 .user button.register {
     color: #fff;
     background: var(--colorMenu);
-    border-radius: 6px;
+    border-radius: 4px;
     font-family: var(--fuenteMenuBtn);
     font-size: 0.8em;
     font-weight: var(--fontweightMenuBtn);
-    margin-left: 2px;
+    /* margin-left: -1.5%; */
     padding: 2% 4%;
-    text-align: center;
+    margin-left: 3.5%;
+    width: 25%;
 }
 
 .user button.register:hover {
@@ -240,15 +241,14 @@ header {
     color: #219653;
     background: #fff;
     border: 1px solid #219653;
-    border-radius: 6px;
+    border-radius: 4px;
     font-family: var(--fuenteMenuBtn);
     font-size: 0.8em;
     font-weight: var(--fontweightMenuBtn);
     padding: 2% 4%;
-    position: relative;
-    z-index: 2;
-    margin-right: 2px;
-    text-align:center;
+    /* position: relative;
+    z-index: 2; */
+    width: 25%;
 }
 
 .user button.login:hover {
