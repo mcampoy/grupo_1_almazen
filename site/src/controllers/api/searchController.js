@@ -5,8 +5,8 @@ const Op = Sequelize.Op;
 const controller = {
 
     //BUSCADOR DE PRODUCTOS Y RECETAS
-    find: async (req, res) => {
-        let busqueda = req.body.search
+    search: async (req, res) => {
+        let busqueda = req.query
         console.log(busqueda)
         try {
 
@@ -14,7 +14,7 @@ const controller = {
                 where: {
                     enabled: 1,
                     name: {
-                        [Op.like]: `%${req.body.search}%`
+                        [Op.like]: `%${req.query.search}%`
                     }
                 },
                 limit: 5
@@ -24,7 +24,7 @@ const controller = {
                 where: {
                     enabled: 1,
                     name: {
-                        [Op.like]: `%${req.body.search}%`
+                        [Op.like]: `%${req.query.search}%`
                     }
                 }
             })
@@ -39,14 +39,12 @@ const controller = {
                     recetas
                 }
             }
-
             return res.json(results)
 
         } catch (error) {
             console.status(500).json({ok: false, error})
         }
     }
-
 };
 
 module.exports = controller;

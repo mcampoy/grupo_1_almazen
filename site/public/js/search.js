@@ -3,18 +3,8 @@ window.addEventListener('load', function () {
 
     input.addEventListener('keyup', () => {
         let filter = input.value.toLowerCase();
-        let data = {
-            search: `${filter}`
-        }
-        let settings = {
-            "method": "POST",
-            "headers": {
-                "content-type": "application/json",
-            },
-            "body": JSON.stringify(data)
-        }
 
-        fetch("/api/searchProd", settings)
+        fetch(`/api/search/?search=${filter}`)
             .then((response) => {
                 return response.json()
             })
