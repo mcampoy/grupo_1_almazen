@@ -1,8 +1,8 @@
-addEventListener('load', function () {
+addEventListener('load', function() {
 
 
     let formEdit = document.getElementById('productEdit');
-    formEdit.addEventListener('submit', function (ebe) {
+    formEdit.addEventListener('submit', function(ebe) {
 
 
         // VALIDACIÓN DEL CAMPO NOMBRE DE PRODUCTO
@@ -31,6 +31,34 @@ addEventListener('load', function () {
         }
 
 
+        // VALIDACIÓN DEL CAMPO CÓDIGO DE PRODUCTO
+        let codeProduct = document.getElementById('code');
+        let codePContent = codeProduct.value;
+        let codePLength = (codePContent.length >= 1 && codePContent.length <= 10) ? true : false;
+        let emptyCodeP = document.getElementById('emptyCodeEdit');
+        let invalidCode = document.getElementById('invalidCodeEdit');
+
+        if (codePContent == '') {
+            ebe.preventDefault();
+            emptyCodeP.innerHTML = '<p>' + 'Ingresá el código del producto' + '</p>';
+            codeProduct.style.border = "1px solid #CF664F";
+        } else {
+            emptyCodeP.innerHTML = '';
+            codeProduct.style.border = "1px solid #ced4da";
+        }
+
+        if (codePContent != '' && !codePLength) {
+            ebe.preventDefault();
+            invalidCode.innerHTML = '<p>' + 'Debe tener entre 1 y 10 caracteres' + '</p>';
+            codeProduct.style.border = "1px solid #CF664F";
+        } else {
+            invalidCode.innerHTML = ''
+            codeProduct.style.border = "1px solid #ced4da";
+        }
+
+
+
+
         // VALIDACIÓN DEL CAMPO DESCRIPCIÓN BREVE DE PRODUCTO
         let shortDes = document.getElementById('description_short');
         let contentSD = shortDes.value;
@@ -55,8 +83,8 @@ addEventListener('load', function () {
             invalidSD.innerHTML = ''
             shortDes.style.border = "1px solid #ced4da";
         }
-        
-        
+
+
         // VALIDACIÓN DEL CAMPO DESCRIPCIÓN COMPLETA DE PRODUCTO
         let description = document.getElementById('description');
         let descriptionContent = description.value;
@@ -82,30 +110,28 @@ addEventListener('load', function () {
             description.style.border = "1px solid #ced4da";
         }
 
+        // VALIDACIÓN DE LA IMAGEN DE PRODUCTO
+        // let img = document.querySelector('image');
+        let img = document.getElementById('image');
+        let imgContent = img.value;
+        extensionImg = (imgContent.substring(imgContent.lastIndexOf("."))).toLowerCase();
+        //let emptyImg = document.querySelector('div.emptyImg');
+        let invalidImg = document.getElementById('invalidImg');
 
-    // VALIDACIÓN DE LA IMAGEN DE PRODUCTO
-    let img = document.querySelector('image');
-    let imgContent = img.value;
-    console.log(imgContent);
-    extensionImg = (imgContent.substring(imgContent.lastIndexOf("."))).toLowerCase();
-    console.log(extension)
-    let emptyImg = document.querySelector('div.emptyImg');
-    let invalidImg = document.getElementById('invalidImg');
+        // if (imgContent == '') {
+        //     event.preventDefault();
+        //     emptyImg.innerHTML = "<p>" + 'Falta imagen de producto' + '</p>';
+        // } else {
+        //     emptyImg.innerHTML = '';
+        // }
 
-    // if (imgContent == '') {
-    //     event.preventDefault();
-    //     emptyAvatar.innerHTML = "<p>" + 'Falta imagen de producto' + '</p>';
-    // } else {
-    //     emptyAvatar.innerHTML = '';
-    // }
-
-    if (imgContent != '' && extensionImg != '.jpg' && extensionImg != '.png' && extensionImg != '.jpeg' && extensionImg != '.gif') {
-        ebe.preventDefault();
-        invalidImg.innerHTML = "<p>" + 'Solo podés cargar archivos jpg, png, jpeg o gif' + '</p>';
-    } else {
-        invalidImg.innerHTML = "";
-    }
-})
+        if (imgContent != '' && extensionImg != '.jpg' && extensionImg != '.png' && extensionImg != '.jpeg' && extensionImg != '.gif') {
+            ebe.preventDefault();
+            invalidImg.innerHTML = "<p>" + 'Solo podés cargar archivos jpg, png, jpeg o gif' + '</p>';
+        } else {
+            invalidImg.innerHTML = "";
+        }
+    })
 
 
 })

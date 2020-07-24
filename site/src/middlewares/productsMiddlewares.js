@@ -1,6 +1,9 @@
 // requerimientos
 let db = require('../database/models');
 var { check, validationResult, body } = require('express-validator');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+
 
 let productsMiddlewares = {
     // middlewareGenerico: function(req, res, next) {
@@ -57,16 +60,26 @@ let productsMiddlewares = {
         .trim()
         .isLength({ max: 10 }).withMessage("La unidad de medida debe ser de hasta 10 caracteres"),
 
+        // // body('code').custom(function(code) { // chequea que el prod. no exista antes de intentar agregarlo
+        // body('code').custom((code, { req }) => {
+        //     console.log("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ");
+        //     console.log(req.body.id);
 
-        // body('code').custom(function(code) { // chequea que el prod. no exista antes de intentar agregarlo
         //     return db.Producto.findAll({
         //         where: {
-        //             code: code
+        //             code: code,
+        //             id: {
+        //                 [Op.not]: req.body.id
+        //             },
         //         }
         //     }).then(prod => {
-        //         if (prod) {
-        //             return Promise.reject('No se puede agregar el producto porque ya existe. Pruebe con otro código.');
-        //         }
+        //         // if (prod) {
+        //         //     return Promise.reject('No se puede agregar el producto porque ya existe. Pruebe con otro código.');
+        //         console.log("---------------------------------------------------------------prod");
+
+        //         console.log(prod);
+
+        //         //}
         //     });
         // })
     ],
@@ -121,36 +134,21 @@ let productsMiddlewares = {
         .trim()
         .isLength({ max: 10 }).withMessage("La unidad de medida debe ser de hasta 10 caracteres"),
 
-
-
-
-        // body('code', 'id').custom(function(value1, value2) { // chequea que el código no sea igual al de otro producto
-        //     return db.Product.findAll({
-        //         where: {
-        //             code: value1,
-        //             id: {
-        //                 [Op.ne]: value2
-        //             }
-        //         }
-        //         .then(prod => {
-        //             console.log(prod);
-        //             if (prod) {
-        //                 return Promise.reject('No se puede agregar el producto porque ya existe. Pruebe con otro código.');
-        //             }
-        //         })
-        //     })
-        // })
-        // body('code').custom(function(code) { // chequea que el prod. no exista antes de intentar agregarlo
+        // body('code').custom((code, { req }) => { // chequea que el código no sea igual al de otro producto
         //     return db.Producto.findAll({
         //         where: {
-        //             code: code
+        //             code: code,
+        //             id: {
+        //                 [Op.not]: req.body.id
+        //             },
         //         }
         //     }).then(prod => {
-        //         if (prod) {
-        //             return Promise.reject('No se puede agregar el producto porque ya existe. Pruebe con otro código.');
-        //         }
-        //     });
-        // })
+        //         console.log(prod);
+        //         // if (prod) {
+        //         //     return Promise.reject('No se puede agregar el producto porque ya existe. Pruebe con otro código.');
+        //         // }
+        //     })
+        // }),
     ],
 
     deleteProductValidation: [
