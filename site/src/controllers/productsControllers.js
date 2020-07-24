@@ -11,7 +11,7 @@ const {
 
 const controller = {
     // MOSTRAR TODOS LOS PRODUCTOS
-    productsList: async (req, res) => {
+    productsList: async(req, res) => {
         try {
             let categories = await db.Category.findAll()
             let products = await db.Product.findAll({
@@ -23,18 +23,18 @@ const controller = {
                 }
             })
             return res.render('products', {
-                    products,
-                    categories,
-                    usuarioLogueado: req.session.usuarioLogueado
-                })
+                products,
+                categories,
+                usuarioLogueado: req.session.usuarioLogueado
+            })
         } catch (err) {
 
-             console.error(err)
+            console.error(err)
         }
     },
 
     // MOSTRAR TODAS LAS OFERTAS
-    offers: async (req, res) => {
+    offers: async(req, res) => {
 
         try {
             let offers = await db.Product.findAll({
@@ -45,68 +45,68 @@ const controller = {
                 }
             })
             return res.render('offers', {
-                    offers,
-                    usuarioLogueado: req.session.usuarioLogueado
-                })
+                offers,
+                usuarioLogueado: req.session.usuarioLogueado
+            })
 
         } catch (err) {
 
             console.error(err)
-       }
+        }
     },
 
     // MOSTRAR PRODUCTOS POR CATEGORÍA
-    category: async (req, res) => {
-        try{
+    category: async(req, res) => {
+        try {
             let categories = await db.Category.findAll()
             let category = await db.Category.findByPk(req.params.id, {
                 include: ["products"]
-                })
+            })
 
             return res.render('productByCategory', {
-                    category,
-                    categories,
-                    usuarioLogueado: req.session.usuarioLogueado
-                })
+                category,
+                categories,
+                usuarioLogueado: req.session.usuarioLogueado
+            })
 
         } catch (err) {
 
             console.error(err)
-       }
+        }
     },
 
     // MOSTRAR DETALLE DE PRODUCTO Y PRODUCTOS RELACIONADOS
-    details: async (req, res) => {
+    details: async(req, res) => {
         try {
-        
+
             let product = await db.Product.findByPk(req.params.id)
 
-                if (product == null) {
-                    return res.redirect('/');
-                } else {
-                    let related = await db.Product.findAll({
-                        where: {
-                            enabled: 1,
-                            id: {
-                                [Op.not]: req.params.id
-                            },
-                            id_category: product.id_category
+            if (product == null) {
+                return res.redirect('/');
+            } else {
+                let related = await db.Product.findAll({
+                    where: {
+                        enabled: 1,
+                        id: {
+                            [Op.not]: req.params.id
                         },
-                        order: [
-                            ['name', "ASC"]
-                        ],
-                        limit: 3,
-                    });
+                        id_category: product.id_category
+                    },
+                    order: [
+                        ['name', "ASC"]
+                    ],
+                    limit: 3,
+                });
 
-                    let category = await db.Category.findByPk(product.id_category)
+                let category = await db.Category.findByPk(product.id_category)
 
-                    return res.render('productDetail', {
-                            category,
-                            product,
-                            related,
-                            usuarioLogueado: req.session.usuarioLogueado
-                        })
-                }
+                return res.render('productDetail', {
+                    category,
+                    product,
+                    related,
+                    usuarioLogueado: req.session.usuarioLogueado
+                })
+            }
 
         } catch (err) {
             console.error(err)
@@ -437,7 +437,7 @@ const controller = {
     },
 
     //BUSCADOR DE PRODUCTOS Y RECETAS
-    find: async (req, res) => {
+    find: async(req, res) => {
         try {
 
             let products = await db.Product.findAll({

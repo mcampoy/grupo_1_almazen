@@ -7,7 +7,7 @@
 
 <body style="overflow:auto">
     <script>
-        if ('<%= refresh %>' == 1) window.top.location.href = window.top.location.href;
+        if (`<%= refresh %>` == 1) window.top.location.href = window.top.location.href;
     </script>
     <div class="error">
         <% if (typeof errors != 'undefined') { %>
@@ -38,20 +38,22 @@
                                 <label class="titulo_carga_producto" for="code">Código del producto <span class="asterisco">*</span></label>
                                 <input name="code" maxlength="10" type="text" class="form-control" id="code" placeholder="Ingrese el código del producto." required value="<%= product.code %>" <% if (edit !='1' && edit !='2' ) { %>readonly
                                 <% } %>>
+                                    <div id="emptyCodeEdit" class="logErrors"></div>
+                                    <div id="invalidCodeEdit" class="logErrors"></div>
                             </div>
                             <div class="form-group col-12">
                                 <label class="titulo_carga_producto" for="name">Nombre del producto <span class="asterisco">*</span></label>
-                                <input name="name" maxlength="45" type="text" class="form-control" id="name" required placeholder="Ingrese el nombre del producto." value="<%= product.name %>"  <% if (edit !='1' && edit !='2' ) { %> readonly
+                                <input name="name" maxlength="45" type="text" class="form-control" id="name" required placeholder="Ingrese el nombre del producto." value="<%= product.name %>" <% if (edit !='1' && edit !='2' ) { %> readonly
                                 <% } %>>
-                                <div id="emptyNameEdit" class="logErrors"></div>
-                                <div id="invalidNameEdit" class="logErrors"></div>
+                                    <div id="emptyNameEdit" class="logErrors"></div>
+                                    <div id="invalidNameEdit" class="logErrors"></div>
                             </div>
                             <div class="form-group col-12">
                                 <label class="titulo_carga_producto" for="description_short">Descripción breve <span class="asterisco">*</span></label>
                                 <input name="description_short" maxlength="150" type="text" class="form-control" id="description_short" required placeholder="Ingrese la descripción breve del producto." value="<%= product.description_short %>" <% if (edit !='1' && edit !='2' ) { %>                                readonly
                                 <% } %>>
-                                <div id="emptyshortDes" class="logErrors"></div>
-                                <div id="invalidshortDes" class="logErrors"></div>
+                                    <div id="emptyshortDes" class="logErrors"></div>
+                                    <div id="invalidshortDes" class="logErrors"></div>
                             </div>
                             <div class="form-group col-12">
                                 <label class="titulo_carga_producto" for="description">Descripción completa <span class="asterisco">*</span></label>
@@ -92,10 +94,11 @@
                             <% if (edit) { %>
                                 <button class="col-5 btnDeleteImage " type="button" onclick="deleteImage()">Borrar</button>
                                 <label class="custom-file-upload d-inline text-center align-items-center col-5 ">
-                            <input type="file" name="image" accept=".jpg" onchange="previewImage(event)" id="image">
-                            <div id="invalidImg" class="logErrors"></div>
+                            <input type="file" name="image" accept=".jpg, .png, .jpeg, .gif" onchange="previewImage(event)" id="image">
                             Cambiar
                              </label>
+                                <div id="invalidImg" class="logErrors"></div>
+
                                 <input name="imageName" class="" id="imageName" value="<%=product.image %>" style="display: none;">
 
                                 <% } %>
