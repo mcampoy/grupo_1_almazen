@@ -223,8 +223,9 @@ header {
     font-family: var(--fuenteMenuBtn);
     font-size: 0.8em;
     font-weight: var(--fontweightMenuBtn);
-    margin-left: -1.5%;
+    margin-left: 2px;
     padding: 2% 4%;
+    text-align: center;
 }
 
 .user button.register:hover {
@@ -246,6 +247,8 @@ header {
     padding: 2% 4%;
     position: relative;
     z-index: 2;
+    margin-right: 2px;
+    text-align:center;
 }
 
 .user button.login:hover {
