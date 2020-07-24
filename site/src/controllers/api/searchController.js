@@ -6,8 +6,7 @@ const controller = {
 
     //BUSCADOR DE PRODUCTOS Y RECETAS
     search: async (req, res) => {
-        let busqueda = req.query
-        console.log(busqueda)
+
         try {
 
             let products = await db.Product.findAll({
