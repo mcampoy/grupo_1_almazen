@@ -45,18 +45,6 @@
                         <div class="invalidPassReg logErrors"></div>
                     </div>
 
-                    <!-- MOSTRAR/OCULTAR CONTRASEÑA -->
-                    <!-- <div class="form-group">
-                        <label class="modal-label" for="password">CONTRASEÑA</label>
-                        <div class="input-group">
-                            <input ID="txtPassword" type="Password" Class="form-control" name="password"
-                            aria-describedby="password" placeholder="Ingresá una contraseña" required />
-                            <div class="input-group-append">
-                                <button id="show_password" class="btn btn-primary" type="button"
-                                onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
-                            </div>
-                        </div>
-                    </div> -->
                     <!-- validación -->
                     <div class="form-group">
                         <label class="modal-label" for="validation">REPETÍ TU CONTRASEÑA</label>
@@ -101,22 +89,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
-    <!-- <script type='text/javascript' src="/js/userValidator.js"></script> -->
-    
-    <!-- MOSTRAR/COULTAR CONTRASEÑA -->
-    <!-- <script type="text/javascript">
-    function mostrarPassword(){
-            var cambio = document.getElementById("txtPassword");
-            if(cambio.type == "password"){
-                cambio.type = "text";
-                $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-            }else{
-                cambio.type = "password";
-                $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-            }
-        } 
-        
-    </script> -->
+    <script type='text/javascript' src="/js/userValidator.js"></script>
 
 </body>
 
