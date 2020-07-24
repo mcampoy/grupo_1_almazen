@@ -1,9 +1,9 @@
 // VALIDACIÓN DEL LOGIN (VISTA)
 
-addEventListener('load', function () {
+addEventListener('load', function() {
 
     let form = document.getElementById('loginForm');
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', function(e) {
 
         // VALIDACIÓN DEL CAMPO EMAIL DE LA VISTA LOGIN
 
@@ -38,7 +38,8 @@ addEventListener('load', function () {
         let passLogContent = passLog.value;
         let emptyPass = form.querySelector('div.emptyPassLog');
         let invalidPass = form.querySelector('div.invalidPassLog');
-        let passLength = passLogContent.length >= 4 ? true : false;
+        let regExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
+        //let passLength = passLogContent.length >= 4 ? true : false;
         let iconoKey = form.querySelector('i#keyIconLog');
 
         if (passLogContent == '') {
@@ -52,7 +53,16 @@ addEventListener('load', function () {
             passLog.style.border = "1px solid #ced4da";
         }
 
-        if (passLogContent != '' && !passLength) {
+        if (!regExp.test(passLogContent)) {
+            event.preventDefault();
+            invalidPass.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita' + '</p>';
+            passLog.style.border = "1px solid #CF664F";
+        } else {
+            invalidPass.innerHTML = '';
+            passLog.style.border = "1px solid #ced4da";
+        }
+
+        /*if (passLogContent != '' && !passLength) {
             e.preventDefault();
             invalidPass.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita. Debe tener al menos 4 caracteres' + '</p>';
             iconoKey.style.backgroundColor = "#CF664F";
@@ -60,17 +70,17 @@ addEventListener('load', function () {
         } else {
             invalidPass.innerHTML = '';
             passLog.style.border = "1px solid #ced4da";
-        }
+        }*/
     })
 
 })
 
 // VALIDACIÓN DEL REGISTRO (VISTA)
 
-addEventListener('load', function () {
+addEventListener('load', function() {
 
     let registerForm = document.getElementById('registerForm');
-    registerForm.addEventListener('submit', function (event) {
+    registerForm.addEventListener('submit', function(event) {
 
 
         // VALIDACIÓN CAMPO EMAIL DE LA VISTA REGISTRO
@@ -78,9 +88,9 @@ addEventListener('load', function () {
         let nameRegContent = nameReg.value;
         let emptyName = document.querySelector('div.emptyName');
 
-        if (nameRegContent = '' || nameRegContent.length < 2) {
+        if (nameRegContent = '' || nameRegContent.length < 3) {
             event.preventDefault();
-            emptyName.innerHTML = '<p>' + 'Por favor, ingresá tu nombre. Debe tener al menos dos caracteres' + '</p>';
+            emptyName.innerHTML = '<p>' + 'Por favor, ingresá tu nombre. Debe tener al menos tres caracteres' + '</p>';
             nameReg.style.border = "1px solid #CF664F";
         } else {
             emptyName.innerHTML = '';
@@ -115,7 +125,8 @@ addEventListener('load', function () {
         let passRegContent = passReg.value;
         let emptyRegPass = registerForm.querySelector('div.emptyPassReg');
         let invalidRegPass = registerForm.querySelector('div.invalidPassReg');
-        let passRegLength = passRegContent.length >= 4 ? true : false;
+        let regExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
+        // let passRegLength = passRegContent.length >= 8 ? true : false;
 
         if (passRegContent == '') {
             event.preventDefault();
@@ -126,14 +137,23 @@ addEventListener('load', function () {
             passReg.style.border = "1px solid #ced4da";
         }
 
-        if (passRegContent != '' && !passRegLength) {
+        if (!regExp.test(passRegContent)) {
             event.preventDefault();
-            invalidRegPass.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita. Debe tener al menos 4 caracteres' + '</p>';
+            invalidRegPass.innerHTML = "<p>" + 'Debe tener un mínimo de 8 caracteres, al menos una letra y un número' + '</p>';
             passReg.style.border = "1px solid #CF664F";
         } else {
             invalidRegPass.innerHTML = '';
             passReg.style.border = "1px solid #ced4da";
         }
+
+        /*if (passRegContent != '' && !passRegLength) {
+            event.preventDefault();
+            invalidRegPass.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita. Debe tener al menos 8 caracteres' + '</p>';
+            passReg.style.border = "1px solid #CF664F";
+        } else {
+            invalidRegPass.innerHTML = '';
+            passReg.style.border = "1px solid #ced4da";
+        }*/
 
         // VALIDACIÓN DEL CAMPO VALIDACIÓN DE LA VISTA REGISTRO
         let validation = document.querySelector('input#validation');
@@ -187,10 +207,10 @@ addEventListener('load', function () {
 
 // VALIDACIÓN DEL CAMPO EMAIL EN EL LOGIN MODAL
 
-addEventListener('load', function () {
+addEventListener('load', function() {
     let btnLogM = document.getElementById('btnLogM');
 
-    btnLogM.addEventListener('click', function (evento) {
+    btnLogM.addEventListener('click', function(evento) {
 
         let formM = document.getElementById('loginFormM');
         let emailLogM = document.getElementById('emailLogM');
@@ -229,7 +249,8 @@ addEventListener('load', function () {
         let passLogContentM = passLogM.value;
         let emptyPassM = formM.querySelector('div.emptyPassLogM');
         let invalidPassM = formM.querySelector('div.invalidPassLogM');
-        let passLengthM = passLogContentM.length >= 4 ? true : false;
+        //let passLengthM = passLogContentM.length >= 4 ? true : false;
+        let regExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
         let iconoKeyM = formM.querySelector('i#keyIconLogM');
 
         if (passLogContentM == '') {
@@ -243,7 +264,16 @@ addEventListener('load', function () {
             passLogM.style.border = "1px solid #ced4da";
         }
 
-        if (passLogContentM != '' && !passLengthM) {
+        if (!regExp.test(passLogContentM)) {
+            event.preventDefault();
+            invalidPassM.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita' + '</p>';
+            passLogM.style.border = "1px solid #CF664F";
+        } else {
+            invalidPassM.innerHTML = '';
+            passLogM.style.border = "1px solid #ced4da";
+        }
+
+        /*if (passLogContentM != '' && !passLengthM) {
             evento.preventDefault();
             invalidPassM.innerHTML = "<p>" +
                 'Revisá que la contraseña esté bien escrita. Debe tener al menos 4 caracteres' +
@@ -253,26 +283,26 @@ addEventListener('load', function () {
         } else {
             invalidPassM.innerHTML = '';
             passLogM.style.border = "1px solid #ced4da";
-        }
+        }*/
     })
 
 })
 
 //  VALIDACION REGISTRO MODAL
 
-addEventListener('load', function () {
+addEventListener('load', function() {
 
     let btnRegM = document.getElementById('btnRegM');
-    btnRegM.addEventListener('click', function (even) {
+    btnRegM.addEventListener('click', function(even) {
         // VALIDACIÓN CAMPO EMAIL MODAL REGISTRO
         let nameRegM = document.querySelector('input#nameRegM');
         let nameRegContentM = nameRegM.value;
         let emptyNameM = document.querySelector('div.emptyNameM');
 
-        if (nameRegContentM = '' || nameRegContentM.length < 2) {
+        if (nameRegContentM = '' || nameRegContentM.length < 3) {
             even.preventDefault();
             emptyNameM.innerHTML = '<p>' +
-                'Por favor, ingresá tu nombre. Debe tener al menos dos caracteres' + '</p>';
+                'Por favor, ingresá tu nombre. Debe tener al menos tres caracteres' + '</p>';
             nameRegM.style.border = "1px solid #CF664F";
         } else {
             emptyNameM.innerHTML = '';
@@ -311,7 +341,8 @@ addEventListener('load', function () {
         let passRegContentM = passRegM.value;
         let emptyRegPassM = document.querySelector('div.emptyPassRegM');
         let invalidRegPassM = document.querySelector('div.invalidPassRegM');
-        let passRegLengthM = passRegContentM.length >= 4 ? true : false;
+        //let passRegLengthM = passRegContentM.length >= 4 ? true : false;
+        let regExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
 
         if (passRegContentM == '') {
             even.preventDefault();
@@ -322,7 +353,16 @@ addEventListener('load', function () {
             passRegM.style.border = "1px solid #ced4da";
         }
 
-        if (passRegContentM != '' && !passRegLengthM) {
+        if (!regExp.test(passRegContentM)) {
+            event.preventDefault();
+            invalidRegPassM.innerHTML = "<p>" + 'Debe tener un mínimo de 8 caracteres, al menos una letra y un número' + '</p>';
+            passRegM.style.border = "1px solid #CF664F";
+        } else {
+            invalidRegPassM.innerHTML = '';
+            passRegM.style.border = "1px solid #ced4da";
+        }
+
+        /*if (passRegContentM != '' && !passRegLengthM) {
             even.preventDefault();
             invalidRegPassM.innerHTML = "<p>" +
                 'Revisá que la contraseña esté bien escrita. Debe tener al menos 4 caracteres' +
@@ -331,7 +371,7 @@ addEventListener('load', function () {
         } else {
             invalidRegPassM.innerHTML = '';
             passRegM.style.border = "1px solid #ced4da";
-        }
+        }*/
 
         // VALIDACIÓN DEL CAMPO VALIDACIÓN DE LA VISTA REGISTRO
         let validationM = document.querySelector('input#validationM');

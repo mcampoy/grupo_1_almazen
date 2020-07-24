@@ -11,19 +11,19 @@ let usersMiddlewares = {
     registerValidation: [
         check('name')
         .exists().withMessage("Debés completar el campo: nombre")
-        .isLength({ min: 3 }).withMessage("El nombre debe tener al menos tres caracteres")
+        .isLength({ min: 3 }).withMessage("Por favor, ingresá tu nombre. Debe tener al menos tres caracteres")
         .trim(),
         check('email')
         .exists()
-        .isEmail().withMessage("El email no es válido")
+        .isEmail().withMessage("Por favor, ingresá tu email o verificá que esté bien escrito")
         .normalizeEmail(),
         check('password')
-        .exists().withMessage('Debés introducir una contraseña')
+        .exists().withMessage('Por favor, ingresá tu contraseña')
         .trim()
-        .isLength({ min: 4 }).withMessage("La contaseña debe tener al menos 4 caracteres"),
+        .isLength({ min: 4 }).withMessage("Debe tener un mínimo de 8 caracteres, al menos una letra y un número"),
 
         // body('email').custom(function(value) {
-            
+
         //     db.User.findAll({
         //         where: {
         //             email: value
@@ -39,7 +39,7 @@ let usersMiddlewares = {
                 return false
             }
             return true
-        }).withMessage('Las contraseñas no coinciden')
+        }).withMessage('Revisá que las contraseñas coincidan')
     ],
 
     loginValidation: [
@@ -59,7 +59,7 @@ let usersMiddlewares = {
         check('password')
         .exists().withMessage("Debés ingresar una contraseña")
         .trim()
-        .isLength({ min: 4 }).withMessage('Contraseña inválida.'),
+        .isLength({ min: 4 }).withMessage('Revisá que la contraseña esté bien escrita'),
         body('password').custom(function(value) {
             // let users = getUsers();
             // for (let user of users) {
@@ -69,7 +69,7 @@ let usersMiddlewares = {
             //     }
             // }
             // return false
-        }).withMessage('Contraseña incorrecta')
+        }).withMessage('Revisá que la contraseña esté bien escrita')
     ],
     loggedUserValidation: function(req, res, next) {
         if (req.session.usuarioLogueado != undefined) {
