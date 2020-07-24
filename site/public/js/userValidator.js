@@ -39,7 +39,6 @@ addEventListener('load', function() {
         let emptyPass = form.querySelector('div.emptyPassLog');
         let invalidPass = form.querySelector('div.invalidPassLog');
         let regExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
-        //let passLength = passLogContent.length >= 4 ? true : false;
         let iconoKey = form.querySelector('i#keyIconLog');
 
         if (passLogContent == '') {
@@ -56,21 +55,12 @@ addEventListener('load', function() {
         if (!regExp.test(passLogContent) && passLogContent != '') {
             event.preventDefault();
             invalidPass.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita' + '</p>';
-            passLog.style.border = "1px solid #CF664F";
-        } else {
-            invalidPass.innerHTML = '';
-            passLog.style.border = "1px solid #ced4da";
-        }
-
-        /*if (passLogContent != '' && !passLength) {
-            e.preventDefault();
-            invalidPass.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita. Debe tener al menos 4 caracteres' + '</p>';
             iconoKey.style.backgroundColor = "#CF664F";
             passLog.style.border = "1px solid #CF664F";
         } else {
             invalidPass.innerHTML = '';
             passLog.style.border = "1px solid #ced4da";
-        }*/
+        }
     })
 
 })
@@ -126,7 +116,6 @@ addEventListener('load', function() {
         let emptyRegPass = registerForm.querySelector('div.emptyPassReg');
         let invalidRegPass = registerForm.querySelector('div.invalidPassReg');
         let regExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
-        // let passRegLength = passRegContent.length >= 8 ? true : false;
 
         if (passRegContent == '') {
             event.preventDefault();
@@ -145,15 +134,6 @@ addEventListener('load', function() {
             invalidRegPass.innerHTML = '';
             passReg.style.border = "1px solid #ced4da";
         }
-
-        /*if (passRegContent != '' && !passRegLength) {
-            event.preventDefault();
-            invalidRegPass.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita. Debe tener al menos 8 caracteres' + '</p>';
-            passReg.style.border = "1px solid #CF664F";
-        } else {
-            invalidRegPass.innerHTML = '';
-            passReg.style.border = "1px solid #ced4da";
-        }*/
 
         // VALIDACIÓN DEL CAMPO VALIDACIÓN DE LA VISTA REGISTRO
         let validation = document.querySelector('input#validation');
@@ -217,7 +197,6 @@ addEventListener('load', function() {
         let emailContentM = emailLogM.value;
         let arrobaM = emailContentM.includes('@');
         let emailLengthM = emailContentM.length >= 6 ? true : false;
-        // let extension = emailContent.includes('.')
         let invalidEmailM = formM.querySelector('div.emptyEmailM');
         let iconoEmailM = formM.querySelector('i#emailIconLogM');
         let emptyEmailM = document.querySelector('div.emptyEmailM');
@@ -249,7 +228,6 @@ addEventListener('load', function() {
         let passLogContentM = passLogM.value;
         let emptyPassM = formM.querySelector('div.emptyPassLogM');
         let invalidPassM = formM.querySelector('div.invalidPassLogM');
-        //let passLengthM = passLogContentM.length >= 4 ? true : false;
         let regExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
         let iconoKeyM = formM.querySelector('i#keyIconLogM');
 
@@ -272,18 +250,6 @@ addEventListener('load', function() {
             invalidPassM.innerHTML = '';
             passLogM.style.border = "1px solid #ced4da";
         }
-
-        /*if (passLogContentM != '' && !passLengthM) {
-            evento.preventDefault();
-            invalidPassM.innerHTML = "<p>" +
-                'Revisá que la contraseña esté bien escrita. Debe tener al menos 4 caracteres' +
-                '</p>';
-            iconoKeyM.style.backgroundColor = "#CF664F";
-            passLogM.style.border = "1px solid #CF664F";
-        } else {
-            invalidPassM.innerHTML = '';
-            passLogM.style.border = "1px solid #ced4da";
-        }*/
     })
 
 })
@@ -341,7 +307,6 @@ addEventListener('load', function() {
         let passRegContentM = passRegM.value;
         let emptyRegPassM = document.querySelector('div.emptyPassRegM');
         let invalidRegPassM = document.querySelector('div.invalidPassRegM');
-        //let passRegLengthM = passRegContentM.length >= 4 ? true : false;
         let regExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
 
         if (passRegContentM == '') {
@@ -362,17 +327,6 @@ addEventListener('load', function() {
             passRegM.style.border = "1px solid #ced4da";
         }
 
-        /*if (passRegContentM != '' && !passRegLengthM) {
-            even.preventDefault();
-            invalidRegPassM.innerHTML = "<p>" +
-                'Revisá que la contraseña esté bien escrita. Debe tener al menos 4 caracteres' +
-                '</p>';
-            passRegM.style.border = "1px solid #CF664F";
-        } else {
-            invalidRegPassM.innerHTML = '';
-            passRegM.style.border = "1px solid #ced4da";
-        }*/
-
         // VALIDACIÓN DEL CAMPO VALIDACIÓN DE LA VISTA REGISTRO
         let validationM = document.querySelector('input#validationM');
 
@@ -389,7 +343,7 @@ addEventListener('load', function() {
             validationM.style.border = "1px solid #ced4da";
         }
 
-        if (passRegContentM != validationContentM) {
+        if (passRegContentM != validationContentM && validationContentM != '') {
             even.preventDefault();
             invalidValidationM.innerHTML = "<p>" + 'Revisá que las contraseñas coincidan' + '</p>';
             validationM.style.border = "1px solid #CF664F";
