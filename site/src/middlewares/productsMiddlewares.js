@@ -60,28 +60,19 @@ let productsMiddlewares = {
         .trim()
         .isLength({ max: 10 }).withMessage("La unidad de medida debe ser de hasta 10 caracteres"),
 
-        // // body('code').custom(function(code) { // chequea que el prod. no exista antes de intentar agregarlo
-        // body('code').custom((code, { req }) => {
-        //     console.log("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ");
-        //     console.log(req.body.id);
+        // chequea que el prod. no exista antes de intentar agregarlo
+        body('code').custom(async(code) => {
+            let productoIgualCodigo = await db.Product.findAll({
+                where: {
+                    code: code,
+                }
+            })
+            console.log(productoIgualCodigo);
 
-        //     return db.Producto.findAll({
-        //         where: {
-        //             code: code,
-        //             id: {
-        //                 [Op.not]: req.body.id
-        //             },
-        //         }
-        //     }).then(prod => {
-        //         // if (prod) {
-        //         //     return Promise.reject('No se puede agregar el producto porque ya existe. Pruebe con otro código.');
-        //         console.log("---------------------------------------------------------------prod");
-
-        //         console.log(prod);
-
-        //         //}
-        //     });
-        // })
+            if (productoIgualCodigo.length > 0) {
+                return Promise.reject('No se puede agregar el producto porque ya existe. Pruebe con otro código.');
+            }
+        })
     ],
 
     editProductValidation: [
@@ -134,21 +125,27 @@ let productsMiddlewares = {
         .trim()
         .isLength({ max: 10 }).withMessage("La unidad de medida debe ser de hasta 10 caracteres"),
 
-        // body('code').custom((code, { req }) => { // chequea que el código no sea igual al de otro producto
-        //     return db.Producto.findAll({
-        //         where: {
-        //             code: code,
-        //             id: {
-        //                 [Op.not]: req.body.id
-        //             },
-        //         }
-        //     }).then(prod => {
-        //         console.log(prod);
-        //         // if (prod) {
-        //         //     return Promise.reject('No se puede agregar el producto porque ya existe. Pruebe con otro código.');
-        //         // }
-        //     })
-        // }),
+
+        // chequea que el código no sea igual al de otro producto
+        body('code').custom(async(code, { req }) => {
+            let productoIgualCodigo2 = await db.Product.findAll({
+                where: {
+                    code: code,
+                    id: {
+                        [Op.not]: req.body.id
+                    },
+                }
+            })
+            console.log(productoIgualCodigo2);
+            console.log(productoIgualCodigo2.length);
+
+            if (productoIgualCodigo2.length > 0) {
+                console.log("error");
+                //return Promise.reject('No se puede agregar el producto porque ya existe. Pruebe con otro código.');
+                throw new Error('No se puede agregar el producto porque ya existe. Pruebe con otro código.');
+            }
+        })
+
     ],
 
     deleteProductValidation: [
