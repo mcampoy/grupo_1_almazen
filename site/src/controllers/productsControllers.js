@@ -2,11 +2,7 @@ let db = require('../database/models');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
-const {
-    check,
-    validationResult,
-    body
-} = require('express-validator');
+const { check, validationResult, body } = require('express-validator');
 
 
 const controller = {
@@ -194,6 +190,10 @@ const controller = {
             diets: req.body.diets
         }
 
+        if (product.diet == undefined) product.diets = [];
+        if (product.recipes == undefined) product.recipes = [];
+        if (product.category == undefined) product.category = null;
+
         if (!Array.isArray(product.diets)) {
             product.diets = [product.diets];
         }
@@ -219,8 +219,11 @@ const controller = {
         }
 
         let errors = validationResult(req);
+        console.log(errors);
+
 
         if (errors.isEmpty()) {
+
             if (product.id_category == undefined) product.id_category = null;
 
             return db.Product.update({
@@ -283,6 +286,7 @@ const controller = {
             });
 
         } else {
+
             var categories = db.Category.findAll();
             var diets = db.Diet.findAll();
             var recipes = db.Recipe.findAll();
@@ -294,6 +298,7 @@ const controller = {
                         diets: results[1],
                         recipes: results[2],
                         edit: 1,
+                        refresh: 0,
                         errors: errors.errors
                     });
                 })
@@ -317,6 +322,11 @@ const controller = {
             recipes: req.body.recipes,
             diets: req.body.diets
         }
+
+        if (product.diet == undefined) product.diets = [];
+        if (product.recipes == undefined) product.recipes = [];
+        if (product.category == undefined) product.category = null;
+
         if (!Array.isArray(product.diets)) {
             product.diets = [product.diets];
         }
@@ -397,6 +407,7 @@ const controller = {
                         diets: results[1],
                         recipes: results[2],
                         edit: 2,
+                        refresh: 0,
                         errors: errors.errors
                     });
                 })
@@ -432,7 +443,16 @@ const controller = {
                 });
 
         } else {
-            return res.redirect('/product/admin');
+            //return res.redirect('/product/admin');
+            db.Product.findAll()
+                .then(products => {
+                    return res.render('productAdmin', {
+                        errors: errors.errors,
+                        products: products,
+                        usuarioLogueado: req.session.usuarioLogueado
+                    });
+                })
+                .catch((err) => console.error(err));
         }
     },
 
