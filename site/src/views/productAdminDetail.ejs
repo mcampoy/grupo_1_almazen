@@ -9,248 +9,250 @@
     <script>
         if (`<%= refresh %>` == 1) window.top.location.href = window.top.location.href;
     </script>
-    <div class="error">
-        <% if (typeof errors != 'undefined') { %>
+    <% if (typeof errors != 'undefined') { %>
+        <div class="col-12 users-errors ">
             <ul>
+                <!-- <h4><i class="fas fa-exclamation-triangle"></i>¡Vaya! Algo ha salido mal</h4> -->
                 <% for(let error of errors) { %>
-                    <li>
-                        <%= error.msg %>
-                    </li>
+                    <div class="d-flex justify-content-center mx-auto" id="error-messege">
+                        <li><i class="fas fa-times-circle"></i>
+                            <%= error.msg %>
+                        </li>
+                    </div>
                     <% } %>
             </ul>
+        </div>
+        <% } %>
 
-            <% } %>
-    </div>
-
-    <div class="container-fluid">
-        <!-- Upload product -->
-        <div class="container-fluid align-content-around carga_producto">
-            <!-- onsubmit="window.top.location.reload(true);" -->
-            <!-- onsubmit="window.top.location.href = window.top.location.href; -->
-            <!-- <form action="/product/admin<% if (edit == '1') { %>?_method=PUT<% } %>" method="post" enctype="multipart/form-data" onsubmit="window.top.location.href = '/product/admin';"> -->
-            <form action="/product/admin<% if (edit == '1') { %>?_method=PUT<% } %>" method="post" enctype="multipart/form-data" id="productEdit">
-                <div class="row">
-                    <!-- COLUMNA 1 - NOMBRE Y DESCRIPCIÓN -->
-                    <div class="container left-column  order-1 col-11 col-md-5 col-lg-4 d-block">
-                        <div class="row mt-5 mt-md-0">
-                            <div class="form-group col-12">
-                                <input name="id" type="text" class="form-control" id="id" value="<%= product.id %>" style="display:none">
-                                <label class="titulo_carga_producto" for="code">Código del producto <span class="asterisco">*</span></label>
-                                <input name="code" maxlength="10" type="text" class="form-control" id="code" placeholder="Ingrese el código del producto." required value="<%= product.code %>" <% if (edit !='1' && edit !='2' ) { %>readonly
-                                <% } %>>
-                                    <div id="emptyCodeEdit" class="logErrors"></div>
-                                    <div id="invalidCodeEdit" class="logErrors"></div>
-                            </div>
-                            <div class="form-group col-12">
-                                <label class="titulo_carga_producto" for="name">Nombre del producto <span class="asterisco">*</span></label>
-                                <input name="name" maxlength="45" type="text" class="form-control" id="name" required placeholder="Ingrese el nombre del producto." value="<%= product.name %>" <% if (edit !='1' && edit !='2' ) { %> readonly
-                                <% } %>>
-                                    <div id="emptyNameEdit" class="logErrors"></div>
-                                    <div id="invalidNameEdit" class="logErrors"></div>
-                            </div>
-                            <div class="form-group col-12">
-                                <label class="titulo_carga_producto" for="description_short">Descripción breve <span class="asterisco">*</span></label>
-                                <input name="description_short" maxlength="150" type="text" class="form-control" id="description_short" required placeholder="Ingrese la descripción breve del producto." value="<%= product.description_short %>" <% if (edit !='1' && edit !='2' ) { %>                                readonly
-                                <% } %>>
-                                    <div id="emptyshortDes" class="logErrors"></div>
-                                    <div id="invalidshortDes" class="logErrors"></div>
-                            </div>
-                            <div class="form-group col-12">
-                                <label class="titulo_carga_producto" for="description">Descripción completa <span class="asterisco">*</span></label>
-                                <textarea name="description" maxlength="500" class="form-control" id="description" required rows="3" placeholder="Ingrese la descripción completa del producto." <% if (edit !='1' && edit !='2' ) { %> readonly <% } %>><%= product.description %></textarea>
-                                <div id="emptyDescription" class="logErrors"></div>
-                                <div id="invalidDescription" class="logErrors"></div>
-                            </div>
-
-                            <div class="form-group col-6 pl-0">
-                                <label class="titulo_carga_producto" for="price">Precio <span class="asterisco">*</span></label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">$</span>
+            <div class="container-fluid">
+                <!-- Upload product -->
+                <div class="container-fluid align-content-around carga_producto">
+                    <!-- onsubmit="window.top.location.reload(true);" -->
+                    <!-- onsubmit="window.top.location.href = window.top.location.href; -->
+                    <!-- <form action="/product/admin<% if (edit == '1') { %>?_method=PUT<% } %>" method="post" enctype="multipart/form-data" onsubmit="window.top.location.href = '/product/admin';"> -->
+                    <form action="/product/admin<% if (edit == '1') { %>?_method=PUT<% } %>" method="post" enctype="multipart/form-data" id="productEdit">
+                        <div class="row">
+                            <!-- COLUMNA 1 - NOMBRE Y DESCRIPCIÓN -->
+                            <div class="container left-column  order-1 col-11 col-md-5 col-lg-4 d-block">
+                                <div class="row mt-5 mt-md-0">
+                                    <div class="form-group col-12">
+                                        <input name="id" type="text" class="form-control" id="id" value="<%= product.id %>" style="display:none">
+                                        <label class="titulo_carga_producto" for="code">Código del producto <span class="asterisco">*</span></label>
+                                        <input name="code" maxlength="10" type="text" class="form-control" id="code" placeholder="Ingrese el código del producto." required value="<%= product.code %>" <% if (edit !='1' && edit !='2' ) { %>readonly
+                                        <% } %>>
+                                            <div id="emptyCodeEdit" class="logErrors"></div>
+                                            <div id="invalidCodeEdit" class="logErrors"></div>
                                     </div>
-                                    <input name="price" type="number" min="0" class="form-control text-right" id="price" required placeholder="0" value="<%= product.price %>" <% if (edit !='1' && edit !='2' ) { %> readonly
-                                    <% } %>>
-                                </div>
-                            </div>
-                            <div class="form-group col-6 pr-0">
-                                <label class="titulo_carga_producto" for="discount">Descuento</label>
-                                <div class="input-group">
-                                    <input name="discount" type="number" min="0" class="form-control text-right" id="discount" placeholder="0" value="<%= product.discount %>" <% if (edit !='1' && edit !='2' ) { %> readonly
-                                    <% } %>>
-                                        <div class="input-group-apend">
-                                            <span class="input-group-text">%</span>
+                                    <div class="form-group col-12">
+                                        <label class="titulo_carga_producto" for="name">Nombre del producto <span class="asterisco">*</span></label>
+                                        <input name="name" maxlength="45" type="text" class="form-control" id="name" required placeholder="Ingrese el nombre del producto." value="<%= product.name %>" <% if (edit !='1' && edit !='2' ) { %> readonly
+                                        <% } %>>
+                                            <div id="emptyNameEdit" class="logErrors"></div>
+                                            <div id="invalidNameEdit" class="logErrors"></div>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label class="titulo_carga_producto" for="description_short">Descripción breve <span class="asterisco">*</span></label>
+                                        <input name="description_short" maxlength="150" type="text" class="form-control" id="description_short" required placeholder="Ingrese la descripción breve del producto." value="<%= product.description_short %>" <% if (edit !='1' && edit !='2' ) { %>                                        readonly
+                                        <% } %>>
+                                            <div id="emptyshortDes" class="logErrors"></div>
+                                            <div id="invalidshortDes" class="logErrors"></div>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label class="titulo_carga_producto" for="description">Descripción completa <span class="asterisco">*</span></label>
+                                        <textarea name="description" maxlength="500" class="form-control" id="description" required rows="3" placeholder="Ingrese la descripción completa del producto." <% if (edit !='1' && edit !='2' ) { %> readonly <% } %>><%= product.description %></textarea>
+                                        <div id="emptyDescription" class="logErrors"></div>
+                                        <div id="invalidDescription" class="logErrors"></div>
+                                    </div>
+
+                                    <div class="form-group col-6 pl-0">
+                                        <label class="titulo_carga_producto" for="price">Precio <span class="asterisco">*</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input name="price" type="number" min="0" class="form-control text-right" id="price" required placeholder="0" value="<%= product.price %>" <% if (edit !='1' && edit !='2' ) { %> readonly
+                                            <% } %>>
                                         </div>
+                                    </div>
+                                    <div class="form-group col-6 pr-0">
+                                        <label class="titulo_carga_producto" for="discount">Descuento</label>
+                                        <div class="input-group">
+                                            <input name="discount" type="number" min="0" class="form-control text-right" id="discount" placeholder="0" value="<%= product.discount %>" <% if (edit !='1' && edit !='2' ) { %> readonly
+                                            <% } %>>
+                                                <div class="input-group-apend">
+                                                    <span class="input-group-text">%</span>
+                                                </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- COLUMNA 2 - FOTO -->
-                    <div class=" mt-2 mt-lg-0 mb-2 order-3 order-lg-2 container-fluid center-column col-10 col-md-4 col-lg-2 ">
-                        <label class="titulo_carga_producto col-11 text-center ">Imagen</label>
-                        <div class=" col-12 text-center d-flex justify-content-center previewImage " id="image-preview-div">
-                            <img id="preview-img" src="/images/imgProductos/<%=product.image %>">
-                        </div>
-                        <div class="col-12 row  align-items-center form-group d-flex justify-content-center align-content-middle ">
-                            <% if (edit) { %>
-                                <button class="col-5 btnDeleteImage " type="button" onclick="deleteImage()">Borrar</button>
-                                <label class="custom-file-upload d-inline text-center align-items-center col-5 ">
+                            <!-- COLUMNA 2 - FOTO -->
+                            <div class=" mt-2 mt-lg-0 mb-2 order-3 order-lg-2 container-fluid center-column col-10 col-md-4 col-lg-2 ">
+                                <label class="titulo_carga_producto col-11 text-center ">Imagen</label>
+                                <div class=" col-12 text-center d-flex justify-content-center previewImage " id="image-preview-div">
+                                    <img id="preview-img" src="/images/imgProductos/<%=product.image %>">
+                                </div>
+                                <div class="col-12 row  align-items-center form-group d-flex justify-content-center align-content-middle ">
+                                    <% if (edit) { %>
+                                        <button class="col-5 btnDeleteImage " type="button" onclick="deleteImage()">Borrar</button>
+                                        <label class="custom-file-upload d-inline text-center align-items-center col-5 ">
                             <input type="file" name="image" accept=".jpg, .png, .jpeg, .gif" onchange="previewImage(event)" id="image">
                             Cambiar
                              </label>
-                                <div id="invalidImg" class="logErrors"></div>
+                                        <div id="invalidImg" class="logErrors"></div>
 
-                                <input name="imageName" class="" id="imageName" value="<%=product.image %>" style="display: none;">
+                                        <input name="imageName" class="" id="imageName" value="<%=product.image %>" style="display: none;">
 
-                                <% } %>
-                        </div>
-                        <div class="col-12 container-fluid align-content-between">
-                            <div class="form-group ">
-                                <label class="titulo_carga_producto d-inline-block col-5" for="stock">Stock</label>
-                                <input name="stock" type="number" min="0" class="form-control d-inline-block col-6" id="stock" placeholder="0" value="<%=product.stock %>" <% if (edit !='1' && edit !='2' ) { %> readonly
-                                <% } %>>
-                            </div>
-                            <label class="titulo_carga_producto d-inline-block col-12" for="quantity">Presentación</label>
-
-                            <div class="form-group col-12">
-                                <input name="quantity" type="number" min="0" class="form-control text-right d-inline-block col-7" id="quantity" placeholder="0" value="<%= product.quantity %>" <% if (edit !='1' && edit !='2' ) { %> readonly
-                                <% } %>>
-                                    <input name="unit" type="text" class="form-control  d-inline-block text-right col-4" id="unit" placeholder="gr." value="<%= product.unit %>" <% if (edit !='1' && edit !='2' ) { %> readonly
-                                    <% } %>>
-                            </div>
-                            <div class="form-group col-12 container  align-self-center">
-                                <div class="form-check d-inline-block">
-                                    <input name="enabled" type="checkbox" class="" id="enabled" value="" <% if (product.enabled) { %>checked
-                                    <% } %>
-                                        <% if (edit != '1' && edit !='2') { %> disabled
-                                            <% } %>>
-                                                <label for="enabled"></label>
+                                        <% } %>
                                 </div>
-                                <label for="enabled" class="nombre_item d-inline-block">Habilitado</label>
+                                <div class="col-12 container-fluid align-content-between">
+                                    <div class="form-group ">
+                                        <label class="titulo_carga_producto d-inline-block col-5" for="stock">Stock</label>
+                                        <input name="stock" type="number" min="0" class="form-control d-inline-block col-6" id="stock" placeholder="0" value="<%=product.stock %>" <% if (edit !='1' && edit !='2' ) { %> readonly
+                                        <% } %>>
+                                    </div>
+                                    <label class="titulo_carga_producto d-inline-block col-12" for="quantity">Presentación</label>
+
+                                    <div class="form-group col-12">
+                                        <input name="quantity" type="number" min="0" class="form-control text-right d-inline-block col-7" id="quantity" placeholder="0" value="<%= product.quantity %>" <% if (edit !='1' && edit !='2' ) { %> readonly
+                                        <% } %>>
+                                            <input name="unit" type="text" class="form-control  d-inline-block text-right col-4" id="unit" placeholder="gr." value="<%= product.unit %>" <% if (edit !='1' && edit !='2' ) { %> readonly
+                                            <% } %>>
+                                    </div>
+                                    <div class="form-group col-12 container  align-self-center">
+                                        <div class="form-check d-inline-block">
+                                            <input name="enabled" type="checkbox" class="" id="enabled" value="" <% if (product.enabled) { %>checked
+                                            <% } %>
+                                                <% if (edit != '1' && edit !='2') { %> disabled
+                                                    <% } %>>
+                                                        <label for="enabled"></label>
+                                        </div>
+                                        <label for="enabled" class="nombre_item d-inline-block">Habilitado</label>
+                                    </div>
+                                </div>
+
+                                <div class="fila_inferior container col-12">
+
+                                    <% if (edit) { %>
+                                        <button class="col-6 " type="submit" id="btnSave">Guardar</button>
+                                        <button class="col-6  blanco" type="button" id="btnCancelar" data-toggle="modal" data-target="#modalCancelar">Cancelar</button>
+                                        <% } %>
+
+                                            <!-- Modal de confirmación de cancelar sin guardar datos de producto-->
+                                            <div class="modal fade" id="modalCancelar" tabindex="-1" role="dialog">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h2 class="modal-title d-inline-block">Confirmación</h2>
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+                                                        <div class="modal-body text-center">
+                                                            <p>¿Seguro quiere salir sin guardar los cambios?</p>
+                                                        </div>
+                                                        <div class="modal-footer  justify-content-center ">
+                                                            <button id="btnConfSalir" type="button" value="" class="btn btn-primary  col-3" onclick="">Salir</button>
+                                                            <button id="btnConfCancelar" type="button" class="btn blanco btn-secondary col-3" data-dismiss="modal">Cancelar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="fila_inferior container col-12">
-
-                            <% if (edit) { %>
-                                <button class="col-6 " type="submit" id="btnSave">Guardar</button>
-                                <button class="col-6  blanco" type="button" id="btnCancelar" data-toggle="modal" data-target="#modalCancelar">Cancelar</button>
-                                <% } %>
-
-                                    <!-- Modal de confirmación de cancelar sin guardar datos de producto-->
-                                    <div class="modal fade" id="modalCancelar" tabindex="-1" role="dialog">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h2 class="modal-title d-inline-block">Confirmación</h2>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                </div>
-                                                <div class="modal-body text-center">
-                                                    <p>¿Seguro quiere salir sin guardar los cambios?</p>
-                                                </div>
-                                                <div class="modal-footer  justify-content-center ">
-                                                    <button id="btnConfSalir" type="button" value="" class="btn btn-primary  col-3" onclick="">Salir</button>
-                                                    <button id="btnConfCancelar" type="button" class="btn blanco btn-secondary col-3" data-dismiss="modal">Cancelar</button>
-                                                </div>
+                            <!-- COLUMNA 3 - CATEGORÍAS, RECETAS Y DIETAS -->
+                            <div class="order-2 order-lg-3 container align-content-center right-column col-12 col-md-6 col-lg-4">
+                                <div class="row justify-content-center">
+                                    <div class="card text-center">
+                                        <div class="card-header">
+                                            <ul class="nav nav-tabs card-header-tabs">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active titulo_carga_producto font-weight-bold border-white" data-toggle="tab" href="#categories">Categorías</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link titulo_carga_producto border-white" data-toggle="tab" href="#recipes">Recetas</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link titulo_carga_producto border-white" data-toggle="tab" href="#diets">Dietas</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-content card-body">
+                                            <div class="tab-pane active" id="categories">
+                                                <% categories.forEach(category => { %>
+                                                    <div class="card_item text-left">
+                                                        <div class="form-check d-inline-block">
+                                                            <input name="id_category" type="checkbox" onclick="onlyOne(this)" class="" id="checkboxcategory<%=category.id %>" value="<%=category.id %>" <% if (category.id==product.id_category) {%> checked
+                                                            <% }; %>
+                                                                <% if (edit != '1' && edit !='2') { %> disabled
+                                                                    <% } %>
+                                                                        >
+                                                                        <label for="checkboxcategory<%=category.id %>"></label>
+                                                        </div>
+                                                        <label for="checkboxcategory<%=category.id %>" class="nombre_item d-inline-block"><%= category.name %></label>
+                                                    </div>
+                                                    <% }) %>
+                                            </div>
+                                            <div class="tab-pane" id="diets">
+                                                <% diets.forEach(diet => { %>
+                                                    <div class="card_item text-left">
+                                                        <div class="form-check d-inline-block">
+                                                            <input name="diets" type="checkbox" class="" id="checkboxdiet<%=diet.id %>" value="<%=diet.id %>" <% product.diets.forEach(ProdDiet=> { if (diet.id==ProdDiet.id) {%> checked
+                                                            <% }}); %>
+                                                                <% if (edit != '1' && edit !='2') { %> disabled
+                                                                    <% } %>
+                                                                        >
+                                                                        <label for="checkboxdiet<%=diet.id %>"></label>
+                                                        </div>
+                                                        <label for="checkboxdiet<%=diet.id %>" class="nombre_item d-inline-block"><%= diet.name %></label>
+                                                    </div>
+                                                    <% }) %>
+                                            </div>
+                                            <div class="tab-pane " id="recipes">
+                                                <% recipes.forEach(recipe => { %>
+                                                    <div class="card_item text-left">
+                                                        <div class="form-check d-inline-block">
+                                                            <input name="recipes" type="checkbox" class="" id="checkboxrecipe<%=recipe.id %>" value="<%=recipe.id %>" <% product.recipes.forEach(ProdRecipe=> { if (recipe.id==ProdRecipe.id) {%> checked
+                                                            <% }}); %>
+                                                                <% if (edit != '1' && edit !='2') { %> disabled
+                                                                    <% } %> >
+                                                                        <label for="checkboxrecipe<%=recipe.id %>"></label>
+                                                        </div>
+                                                        <label for="checkboxrecipe<%=recipe.id %>" class="nombre_item d-inline-block"><%= recipe.name %></label>
+                                                    </div>
+                                                    <% }) %>
                                             </div>
                                         </div>
                                     </div>
-
-
-                        </div>
-                    </div>
-
-                    <!-- COLUMNA 3 - CATEGORÍAS, RECETAS Y DIETAS -->
-                    <div class="order-2 order-lg-3 container align-content-center right-column col-12 col-md-6 col-lg-4">
-                        <div class="row justify-content-center">
-                            <div class="card text-center">
-                                <div class="card-header">
-                                    <ul class="nav nav-tabs card-header-tabs">
-                                        <li class="nav-item">
-                                            <a class="nav-link active titulo_carga_producto font-weight-bold border-white" data-toggle="tab" href="#categories">Categorías</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link titulo_carga_producto border-white" data-toggle="tab" href="#recipes">Recetas</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link titulo_carga_producto border-white" data-toggle="tab" href="#diets">Dietas</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="tab-content card-body">
-                                    <div class="tab-pane active" id="categories">
-                                        <% categories.forEach(category => { %>
-                                            <div class="card_item text-left">
-                                                <div class="form-check d-inline-block">
-                                                    <input name="id_category" type="checkbox" onclick="onlyOne(this)" class="" id="checkboxcategory<%=category.id %>" value="<%=category.id %>" <% if (category.id==product.id_category) {%> checked
-                                                    <% }; %>
-                                                        <% if (edit != '1' && edit !='2') { %> disabled
-                                                            <% } %>
-                                                                >
-                                                                <label for="checkboxcategory<%=category.id %>"></label>
-                                                </div>
-                                                <label for="checkboxcategory<%=category.id %>" class="nombre_item d-inline-block"><%= category.name %></label>
-                                            </div>
-                                            <% }) %>
-                                    </div>
-                                    <div class="tab-pane" id="diets">
-                                        <% diets.forEach(diet => { %>
-                                            <div class="card_item text-left">
-                                                <div class="form-check d-inline-block">
-                                                    <input name="diets" type="checkbox" class="" id="checkboxdiet<%=diet.id %>" value="<%=diet.id %>" <% product.diets.forEach(ProdDiet=> { if (diet.id==ProdDiet.id) {%> checked
-                                                    <% }}); %>
-                                                        <% if (edit != '1' && edit !='2') { %> disabled
-                                                            <% } %>
-                                                                >
-                                                                <label for="checkboxdiet<%=diet.id %>"></label>
-                                                </div>
-                                                <label for="checkboxdiet<%=diet.id %>" class="nombre_item d-inline-block"><%= diet.name %></label>
-                                            </div>
-                                            <% }) %>
-                                    </div>
-                                    <div class="tab-pane " id="recipes">
-                                        <% recipes.forEach(recipe => { %>
-                                            <div class="card_item text-left">
-                                                <div class="form-check d-inline-block">
-                                                    <input name="recipes" type="checkbox" class="" id="checkboxrecipe<%=recipe.id %>" value="<%=recipe.id %>" <% product.recipes.forEach(ProdRecipe=> { if (recipe.id==ProdRecipe.id) {%> checked
-                                                    <% }}); %>
-                                                        <% if (edit != '1' && edit !='2') { %> disabled
-                                                            <% } %> >
-                                                                <label for="checkboxrecipe<%=recipe.id %>"></label>
-                                                </div>
-                                                <label for="checkboxrecipe<%=recipe.id %>" class="nombre_item d-inline-block"><%= recipe.name %></label>
-                                            </div>
-                                            <% }) %>
-                                    </div>
                                 </div>
                             </div>
+
                         </div>
-                    </div>
+                        <!--  FILA INFERIOR  -->
 
+                    </form>
                 </div>
-                <!--  FILA INFERIOR  -->
-
-            </form>
-        </div>
-        <!-- /Upload product -->
+                <!-- /Upload product -->
 
 
-    </div>
-    <!-- Fin DIV Container-->
+            </div>
+            <!-- Fin DIV Container-->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script type='text/javascript' src="/js/productAdminDetails.js">
-    </script>
-    <script type='text/javascript' src="/js/prodAdminValidator.js">
-    </script>
+            <script type='text/javascript' src="/js/productAdminDetails.js">
+            </script>
+            <script type='text/javascript' src="/js/prodAdminValidator.js">
+            </script>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-    <script type='text/javascript' src="/js/userValidator.js"></script>
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+            </script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+            </script>
+            <script type='text/javascript' src="/js/userValidator.js"></script>
 </body>
 
 </html>
