@@ -39,7 +39,7 @@ window.addEventListener('load', function () {
                     }
 
                     if (searchList == 0) {
-                        div.innerHTML = '<ul id="ulSearch">' + '<li class="noFoundSearch">' + 'No hay resultados que coincidan con la búsqueda' + '</li>' + '</ul>'
+                        div.innerHTML = '<ul id="ulSearch">' + '<li class="noFoundSearch">' + 'No hay resultados para la búsqueda' + '</li>' + '</ul>'
                     } else {
 
                         div.innerHTML = '<ul id="ulSearch">' + searchList + '</ul>'
