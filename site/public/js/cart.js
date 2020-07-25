@@ -31,7 +31,13 @@ const CART = {
         CART.contents.forEach(element => {
             itemsQty += element.qty;
         });
-        document.querySelector('.qtyItemsIcon').innerHTML = itemsQty;
+        
+        if(itemsQty !== 0){
+            document.querySelector('.qtyItemsIcon').innerHTML = itemsQty;
+        }else{
+            document.querySelector('.qtyItemsIcon').innerHTML = <span style="background-color: #fff"></span>;
+        }
+        
     },
     find(id) {
         //find an item in the cart by its id

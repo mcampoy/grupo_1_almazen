@@ -262,8 +262,8 @@ header {
     margin-bottom: 5%;
 }
 
-.counter {
-    color: red;
+.qtyItemsIcon {
+    color:#fff;
     /*background-color:#5F9557;*/
     padding: 5px;
     margin-bottom: 20px;
@@ -464,6 +464,7 @@ section a {
     font-family: var(--fuenteReceta);
     font-weight: var(--fontweightPrecioProducto);
     margin-top: 0px;
+    text-align:center;
 }
 
 
