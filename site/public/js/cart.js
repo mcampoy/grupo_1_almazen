@@ -22,6 +22,7 @@ const CART = {
         } else {
             CART.contents = [];
             CART.sync();
+            
         }
     },
     async sync() {
@@ -35,7 +36,7 @@ const CART = {
         if(itemsQty !== 0){
             document.querySelector('.qtyItemsIcon').innerHTML = itemsQty;
         }else{
-            document.querySelector('.qtyItemsIcon').innerHTML = <span style="background-color: #fff"></span>;
+           //document.querySelector('.qtyItemsIcon').innerHTML = '';
         }
         
     },

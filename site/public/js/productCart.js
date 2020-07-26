@@ -58,7 +58,8 @@ function showCart() {
         cartItem.appendChild(titleAndDescripDiv);
 
         let controls = document.createElement('div');
-        controls.className = 'controls col  mr-sm-2 select-cart';
+        //controls.className = 'controls col mr-sm-2 select-cart';
+        controls.className = 'controls col-4 col-lg-1 select-cart';
         cartItem.appendChild(controls);
 
 
@@ -123,7 +124,8 @@ function showTotalItemsAndPrices() {
         totalPriceProducts += item.price * (1 - item.discount / 100) * item.qty;
 
     })
-    document.querySelector(".qtyItems").innerHTML = totalItems + " items";
+    
+    
     let cost = new Intl.NumberFormat('en-CA', {
         style: 'currency',
         currency: 'CAD'
@@ -132,6 +134,14 @@ function showTotalItemsAndPrices() {
     document.querySelector(".precio_productos").innerText = cost;
 
     document.querySelector(".precio_total").innerText = cost;
+    if (totalItems > 1) {
+        document.querySelector(".Items").innerHTML = totalItems + " items";
+        document.querySelector(".qtyItems").innerHTML = totalItems + " items"; 
+    } else {
+        document.querySelector(".Items").innerHTML = totalItems + " item";
+        document.querySelector(".qtyItems").innerHTML = totalItems + " item";
+    }
+    
 
 }
 

@@ -9,7 +9,7 @@
 
         <!-- BOTON CARRITO -->
         <div class="col-1 col-md-2 col-lg-1 mt-1 d-flex align-items-center justify-content-end carrito">
-            <a href="/cart" role="button" class="justify-content-center"><img src="/images/cart.svg" width="31px" alt="carrito"></a>
+            <a href="/cart" role="button" class="justify-content-center"><img src="/images/cart.png" width="31px" alt="carrito"></a>
             <span class="counter qtyItemsIcon d-flex justify-content-center align-items-center"></span>
         </div>
         <!-- FIN BOTON CARRITO -->
@@ -20,7 +20,7 @@
 
                 <% if (usuarioLogueado!=undefined) { %>
 
-                    <abbr id="dropdownMenuOffset" data-toggle="dropdown" aria-expanded="false" data-offset="10,50" data-title="<%= usuarioLogueado.name %>"><img src="/users-avatar/<%= usuarioLogueado.avatar %>"  width="40px" style="border-radius: 50%;" alt="Imagen de suario"></abbr>
+                    <abbr id="dropdownMenuOffset" data-toggle="dropdown" aria-expanded="false" data-offset="10,50" data-title="<%= usuarioLogueado.name %>"><img src="/users-avatar/<%= usuarioLogueado.avatar %>"  width="40px" style="border-radius: 50%;" alt="Imagen de usuario"></abbr>
 
 
                     <!--<div class="userNameLog">
@@ -29,7 +29,7 @@
 
                     <% } else { %>
 
-                        <img src="/images/profile.svg" class="dropdown-toggle userLogImage imgProfile" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="35px" alt="Imagen de suario">
+                        <img src="/images/profile.png" class="dropdown-toggle userLogImage imgProfile" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="35px" alt="Imagen de usuario">
                         <% } %>
                             <div class="dropdown-menu dropdown-menu-right adminin-menu" aria-labelledby="dropdownMenuOffset">
                                 <% if (usuarioLogueado==undefined) { %>

@@ -463,7 +463,10 @@ section a {
     margin-top: 0px;
     text-align:center;
 }
-
+.ofertas{
+    background-color: #F5F5F5;
+    padding-bottom: 20px;
+}
 
 /* TÍTULO DE RECETA */
 
@@ -472,6 +475,7 @@ section a {
     font-size: var(--fontSizeDescripcionProducto);
     font-family: var(--fuenteTituloProducto);
     font-weight: var(--fontweightDescripcionProducto);
+    text-align:center;
 }
 
 
@@ -2019,20 +2023,27 @@ figure img.sg-logo-receta {
 .cartItem .controls {
     height: 1.5rem;
     cursor: pointer;
-    width: 70%;
+    width: 90%;
     display: flex;
-    justify-content: space-between;
-    background-color: #eee;
+    justify-content: space-around;
+    /*background-color: #eee;*/
 }
-
+.cartItem span:nth-child(2){
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    display: block;
+}
 .cartItem span:nth-child(1),
 .cartItem span:nth-child(3) {
-    border: 1px solid cornflowerblue;
-    color: cornflowerblue;
+    border: 1px solid var(--colorMenu);
+    color: var(--colorMenu);
     background: #fff;
     font-size: 1rem;
     line-height: 1.5rem;
-    padding: 0 0.5rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
     display: block;
 }
 
