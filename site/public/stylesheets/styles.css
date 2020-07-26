@@ -261,13 +261,14 @@ header {
 
 .qtyItemsIcon {
     color:#fff;
-    /*background-color:#5F9557;*/
+   background-color:#5F9557;
     padding: 5px;
+    font-size: 0.8em;
     margin-bottom: 20px;
     border-radius: 50%;
     width: 20px;
     height: 20px;
-    line-height: 20px;
+    line-height: 18px;
     text-align: center;
 }
 
