@@ -150,6 +150,10 @@
                                 <label class="modal-label label-profile" for="exampleInputEmail1">Editar email</label>
                                 <input type="email" class="form-control input-profile" value="<%=user.email%>" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="user.email" />
                             </div>
+                            <div>
+                                <div class="invalidEmail logErrors"></div>
+                                <div class="emptyEmail logErrors"></div>
+                            </div>
 
                             <!-- password -->
                             <!-- <div class="form-group">
@@ -264,7 +268,6 @@
                 });
             </script>
             <script type='text/javascript' src="/js/userValidator.js"></script>
-
 
 </body>
 

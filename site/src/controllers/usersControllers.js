@@ -94,7 +94,7 @@ const controller = {
                     };
                 }
 
-                return res.render("login", { usuarioLogueado: req.session.usuarioLogueado });
+                return res.render("login", { errors: [{ msg: 'Revisa que el mail y la contraseña coincidan con un usuario registrado' }], usuarioLogueado: undefined });
 
 
             }).catch((err) => console.error(err));
@@ -131,26 +131,36 @@ const controller = {
             // avatar: req.files[0].filename,
         }
 
-        db.User.update({
-            name: user.name,
-            email: user.email,
-            //password: user.password,
-            //avatar: user.avatar
-        }, {
+        db.User.findOne({
             where: {
-                id: req.session.usuarioLogueado.id
+                email: user.email
             }
-        }).then((count) => { //rows updated
-            db.User.findOne({
-                where: {
-                    id: req.session.usuarioLogueado.id
-                }
-            }).then((usuario) => {
-                req.session.usuarioLogueado = usuario;
-                return res.render('profile', { user: req.session.usuarioLogueado, usuarioLogueado: req.session.usuarioLogueado });
+        }).then((usuarioReg) => {
+            if (usuarioReg == undefined) {
+                db.User.update({
+                    name: user.name,
+                    email: user.email,
+                    //password: user.password,
+                    //avatar: user.avatar
+                }, {
+                    where: {
+                        id: req.session.usuarioLogueado.id
+                    }
+                }).then((count) => { //rows updated
+                    db.User.findOne({
+                        where: {
+                            id: req.session.usuarioLogueado.id
+                        }
+                    }).then((usuario) => {
+                        req.session.usuarioLogueado = usuario;
+                        return res.render('profile', { user: req.session.usuarioLogueado, usuarioLogueado: req.session.usuarioLogueado });
 
-            });
-        });
+                    });
+                });
+            } else {
+                return res.render('profile', { user: req.session.usuarioLogueado, usuarioLogueado: req.session.usuarioLogueado });
+            }
+        })
     }
 };
 
