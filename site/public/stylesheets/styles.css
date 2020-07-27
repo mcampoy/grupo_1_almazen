@@ -219,7 +219,7 @@ header {
 
 .user button.register {
     color: #fff;
-    background: var(--colorMenu);
+    background: var(--colorBtnRegister);
     border-radius: 4px;
     font-family: var(--fuenteMenuBtn);
     font-size: 0.8em;
@@ -2038,20 +2038,13 @@ figure img.sg-logo-receta {
 .cartItem span:nth-child(1),
 .cartItem span:nth-child(3) {
     border: 1px solid var(--colorMenu);
-    
-    color: #fff; 
-    background:var(--colorMenu);
+    color: var(--colorMenu);
+    background: #fff;
     font-size: 1rem;
     line-height: 1.5rem;
     padding-left: 0.5em;
     padding-right: 0.5em;
     display: block;
-}
-.cartItem span:nth-child(1){
-    border-radius: 4px 0px 0px 4px;
-}
-.cartItem span:nth-child(3) {
-    border-radius: 0px 4px 4px 0px;
 }
 
 .btn-finalizar-compra {

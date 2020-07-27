@@ -4,11 +4,11 @@ window.addEventListener('load', function () {
     input.addEventListener('keyup', () => {
         let filter = input.value.toLowerCase();
 
-        fetch(`/api/search/?search=${filter}`)
-            .then((response) => {
-                return response.json()
-            })
-            .then((info) => {
+        let search = async (param) => {
+
+            try {
+                const response = await fetch(`/api/search/?search=${param}`)
+                const info = await response.json()
 
                 let div = document.getElementById('divSerch')
 
@@ -27,7 +27,7 @@ window.addEventListener('load', function () {
 
                         let discount = info.data.products[i].discount > 1 ? info.data.products[i].discount + '% OFF' : ''
 
-                        let productadd = '<li>' + '<a href="/product/details/' + info.data.products[i].id + '">' + '<img class="searchImg" src="/images/imgProductos/' + info.data.products[i].image + '">' + '<div>' + '<span class="searchCategory">' + 'Producto' + '</span>' + '<span class="searchName">' + info.data.products[i].name  + '  ' + '<span class="searchQuantity">' + info.data.products[i].quantity + ' ' + info.data.products[i].unit + '</span>' + '</span>' + '<span class="searchPrice">' + '$' + info.data.products[i].price + '</span>' + '   ' + '<span class="searchDiscount">' + discount + '</span>' + '</div>' + '</a>' + '</li>'
+                        let productadd = '<li>' + '<a href="/product/details/' + info.data.products[i].id + '">' + '<img class="searchImg" src="/images/imgProductos/' + info.data.products[i].image + '">' + '<div>' + '<span class="searchCategory">' + 'Producto' + '</span>' + '<span class="searchName">' + info.data.products[i].name + '  ' + '<span class="searchQuantity">' + info.data.products[i].quantity + ' ' + info.data.products[i].unit + '</span>' + '</span>' + '<span class="searchPrice">' + '$' + info.data.products[i].price + '</span>' + '   ' + '<span class="searchDiscount">' + discount + '</span>' + '</div>' + '</a>' + '</li>'
 
                         searchList.push(productadd)
                     }
@@ -45,10 +45,29 @@ window.addEventListener('load', function () {
                         div.innerHTML = '<ul id="ulSearch">' + searchList + '</ul>'
                     }
 
-
                 }
-            })
-            .catch(err => console.error(err))
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        search(filter)
     })
-
 })
+
+// Detener el redireccionamiento a la página Search si no se cumplen las condiciones
+window.addEventListener('load', function () {
+    let searchForm = document.getElementById('searchForm')
+
+    searchForm.addEventListener('submit', (e)=>{
+
+        let input2 = document.getElementById('search');
+        let filterE = input2.value.toLowerCase();
+        let div = document.getElementById('divSerch')
+
+        if(filterE.length < 2) {
+            e.preventDefault()
+            div.innerHTML = '<ul id="ulSearch" >' + '<li class="minSearch" style="padding-top: 1%">' + 'Debe ingresar 2 caracteres como mínimo' + '</li>' + '</ul>'
+        }
+    })
+})
+
