@@ -4,5 +4,7 @@ const cartControllers = require('../controllers/cartControllers');
 
 
 router.get('/', cartControllers.showCart);
+router.get('/confirm', cartControllers.confirmPurchase);
 
-module.exports= router
+
+module.exports = router
