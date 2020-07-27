@@ -34,7 +34,7 @@ const controller = {
             }).then((usuario) => {
 
                 if (usuario != undefined) {
-                    return res.render("register", {errors:[{msg: 'El email con el que intenta registrarse pertenece a un/a usuario/a ya registrado/a'}], usuarioLogueado: undefined });
+                    return res.render("register", { errors: [{ msg: 'El email con el que intenta registrarse pertenece a un/a usuario/a ya registrado/a' }], usuarioLogueado: undefined });
                 } else {
                     db.User.create({
                         name: req.body.name,
@@ -85,20 +85,21 @@ const controller = {
                     let check = bcrypt.compareSync(user.password, usuario.password)
                     if (check == true) {
                         req.session.usuarioLogueado = usuario;
-
                         if (req.body.remember != null) {
                             // creamos una cookie de nombre "recordarme" que va a contener el email del usuario
                             let expiracion = new Date(Date.now() + 900000); //15 minutos
                             res.cookie('recordarme', usuario.id, { expires: expiracion });
                         };
+                        return res.redirect(`/`);
                     };
                 }
-                return res.redirect(`/`);
+
+                return res.render("login", { usuarioLogueado: req.session.usuarioLogueado });
+
 
             }).catch((err) => console.error(err));
 
         } else {
-
             return res.render("login", { errors: errors.errors, usuarioLogueado: req.session.usuarioLogueado });
         }
     },

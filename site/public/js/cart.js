@@ -22,7 +22,7 @@ const CART = {
         } else {
             CART.contents = [];
             CART.sync();
-            
+
         }
     },
     async sync() {
@@ -32,13 +32,13 @@ const CART = {
         CART.contents.forEach(element => {
             itemsQty += element.qty;
         });
-        
-        if(itemsQty !== 0){
+
+        if (itemsQty !== 0) {
             document.querySelector('.qtyItemsIcon').innerHTML = itemsQty;
-        }else{
-           //document.querySelector('.qtyItemsIcon').innerHTML = '';
+        } else {
+            //document.querySelector('.qtyItemsIcon').innerHTML = '';
         }
-        
+
     },
     find(id) {
         //find an item in the cart by its id
@@ -129,6 +129,8 @@ const CART = {
         //NO impact on localStorage
     },
 };
+
+
 
 
 //para VISTA productDetails.ejs

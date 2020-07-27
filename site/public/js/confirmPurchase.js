@@ -1,8 +1,10 @@
 window.addEventListener("load", function() {
-
     showCart();
 
 });
+
+
+
 
 function showCart() {
     let cartList = document.getElementById('cartList');
@@ -57,30 +59,30 @@ function showCart() {
 
         cartItem.appendChild(titleAndDescripDiv);
 
-        let controls = document.createElement('div');
-        //controls.className = 'controls col mr-sm-2 select-cart';
-        controls.className = 'controls col-4 col-lg-1 select-cart';
-        cartItem.appendChild(controls);
+        // let controls = document.createElement('div');
+        // //controls.className = 'controls col mr-sm-2 select-cart';
+        // controls.className = 'controls col-4 col-lg-1 select-cart';
+        // cartItem.appendChild(controls);
 
 
-        let minus = document.createElement('span');
-        minus.textContent = '-';
-        minus.setAttribute('data-id', item.id)
-        controls.appendChild(minus);
-        minus.addEventListener('click', decrementCart)
+        // let minus = document.createElement('span');
+        // minus.textContent = '-';
+        // minus.setAttribute('data-id', item.id)
+        // controls.appendChild(minus);
+        // minus.addEventListener('click', decrementCart)
 
-        let qty = document.createElement('span');
-        qty.textContent = item.qty;
-        controls.appendChild(qty);
+        // let qty = document.createElement('span');
+        // qty.textContent = item.qty;
+        // controls.appendChild(qty);
 
-        let plus = document.createElement('span');
-        plus.textContent = '+';
-        plus.setAttribute('data-id', item.id)
-        controls.appendChild(plus);
-        plus.addEventListener('click', incrementCart)
+        // let plus = document.createElement('span');
+        // plus.textContent = '+';
+        // plus.setAttribute('data-id', item.id)
+        // controls.appendChild(plus);
+        // plus.addEventListener('click', incrementCart)
 
 
-        cartItem.appendChild(controls);
+        // cartItem.appendChild(controls);
         //PRECIO PRODUCTO CARRITO
 
 
@@ -93,17 +95,17 @@ function showCart() {
         precioDiv.innerText = qtytCost;
         cartItem.appendChild(precioDiv);
 
-        //ÍCONO ELIMINAR PRODUCTO CARRITO
-        let eliminarDiv = document.createElement('div');
-        eliminarDiv.className = 'col';
-        //eliminarDiv.innerHTML = '<a href="CART.remove(item.id)"><i class="far fa-times-circle eliminar"></i></a>';
-        let eliminarButton = document.createElement('button');
-        eliminarButton.setAttribute("onclick", `removeItem(${item.id})`);
-        let eliminarI = document.createElement('i');
-        eliminarI.className = 'far fa-times-circle eliminar';
-        eliminarButton.appendChild(eliminarI);
-        eliminarDiv.appendChild(eliminarButton);
-        cartItem.appendChild(eliminarDiv);
+        // //ÍCONO ELIMINAR PRODUCTO CARRITO
+        // let eliminarDiv = document.createElement('div');
+        // eliminarDiv.className = 'col';
+        // //eliminarDiv.innerHTML = '<a href="CART.remove(item.id)"><i class="far fa-times-circle eliminar"></i></a>';
+        // let eliminarButton = document.createElement('button');
+        // eliminarButton.setAttribute("onclick", `removeItem(${item.id})`);
+        // let eliminarI = document.createElement('i');
+        // eliminarI.className = 'far fa-times-circle eliminar';
+        // eliminarButton.appendChild(eliminarI);
+        // eliminarDiv.appendChild(eliminarButton);
+        // cartItem.appendChild(eliminarDiv);
         cartList.appendChild(cartItem);
 
     });
@@ -145,82 +147,70 @@ function showTotalItemsAndPrices() {
 
 }
 
-function emptyCart() {
-    CART.empty();
-    window.location.href = window.location.href;
-}
+// function emptyCart() {
+//     CART.empty();
+//     window.location.href = window.location.href;
+// }
 
-function removeItem(id) {
+// function removeItem(id) {
 
-    document.querySelector(".item" + id).remove();
-    CART.remove(id);
-    showTotalItemsAndPrices();
+//     document.querySelector(".item" + id).remove();
+//     CART.remove(id);
+//     showTotalItemsAndPrices();
 
-    //showCart();
-    //window.location.href = window.location.href;
-}
+//showCart();
+//window.location.href = window.location.href;
+//}
 
-function incrementCart(ev) {
-    ev.preventDefault();
-    let id = parseInt(ev.target.getAttribute('data-id'));
-    CART.increase(id, 1);
-    let controls = ev.target.parentElement;
-    let qty = controls.querySelector('span:nth-child(2)');
-    let item = CART.find(id);
-    if (item) {
-        qty.textContent = item.qty;
+// function incrementCart(ev) {
+//     ev.preventDefault();
+//     let id = parseInt(ev.target.getAttribute('data-id'));
+//     CART.increase(id, 1);
+//     let controls = ev.target.parentElement;
+//     let qty = controls.querySelector('span:nth-child(2)');
+//     let item = CART.find(id);
+//     if (item) {
+//         qty.textContent = item.qty;
 
-        let qtytCost = new Intl.NumberFormat('en-CA', {
-            style: 'currency',
-            currency: 'CAD'
-        }).format(item.price * (1 - item.discount / 100) * item.qty);
+//         let qtytCost = new Intl.NumberFormat('en-CA', {
+//             style: 'currency',
+//             currency: 'CAD'
+//         }).format(item.price * (1 - item.discount / 100) * item.qty);
 
-        let precioDiv = controls.parentElement.querySelector('.precio_producto-carrito');
-        precioDiv.innerText = qtytCost;
-        showTotalItemsAndPrices();
+//         let precioDiv = controls.parentElement.querySelector('.precio_producto-carrito');
+//         precioDiv.innerText = qtytCost;
+//         showTotalItemsAndPrices();
 
-    } else {
-        document.getElementById('cartList').removeChild(controls.parentElement);
-    }
-
-
-}
-
-function decrementCart(ev) {
-    ev.preventDefault();
-    let id = parseInt(ev.target.getAttribute('data-id'));
-    CART.reduce(id, 1);
-    let controls = ev.target.parentElement;
-    let qty = controls.querySelector('span:nth-child(2)');
-    let item = CART.find(id);
-    if (item) {
-        qty.textContent = item.qty;
+//     } else {
+//         document.getElementById('cartList').removeChild(controls.parentElement);
+//     }
 
 
-        let qtytCost = new Intl.NumberFormat('en-CA', {
-            style: 'currency',
-            currency: 'CAD'
-        }).format(item.price * (1 - item.discount / 100) * item.qty);
+// }
 
-        let precioDiv = controls.parentElement.querySelector('.precio_producto-carrito');
-        precioDiv.innerText = qtytCost;
-        showTotalItemsAndPrices();
-    } else {
-        document.getElementById('cartList').removeChild(controls.parentElement);
-    }
-}
-
+// function decrementCart(ev) {
+//     ev.preventDefault();
+//     let id = parseInt(ev.target.getAttribute('data-id'));
+//     CART.reduce(id, 1);
+//     let controls = ev.target.parentElement;
+//     let qty = controls.querySelector('span:nth-child(2)');
+//     let item = CART.find(id);
+//     if (item) {
+//         qty.textContent = item.qty;
 
 
-function confirmPurchase(usuarioLogueado) {
-    if (usuarioLogueado) {
-        this.location.href = "/cart/confirm";
-    } else {
-        document.getElementById('btn-login-header').click();
-    }
-}
+//         let qtytCost = new Intl.NumberFormat('en-CA', {
+//             style: 'currency',
+//             currency: 'CAD'
+//         }).format(item.price * (1 - item.discount / 100) * item.qty);
 
-
+//         let precioDiv = controls.parentElement.querySelector('.precio_producto-carrito');
+//         precioDiv.innerText = qtytCost;
+//         showTotalItemsAndPrices();
+//     } else {
+//         document.getElementById('cartList').removeChild(controls.parentElement);
+//     }
+// }
 
 // function addItem(ev) {
 //     ev.preventDefault();
