@@ -1,6 +1,43 @@
 // requerimientos
 let db = require('../database/models');
 var { check, validationResult, body } = require('express-validator');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+
+function checkProductWithSameCode(code, id, callback) {
+    let productoIgualCodigo = db.Product.findAll({
+        where: {
+            code: code,
+            id: {
+                [Op.not]: id
+            },
+        }
+    })
+    return productoIgualCodigo.then(function(results) {
+        return results[0];
+    }).catch(function(err) {
+        console.log("Error verifiando código.");
+        console.log(err);
+        throw err;
+    });
+}
+
+
+function findByid(id, callback) {
+    let producto = db.Product.findAll({
+        where: {
+            id: id
+        },
+    })
+    return producto.then(function(results) {
+        return results[0];
+    }).catch(function(err) {
+        console.log("Error verifiando id.");
+        console.log(err);
+        throw err;
+    });
+}
+
 
 let productsMiddlewares = {
     // middlewareGenerico: function(req, res, next) {
@@ -57,18 +94,14 @@ let productsMiddlewares = {
         .trim()
         .isLength({ max: 10 }).withMessage("La unidad de medida debe ser de hasta 10 caracteres"),
 
-
-        // body('code').custom(function(code) { // chequea que el prod. no exista antes de intentar agregarlo
-        //     return db.Producto.findAll({
-        //         where: {
-        //             code: code
-        //         }
-        //     }).then(prod => {
-        //         if (prod) {
-        //             return Promise.reject('No se puede agregar el producto porque ya existe. Pruebe con otro código.');
-        //         }
-        //     });
-        // })
+        // chequea que el prod. no exista antes de intentar agregarlo
+        body('code').custom((value) => {
+            return checkProductWithSameCode(value, null).then(function(product) {
+                if (product) {
+                    throw new Error('No se puede agregar el producto porque ya existe. Pruebe con otro código.');
+                }
+            })
+        })
     ],
 
     editProductValidation: [
@@ -121,55 +154,31 @@ let productsMiddlewares = {
         .trim()
         .isLength({ max: 10 }).withMessage("La unidad de medida debe ser de hasta 10 caracteres"),
 
-
-
-
-        // body('code', 'id').custom(function(value1, value2) { // chequea que el código no sea igual al de otro producto
-        //     console.log(value1);
-        //     console.log(value2);
-        //     return db.Product.findAll({
-        //         where: {
-        //             code: value1,
-        //             id: {
-        //                 [Op.ne]: value2
-        //             }
-        //         }
-        //         .then(prod => {
-        //             console.log(prod);
-        //             if (prod) {
-        //                 return Promise.reject('No se puede agregar el producto porque ya existe. Pruebe con otro código.');
-        //             }
-        //         })
-        //     })
-        // })
-        // body('code').custom(function(code) { // chequea que el prod. no exista antes de intentar agregarlo
-        //     return db.Producto.findAll({
-        //         where: {
-        //             code: code
-        //         }
-        //     }).then(prod => {
-        //         if (prod) {
-        //             return Promise.reject('No se puede agregar el producto porque ya existe. Pruebe con otro código.');
-        //         }
-        //     });
-        // })
+        // chequea que el código no sea igual al de otro producto
+        body('code').custom((value, { req }) => {
+            return checkProductWithSameCode(value, req.body.id).then(function(product) {
+                console.log(product);
+                if (product) {
+                    throw new Error('No se puede agregar el producto porque ya existe. Pruebe con otro código.');
+                }
+            })
+        })
     ],
 
     deleteProductValidation: [
-        // check('id')
-        // .trim()
-        // .exists().withMessage("id de producto no válido")
-        // .isInt().withMessage("id de producto no válido"),
+        check('id')
+        .trim()
+        .exists().withMessage("id de producto no válido")
+        .isInt().withMessage("id de producto no válido"),
 
-        // body('id').custom(function(value) {
-        //     return db.Product.findByPk(value)
-        //         .then(prod => {
-
-        //             if (prod == null) {
-        //                 throw new Error('El producto que intenta borrar no existe.');
-        //             }
-        //         })
-        // })
+        body('id').custom((value) => {
+            return findByid(value).then(function(product) {
+                console.log(product);
+                if (!product) {
+                    throw new Error('El producto que intenta borrar no existe.');
+                }
+            })
+        })
     ],
 };
 

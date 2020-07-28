@@ -13,241 +13,80 @@
 
         <!-- HEADER -->
         <%- include("partials/header", {usuarioLogueado: usuarioLogueado}) %>
-            <!-- /HEADER -->
+        <!-- /HEADER -->
 
-            <!--MAIN -->
+        <!--MAIN -->
 
-            <!-- Content -->
+        <!-- Content -->
 
-            <!-- Container -->
-            <div class="caja mb-3">
-                <div class="cardCarrito">
-                    <div class="row">
-                        <div class="col-md-8 cartCarrito">
-                            <div class="title">
-                                <div class="row">
-                                    <div class="col">
-                                        <h3 class="col-12 titulo_seccion">Carrito</h3>
-                                    </div>
-                                    <div class="col align-self-center text-right text-muted qtyItems"></div>
-                                </div>
-                            </div>
-                            <div id="cartList" class="row">
-                                <!-- <div class="row main d-flex align-items-center justify-content-center"> -->
-                                <!-- IMAGEN PRODUCTO CARRITO -->
-                                <!-- <div class="col-3 img-carrito">
-                                        <img class="img-fluid" src="/images/imgProductos/curcuma en polvo.jpg" alt="">
-                                    </div>
-                                    <div class="col-6 col-md-3"> -->
-                                <!-- TÍTULO PRODUCTO CARRITO -->
-                                <!-- <div class="row text-muted">
-                                            <h3 class="titulo_producto mb-2">Cúrcuma</h3>
-                                        </div> -->
-                                <!-- DESCRIPCIÓN PRODUCTO CARRITO -->
-                                <!-- <div class="row">
-                                            <p class="descripcion_producto_carrito">Cúrcuma en polvo<br> Peso neto: 100 gr.</p>
-                                        </div>
-                                    </div> -->
-                                <!-- SELECTOR CANTIDAD PRODUCTO CARRITO -->
-                                <!-- <select class="col custom-select mr-sm-2 select-cart" id="inlineFormCustomSelect">
-                                        <option selected value="1">1 unidad</option>
-                                        <option value="2">2 unidades</option>
-                                        <option value="3">3 unidades</option>
-                                        <option value="4">4 unidades</option>
-                                    </select> -->
-                                <!-- PRECIO PRODUCTO CARRITO -->
-                                <!-- <div class="col-4 col-md-3 text-right precio_producto-carrito">$ 44.<sup>00</sup></div> -->
-                                <!-- ÍCONO ELIMINAR PRODUCTO CARRITO -->
-                                <!-- <div class="col"><a href="#"><i class="far fa-times-circle eliminar"></i></a></div> -->
-
-                                <!-- </div>
-                                <div class="row main d-flex align-items-center justify-content-center"> -->
-                                <!-- IMAGEN PRODUCTO CARRITO -->
-                                <!-- <div class="col-3 img-carrito">
-                                        <img class="img-fluid" src="/images/imgProductos/cacao.jpg" alt=""></div>
-                                    <div class="col-6 col-md-3"> -->
-                                <!-- TÍTULO PRODUCTO CARRITO -->
-                                <!-- <div class="row text-muted">
-                                            <h3 class="titulo_producto mb-2">Cacao</h3>
-                                        </div> -->
-                                <!-- DESCRIPCIÓN PRODUCTO CARRITO -->
-                                <!-- <div class="row">
-                                            <p class="descripcion_producto_carrito">Cacao en polvo<br> Peso neto: 100 gr.</p>
-                                        </div>
-                                    </div> -->
-                                <!-- SELECTOR CANTIDAD PRODUCTO CARRITO -->
-                                <!-- <select class="col custom-select mr-sm-2 select-cart" id="inlineFormCustomSelect">
-                                        <option selected value="1">1 unidad</option>
-                                        <option value="2">2 unidades</option>
-                                        <option value="3">3 unidades</option>
-                                        <option value="4">4 unidades</option>
-                                    </select> -->
-                                <!-- PRECIO PRODUCTO CARRITO -->
-                                <!-- <div class="col-4 col-md-3 text-right precio_producto-carrito">$ 104.<sup>00</sup></div> -->
-                                <!-- ÍCONO ELIMINAR PRODUCTO CARRITO -->
-                                <!-- <div class="col"><a href="#"><i
-                                class="far fa-times-circle eliminar"></i></a></div>
-
-                                </div> -->
-                            </div>
-
-
-                            <div class="back-to-shop align-self-center"><a href="/product/" class="volver">Volver a la tienda</a><span class="align-self-center text-muted"></span></div>
-                            <button class="btn-vaciar-carrito col" onclick="emptyCart()">VACIAR CARRITO</button>
-                        </div>
-                        <div class="col-md-4 summary">
-                            <div>
-                                <h3 class="titulo_seccion">Orden</h3>
-                            </div>
-                            <hr>
+        <!-- Container -->
+        <div class="caja mb-3">
+            <div class="cardCarrito">
+                <div class="row">
+                    <div class="col-md-8 cartCarrito">
+                        <div class="title">
                             <div class="row">
-                                <div class="col-5 titulo_producto">X Productos</div>
-                                <div class="col-7 text-right precio_producto precio_carrito precio_productos"></div>
+                                <div class="col">
+                                    <h3 class="col-12 titulo_seccion">Carrito</h3>
+                                </div>
+                                <div class="col align-self-center text-right text-muted qtyItems"></div>
                             </div>
-                            <!-- POR SI EL DIA DE MAÑANA AGREGAMOS ENVÍOS <form>
-                        <p>SHIPPING</p> <select>
-                            <option class="text-muted">Standard-Delivery- &euro;5.00</option>
-                        </select>
-                        <p>GIVE CODE</p> <input id="code" placeholder="Enter your code">
-                    </form>-->
-                            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                                <div class="col-5 titulo_producto">TOTAL</div>
-                                <div class="col-7 text-right precio_producto precio_carrito precio_total"></div>
-                            </div>
-                            <button class="btn-finalizar-compra col">FINALIZAR COMPRA</button>
+                        </div>
+                        <div id="cartList" class="row">
+
                         </div>
 
+
+                        <div class="back-to-shop align-self-center d-flex justify-content-center"><a href="/product/"
+                                class="volver">Volver a la tienda</a><span class="align-self-center text-muted"></span>
+                        </div>
+                        <button
+                            class="btn-vaciar-carrito col-6 mx-auto secondary ui-button ui-button--secondary d-flex justify-content-center"
+                            onclick="emptyCart()">VACIAR CARRITO</button>
                     </div>
-                </div>
+                    <div class="col-md-4 summary">
+                        <div>
+                            <h3 class="titulo_seccion">Orden</h3>
+                        </div>
+                        <hr>
+                        <div class="row">
 
-            </div>
-            <!--
-
-        <div class="container container-carrito">
-            <div class="row box-product-carrito">
-
-                <figure class="col-12 col-lg-4 imagen-detalles">
-                    <img src="/images/curcuma en polvo.jpg" alt="">
-                </figure>
-
-                <div class="col-10 col-md-10 col-lg-6">
-                    <div class="description-wrapper-details">
-                        <section class="col-12 col-md-12 product-carrito">
-                            <div class="short-description-detalles">
-                                <h3 class="titulo_producto mb-2">Cúrcuma</h3>
-                                <p class="descripcion_producto">Cúrcuma en polvo para darle sabor y color a tus comidas <br> Peso neto: 100 gr.</p>
-                                <span class="col-3 col-lg-2 cuotas">Precio unitario</span>
-                                <h2 class="col-4 col-lg-5 precio_producto precio_carrito">$60</h2>
-
-                            </div>
-
-                            <!- - PRECIO Y CANTIDAD DEL PRODUCTO - ->
-                            <form action="" class="col-12 col-md-12 forumlario_compra-carrito mb-4">
-                                <div class="row precio_producto-carrito justify-content-end">
-                                    <div class="col-8 col-lg-7 box-quantity-carrito">
-                                        <div class="quantity-selector-text"> Elige cantidad: </div>
-                                        <select class="selectpicker quantity-selector-detalles">
-                                            <option class="active">1 unidad</option>
-                                            <option class="option">2 unidades</option>
-                                            <option class="option">3 unidades</option>
-                                            <option class="option">4 unidades</option>
-                                            <option class="option">5 unidades</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </form>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="col-2 col-lg-2 d-flex align-items-start justify-content-center"><a href="#"><i
-                            class="far fa-times-circle eliminar"></i></a>
-                </div>
-            </div>
-
-            <div class="row box-product-carrito">
-
-                <figure class="col-12 col-lg-4 imagen-detalles">
-                    <img src="/images/pan integral.jpg" alt="">
-                </figure>
-
-                <div class="col-10 col-md-10 col-lg-6">
-                    <div class="description-wrapper-details">
-                        <section class="col-12 col-md-12 product-carrito">
-                            <div class="short-description-detalles">
-                                <h3 class="titulo_producto mb-2">Pan Integral</h3>
-                                <p class="descripcion_producto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam nisi tenetur at neque maiores quo assumenda veritatis, ullam temporibus aut sint officia dicta, alias ratione quam architecto repellat vero quia.</p>
-                                <span class="col-3 col-lg-2 cuotas">Precio unitario</span>
-                                <h2 class="col-4 col-lg-5 precio_producto precio_carrito">$150</h2>
-                            </div>
-
-                            <!- - PRECIO Y CANTIDAD DEL PRODUCTO - ->
-                            <form action="" class="col-12 col-md-12 forumlario_compra-carrito mb-4">
-                                <div class="row precio_producto-carrito  justify-content-end">
-                                    <div class="col-8 col-lg-7 box-quantity-carrito">
-                                        <div class="quantity-selector-text"> Elige cantidad: </div>
-                                        <select class="selectpicker quantity-selector-detalles">
-                                            <option class="active">1 unidad</option>
-                                            <option class="option">2 unidades</option>
-                                            <option class="option">3 unidades</option>
-                                            <option class="option">4 unidades</option>
-                                            <option class="option">5 unidades</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </form>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="col-2 col-lg-2 d-flex align-items-start justify-content-center"><a href="#"><i
-                            class="far fa-times-circle eliminar"></i></a>
-                </div>
-            </div>
-
-
-            <!- - SEPARADOR - ->
-            <div class="col-12 separator"></div>
-
-            <!- - SECTION TOTAL - ->
-            <div class="ml-auto mb-5 mt-2 col-12 col-lg-12 vip-actions-wrapper vip-actions-wrapper--cart-item botones-detalles">
-                <div class="vip-actions item-actions u-clearfix">
-                    <div class="row">
-                        <div class="ml-auto mb-3 col-12 d-flex justify-content-end">
-                            <h5 class="total">TOTAL <span class="monto">$210</span></h5>
+                            <div class="col-5 titulo_producto Items"></div>
+                            <div class="col-7 text-right precio_producto precio_carrito precio_productos"></div>
                         </div>
 
+                        <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                            <div class="col-5 titulo_producto">TOTAL</div>
+                            <div class="col-7 text-right precio_producto precio_carrito precio_total"></div>
+                        </div>
+                        <button onclick="confirmPurchase('<%=usuarioLogueado%>')"
+                            class="btn-finalizar-compra col">FINALIZAR COMPRA</button>
                     </div>
-                    <div class="row vip-action-primary-details">
 
-                        <input type="submit" data-js="vip-action-primary" form="productInfo" title="curcuma" value="Seguir comprando" class="col-12 col-md-5 col-lg-4 primary ui-button ui-button--primary  vip-narrow-button">
-
-                        <input type="submit" data-js="vip-action-cart" form="productInfo" title="curcuma" value="Finalizar compra" class="col-12 col-md-5 col-lg-4 secondary ui-button ui-button--secondary">
-
-                    </div>
                 </div>
             </div>
+
         </div>
-        <!- - /Container -->
 
-            <!-- FOOTER -->
-            <%- include("partials/footer") %>
-                <!-- /FOOTER -->
+        <!-- FOOTER -->
+        <%- include("partials/footer") %>
+        <!-- /FOOTER -->
 
     </div>
 
-    <script type='text/javascript' src="/js/cart.js">
-    </script>
+    <script type='text/javascript' src="/js/cart.js"></script>
     <script type='text/javascript' src="/js/productCart.js">
     </script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
+    <script type='text/javascript' src="/js/userValidator.js"></script>
 </body>
 
 </html>

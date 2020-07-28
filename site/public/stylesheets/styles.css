@@ -83,7 +83,8 @@ button a {
 a:hover {
     text-decoration: none;
 }
-.enlace{
+
+.enlace {
     color: var(--colorMenu);
     font-weight: 400;
     font-size: 1.2em;
@@ -92,6 +93,15 @@ a:hover {
     padding-left: 15px;
     border-right: 1px solid var(--colorMenu);
     border-left: 1px solid var(--colorMenu);
+}
+
+.enlace:hover {
+    color: var(--colorBtnRegister);
+    border-top: 1px solid var(--colorMenu);
+    border-bottom: 1px solid var(--colorMenu);
+    border-left: none;
+    border-right: none;
+    transition: border-width 0.6s linear;
 }
 
 body {
@@ -209,13 +219,14 @@ header {
 
 .user button.register {
     color: #fff;
-    background: var(--colorMenu);
-    border-radius: 6px;
+    background: var(--colorBtnRegister);
+    border-radius: 4px;
     font-family: var(--fuenteMenuBtn);
     font-size: 0.8em;
     font-weight: var(--fontweightMenuBtn);
-    margin-left: -1.5%;
     padding: 2% 4%;
+    margin-top: 3.5%;
+    /* width: 15%; */
 }
 
 .user button.register:hover {
@@ -230,13 +241,12 @@ header {
     color: #219653;
     background: #fff;
     border: 1px solid #219653;
-    border-radius: 6px;
+    border-radius: 4px;
     font-family: var(--fuenteMenuBtn);
     font-size: 0.8em;
     font-weight: var(--fontweightMenuBtn);
     padding: 2% 4%;
-    position: relative;
-    z-index: 2;
+    /* width: 15%; */
 }
 
 .user button.login:hover {
@@ -247,6 +257,19 @@ header {
 .container-carrito {
     margin-top: 5%;
     margin-bottom: 5%;
+}
+
+.qtyItemsIcon {
+    color:#fff;
+   background-color:#5F9557;
+    padding: 5px;
+    font-size: 0.8em;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+    text-align: center;
 }
 
 
@@ -264,6 +287,12 @@ header {
     font-size: var(--fontSizeSlider);
     font-weight: var(--fontweightSlider);
     text-align: left;
+}
+
+.img-fluider {
+    max-width: 100%;
+    min-width: 100%;
+    height: auto;
 }
 
 
@@ -394,6 +423,21 @@ section a {
     margin: 0 auto;
 }
 
+.btn_producto:hover {
+    color: #fff;
+    background: var(--colorMenu);
+    border-radius: 6px;
+    font-family: var(--fuenteMenuBtn);
+    font-size: 0.8em;
+    font-weight: var(--fontweightMenuBtn);
+    padding: 3% 4%;
+    margin: 0 auto;
+}
+
+.btn_receta:hover {
+    background: var(--colorMenu);
+}
+
 
 /* * * * * * * RECETAS * * * * * */
 
@@ -418,8 +462,12 @@ section a {
     font-family: var(--fuenteReceta);
     font-weight: var(--fontweightPrecioProducto);
     margin-top: 0px;
+    text-align:center;
 }
-
+.ofertas{
+    background-color: #F5F5F5;
+    padding-bottom: 20px;
+}
 
 /* TÍTULO DE RECETA */
 
@@ -428,6 +476,7 @@ section a {
     font-size: var(--fontSizeDescripcionProducto);
     font-family: var(--fuenteTituloProducto);
     font-weight: var(--fontweightDescripcionProducto);
+    text-align:center;
 }
 
 
@@ -578,7 +627,6 @@ footer .menu-newsletter button {
     .btn-toggle-navbar {
         display: none;
     }
-    
 }
 
 @media (min-width: 320px) {
@@ -587,6 +635,7 @@ footer .menu-newsletter button {
     }
     .copy {
         order: 2;
+        text-align: center;
     }
     .redes {
         order: 1;
@@ -1898,8 +1947,11 @@ figure img.sg-logo-receta {
     .desktop {
         display: none;
     }
+    .logoImg {
+        max-width: 97%;
+    }
     /* .navbar-nav{ */
-        /* display:inline-block; */
+    /* display:inline-block; */
     /* } */
 }
 
@@ -1972,21 +2024,36 @@ figure img.sg-logo-receta {
 .cartItem .controls {
     height: 1.5rem;
     cursor: pointer;
-    width: 70%;
+    width: 90%;
     display: flex;
-    justify-content: space-between;
-    background-color: #eee;
+    justify-content: space-around;
+    /*background-color: #eee;*/
+}
+.cartItem span:nth-child(2){
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    display: block;
 }
 
 .cartItem span:nth-child(1),
 .cartItem span:nth-child(3) {
-    border: 1px solid cornflowerblue;
-    color: cornflowerblue;
-    background: #fff;
+    border: 1px solid var(--colorMenu);
+    color: #fff;
+    
     font-size: 1rem;
     line-height: 1.5rem;
-    padding: 0 0.5rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
     display: block;
+    background: var(--colorMenu);
+}
+.cartItem span:nth-child(3) {
+    border-radius: 0px 4px 4px 0px;
+}
+.cartItem span:nth-child(1) {
+    border-radius: 4px 0px 0px 4px;
 }
 
 .btn-finalizar-compra {
@@ -2082,6 +2149,9 @@ hr {
         padding: 0px;
         order: -4;
     }
+    .navbar-nav li {
+        padding-bottom: 1%;
+    }
     .carrito {
         margin: 0px;
         padding: 0px;
@@ -2130,13 +2200,14 @@ hr {
 
 .users-errors li {
     padding-right: 1%;
-    margin-left: 10%;
+    margin-left: 1%;
     width: 100vw;
+    text-align: center;
 }
 
 @media (min-width: 769px) {
     .users-errors li {
-        margin-left: 30%;
+        margin-left: 1%;
     }
 }
 
@@ -2247,8 +2318,11 @@ hr {
         order: -2;
     }
     .navbar-nav {
-        padding: 1em;
+        padding: 1.2em;
         order: -1;
+    }
+    .navbar-nav li {
+        padding-bottom: 1%;
     }
 }
 
@@ -2509,10 +2583,32 @@ a.article:hover {
     background-color: #CF664F;
 }
 
+abbr[data-title] {
+    position: relative;
+    text-decoration: underline dotted;
+}
+
+abbr[data-title]:hover::after,
+abbr[data-title]:focus::after {
+    content: attr(data-title);
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    transform: translateX(-40px);
+    width: auto;
+    white-space: nowrap;
+    background: var(--colorMenu);
+    color: #fff;
+    border-radius: 2px;
+    box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    padding: 7px 7px;
+    text-align: right;
+}
+
 .userNameLog {
     font-weight: 500;
     font-weight: 500;
-    position: relative;
     right: 8%;
 }
 
@@ -2592,7 +2688,7 @@ a.article:hover {
     text-transform: capitalize;
 }
 
-#prodFav {
+.prodFav {
     color: var(--colorMenu);
     font-size: 1.2em;
     text-align: right;
@@ -2787,4 +2883,115 @@ h6 {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     padding: 0.1em;
+}
+
+#divSerch {
+    position: absolute;
+    top: 110%;
+    left: 4%;
+    z-index: 999;
+    background-color: #fff;
+    width: 100%;
+    padding: 0;
+}
+
+#ulSearch {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f6f6f6;
+    color: #f6f6f6;
+    border-radius: 4px;
+}
+
+#ulSearch li a {
+    border: 1px solid #ddd;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    background-color: #fff;
+    margin-top: -8%;
+    padding: 1%;
+}
+
+#ulSearch li:first-child {
+    margin-top: 7%;
+}
+
+.searchImg {
+    width: 35%;
+    margin-right: 1%;
+    padding: 1% 3% 1% 1%;
+}
+
+.searchCategory,
+.searchName {
+    display: block;
+}
+
+.searchCategory {
+    font-family: var(--fuenteGeneral);
+    color: var(--colorTituloGeneral);
+    font-size: .6em;
+    padding-top: 2%;
+}
+
+.searchName {
+    font-family: var(--fuenteGeneral);
+    color: var(--colorTituloGeneral);
+    font-weight: var(--fontweightTituloProducto);
+    font-size: .8em;
+}
+
+.searchPrice {
+    font-family: var(--fontPrecioProducto);
+    color: var(--colorMenu);
+    font-weight: var(--fontweightPrecioProducto);
+    font-size: .8em;
+}
+
+.noFoundSearch {
+    background-color: #FFF;
+    color: #CF664F;
+    font-family: var(--fuenteGeneral);
+    font-weight: var(--fontweightTituloProducto);
+    font-size: .8em;
+    padding: 2% 0;
+    text-align: center;
+    margin-top: 0 !important;
+}
+
+.minSearch {
+    background-color: #FFF;
+    color: #CF664F;
+    font-family: var(--fuenteGeneral);
+    font-weight: var(--fontweightTituloProducto);
+    font-size: .8em;
+    padding: 2% 0;
+    margin-top: 0 !important;
+    text-align: center;
+}
+
+.searchDiscount {
+    font-family: var(--fontPrecioProducto);
+    color: var(--colorSeccionInfo);
+    font-weight: 400;
+    font-size: .6em;
+}
+
+.searchQuantity {
+    /* display: block; */
+    font-family: var(--fuenteGeneral);
+    font-weight: 400;
+    color: var(--colorTituloGeneral);
+    font-size: .7em;
+}
+
+.enlace:hover {
+    color: var(--colorBtnRegister);
+    border-top: 1px solid var(--colorMenu);
+    border-bottom: 1px solid var(--colorMenu);
+    border-left: none;
+    border-right: none;
+    transition: border-width 0.6s linear;
 }

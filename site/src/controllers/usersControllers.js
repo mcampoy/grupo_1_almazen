@@ -32,8 +32,9 @@ const controller = {
                     email: req.body.email
                 }
             }).then((usuario) => {
+
                 if (usuario != undefined) {
-                    return res.render("register", { usuarioLogueado: undefined });
+                    return res.render("register", { errors: [{ msg: 'El email con el que intenta registrarse pertenece a un/a usuario/a ya registrado/a' }], usuarioLogueado: undefined });
                 } else {
                     db.User.create({
                         name: req.body.name,
@@ -84,20 +85,21 @@ const controller = {
                     let check = bcrypt.compareSync(user.password, usuario.password)
                     if (check == true) {
                         req.session.usuarioLogueado = usuario;
-
                         if (req.body.remember != null) {
                             // creamos una cookie de nombre "recordarme" que va a contener el email del usuario
                             let expiracion = new Date(Date.now() + 900000); //15 minutos
                             res.cookie('recordarme', usuario.id, { expires: expiracion });
                         };
+                        return res.redirect(`/`);
                     };
                 }
-                return res.redirect(`/`);
+
+                return res.render("login", { errors: [{ msg: 'Revisa que el mail y la contraseña coincidan con un usuario registrado' }], usuarioLogueado: undefined });
+
 
             }).catch((err) => console.error(err));
 
         } else {
-
             return res.render("login", { errors: errors.errors, usuarioLogueado: req.session.usuarioLogueado });
         }
     },
@@ -129,26 +131,36 @@ const controller = {
             // avatar: req.files[0].filename,
         }
 
-        db.User.update({
-            name: user.name,
-            email: user.email,
-            //password: user.password,
-            //avatar: user.avatar
-        }, {
+        db.User.findOne({
             where: {
-                id: req.session.usuarioLogueado.id
+                email: user.email
             }
-        }).then((count) => { //rows updated
-            db.User.findOne({
-                where: {
-                    id: req.session.usuarioLogueado.id
-                }
-            }).then((usuario) => {
-                req.session.usuarioLogueado = usuario;
-                return res.render('profile', { user: req.session.usuarioLogueado, usuarioLogueado: req.session.usuarioLogueado });
+        }).then((usuarioReg) => {
+            if (usuarioReg == undefined) {
+                db.User.update({
+                    name: user.name,
+                    email: user.email,
+                    //password: user.password,
+                    //avatar: user.avatar
+                }, {
+                    where: {
+                        id: req.session.usuarioLogueado.id
+                    }
+                }).then((count) => { //rows updated
+                    db.User.findOne({
+                        where: {
+                            id: req.session.usuarioLogueado.id
+                        }
+                    }).then((usuario) => {
+                        req.session.usuarioLogueado = usuario;
+                        return res.render('profile', { user: req.session.usuarioLogueado, usuarioLogueado: req.session.usuarioLogueado });
 
-            });
-        });
+                    });
+                });
+            } else {
+                return res.render('profile', { user: req.session.usuarioLogueado, usuarioLogueado: req.session.usuarioLogueado });
+            }
+        })
     }
 
     // delete: (req, res) => {

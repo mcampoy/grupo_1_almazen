@@ -23,15 +23,15 @@
                     <div class="form-group">
                         <label class="modal-label" for="nombre">NOMBRE</label>
                         <input type="text" class="form-control" id="nameReg" name="name" aria-describedby="nombre"
-                            placeholder="Ejemplo: Carolina" required/>
-                            <div class="emptyName logErrors"></div>
+                            placeholder="Ejemplo: Carolina" required />
+                        <div class="emptyName logErrors"></div>
                     </div>
 
                     <!-- email -->
                     <div class="form-group">
                         <label class="modal-label" for="exampleInputEmail1 ">EMAIL</label>
                         <input type="email" class="form-control" id="emailReg" name="email"
-                            aria-describedby="emailHelp " placeholder="Ejemplo: almazen@gmail.com" required/>
+                            aria-describedby="emailHelp " placeholder="Ejemplo: almazen@gmail.com" required />
                         <div class="invalidRegEmail logErrors"></div>
                         <div class="emptyRegEmail logErrors"></div>
                     </div>
@@ -40,29 +40,16 @@
                     <div class="form-group">
                         <label class="modal-label" for="contraseña">CONTRASEÑA</label>
                         <input type="password" class="form-control" id="passwordReg" name="password"
-                            aria-describedby="password" name="password" placeholder="Ingresá una contraseña" required/>
+                            aria-describedby="password" name="password" placeholder="Ingresá una contraseña" required />
                         <div class="emptyPassReg logErrors"></div>
                         <div class="invalidPassReg logErrors"></div>
                     </div>
 
-                    <!-- MOSTRAR/OCULTAR CONTRASEÑA -->
-                    <!-- <div class="form-group">
-                        <label class="modal-label" for="password">CONTRASEÑA</label>
-                        <div class="input-group">
-                            <input ID="txtPassword" type="Password" Class="form-control" name="password"
-                            aria-describedby="password" placeholder="Ingresá una contraseña" required />
-                            <div class="input-group-append">
-                                <button id="show_password" class="btn btn-primary" type="button"
-                                onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
-                            </div>
-                        </div>
-                    </div> -->
-                    
                     <!-- validación -->
                     <div class="form-group">
                         <label class="modal-label" for="validation">REPETÍ TU CONTRASEÑA</label>
                         <input type="password" class="form-control" id="validation" aria-describedby="validation"
-                        name="validation" placeholder="Repetí tu contraseña" required/>
+                            name="validation" placeholder="Repetí tu contraseña" required />
                         <div class="emptyValidation logErrors"></div>
                         <div class="invalidValidation logErrors"></div>
                     </div>
@@ -71,18 +58,24 @@
                     <!-- carga de imágenes -->
                     <div class="form-group d-flex flex-wrap col-12 justify-content-center align-items-center">
                         <label class="modal-label col-12" for="avatar">CARGÁ UNA IMAGEN</label>
-                        <input type="file" class="form-control-imagen d-flex justify-content-center" id="avatar" name="avatar" required/>
-                        <div class="emptyAvatar logErrors "></div>
-                        <div class="invalidAvatar logErrors"></div>
+                        <input type="file" class="form-control-imagen d-flex justify-content-center" id="avatar"
+                            name="avatar" required />
+                        <div class="col-7 emptyAvatar logErrors"></div>
+                        <div class="col-8 invalidAvatar logErrors"></div>
                     </div>
                 </div>
 
                 <!-- dejar en blanco el formulario o enviar -->
-                <div class="user form-group d-flex justify-content-center">
-                    <button class="login align-items-center justify-content-center" role="button"
-                        type="reset">Borrar</button>
-                    <button class="register align-items-center justify-content-center" role="button"
-                        type="submit">Enviar</button>
+                <div class="vip-actions-wrapper  vip-actions-wrapper--cart-item botones-detalles">
+                    <div class="vip-actions item-actions u-clearfix">
+                        <div class="user form-group vip-action-primary-details d-flex flex-wrap col-12 justify-content-center">
+                            <button class="login col-12 col-md-5 col-lg-4 secondary ui-button ui-button--secondary m-1"
+                                role="button" type="reset">Borrar</button>
+                            <button
+                                class="register col-12 col-md-5 col-lg-4 secondary ui-button ui-button--secondary m-1"
+                                role="button" type="submit">Enviar</button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -91,7 +84,9 @@
     <!-- FOOTER -->
     <%- include("partials/footer") %>
     <!-- /FOOTER -->
-
+    <script type='text/javascript' src="/js/cart.js">
+    </script>
+    <script type='text/javascript' src="/js/productCart.js">
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
@@ -102,22 +97,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
-    <script type='text/javascript' src="/js/regValidator.js"></script>
-
-    <!-- MOSTRAR/COULTAR CONTRASEÑA -->
-    <!-- <script type="text/javascript">
-    function mostrarPassword(){
-            var cambio = document.getElementById("txtPassword");
-            if(cambio.type == "password"){
-                cambio.type = "text";
-                $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-            }else{
-                cambio.type = "password";
-                $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-            }
-        } 
-        
-    </script> -->
+    <script type='text/javascript' src="/js/userValidator.js"></script>
 
 </body>
 

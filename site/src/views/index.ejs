@@ -27,14 +27,14 @@
                 <!-- The slideshow -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="/images/slider1.caption.jpg" class="img-fluid" alt="Slide1">
+                        <img src="/images/slider1.caption.jpg" class="img-fluider" alt="Slide1">
                         <div class="carousel-caption ">
                             <!--<h3 class="epigrafe">Tus productos saludables a un sólo click</h3>-->
                         </div>
 
                     </div>
                     <div class="carousel-item">
-                        <img src="/images/slide2.caption.jpg" class="img-fluid" alt="Slide1">
+                        <img src="/images/slide2.caption.jpg" class="img-fluider" alt="Slide1">
                         <div class="carousel-caption">
                             <!--<h3 class="epigrafe ">Porque te gusta cuidarte, porque te querés sentir bien porque sabés lo importante que es comer sano/saludable y rico.</br> Por eso elegís Almazén!</h3>-->
                         </div>
@@ -51,6 +51,7 @@
                 </a>
 
             </div>
+
             <!-- Redes Sociales Flotantes-->
 
             <%-include('partials/redesSociales') %>
@@ -66,7 +67,7 @@
                     <div class="mb-2 col-12 col-md-4 col-lg-4 d-flex align-items-center elemento-info">
                         <!-- ENVIO GRATUITO -->
                         <img src="/images/envio.svg" class="col-3 col-lg-3 iconInfo">
-                        <p class="col-9 col-md-12 col-lg-8 "><b>Envío Gratuito</b></br><span>Descuida, los gastos corren por
+                        <p class="col-9 col-md-12 col-lg-8 "><b>Envío Gratuito</b></br><span>Los gastos corren por
                         nuestra cuenta</span></p>
                     </div>
                     <div class="mb-2 col-12 col-md-4 col-lg-4 d-flex align-items-center elemento-info">
@@ -78,7 +79,7 @@
 
                 </div>
                 <!-- -- -- -- SECCION PRODUCTOS DESTACADOS -- -- -->
-                <section id="productos" class="row container-fluid destacados">
+                <section id="productos" class="row container-fluid destacados ofertas">
                     <h5 class="col-12 mt-5 mb-5 d-flex justify-content-center titulo_receta">Nuestras ofertas</h5>
 
                     <!-- OFERTAS -->
@@ -114,10 +115,11 @@
                             </section>
                         </div>
                         <% } %>
-                        <div class="d-flex justify-content-center col-12"><a href="/product/offers" class="enlace d-flex justify-content-center align-items-center">Ver más ofertas </a>
+                            <div class="d-flex justify-content-center col-12"><a href="/product/offers" class="enlace d-flex justify-content-center align-items-center noselect">Ver más ofertas </a>
+
                 </section>
 
-                
+
                 </div>
                 <!-- PRODUCTOS -->
                 <section id="productos" class="row container-fluid destacados">
@@ -209,6 +211,9 @@
         </script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
         </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+        <script type='text/javascript' src="/js/userValidator.js"></script>
+
 </body>
 
 </html>

@@ -295,6 +295,9 @@
     <!-- /FOOTER -->
 
     <!-- Scripts -->
+    <script type='text/javascript' src="/js/cart.js">
+    </script>
+    <script type='text/javascript' src="/js/productCart.js"> </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
     </script>
@@ -351,16 +354,16 @@
 
                     switch (slcCantidad.value) {
                         case "doble":
-                            cantidad.innerHTML = doble(cantidad.outerText)
+                            cantidad.innerHTML = doble(cantidad.innerText)
                             break;
                         case "triple":
-                            cantidad.innerHTML = triple(cantidad.outerText)
+                            cantidad.innerHTML = triple(cantidad.innerText)
                             break;
                         case "cuadruple":
-                            cantidad.innerHTML = cuadruple(cantidad.outerText)
+                            cantidad.innerHTML = cuadruple(cantidad.innerText)
                             break;
                         case "quintuple":
-                            cantidad.innerHTML = quintuple(cantidad.outerText)
+                            cantidad.innerHTML = quintuple(cantidad.innerText)
                             break;
                         case "default":
                             cantidad.innerHTML = location.reload()
@@ -399,6 +402,7 @@
                 '<i class="far fa-smile-wink" id="smile"></i>' + '</h6>';
         })
     </script>
+    <script type='text/javascript' src="/js/userValidator.js"></script>
 
 </body>
 

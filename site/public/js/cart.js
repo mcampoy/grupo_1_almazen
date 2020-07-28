@@ -7,21 +7,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const CART = {
-    KEY: 'bkasjbdfkjasdkfjhaksdfjskd',
+    KEY: 'almazenCartKey',
     contents: [],
     init() {
         //check localStorage and initialize the contents of CART.contents
         let _contents = localStorage.getItem(CART.KEY);
         if (_contents) {
             CART.contents = JSON.parse(_contents);
+            let itemsQty = 0;
+            CART.contents.forEach(element => {
+                itemsQty += element.qty;
+            });
+            document.querySelector('.qtyItemsIcon').innerHTML = itemsQty;
         } else {
             CART.contents = [];
             CART.sync();
+
         }
     },
     async sync() {
         let _cart = JSON.stringify(CART.contents);
         await localStorage.setItem(CART.KEY, _cart);
+        let itemsQty = 0;
+        CART.contents.forEach(element => {
+            itemsQty += element.qty;
+        });
+
+        if (itemsQty !== 0) {
+            document.querySelector('.qtyItemsIcon').innerHTML = itemsQty;
+        } else {
+            //document.querySelector('.qtyItemsIcon').innerHTML = '';
+        }
+
     },
     find(id) {
         //find an item in the cart by its id
@@ -36,7 +53,7 @@ const CART = {
         //add a new item to the cart
         //check that it is not in the cart already
         if (CART.find(id)) {
-            CART.increase(id, 1);
+            CART.increase(id, qty);
         } else {
             let obj = {
                 id: id,
@@ -112,6 +129,8 @@ const CART = {
         //NO impact on localStorage
     },
 };
+
+
 
 
 //para VISTA productDetails.ejs

@@ -13,18 +13,6 @@
         <%- include("partials/header", {usuarioLogueado: usuarioLogueado}) %>
             <!-- /HEADER -->
 
-            <div class="error">
-                <% if (typeof errors != 'undefined') { %>
-                    <ul>
-                        <% for(let error of errors) { %>
-                            <li>
-                                <%= error.msg %>
-                            </li>
-                            <% } %>
-                    </ul>
-
-                    <% } %>
-            </div>
             <!-- Admin product -->
             <div class="row  carga_producto pb-5 justify-content-around">
                 <h2 class="col-12 row justify-content-center  pageTitle">Carga de Productos</h2>
@@ -111,6 +99,8 @@
 
     <script type='text/javascript' src="/js/productAdmin.js">
     </script>
+    <!-- <script type='text/javascript' src="/js/prodAdminValidator.js"> -->
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
@@ -119,6 +109,7 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
+    <script type='text/javascript' src="/js/userValidator.js"></script>
 </body>
 
 </html>

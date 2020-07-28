@@ -2,105 +2,112 @@ let db = require('../database/models');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
-const {
-    check,
-    validationResult,
-    body
-} = require('express-validator');
+const { check, validationResult, body } = require('express-validator');
 
 
 const controller = {
-    // MUESTRA LA PÁGINA DE TODOS LOS PRODUCTOS
-    productsList: (req, res) => {
-        let categories = db.Category.findAll()
-        let products = db.Product.findAll({
-            where: {
-                enabled: 1,
-                stock: {
-                    [db.Sequelize.Op.gte]: 1
-                },
-            }
-        })
-        Promise.all([products, categories])
-            .then((results) => {
+    // MOSTRAR TODOS LOS PRODUCTOS
+    productsList: async(req, res) => {
+        try {
+            let categories = await db.Category.findAll()
+            let products = await db.Product.findAll({
+                where: {
+                    enabled: 1,
+                    stock: {
+                        [db.Sequelize.Op.gte]: 1
+                    },
+                }
+            })
+            return res.render('products', {
+                products,
+                categories,
+                usuarioLogueado: req.session.usuarioLogueado
+            })
+        } catch (err) {
 
-                return res.render('products', {
-                    products: results[0],
-                    categories: results[1],
-                    usuarioLogueado: req.session.usuarioLogueado
-                });
-
-            }).catch((err) => console.error(err));
+            console.error(err)
+        }
     },
 
-    // MUESTRA LA PÁGINA CON TODOS LOS PRODUCTOS QUE ESTÉN EN OFERTA
-    offers: (req, res) => {
-        db.Product.findAll({
+    // MOSTRAR TODAS LAS OFERTAS
+    offers: async(req, res) => {
+
+        try {
+            let offers = await db.Product.findAll({
                 where: {
                     discount: {
                         [Sequelize.Op.gte]: 1
                     }
                 }
             })
-            .then(offers => {
-                return res.render('offers', { offers, usuarioLogueado: req.session.usuarioLogueado })
-            }).catch((err) => console.error(err));
-    },
-    
-    // MUESTRA LOS PRODUCTOS ORDENADOS POR CATEGORÍA
-    category: (req, res) => {
-
-        let categories = db.Category.findAll()
-        let category = db.Category.findByPk(req.params.id, {
-            include: ["products"]
-        })
-        Promise.all([category, categories])
-            .then((results) => {
-
-                return res.render('productByCategory', {
-                    category: results[0],
-                    categories: results[1],
-                    usuarioLogueado: req.session.usuarioLogueado
-                });
-            }).catch((err) => console.error(err));
-    },
-
-    // MUESTRA LA PÁGINA DE DETALLE DE PRODUCTO Y PRODUCTOS RELACIONADOS SEGÚN LA CATEGORÍA
-    details: (req, res) => {
-
-        db.Product.findByPk(req.params.id)
-            .then((product) => {
-                if (product == null) {
-                    return res.redirect('/');
-                } else {
-
-                    let related = db.Product.findAll({
-                        where: {
-                            enabled: 1,
-                            id: {
-                                [Op.not]: req.params.id
-                            },
-                            id_category: product.id_category
-                        },
-                        order: [
-                            ['name', "ASC"]
-                        ],
-                        limit: 3,
-                    });
-
-                    let category = db.Category.findByPk(product.id_category)
-
-                    Promise.all([category, related])
-                        .then((results) => {
-                            return res.render('productDetail', {
-                                category: results[0],
-                                product: product,
-                                related: results[1],
-                                usuarioLogueado: req.session.usuarioLogueado
-                            });
-                        }).catch((err) => console.error(err));
-                }
+            return res.render('offers', {
+                offers,
+                usuarioLogueado: req.session.usuarioLogueado
             })
+
+        } catch (err) {
+
+            console.error(err)
+        }
+    },
+
+    // MOSTRAR PRODUCTOS POR CATEGORÍA
+    category: async(req, res) => {
+        try {
+            let categories = await db.Category.findAll()
+            let category = await db.Category.findByPk(req.params.id, {
+                include: ["products"]
+            })
+
+            return res.render('productByCategory', {
+                category,
+                categories,
+                usuarioLogueado: req.session.usuarioLogueado
+            })
+
+        } catch (err) {
+
+            console.error(err)
+        }
+    },
+
+    // MOSTRAR DETALLE DE PRODUCTO Y PRODUCTOS RELACIONADOS
+    details: async(req, res) => {
+        try {
+
+            let product = await db.Product.findByPk(req.params.id)
+
+            if (product == null) {
+                return res.redirect('/');
+            } else {
+                let related = await db.Product.findAll({
+                    where: {
+                        enabled: 1,
+                        id: {
+                            [Op.not]: req.params.id
+                        },
+                        id_category: product.id_category
+                    },
+                    order: [
+                        ['name', "ASC"]
+                    ],
+                    limit: 3,
+                });
+
+                let category = await db.Category.findByPk(product.id_category)
+
+                return res.render('productDetail', {
+                    category,
+                    product,
+                    related,
+                    usuarioLogueado: req.session.usuarioLogueado
+                })
+            }
+
+        } catch (err) {
+            console.error(err)
+        }
+
     },
 
     admin: (req, res) => {
@@ -183,6 +190,10 @@ const controller = {
             diets: req.body.diets
         }
 
+        if (product.diet == undefined) product.diets = [];
+        if (product.recipes == undefined) product.recipes = [];
+        if (product.category == undefined) product.category = null;
+
         if (!Array.isArray(product.diets)) {
             product.diets = [product.diets];
         }
@@ -208,8 +219,11 @@ const controller = {
         }
 
         let errors = validationResult(req);
+        console.log(errors);
+
 
         if (errors.isEmpty()) {
+
             if (product.id_category == undefined) product.id_category = null;
 
             return db.Product.update({
@@ -272,6 +286,7 @@ const controller = {
             });
 
         } else {
+
             var categories = db.Category.findAll();
             var diets = db.Diet.findAll();
             var recipes = db.Recipe.findAll();
@@ -283,6 +298,7 @@ const controller = {
                         diets: results[1],
                         recipes: results[2],
                         edit: 1,
+                        refresh: 0,
                         errors: errors.errors
                     });
                 })
@@ -305,6 +321,11 @@ const controller = {
             recipes: req.body.recipes,
             diets: req.body.diets
         }
+
+        if (product.diet == undefined) product.diets = [];
+        if (product.recipes == undefined) product.recipes = [];
+        if (product.category == undefined) product.category = null;
+
         if (!Array.isArray(product.diets)) {
             product.diets = [product.diets];
         }
@@ -383,6 +404,7 @@ const controller = {
                         diets: results[1],
                         recipes: results[2],
                         edit: 2,
+                        refresh: 0,
                         errors: errors.errors
                     });
                 })
@@ -418,15 +440,24 @@ const controller = {
                 });
 
         } else {
-            return res.redirect('/product/admin');
+            //return res.redirect('/product/admin');
+            db.Product.findAll()
+                .then(products => {
+                    return res.render('productAdmin', {
+                        errors: errors.errors,
+                        products: products,
+                        usuarioLogueado: req.session.usuarioLogueado
+                    });
+                })
+                .catch((err) => console.error(err));
         }
     },
 
-
     //BUSCADOR DE PRODUCTOS Y RECETAS
-    find: (req, res) => {
-        let products =
-            db.Product.findAll({
+    find: async(req, res) => {
+        try {
+
+            let products = await db.Product.findAll({
                 where: {
                     enabled: 1,
                     name: {
@@ -435,8 +466,7 @@ const controller = {
                 }
             })
 
-        let recetas =
-            db.Recipe.findAll({
+            let recetas = await db.Recipe.findAll({
                 where: {
                     enabled: 1,
                     name: {
@@ -445,11 +475,15 @@ const controller = {
                 }
             })
 
-        Promise.all([products, recetas])
-            .then((results) => {
-                return res.render('search', { products: results[0], recetas: results[1], usuarioLogueado: req.session.usuarioLogueado })
+            return res.render('search', {
+                products,
+                recetas,
+                usuarioLogueado: req.session.usuarioLogueado
             })
 
+        } catch (err) {
+            console.error(err)
+        }
     }
 };
 

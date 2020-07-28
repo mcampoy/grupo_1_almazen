@@ -2,39 +2,41 @@
 
     <nav class="navbar navbar-expand-lg mobile d-flex flex-wrap align-items-center">
         <!-- LOGO -->
-        <div class="col-8 col-md-6 col-lg-3 marca">
-            <a href="/" role="button" class="logo"><img src="/images/Logo.svg" alt="marca almazen" width="200px"></a>
+        <div class="col-8 col-md-6 col-lg-2 marca">
+            <a href="/" role="button" class="logo"><img src="/images/Logo.png" alt="marca almazen" width="" class="logoImg"></a>
         </div>
         <!-- FIN LOGO -->
 
         <!-- BOTON CARRITO -->
         <div class="col-1 col-md-2 col-lg-1 mt-1 d-flex align-items-center justify-content-end carrito">
-            <a href="/cart" role="button" class="justify-content-center"><img src="/images/cart.svg" width="31px" alt="carrito"></a>
+            <a href="/cart" role="button" class="justify-content-center"><img src="/images/cart.png" width="31px" alt="carrito"></a>
+            <span class="counter qtyItemsIcon d-flex justify-content-center align-items-center"></span>
         </div>
         <!-- FIN BOTON CARRITO -->
-        
+
         <!-- BOTON PERFIL | INGRESAR | REGISTRAR -->
         <div class="col-1 col-md-2 col-lg-1 mt-1 d-flex justify-content-end profile align-items-center">
             <div class="dropdown mr-1">
 
                 <% if (usuarioLogueado!=undefined) { %>
 
-                    <img src="/users-avatar/<%= usuarioLogueado.avatar %>" class="dropdown-toggle " id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="40px" style="border-radius: 50%;" alt="Imagen de suario">
+                    <abbr id="dropdownMenuOffset" data-toggle="dropdown" aria-expanded="false" data-offset="10,50" data-title="<%= usuarioLogueado.name %>"><img src="/users-avatar/<%= usuarioLogueado.avatar %>"  width="40px" style="border-radius: 50%;" alt="Imagen de usuario"></abbr>
 
-                    <div class="userNameLog">
+
+                    <!--<div class="userNameLog">
                         <%= usuarioLogueado.name %>
-                    </div>
+                    </div>-->
 
                     <% } else { %>
 
-                        <img src="/images/profile.svg" class="dropdown-toggle userLogImage imgProfile" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="35px" alt="Imagen de suario">
+                        <img src="/images/profile.png" class="dropdown-toggle userLogImage imgProfile" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="35px" alt="Imagen de usuario">
                         <% } %>
                             <div class="dropdown-menu dropdown-menu-right adminin-menu" aria-labelledby="dropdownMenuOffset">
                                 <% if (usuarioLogueado==undefined) { %>
 
                                     <!-- LOGIN  -->
                                     <!-- Button trigger modal login -->
-                                    <button type="button" class="btn btn-primary btn-login-header" data-toggle="modal" data-target="#Login">
+                                    <button type="button" class="btn btn-primary btn-login-header" id="btn-login-header" data-toggle="modal" data-target="#Login">
                         INGRESAR
                     </button>
 
@@ -133,10 +135,10 @@
                                             </div>
                                         </div>
                                         <!-- dejar en blanco el formulario o enviar -->
-                                        <div class="user form-group d-flex flex-wrap col-12 justify-content-center">
-                                            <button class="login" role="button" type="reset">Borrar</button>
-                                            <button id="btnLogM" class="register" role="button" type="submit" value="enviar">Ingresar</button>
-                                            <p class="remember d-flex col-12 justify-content-center align-items-center"><input type="checkbox" name="remember" id="remember"> Recordarme
+                                        <div class="user row form-group d-flex flex-wrap col-12 justify-content-center">
+                                            <button class="login col-8 " role="button" type="reset">Borrar</button>
+                                            <button id="btnLogM" class="register col-8" role="button" type="submit" value="enviar">Ingresar</button>
+                                            <p class="remember d-flex col-12 justify-content-center align-items-center"><input type="checkbox" name="remember" id="rememberLogin"> Recordarme
                                             </p>
                                         </div>
                                     </form>
@@ -146,77 +148,6 @@
                     </div>
                 </div>
             </div>
-
-            <script>
-                // VALIDACIÓN DEL CAMPO EMAIL EN EL LOGIN MODAL
-                let btnLogM = document.getElementById('btnLogM');
-
-                btnLogM.addEventListener('click', function(evento) {
-
-                    let formM = document.getElementById('loginFormM');
-                    let emailLogM = document.getElementById('emailLogM');
-                    let emailContentM = emailLogM.value;
-                    let arrobaM = emailContentM.includes('@');
-                    let emailLengthM = emailContentM.length >= 6 ? true : false;
-                    // let extension = emailContent.includes('.')
-                    let invalidEmailM = formM.querySelector('div.emptyEmailM');
-                    let iconoEmailM = formM.querySelector('i#emailIconLogM');
-                    let emptyEmailM = document.querySelector('div.emptyEmailM');
-
-                    if (emailContentM == '' || !emailLengthM) {
-                        evento.preventDefault();
-                        emptyEmailM.innerHTML = '<p>' +
-                            'Por favor, ingresá tu email o verificá que esté bien escrito' + '</p>';
-                        iconoEmailM.style.backgroundColor = "#CF664F";
-                        emailLogM.style.border = "1px solid #CF664F";
-                    } else {
-                        emptyEmailM.innerHTML = '';
-                        iconoEmailM.style.backgroundColor = "#6FCF97";
-                        emailLogM.style.border = "1px solid #ced4da";
-                    }
-
-                    if (emailContentM != '' && !arrobaM) {
-                        evento.preventDefault();
-                        invalidEmailM.innerHTML = "<p>" +
-                            'Debés incluir el signo @ en la dirección de correo electrónico. La dirección ' +
-                            '<span style="font-weight: 600">' + emailContentM + '</span>' + ' no la incluye.' +
-                            '</p>';
-                        iconoEmailM.style.backgroundColor = "#CF664F";
-                        emailLogM.style.border = "1px solid #CF664F";
-                    }
-
-                    // VALIDACIÓN DEL CAMPO CONTRASEÑA DE LA VISTA MODAL
-                    let passLogM = document.getElementById('passwordLogM');
-                    let passLogContentM = passLogM.value;
-                    let emptyPassM = formM.querySelector('div.emptyPassLogM');
-                    let invalidPassM = formM.querySelector('div.invalidPassLogM');
-                    let passLengthM = passLogContentM.length >= 4 ? true : false;
-                    let iconoKeyM = formM.querySelector('i#keyIconLogM');
-
-                    if (passLogContentM == '') {
-                        evento.preventDefault();
-                        emptyPassM.innerHTML = '<p>' + 'Por favor, ingresá tu contraseña' + '</p>';
-                        iconoKeyM.style.backgroundColor = "#CF664F";
-                        passLogM.style.border = "1px solid #CF664F";
-                    } else {
-                        emptyPassM.innerHTML = '';
-                        iconoKeyM.style.backgroundColor = "#6FCF97";
-                        passLogM.style.border = "1px solid #ced4da";
-                    }
-
-                    if (passLogContentM != '' && !passLengthM) {
-                        evento.preventDefault();
-                        invalidPassM.innerHTML = "<p>" +
-                            'Revisá que la contraseña esté bien escrita. Debe tener al menos 4 caracteres' +
-                            '</p>';
-                        iconoKeyM.style.backgroundColor = "#CF664F";
-                        passLogM.style.border = "1px solid #CF664F";
-                    } else {
-                        invalidPassM.innerHTML = '';
-                        passLogM.style.border = "1px solid #ced4da";
-                    }
-                })
-            </script>
 
             <!-- MODAL REGISTRO-->
             <div class="modal fade" id="Register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -276,12 +207,11 @@
                                         </div>
 
                                         <!-- dejar en blanco el formulario o enviar -->
-                                        <div class="user form-group d-flex flex-wrap col-12 justify-content-center">
-                                            <button class="login align-items-center justify-content-center" role="button" type="reset">Borrar</button>
-                                            <button id="btnRegM" class="register align-items-center justify-content-center" role="button" type="submit">Enviar</button>
-                                            <p class="remember d-flex flex-wrap col-12 justify-content-center align-items-center"><input type="checkbox" name="remember" id="remember"> Recordarme
+                                        <div class="user row form-group d-flex flex-wrap col-12 justify-content-center">
+                                            <button class=" col-8 login align-items-center justify-content-center" role="button" type="reset">Borrar</button>
+                                            <button id="btnRegM" class="register col-8 align-items-center justify-content-center" role="button" type="submit">Enviar</button>
+                                            <p class="remember d-flex flex-wrap col-12 justify-content-center align-items-center"><input type="checkbox" name="remember" id="rememberRegister"> Recordarme
                                             </p>
-
                                         </div>
                                     </form>
                                 </div>
@@ -291,136 +221,14 @@
                 </div>
             </div>
 
-            <!-- VALIDACION REGISTRO MODAL -->
-            <script>
-                let btnRegM = document.getElementById('btnRegM');
-                btnRegM.addEventListener('click', function(even) {
-                    // VALIDACIÓN CAMPO EMAIL MODAL REGISTRO
-                    let nameRegM = document.querySelector('input#nameRegM');
-                    let nameRegContentM = nameRegM.value;
-                    let emptyNameM = document.querySelector('div.emptyNameM');
-
-                    if (nameRegContentM = '' || nameRegContentM.length < 2) {
-                        even.preventDefault();
-                        emptyNameM.innerHTML = '<p>' +
-                            'Por favor, ingresá tu nombre. Debe tener al menos dos caracteres' + '</p>';
-                        nameRegM.style.border = "1px solid #CF664F";
-                    } else {
-                        emptyNameM.innerHTML = '';
-                        nameRegM.style.border = "1px solid #ced4da";
-                    }
-
-                    // VALIDACIÓN CAMPO EMAiL DE LA VISTA REGISTRO
-                    let emailRegM = document.getElementById('emailRegM');
-                    let emailRegContentM = emailRegM.value;
-                    let arrobaRegM = emailRegContentM.includes('@');
-                    let emailRegLengthM = emailRegContentM.length >= 6 ? true : false;
-                    let invalidRegEmailM = document.querySelector('div.emptyRegEmailM');
-                    let emptyRegEmailM = document.querySelector('div.emptyRegEmailM');
-
-                    if (emailRegContentM == '' || !emailRegLengthM) {
-                        even.preventDefault();
-                        emptyRegEmailM.innerHTML = '<p>' +
-                            'Por favor, ingresá tu email o verificá que esté bien escrito' + '</p>';
-                        emailRegM.style.border = "1px solid #CF664F";
-                    } else {
-                        emptyRegEmailM.innerHTML = '';
-                        emailRegM.style.border = "1px solid #ced4da";
-                    }
-
-                    if (emailRegContentM != '' && !arrobaRegM) {
-                        even.preventDefault();
-                        invalidRegEmailM.innerHTML = "<p>" +
-                            'Debés incluir el signo @ en la dirección de correo electrónico. La dirección ' +
-                            '<span style="font-weight: 600">' + emailRegContentM + '</span>' +
-                            ' no la incluye.' + '</p>';
-                        emailRegM.style.border = "1px solid #CF664F";
-                    }
-
-                    // VALIDACIÓN DEL CAMPO CONTRASEÑA DE LA VISTA REGISTRO
-                    let passRegM = document.querySelector('input#passwordRegM');
-                    let passRegContentM = passRegM.value;
-                    let emptyRegPassM = document.querySelector('div.emptyPassRegM');
-                    let invalidRegPassM = document.querySelector('div.invalidPassRegM');
-                    let passRegLengthM = passRegContentM.length >= 4 ? true : false;
-
-                    if (passRegContentM == '') {
-                        even.preventDefault();
-                        emptyRegPassM.innerHTML = '<p>' + 'Por favor, ingresá tu contraseña' + '</p>';
-                        passRegM.style.border = "1px solid #CF664F";
-                    } else {
-                        emptyRegPassM.innerHTML = '';
-                        passRegM.style.border = "1px solid #ced4da";
-                    }
-
-                    if (passRegContentM != '' && !passRegLengthM) {
-                        even.preventDefault();
-                        invalidRegPassM.innerHTML = "<p>" +
-                            'Revisá que la contraseña esté bien escrita. Debe tener al menos 4 caracteres' +
-                            '</p>';
-                        passRegM.style.border = "1px solid #CF664F";
-                    } else {
-                        invalidRegPassM.innerHTML = '';
-                        passRegM.style.border = "1px solid #ced4da";
-                    }
-
-                    // VALIDACIÓN DEL CAMPO VALIDACIÓN DE LA VISTA REGISTRO
-                    let validationM = document.querySelector('input#validationM');
-
-                    let validationContentM = validationM.value;
-                    let emptyValidationM = registerFormM.querySelector('div.emptyValidationM');
-                    let invalidValidationM = registerFormM.querySelector('div.invalidValidationM');
-
-                    if (validationContentM == '') {
-                        even.preventDefault();
-                        emptyValidationM.innerHTML = '<p>' + 'Por favor, repetí tu contraseña' + '</p>';
-                        validationM.style.border = "1px solid #CF664F";
-                    } else {
-                        emptyValidationM.innerHTML = '';
-                        validationM.style.border = "1px solid #ced4da";
-                    }
-
-                    if (passRegContentM != validationContentM) {
-                        even.preventDefault();
-                        invalidValidationM.innerHTML = "<p>" + 'Revisá que las contraseñas coincidan' + '</p>';
-                        validationM.style.border = "1px solid #CF664F";
-                    } else {
-                        invalidValidationM.innerHTML = '';
-                        validationM.style.border = "1px solid #ced4da";
-                    }
-
-                    // VALIDACIÓN DEL CAMPO AVATAR DE LA VISTA REGISTRO
-                    let avatarM = document.querySelector('input#avatarM');
-                    let avatarContentM = avatarM.value;
-                    extensionM = (avatarContentM.substring(avatarContentM.lastIndexOf("."))).toLowerCase();
-                    let emptyAvatarM = registerFormM.querySelector('div.emptyAvatarM');
-                    let invalidAvatarM = registerFormM.querySelector('div.invalidAvatarM');
-
-                    if (avatarContentM == '') {
-                        even.preventDefault();
-                        emptyAvatarM.innerHTML = "<p>" + '¡No te olvides de cargar una imagen!' + '</p>';
-                    } else {
-                        emptyAvatarM.innerHTML = '';
-                    }
-
-                    if (avatarContentM != '' && extensionM != '.jpg' && extensionM != '.png' && extensionM !=
-                        '.jpeg' && extensionM !=
-                        '.gif') {
-                        even.preventDefault();
-                        invalidAvatarM.innerHTML = "<p>" + 'Solo podés cargar archivos jpg, png, jpeg o gif' +
-                            '</p>';
-                    } else {
-                        invalidAvatarM.innerHTML = "";
-                    }
-                })
-            </script>
         </div>
         <!-- FIN DE LA SECCIÓN MODAL DE LOGIN Y REGISTER -->
 
         <!-- FORMULARIO DE BUSQUEDA -->
-        <form action="/product/find" method="post" class="search-form col-10 col-md-10 col-lg-3 d-flex justify-content-center input-group">
-            <input type="text" name="search" placeholder="Buscá productos o recetas" class="form-control search-form_input col-10">
-            <button type="submit" class="search-form_button col-3"><i class="fas fa-search"></i></button>
+        <form id="searchForm" action="/product/find" method="post" class="search-form col-10 col-md-10 col-lg-4 d-flex justify-content-center input-group">
+            <input id="search" type="text" name="search" placeholder="Buscá productos o recetas" class="form-control search-form_input col-10">
+            <button id="btnSearch" type="submit" class="search-form_button col-3"><i class="fas fa-search"></i></button>
+            <div id="divSerch" class="serach-form col-11  input-group"></div>
         </form>
         <!-- FIN FORMULARIO DE BUSQUEDA -->
 
@@ -437,7 +245,7 @@
 
                 <!-- BOTON PRODUCTOS -->
                 <li class="col-12 col-md-12 col-lg-2 mt-1 d-flex  justify-content-center align-items-center">
-                    <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/product/">PRODUCTOS</a>
+                    <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/product/" type="button" data-toggle="tooltip" data-placement="left" title="Tooltip on left">PRODUCTOS</a>
 
                 </li>
                 <!-- BOTON RECETAS -->
@@ -458,13 +266,14 @@
         <!-- FIN MENU COLAPSABLE -->
     </nav>
 </header>
+<script type='text/javascript' src="/js/search.js"></script>
 
 <% if (typeof errors != 'undefined') { %>
     <div class="col-12 users-errors ">
         <ul>
             <!-- <h4><i class="fas fa-exclamation-triangle"></i>¡Vaya! Algo ha salido mal</h4> -->
             <% for(let error of errors) { %>
-                <div id="error-messege">
+                <div class="d-flex justify-content-center mx-auto" id="error-messege">
                     <li><i class="fas fa-times-circle"></i>
                         <%= error.msg %>
                     </li>
@@ -473,3 +282,4 @@
         </ul>
     </div>
     <% } %>
+    

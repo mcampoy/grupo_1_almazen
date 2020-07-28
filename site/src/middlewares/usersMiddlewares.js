@@ -11,35 +11,22 @@ let usersMiddlewares = {
     registerValidation: [
         check('name')
         .exists().withMessage("Debés completar el campo: nombre")
-        .isLength({ min: 3 }).withMessage("El nombre debe tener al menos tres caracteres")
+        .isLength({ min: 3 }).withMessage("Por favor, ingresá tu nombre. Debe tener al menos tres caracteres")
         .trim(),
         check('email')
         .exists()
-        .isEmail().withMessage("El email no es válido")
+        .isEmail().withMessage("Por favor, ingresá tu email o verificá que esté bien escrito")
         .normalizeEmail(),
         check('password')
-        .exists().withMessage('Debés introducir una contraseña')
+        .exists().withMessage('Por favor, ingresá tu contraseña')
         .trim()
-        .isLength({ min: 4 }).withMessage("La contaseña debe tener al menos 4 caracteres"),
-
-        // body('email').custom(function(value) {
-            
-        //     db.User.findAll({
-        //         where: {
-        //             email: value
-        //         }
-        //     })
-        //     .then((user)=> {
-        //         return !user?false:true
-        //     }).catch(error => console.log(error))
-        // }).withMessage('El email con el que querés crear tu cuenta pertenece a un/a usuario/a ya registrado/a'),
-
+        .isLength({ min: 8 }).withMessage("Debe tener un mínimo de 8 caracteres, al menos una letra y un número"),
         body('password').custom((value, { req }) => {
             if (value !== req.body.validation) {
                 return false
             }
             return true
-        }).withMessage('Las contraseñas no coinciden')
+        }).withMessage('Revisá que las contraseñas coincidan')
     ],
 
     loginValidation: [
@@ -47,29 +34,12 @@ let usersMiddlewares = {
         .exists().withMessage("Debés ingresar un email")
         .trim()
         .isEmail().withMessage("El email no es válido"),
-        body('email').custom(function(value) {
-            // let users = getUsers();
-            // for (let user of users) {
-            //     if (value == user.email) {
-            //         return true;
-            //     }
-            // }
-            // return false;
-        }).withMessage('No hemos encontrado ningún usuario registrado con ese email'),
+        body('email').custom(function(value) {}).withMessage('No hemos encontrado ningún usuario registrado con ese email'),
         check('password')
         .exists().withMessage("Debés ingresar una contraseña")
         .trim()
-        .isLength({ min: 4 }).withMessage('Contraseña inválida.'),
-        body('password').custom(function(value) {
-            // let users = getUsers();
-            // for (let user of users) {
-            //     if (bcrypt.compareSync(value, user.password)) {
-
-            //         return true;
-            //     }
-            // }
-            // return false
-        }).withMessage('Contraseña incorrecta')
+        .isLength({ min: 8 }).withMessage('Revisá que la contraseña esté bien escrita'),
+        body('password').custom(function(value) {}).withMessage('Revisá que la contraseña esté bien escrita')
     ],
     loggedUserValidation: function(req, res, next) {
         if (req.session.usuarioLogueado != undefined) {
