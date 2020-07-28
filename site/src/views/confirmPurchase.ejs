@@ -59,123 +59,13 @@
                                 <div class="col-5 titulo_producto">TOTAL</div>
                                 <div class="col-7 text-right precio_producto precio_carrito precio_total"></div>
                             </div>
-                            <button class="btn-finalizar-compra col">CONFIRMAR COMPRA</button>
+                            <button onclick="confirmPurchase()" class="btn-finalizar-compra col">CONFIRMAR COMPRA</button>
                         </div>
 
                     </div>
                 </div>
 
             </div>
-            <!--
-
-        <div class="container container-carrito">
-            <div class="row box-product-carrito">
-
-                <figure class="col-12 col-lg-4 imagen-detalles">
-                    <img src="/images/curcuma en polvo.jpg" alt="">
-                </figure>
-
-                <div class="col-10 col-md-10 col-lg-6">
-                    <div class="description-wrapper-details">
-                        <section class="col-12 col-md-12 product-carrito">
-                            <div class="short-description-detalles">
-                                <h3 class="titulo_producto mb-2">Cúrcuma</h3>
-                                <p class="descripcion_producto">Cúrcuma en polvo para darle sabor y color a tus comidas <br> Peso neto: 100 gr.</p>
-                                <span class="col-3 col-lg-2 cuotas">Precio unitario</span>
-                                <h2 class="col-4 col-lg-5 precio_producto precio_carrito">$60</h2>
-
-                            </div>
-
-                            <!- - PRECIO Y CANTIDAD DEL PRODUCTO - ->
-                            <form action="" class="col-12 col-md-12 forumlario_compra-carrito mb-4">
-                                <div class="row precio_producto-carrito justify-content-end">
-                                    <div class="col-8 col-lg-7 box-quantity-carrito">
-                                        <div class="quantity-selector-text"> Elige cantidad: </div>
-                                        <select class="selectpicker quantity-selector-detalles">
-                                            <option class="active">1 unidad</option>
-                                            <option class="option">2 unidades</option>
-                                            <option class="option">3 unidades</option>
-                                            <option class="option">4 unidades</option>
-                                            <option class="option">5 unidades</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </form>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="col-2 col-lg-2 d-flex align-items-start justify-content-center"><a href="#"><i
-                            class="far fa-times-circle eliminar"></i></a>
-                </div>
-            </div>
-
-            <div class="row box-product-carrito">
-
-                <figure class="col-12 col-lg-4 imagen-detalles">
-                    <img src="/images/pan integral.jpg" alt="">
-                </figure>
-
-                <div class="col-10 col-md-10 col-lg-6">
-                    <div class="description-wrapper-details">
-                        <section class="col-12 col-md-12 product-carrito">
-                            <div class="short-description-detalles">
-                                <h3 class="titulo_producto mb-2">Pan Integral</h3>
-                                <p class="descripcion_producto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam nisi tenetur at neque maiores quo assumenda veritatis, ullam temporibus aut sint officia dicta, alias ratione quam architecto repellat vero quia.</p>
-                                <span class="col-3 col-lg-2 cuotas">Precio unitario</span>
-                                <h2 class="col-4 col-lg-5 precio_producto precio_carrito">$150</h2>
-                            </div>
-
-                            <!- - PRECIO Y CANTIDAD DEL PRODUCTO - ->
-                            <form action="" class="col-12 col-md-12 forumlario_compra-carrito mb-4">
-                                <div class="row precio_producto-carrito  justify-content-end">
-                                    <div class="col-8 col-lg-7 box-quantity-carrito">
-                                        <div class="quantity-selector-text"> Elige cantidad: </div>
-                                        <select class="selectpicker quantity-selector-detalles">
-                                            <option class="active">1 unidad</option>
-                                            <option class="option">2 unidades</option>
-                                            <option class="option">3 unidades</option>
-                                            <option class="option">4 unidades</option>
-                                            <option class="option">5 unidades</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </form>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="col-2 col-lg-2 d-flex align-items-start justify-content-center"><a href="#"><i
-                            class="far fa-times-circle eliminar"></i></a>
-                </div>
-            </div>
-
-
-            <!- - SEPARADOR - ->
-            <div class="col-12 separator"></div>
-
-            <!- - SECTION TOTAL - ->
-            <div class="ml-auto mb-5 mt-2 col-12 col-lg-12 vip-actions-wrapper vip-actions-wrapper--cart-item botones-detalles">
-                <div class="vip-actions item-actions u-clearfix">
-                    <div class="row">
-                        <div class="ml-auto mb-3 col-12 d-flex justify-content-end">
-                            <h5 class="total">TOTAL <span class="monto">$210</span></h5>
-                        </div>
-
-                    </div>
-                    <div class="row vip-action-primary-details">
-
-                        <input type="submit" data-js="vip-action-primary" form="productInfo" title="curcuma" value="Seguir comprando" class="col-12 col-md-5 col-lg-4 primary ui-button ui-button--primary  vip-narrow-button">
-
-                        <input type="submit" data-js="vip-action-cart" form="productInfo" title="curcuma" value="Finalizar compra" class="col-12 col-md-5 col-lg-4 secondary ui-button ui-button--secondary">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!- - /Container -->
 
             <!-- FOOTER -->
             <%- include("partials/footer") %>
