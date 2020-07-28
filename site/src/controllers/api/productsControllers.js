@@ -1,36 +1,179 @@
 let db = require('../../database/models');
 const Sequelize = require('sequelize');
-// const Op = Sequelize.Op;
 
 const controller = {
 
-    productsList: async (req, res) => {
-        try {
-            // let categories = await db.Category.findAll()
-            let products = await db.Product.findAll({
-                where: {
-                    enabled: 1,
-                    stock: {
-                        [db.Sequelize.Op.gte]: 1
+        enabled: async (req, res) => {
+            try {
+
+                let products = await db.Product.findAll({
+                    where: {
+                        enabled: 1,
+                        stock: {
+                            [db.Sequelize.Op.gte]: 1
+                        },
+                    }
+                })
+
+                let results = {
+                    meta: {
+                        status: 200,
                     },
+                    data: {
+                        // products: products,
+                        length: products.length
+                    }
                 }
-            })
 
-            let results = {
-                meta: {
-                    status: 200,
-                    length: products.length
-                },
-                data: products
+                return res.json(results)
+            } catch (error) {
+
+                return res.status(500).json({
+                    ok: false,
+                    error
+                })
             }
+        },
 
-            return res.json(results)
-        } catch (error) {
+        recent: async (req, res) => {
+            try {
 
-             return res.status(500).json({ok: false, error})
+                let recentProd = await db.Product.findAll({
+                    where: {
+                        enabled: 1,
+                        stock: {
+                            [db.Sequelize.Op.gte]: 1
+                        },
+                    },
+                    order: [
+                        ['id', "DESC"]
+                    ],
+                    limit: 5,
+                })
+
+                let resultsRecent = {
+                    meta: {
+                        status: 200,
+                    },
+                    length: recentProd.length,
+                    data: recentProd
+                }
+                return res.json(resultsRecent)
+
+            } catch (error) {
+
+                return res.status(500).json({
+                    ok: false,
+                    error
+                })
+            }
+        },
+
+        unstocked: async (req, res) => {
+            try {
+
+                let unstoked = await db.Product.findAll({
+                    where: {
+                        enabled: 1,
+                        stock: {
+                            [db.Sequelize.Op.lte]: 50
+                        },
+                    },
+                    limit: 5,
+                })
+
+                let unstokedTotal = await db.Product.findAll({
+                    where: {
+                        enabled: 1,
+                        stock: {
+                            [db.Sequelize.Op.lte]: 50
+                        },
+                    },
+                })
+
+                let results = {
+                    meta: {
+                        status: 200,
+                    },
+                    data: {
+                        unstokedTotal: unstokedTotal.length,
+                        unstoked: unstoked
+                    }
+                }
+
+                return res.json(results)
+
+            } catch (error) {
+
+                return res.status(500).json({
+                    ok: false,
+                    error
+                })
+            }
+        },
+
+        byCategory: async (req, res) => {
+            try {
+
+                let categories = await db.Category.findAll({
+                    include: ["products"],
+                    where: {
+                        enabled: 1,
+                    },
+                })
+
+                let results = {
+                    meta: {
+                        status: 200,
+                    },
+                    data: {
+                        length: categories.length,
+                        categories: categories
+                    }
+                }
+
+                return res.json(results)
+
+            } catch (error) {
+
+                return res.status(500).json({
+                    ok: false,
+                    error
+                })
+            }
+        },
+
+        capital: async (req, res) => {
+            try {
+                let products = await db.Product.findAll({
+                    where: {
+                        enabled: 1
+                    }
+                })
+                let capital = 0
+                for ( let product of products){
+                    capital += product.price * product.stock
+                }
+                let results = {
+                    meta: {
+                        status: 200
+                    },
+                    data: {
+                        capital
+                    }
+                }
+
+                res.json(results)
+
+            } catch (error) {
+
+                return res.status(500).json({
+                    ok: false,
+                    error
+                })
+            }
         }
-    }
 
-};
+        };
 
-module.exports = controller;
+        module.exports = controller;
