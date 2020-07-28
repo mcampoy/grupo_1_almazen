@@ -2995,3 +2995,17 @@ h6 {
     border-right: none;
     transition: border-width 0.6s linear;
 }
+
+.prodFound {
+    height: 340px !important;
+}
+
+@media (min-width: 1023px) {
+    .prodFound {
+        height: 310px !important;
+    }
+}
+
+.prodFounPrice {
+    margin-top: 3%;
+}

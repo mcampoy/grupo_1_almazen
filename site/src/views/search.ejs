@@ -32,7 +32,33 @@
             <h3 class="col-12 titulo_seccion">Productos relacionados con tu búsqueda</h3>
 
             <% for (let product of products) { %>
-            <%- include('partials/productCard', {product}) %>
+                <div id="<%= product.id %>" class="ladofrente col-md-3 tarjeta-recetas tarjetaProd prodFound">
+                    <a href="/product/details/<%= product.id %>">
+                        <figure class="img-tarjeta-receta" id="img-tarjeta-prod">
+                            <img src="/images/imgProductos/<%= product.image %>" alt="Imagen de <%= product.name %>">
+                        </figure>
+                    </a>
+                
+                    <div class="row">
+                        <div class="col-9 productPrice prodFounPrice">
+                            <% if (product.discount > 0) { %>
+                                <span class="ml-auto precio_producto">$ <%= product.price %> </span>
+                                <span class="discountTagPosition">
+                                <i class="fas fa-tag discountTag"></i> <span class="discountTag"><%= product.discount %>% OFF
+                                </span>
+                                </span>
+                                <% }else { %>
+                                    <span class="ml-auto precio_producto">$ <%= product.price %> </span>
+                                    <% } %>
+                        </div>
+                        <!-- <i class="far fa-heart col-3 prodFav" id="<%= product.id %>"></i> -->
+                    </div>
+                
+                    <span class="col-9 tituloscard name-product-card"> <%= product.name %> </span> <span class="col-3 quantity-prod-card"><%= product.quantity %> <%= product.unit %></span>
+                    <!-- <p class="description-prod-card"><%= product.description_short %></p> -->
+                
+                    <button class="col-8 col-lg-7 mt-3 d-flex justify-content-center align-items-center btn_producto" onclick='CART.add(parseInt("<%= product.id %>"),"<%= product.name %>","<%= product.description_short %>",parseInt("<%= product.quantity %>"),"<%= product.unit %>",parseInt("<%= product.price %>"),parseInt("<%= product.discount %>"),"<%= product.image %>")'>AGREGAR AL CARRITO</button>
+                </div>
             <% } %>
         </div>
     </div>
@@ -50,38 +76,21 @@
     </div>
     <% } %>
 
-<<<<<<< HEAD
-                                    <!-- FOOTER -->
-                                    <%- include("partials/footer") %>
-                                        <!-- /FOOTER -->
-                                        <script type='text/javascript' src="/js/cart.js">
-                                        </script>
-                                        <script type='text/javascript' src="/js/productCart.js">
-                                        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-                                        </script>
-                                        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-                                        </script>
-                                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-                                        </script>
-                                        <script type='text/javascript' src="/js/cart.js"></script>
-                                        <script type='text/javascript' src="/js/userValidator.js"></script>
-=======
     <!-- FOOTER -->
     <%- include("partials/footer") %>
-    <!-- /FOOTER -->
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-    <script type='text/javascript' src="/js/cart.js"></script>
-    <script type='text/javascript' src="/js/userValidator.js"></script>
->>>>>>> e5d8785563a535cf88452beacf776c0c1ffe44ba
+        <!-- /FOOTER -->
+        <script type='text/javascript' src="/js/cart.js">
+        </script>
+        <script type='text/javascript' src="/js/productCart.js">
+        </script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+        </script>
+        <script type='text/javascript' src="/js/cart.js"></script>
+        <script type='text/javascript' src="/js/userValidator.js"></script>
 </body>
 
 </html>

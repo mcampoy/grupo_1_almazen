@@ -41,7 +41,7 @@ const controller = {
             return res.json(results)
 
         } catch (error) {
-            console.status(500).json({ok: false, error})
+            return res.status(500).json({ok: false, error})
         }
     }
 };

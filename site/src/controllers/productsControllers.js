@@ -454,14 +454,15 @@ const controller = {
     },
 
     //BUSCADOR DE PRODUCTOS Y RECETAS
-    find: async(req, res) => {
+    search: async(req, res) => {
+
         try {
 
             let products = await db.Product.findAll({
                 where: {
                     enabled: 1,
                     name: {
-                        [Op.like]: `%${req.body.search}%`
+                        [Op.like]: `%${req.query.search}%`
                     }
                 }
             })
@@ -470,7 +471,7 @@ const controller = {
                 where: {
                     enabled: 1,
                     name: {
-                        [Op.like]: `%${req.body.search}%`
+                        [Op.like]: `%${req.query.search}%`
                     }
                 }
             })

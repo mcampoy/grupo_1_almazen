@@ -22,6 +22,6 @@ router.put('/admin', middUploadFile.uploadFile, usersMiddlewares.adminValidation
 router.post('/admin', middUploadFile.uploadFile, usersMiddlewares.adminValidation, productsMiddlewares.newProductValidation, productsControllers.adminCreate);
 
 // Buscador
-router.post('/find', productsControllers.find)
+router.get('/search', productsControllers.search)
 
 module.exports = router;
