@@ -304,7 +304,6 @@ const controller = {
                 })
                 .catch((err) => console.error(err));
         }
-
     },
 
     adminCreate: (req, res, next) => {
@@ -334,8 +333,6 @@ const controller = {
         if (!Array.isArray(product.recipes)) {
             product.recipes = [product.recipes];
         }
-
-
 
         if (typeof req.file !== 'undefined') {
             product.image = req.file.filename //si  se seleccionó algún archivo de imagen

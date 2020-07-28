@@ -42,4 +42,7 @@ router.post('/profile', upload.any(), usersMiddlewares.loggedUserValidation, use
 /* CERRAR SESIÓN */
 router.get('/logout', usersMiddlewares.loggedUserValidation, usersController.logout);
 
+/* ELIMINAR CUENTA */
+// router.delete('/delete/:id', usersController.delete);
+
 module.exports = router;
