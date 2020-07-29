@@ -1,0 +1,262 @@
+:root {
+    /* TIPOGRAFIAS */
+    --fuenteMenu: 'Nunito';
+    --fuenteMenuBtn: 'Nunito';
+    --fuenteSlider: 'Nunito';
+    --fuenteTituloSeccion: 'Poppins';
+    --fuenteCategoriaProducto: 'Poppins';
+    --fuenteTituloProducto: 'Poppins';
+    --fuenteTituloReceta: 'Poppins';
+    --fuenteDescripcionProducto: 'Poppins';
+    --fuenteMenuFooter: 'Poppins';
+    --fuenteSubMenuFooter: 'Poppins';
+    --fuenteGeneral: 'Poppins';
+    /* TAMAÑOS TIPOGRAFICOS */
+    --fontSizeMenu: 1em;
+    --fontSizeSlider: 2em;
+    --fontSizeTituloSeccion: 1.4em;
+    --fontSizeCategoriaProducto: 0.7em;
+    --fontSizeTituloProducto: 1.1em;
+    --fontSizeDescripcionProducto: 0.8em;
+    --fontSizeTipoReceta: 1.5em;
+    --fontSizeTituloReceta: 1.8em;
+    --fontPrecioProducto: 1.6em;
+    --fontSizeMenuFooter: 1.1em;
+    --fontSizeSlider: 1.6em;
+    /* VARIANTES TIPOGRAFICAS */
+    --fontweightMenu: 700;
+    --fontweightMenuBtn: 700;
+    --fontweightSlider: 500;
+    --fontweightTituloSeccion: 500;
+    --fontweightCategoriaProducto: 500;
+    --fontweightTituloProducto: 500;
+    --fontweightPrecioProducto: 700;
+    --fontweightDescripcionProducto: 400;
+    --fontweightMenuFooter: 500;
+    --fontweightSubMenuFooter: 400;
+    /* COLORES */
+    --colorBtnRegister: #6FCF97;
+    /* --BtnBorderLogin: border: 1px solid #219653; */
+    --colorMenu: #219653;
+    --colorSeccionInfo: #6FCF97;
+    --colorTituloSeccion: #2b2b2b;
+    --colorTituloGeneral: #2b2b2b;
+    --colorTituloProducto: #2b2b2b;
+    --colorDescripcionProducto: #2b2b2b;
+    --colorBtnLoginHover: #C3EAD3;
+    /* PADDINGS Y MARGENES */
+    --paddingSecciones: 1.5em;
+    --marginSecciones: 1em 0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.col-12 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.col-10 {
+    width: 100%;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+button {
+    border: none;
+    box-shadow: none;
+}
+
+button a {
+    color: #fff
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.enlace {
+    color: var(--colorMenu);
+    font-weight: 400;
+    font-size: 1.2em;
+    padding-bottom: 3px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-right: 1px solid var(--colorMenu);
+    border-left: 1px solid var(--colorMenu);
+}
+
+.enlace:hover {
+    color: var(--colorBtnRegister);
+    border-top: 1px solid var(--colorMenu);
+    border-bottom: 1px solid var(--colorMenu);
+    border-left: none;
+    border-right: none;
+    transition: border-width 0.6s linear;
+}
+
+body {
+    margin: 0 auto;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* ENCABEZADO */
+
+header {
+    margin: 1% 0px;
+    width: 100%;
+}
+
+
+/* MENU */
+
+
+/* ENLACES MENU */
+
+.navbar-nav a {
+    color: var(--colorMenu);
+    font-family: var(--fuenteMenu);
+    font-size: 0.9em;
+    font-weight: var(--fontweightMenu);
+    letter-spacing: 0.030em;
+    text-decoration: none;
+}
+
+.navbar-nav a:hover {
+    color: var(--colorBtnLoginHover);
+}
+
+
+/* ENLACES MENU */
+
+#searchForm {
+    left: -50px;
+}
+
+.search-form_button {
+    background-color: var(--colorBtnRegister);
+    border-radius: 0px 5px 5px 0px;
+}
+
+.search-form_button:hover {
+    background-color: var(--colorMenu);
+}
+
+.fa-search {
+    color: #fff
+}
+
+
+/* ENLACES MENU DESPLEGABLE*/
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ENLACES MENU DESPLEGABLE*/
+
+.navbar-light .navbar-toggler {
+    color: --colorBtnRegister;
+    border-color: #fff;
+}
+
+
+/* DROPDOWN MENU */
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0px 1em;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+
+.drop {
+    padding-top: .5em;
+    /*text-align: right;*/
+}
+
+
+/* MENU HAMBURGUESA */
+
+.btn-nav-toggler {
+    margin: 0 auto;
+    background-color: var(--dark-blue);
+}
+
+
+/* DIV BOTONES REGISTRO | LOGIN */
+
+.user {
+    margin: 0.5% 0;
+}
+
+.user button.register {
+    color: #fff;
+    background: var(--colorBtnRegister);
+    border-radius: 4px;
+    font-family: var(--fuenteMenuBtn);
+    font-size: 0.8em;
+    font-weight: var(--fontweightMenuBtn);
+    padding: 2% 4%;
+    margin-top: 3.5%;
+    /* width: 15%; */
+}
+
+.user button.register:hover {
+    color: #fff;
+    background: var(--colorMenu);
+}
+
+
+/* BOTON LOGIN */
+
+.user button.login {
+    color: #219653;
+    background: #fff;
+    border: 1px solid #219653;
+    border-radius: 4px;
+    font-family: var(--fuenteMenuBtn);
+    font-size: 0.8em;
+    font-weight: var(--fontweightMenuBtn);
+    padding: 2% 4%;
+    /* width: 15%; */
+}
+
+.user button.login:hover {
+    color: #fff;
+    background: var(--colorBtnLoginHover);
+}
+
+.container-carrito {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.qtyItemsIcon {
+    color:#fff;
+   background-color:#5F9557;
+    padding: 5px;
+    font-size: 0.8em;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+    text-align: center;
+}
