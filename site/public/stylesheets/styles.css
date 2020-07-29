@@ -1155,6 +1155,7 @@ label {
     border: 1px solid var(--colorBtnRegister);
     color: #fff;
     margin: 10px 0;
+    border-radius: 4px; /* Agregado Hernan */
 }
 
 .secondary:hover {
@@ -2863,7 +2864,7 @@ h6 {
 
 .marca {
     margin: 0px;
-    padding: 5px;
+    padding: 10px;
 }
 
 .navbar-toggler {
