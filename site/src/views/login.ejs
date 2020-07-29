@@ -13,71 +13,64 @@
 
     <!-- HEADER -->
     <%- include("partials/header", {usuarioLogueado: usuarioLogueado}) %>
-    <!-- /HEADER -->
+        <!-- /HEADER -->
 
-    <section class="contenedor-formulario col-12 col-lg-6 mt-0">
-        <div id="page-wrapper">
-            <form method="post" action="/users/login" id="loginForm">
-                <div class="form-campos">
-                    <!-- email -->
-                    <div class="form-group-login">
-                        <label class="modal-label" for="email">EMAIL</label>
-                        <span class="wrapper-email-login"><input id="emailLog" type="email" class="form-control"
+        <section class="contenedor-formulario col-12 col-lg-6 mt-0">
+            <div id="page-wrapper">
+                <form method="post" action="/users/login" id="loginForm">
+                    <div class="form-campos">
+                        <!-- email -->
+                        <div class="form-group-login">
+                            <label class="modal-label" for="email">EMAIL</label>
+                            <span class="wrapper-email-login"><input id="emailLog" type="email" class="form-control"
                                 aria-describedby="email" placeholder="Ingresá tu correo electrónico" name="email"
                                 required /><i id="emailIconLog"
                                 class="fas fa-envelope d-flex align-items-center justify-content-center mail-modal"></i></span>
-                        <div>
-                            <div class="invalidEmail logErrors"></div>
-                            <div class="emptyEmail logErrors"></div>
+                            <div>
+                                <div class="invalidEmail logErrors"></div>
+                                <div class="emptyEmail logErrors"></div>
 
+                            </div>
                         </div>
-                    </div>
-                    <!-- password -->
-                    <div class="form-group-login">
-                        <label class="modal-label" for="password">CONTRASEÑA</label>
-                        <span class="wrapper-email-login"><input type="password" name="password" class="form-control"
+                        <!-- password -->
+                        <div class="form-group-login">
+                            <label class="modal-label" for="password">CONTRASEÑA</label>
+                            <span class="wrapper-email-login"><input type="password" name="password" class="form-control"
                                 id="passwordLog" aria-describedby="password" placeholder="Ingresá tu contraseña"
                                 required /><i id="keyIconLog"
                                 class="fas fa-key d-flex align-items-center justify-content-center"></i></span>
-                        <div class="emptyPassLog logErrors"></div>
-                        <div class="invalidPassLog logErrors"></div>
-                    </div>
-                </div>
-                <!-- dejar en blanco el formulario o enviar -->
-                <div class="vip-actions-wrapper  vip-actions-wrapper--cart-item botones-detalles">
-                    <div class="vip-actions item-actions u-clearfix">
-                        <div class="user form-group vip-action-primary-details">
-                            <button class="login col-12 col-md-5 col-lg-4 secondary ui-button ui-button--secondary"
-                                role="button" type="reset">Borrar</button>
-                            <button id="submitLog"
-                                class="register col-12 col-md-5 col-lg-4 secondary ui-button ui-button--secondary"
-                                role="button" type="submit" value="enviar">Ingresar</button>
-                            <p class="remember"><input type="checkbox" name="remember" id="remember"> Recordarme</p>
+                            <div class="emptyPassLog logErrors"></div>
+                            <div class="invalidPassLog logErrors"></div>
                         </div>
                     </div>
-                </div>
-            </form>
-        </div>
-    </section>
+                    <!-- dejar en blanco el formulario o enviar -->
+                    <div class="vip-actions-wrapper  vip-actions-wrapper--cart-item botones-detalles">
+                        <div class="vip-actions item-actions u-clearfix">
+                            <div class="user form-group vip-action-primary-details">
+                                <button class="login col-12 col-md-5 col-lg-4 secondary ui-button ui-button--secondary" role="button" type="reset">Borrar</button>
+                                <button id="submitLog" class="register col-12 col-md-5 col-lg-4 secondary ui-button ui-button--secondary" role="button" type="submit" value="enviar">Ingresar</button>
+                                <p class="remember"><input type="checkbox" name="remember" id="remember"> Recordarme</p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
 
-    <!-- FOOTER -->
-    <%- include("partials/footer") %>
-    <!-- /FOOTER -->
+        <!-- FOOTER -->
+        <%- include("partials/footer") %>
+            <!-- /FOOTER -->
 
-    </div>
-    <script type='text/javascript' src="/js/cart.js">
-    </script>
-    <script type='text/javascript' src="/js/productCart.js"> </script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-    <script type='text/javascript' src="/js/userValidator.js"></script>
+            </div>
+            <script type='text/javascript' src="/js/cart.js">
+            </script>
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+            </script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+            </script>
+            <script type='text/javascript' src="/js/userValidator.js"></script>
 </body>
 
 </html>
