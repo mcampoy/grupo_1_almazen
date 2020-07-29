@@ -90,8 +90,9 @@
                                         <a class="accion-receta compartir" href="#" title="Compartir">
                                             <i class="fas fa-share-alt"></i>
                                         </a>
-                                        <button type="button" class="boton  boton-central-receta" data-toggle="modal" data-target="#lista-compras"><abbr id="dropdownMenuOffset" class="seeRecipe" data-toggle="dropdown" aria-expanded="false" data-offset="10,50" data-title="Ver lista de compras">
-                                    <i class="fas fa-tasks"></i>
+                                        <button type="button" class="boton  boton-central-receta" data-toggle="modal" data-target="#lista-compras">
+                                            <abbr id="dropdownMenuOffset" class="seeRecipe" data-toggle="dropdown" aria-expanded="false" data-offset="10,50" data-title="Ver lista de compras">
+                                            <i class="fas fa-tasks"></i>
                                 </button>
                                     </div>
 
@@ -157,7 +158,7 @@
                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <div id="log"></div>
+                                                                <ul id="log" style="list-style: none;"></ul>
                                                             </div>
                                                             <!-- <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -373,9 +374,10 @@
 
                         for (var i = 0; i < sessionStorage.length; i++) {
                             var key = sessionStorage.key(i);
+                            var numero = i + 1
                             document.getElementById(key).checked = 1;
-                            document.getElementById('log').innerHTML += '<li class="itemList">' + sessionStorage.getItem(
-                                key) + '</li>';
+                            document.getElementById('log').innerHTML += '<li class="itemList">' + '<p class="itemRecipe">' + '<span class="numberItemRecipe" style="color: #219653; font-weight: var(--fontweightTituloSeccion); font-family: var(--fuenteTituloSeccion);">' +  numero + '- ' + '</span>' + sessionStorage.getItem(
+                                key) + '</p>' + '</li>';
                         }
 
                         if (!i) document.getElementById('log').innerHTML += '<h6 id="nada">' +
