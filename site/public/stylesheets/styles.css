@@ -476,7 +476,7 @@ section a {
     font-size: var(--fontSizeDescripcionProducto);
     font-family: var(--fuenteTituloProducto);
     font-weight: var(--fontweightDescripcionProducto);
-    text-align:center;
+    text-align:justify;
 }
 
 
@@ -2119,7 +2119,7 @@ figure img.sg-logo-receta {
 .main {
     margin: 0;
     padding: 2vh 0;
-    width: 100%
+    width: 100%;
 }
 .main:not(:first-child) {
     border-top: 1px solid var(--colorBtnRegister);
@@ -2665,13 +2665,13 @@ abbr[data-title]:focus::after {
     background-color: #FFF;
 }
 
-.byCategory {
-    padding: 0 0 0 2%;
+.itemsall{
+    margin-bottom: 2%;
 }
 
 .categories_title {
     font-family: var(--fuenteGeneral);
-    color: var(--colorTituloGeneral);
+    color: var(--colorBtnRegister);
     font-size: 1.5em;
 }
 
