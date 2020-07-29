@@ -23,7 +23,7 @@ function showCart() {
 
         //TÍTULO, DESCRIPCION y PRECIO UNITARIO
         let titleAndDescripDiv = document.createElement('div');
-        titleAndDescripDiv.className = 'col-6 col-md-3';
+        titleAndDescripDiv.className = 'description-cart col-12 col-md-5 col-lg-4';
         //TÍTULO
         let titleDiv = document.createElement('div');
         titleDiv.className = 'row text-muted';
@@ -35,7 +35,7 @@ function showCart() {
 
         //DESCRIPCIÓN
         let descirptionDiv = document.createElement('div');
-        descirptionDiv.className = 'row';
+        descirptionDiv.className = 'row col-12';
         let descriptionP = document.createElement('p');
         descriptionP.className = 'descripcion_producto_carrito';
         descriptionP.innerHTML = `${item.description_short}<br>${item.weight} ${item.unit}`;
@@ -59,7 +59,7 @@ function showCart() {
 
         let controls = document.createElement('div');
         //controls.className = 'controls col mr-sm-2 select-cart';
-        controls.className = 'controls col-4 col-lg-1 select-cart';
+        controls.className = 'controls col-3 col-lg-1 select-cart';
         cartItem.appendChild(controls);
 
 
@@ -85,7 +85,7 @@ function showCart() {
 
 
         let precioDiv = document.createElement('div');
-        precioDiv.className = 'col-4 col-md-3 text-right precio_producto-carrito';
+        precioDiv.className = 'col-6 col-md-3 text-right precio_producto-carrito';
         let qtytCost = new Intl.NumberFormat('en-CA', {
             style: 'currency',
             currency: 'CAD'
@@ -95,7 +95,7 @@ function showCart() {
 
         //ÍCONO ELIMINAR PRODUCTO CARRITO
         let eliminarDiv = document.createElement('div');
-        eliminarDiv.className = 'col';
+        eliminarDiv.className = 'col-1';
         //eliminarDiv.innerHTML = '<a href="CART.remove(item.id)"><i class="far fa-times-circle eliminar"></i></a>';
         let eliminarButton = document.createElement('button');
         eliminarButton.setAttribute("onclick", `removeItem(${item.id})`);
