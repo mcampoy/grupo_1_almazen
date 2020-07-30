@@ -2099,9 +2099,9 @@ figure img.sg-logo-receta {
     .img-carrito {
         display: none;
     }
-    .select-cart {
+    /* .select-cart { */
         /* order: 5*/
-    }
+    /* } */
 }
 
 .summary .col-2 {
