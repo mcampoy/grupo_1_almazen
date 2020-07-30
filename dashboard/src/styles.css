@@ -260,3 +260,156 @@ header {
     line-height: 18px;
     text-align: center;
 }
+
+/* TITULOS FOOTER */
+
+footer h6 a {
+    color: var(--colorMenu);
+    font-family: var(--fuenteMenu);
+    font-size: .9em;
+    font-weight: var(--fontweightMenu);
+    letter-spacing: 0.040em;
+    text-decoration: none;
+}
+
+footer h6 a:hover {
+    color: var(--colorBtnLoginHover);
+}
+
+
+/* ENLACES FOOTER */
+
+footer li a {
+    font-size: 0.8em;
+    line-height: .2em;
+    text-decoration: none;
+}
+
+footer p {
+    font-size: 0.8em;
+    text-align: left;
+}
+
+
+/* --  LOGO FOOTER -- */
+
+
+/* --  SEPARADOR FOOTER -- */
+
+footer .fila1 {
+    border-bottom: solid 1px #2b2b2b;
+}
+
+
+/* --  ICONOS REDES FOOTER -- */
+
+footer .redes {
+    list-style: none;
+    width: 100%;
+}
+
+footer .redes ul {
+    list-style: none;
+    width: 100%;
+}
+
+footer .redes img {
+    width: 75%;
+}
+
+footer .social {
+    margin: 0px;
+}
+
+
+/* --  FOOTER | MENU PRODUCTOS  -- */
+
+footer .menu-productos {
+    font-weight: var(--fontweightSubMenuFooter);
+}
+
+footer .menu-productos li {
+    list-style: none;
+}
+
+footer .menu-productos li a {
+    color: var(--colorTituloGeneral);
+    font-weight: var(--fontweightSubMenuFooter);
+    text-decoration: none;
+}
+
+
+/* --  FOOTER | MENU RECETAS  -- */
+
+footer .menu-recetas li {
+    list-style: none;
+}
+
+footer .menu-recetas li a {
+    color: var(--colorTituloGeneral);
+    font-weight: var(--fontweightSubMenuFooter);
+    text-decoration: none;
+}
+
+
+/* --  FOOTER | MENU TIPS  -- */
+
+footer .menu-tips li {
+    list-style: none;
+}
+
+footer .menu-tips li a {
+    color: var(--colorTituloGeneral);
+    font-weight: var(--fontweightSubMenuFooter);
+    text-decoration: none;
+}
+
+
+/* --  FOOTER | MENU NEWSLETTER  -- */
+
+footer .menu-newsletter input {
+    border: solid 1px #dedede;
+    z-index: 2;
+}
+
+footer .menu-newsletter button {
+    color: #fff;
+    background: var(--colorBtnRegister);
+    border-radius: 0px 6px 6px 0px;
+    font-family: var(--fuenteMenuBtn);
+    font-size: 0.8em;
+    font-weight: var(--fontweightMenuBtn);
+    padding: 2% 2%;
+}
+
+
+/* Media-Queries */
+
+@media (min-width: 768px) {
+    menu {
+        display: none;
+    }
+    .btn-toggle-navbar {
+        display: none;
+    }
+}
+
+@media (min-width: 320px) {
+    .logofooter {
+        margin-bottom: 1.5em;
+    }
+    .copy {
+        order: 2;
+        text-align: center;
+    }
+    .redes {
+        order: 1;
+    }
+    .menu-collapse .enlaces ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+}
