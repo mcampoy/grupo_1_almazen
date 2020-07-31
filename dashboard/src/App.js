@@ -3,7 +3,8 @@ import React from 'react';
 import './App.css';
 import './styles.css';
 import Header from './components/Header';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
+import Categories from './components/Categories/Categories'
 
 function App() {
   return (
@@ -11,8 +12,8 @@ function App() {
 
       <Header />
 
-      
-      <Footer />
+      <Categories />
+      {/* <Footer /> */}
 
     </div>
   );

@@ -1,0 +1,144 @@
+.componentes{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    text-decoration: none;
+    list-style:none;
+    flex-wrap: wrap;
+    margin-right: 1rem;
+    margin-left: 1rem;
+
+}
+*{
+    margin:0px;
+    padding: 0px; 
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    margin:0px;
+    padding: 0px;
+}
+ul li{
+    text-decoration: none;
+    list-style:none
+}
+.maincontent{
+    width: 100vw;
+    min-width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+.sidebar{
+    color: #fff;
+    width: 241px;
+    min-height:100% ;
+    left: 0px;
+    background: #5F9557;
+    display: flex;
+    min-height: 100%;
+    max-width: 100%;
+    
+}
+.sidebar li{
+    margin-bottom: 2%;
+    margin-top: 5%;
+    text-decoration: none;
+    list-style:none
+}
+.sidebar li a{
+    color: #ffffff;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    font-family: var(--fuenteMenuBtn);
+    font-size: 0.8em;
+    font-weight: var(--fontweightMenuBtn);
+    margin: 8%;
+    padding: 2% 4%;
+    position: relative;
+    z-index: 2;
+}
+
+.contenedor{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tarjetas-header{
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+.tarjetas{
+    height: 100%;
+    background: #C3EAD3;
+    border-radius: 4px;
+    margin: 1%;
+    
+}
+.componentes{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    text-decoration: none;
+    list-style:none;
+    flex-wrap: wrap;
+    margin-right: 1rem;
+    margin-left: 1rem;
+
+}
+.lastProduct, .UserRol, .Category, .Stock{
+    
+    border-radius: 4px;
+    border: 1px solid #5F9557;
+    display:flex;
+    flex-direction: column;
+    
+}
+.Stock{
+    
+    border-radius: 4px;
+    border: 1px solid #AE2D11;
+    display:flex;
+    flex-direction: column;
+    
+}
+
+.headcard{
+font-family: Poppins;
+font-style: normal;
+font-weight: 800;
+font-size: 18px;
+line-height: 27px;
+display: flex;
+align-items: center;
+letter-spacing: 0.005em;
+color: #5F9557;
+}
+.headcardred{
+font-family: Poppins;
+font-style: normal;
+font-weight: 800;
+font-size: 20px;
+line-height: 30px;
+display: flex;
+align-items: center;
+letter-spacing: 0.005em;
+color: #AE2D11;
+}
+
+/* .contenido-card{
+
+} */
+.element{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.005em;
+    color: #494949;
+}

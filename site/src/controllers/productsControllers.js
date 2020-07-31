@@ -36,6 +36,8 @@ const controller = {
             let offers = await db.Product.findAll({
                 where: {
                     discount: {
+                        enabled: 1,
+                        stock: {[Sequelize.Op.gte]: 1 },
                         [Sequelize.Op.gte]: 1
                     }
                 }
@@ -48,6 +50,25 @@ const controller = {
         } catch (err) {
 
             console.error(err)
+        }
+    },
+
+    // HOT SALE
+
+    hotSale: async (req, res) => {
+        try {
+            products = await db.Product.findAll({
+                where: {
+                    enabled: 1,
+                    stock: {[Sequelize.Op.gte]: 5 },
+                    discount: {[Sequelize.Op.gte]: 5 }
+                }
+            })
+
+            return res.render('hotSale', { products, usuarioLogueado: req.session.usuarioLogueado})
+
+        } catch (err) {
+            console.log(err)
         }
     },
 
