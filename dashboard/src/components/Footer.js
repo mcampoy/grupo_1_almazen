@@ -24,7 +24,9 @@ function Footer(){
         
             <div class="col-6 col-md-3 col-xl-2 d-flex justify-content-center mb-2 menu-tips">
                 <article>
-                    <h6><a href="#">DIETAS</a></h6>
+                    {/* <h6>
+                        <a href="#">DIETAS</a>
+                    </h6> */}
                     
                 </article>
             </div>

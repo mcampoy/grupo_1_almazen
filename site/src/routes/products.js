@@ -10,6 +10,7 @@ router.get('/', productsControllers.productsList);
 router.get('/details/:id', productsControllers.details);
 router.get('/category/:id', productsControllers.category);
 router.get('/offers', productsControllers.offers);
+router.get('/hotSale', productsControllers.hotSale);
 
 // router.get('/cart', productsControllers.cart);
 

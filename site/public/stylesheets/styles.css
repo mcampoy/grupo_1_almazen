@@ -1921,13 +1921,6 @@ figure img.sg-logo-receta {
     color:var(--colorMenu);
     font-size:1.1em;
 }
-.description-prod-card {
-    font-family: var(--fontSizeDescripcionProducto);
-    color: var(--colorDescripcionProducto);
-    text-align: left;
-    margin-top: 2%;
-    height: 40px;
-}
 
 .quantity-prod-card {
     font-family: var(--fontSizeDescripcionProducto);
@@ -3022,4 +3015,43 @@ h6 {
 
 .prodFounPrice {
     margin-top: 3%;
+}
+
+/* HOT SALE */
+.tituloHot{
+    color: #CF664F;
+    font-weight: bolder;
+}
+
+.hotSale {
+    color: #CF664F;
+}
+
+.ultimas {
+    color: red;
+    font-weight: lighter;
+    font-family: var(--fontSizeDescripcionProducto);
+    padding-top: 1%;
+
+}
+
+.nameHot {
+    font-size: 1.5em;
+}
+
+.stockHot {
+    font-family: var(--fontSizeDescripcionProducto);
+    color: var(--colorDescripcionProducto);
+    font-weight: lighter;
+}
+
+.imgHotSale {
+    position: fixed;
+    z-index: 9999999;
+    bottom: 3%;
+    right: 3%;
+    border-radius: 50%;
+    border: 2px solid #CF664F;
+    width: 7%;
+    background-color: #fff;
 }
