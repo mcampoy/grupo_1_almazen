@@ -3055,3 +3055,8 @@ h6 {
     width: 7%;
     background-color: #fff;
 }
+
+.rxd {
+        font-family: var(--fuenteMenu) !important;
+        
+}
