@@ -19,5 +19,5 @@ function App() {
       <Unstocked />
   </div>
   );
-
+  }
 export default App;

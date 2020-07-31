@@ -6,7 +6,7 @@ class Categories extends Component {
    
     render(){
         return(
-            <div class="Category d-flex flex-column flex-wrap col-lg-6">
+            <div className="Category d-flex flex-column flex-wrap col-lg-6">
                     <h5 className="headcard">Productos por categoría</h5>
                     <div className="contenido-card ">
                         <table className="table table-borderless col">
