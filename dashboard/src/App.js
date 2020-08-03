@@ -3,16 +3,20 @@ import React from 'react';
 import './App.css';
 import './styles.css';
 import Header from './components/Header';
-import Footer from './components/Footer';
+
+import Info from './components/Info/Info'
 import Categories from './components/Categories/Categories'
 // import LastProducts from './components/LastProducts';
 // import Unstocked from './components/unstocked/Unstocked';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
-
       <Header />
+
+      <Info/>
+
       {/* <LastProducts /> */}
       <Categories />
       {/* <Unstocked /> */}

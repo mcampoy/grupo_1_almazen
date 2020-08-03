@@ -54,9 +54,9 @@ class Categories extends Component {
                                 {
                                     this.state.categories.map((category, i) => {
                                 return(
-                                <tr>
-                                  <td key={i} className="categoryName"> {category.name } </td> 
-                                  <td> {category.products.length} </td> 
+                                <tr key={'nameCat'+i}>
+                                  <td key={'name'+i} className="categoryName"> {category.name } </td> 
+                                  <td key={'products'+i} className="categoryQuantity"> {category.products.length} </td> 
                                 </tr>)
                                 })
                                 }
