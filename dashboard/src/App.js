@@ -3,20 +3,20 @@ import React from 'react';
 import './App.css';
 import './styles.css';
 import Header from './components/Header';
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 import Categories from './components/Categories/Categories'
-import LastProducts from './components/LastProducts';
-import Unstocked from './components/unstocked/Unstocked';
+// import LastProducts from './components/LastProducts';
+// import Unstocked from './components/unstocked/Unstocked';
 
 function App() {
   return (
     <div className="App">
 
       <Header />
-      <LastProducts />
+      {/* <LastProducts /> */}
       <Categories />
-      {/* <Footer /> */}
-      <Unstocked />
+      {/* <Unstocked /> */}
+      <Footer />
   </div>
   );
   }

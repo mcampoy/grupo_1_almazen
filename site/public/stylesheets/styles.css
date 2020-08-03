@@ -3045,18 +3045,38 @@ h6 {
     font-weight: lighter;
 }
 
+
 .imgHotSale {
-    position: fixed;
     z-index: 9999999;
-    bottom: 3%;
-    right: 3%;
+    right: 50%;
     border-radius: 50%;
     border: 2px solid #CF664F;
-    width: 7%;
+    width: 15%;
     background-color: #fff;
+    margin-left: 43%;
+    margin-bottom: 2%;
+    margin-top: 2%;
 }
 
-.rxd {
-        font-family: var(--fuenteMenu) !important;
-        
+
+@media (min-width: 767px){
+    .imgHotSale {
+        position: fixed;
+        z-index: 9999999;
+        bottom: 17%;
+        right: .5%;
+        border-radius: 50%;
+        border: 2px solid #CF664F;
+        width: 6.5%;
+        background-color: #fff;
+    }
 }
+
+img.tagHotSale {
+    width: 22% !important;
+    border-radius: 50% !important;
+    position: absolute;
+    top: 8%;
+    left: 3%;
+}
+

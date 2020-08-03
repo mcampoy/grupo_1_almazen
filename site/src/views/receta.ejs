@@ -8,7 +8,11 @@
 <body>
     <!-- HEADER -->
     <%- include("partials/header", {usuarioLogueado: usuarioLogueado}) %>
-        <!-- /HEADER -->
+    <!-- /HEADER -->
+    
+    <!-- HOT SALE -->
+    <%- include("partials/imgHotSale") %>
+    <!-- /HOT SALE -->
 
         <!-- Redes Sociales Flotantes-->
         <%-include('partials/redesSociales') %>
@@ -279,113 +283,113 @@
 
             <!-- FOOTER -->
             <%- include("partials/footer") %>
-                <!-- /FOOTER -->
+            <!-- /FOOTER -->
 
-                <!-- Scripts -->
-                <script type='text/javascript' src="/js/cart.js">
-                </script>
-                <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
-                </script>
-                <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-                </script>
-                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-                </script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-                </script>
-                <script>
-                    // Seleccionar todos con jquery
-                    $("#checkAll").click(function() {
-                        $(".check").prop('checked', $(this).prop('checked'));
-                    });
+            <!-- Scripts -->
+            <script type='text/javascript' src="/js/cart.js">
+            </script>
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+            </script>
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+            </script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+            </script>
+            <script>
+                // Seleccionar todos con jquery
+                $("#checkAll").click(function() {
+                    $(".check").prop('checked', $(this).prop('checked'));
+                });
 
-                    // Tachar los pasos cuando los seleccionamos
-                    let pasos = document.querySelectorAll('.paso-receta')
-                    console.log(pasos);
-                    for (const paso of pasos) {
-                        paso.addEventListener('click', function() {
-                            paso.classList.toggle('tachado-paso')
-                        })
+                // Tachar los pasos cuando los seleccionamos
+                let pasos = document.querySelectorAll('.paso-receta')
+                console.log(pasos);
+                for (const paso of pasos) {
+                    paso.addEventListener('click', function() {
+                        paso.classList.toggle('tachado-paso')
+                    })
+                }
+
+
+                //  FUNCIÓN PARA AJUSTAS LAS CANTIDADES DE LA RECETA
+                window.addEventListener('load', () => {
+
+                    let slcCantidad = document.getElementById('slcCantidad')
+                    let porciones = () => {
+                        return slcCantidad.value
+                    }
+                    slcCantidad.addEventListener("change", porciones)
+                    let cantidades = document.getElementsByClassName("cantidad-ingrediente-receta")
+                    console.log(cantidades)
+                    let doble = function(n) {
+                        return n = n * 2
+                    }
+                    let triple = function(n) {
+                        return n = n * 3
+                    }
+                    let cuadruple = function(n) {
+                        return n * 4
+                    }
+                    let quintuple = function(n) {
+                        return n * 5
                     }
 
+                    slcCantidad.addEventListener('change', () => {
+                        for (let cantidad of cantidades) {
 
-                    //  FUNCIÓN PARA AJUSTAS LAS CANTIDADES DE LA RECETA
-                    window.addEventListener('load', () => {
-
-                        let slcCantidad = document.getElementById('slcCantidad')
-                        let porciones = () => {
-                            return slcCantidad.value
-                        }
-                        slcCantidad.addEventListener("change", porciones)
-                        let cantidades = document.getElementsByClassName("cantidad-ingrediente-receta")
-                        console.log(cantidades)
-                        let doble = function(n) {
-                            return n = n * 2
-                        }
-                        let triple = function(n) {
-                            return n = n * 3
-                        }
-                        let cuadruple = function(n) {
-                            return n * 4
-                        }
-                        let quintuple = function(n) {
-                            return n * 5
-                        }
-
-                        slcCantidad.addEventListener('change', () => {
-                            for (let cantidad of cantidades) {
-
-                                switch (slcCantidad.value) {
-                                    case "doble":
-                                        cantidad.innerHTML = doble(cantidad.innerText)
-                                        break;
-                                    case "triple":
-                                        cantidad.innerHTML = triple(cantidad.innerText)
-                                        break;
-                                    case "cuadruple":
-                                        cantidad.innerHTML = cuadruple(cantidad.innerText)
-                                        break;
-                                    case "quintuple":
-                                        cantidad.innerHTML = quintuple(cantidad.innerText)
-                                        break;
-                                    case "default":
-                                        cantidad.innerHTML = location.reload()
-                                }
+                            switch (slcCantidad.value) {
+                                case "doble":
+                                    cantidad.innerHTML = doble(cantidad.innerText)
+                                    break;
+                                case "triple":
+                                    cantidad.innerHTML = triple(cantidad.innerText)
+                                    break;
+                                case "cuadruple":
+                                    cantidad.innerHTML = cuadruple(cantidad.innerText)
+                                    break;
+                                case "quintuple":
+                                    cantidad.innerHTML = quintuple(cantidad.innerText)
+                                    break;
+                                case "default":
+                                    cantidad.innerHTML = location.reload()
                             }
-                        })
-
-                        // CAMBIAR CORAZÓN EN FAVORITO
-                        let corazon = document.querySelector('#corazon')
-                        corazon.addEventListener('click', function() {
-                            if (corazon.classList.contains('far')) {
-                                corazon.classList.remove('far')
-                                corazon.classList.add('fas')
-                            } else {
-                                corazon.classList.remove('fas')
-                                corazon.classList.add('far')
-                            }
-                            // corazon.classList.toggle('fas')
-                            console.log('click')
-                        })
-
-                        //  AGREGAR A LA LISTA DE COMPRAS
-
-                        document.getElementById('log').innerHTML = '<h4 id="Ineed">' +
-                            'Para esta receta necesito comprar:' + '</h4><br>';
-
-                        for (var i = 0; i < sessionStorage.length; i++) {
-                            var key = sessionStorage.key(i);
-                            var numero = i + 1
-                            document.getElementById(key).checked = 1;
-                            document.getElementById('log').innerHTML += '<li class="itemList">' + '<p class="itemRecipe">' + '<span class="numberItemRecipe" style="color: #219653; font-weight: var(--fontweightTituloSeccion); font-family: var(--fuenteTituloSeccion);">' +  numero + '- ' + '</span>' + sessionStorage.getItem(
-                                key) + '</p>' + '</li>';
                         }
-
-                        if (!i) document.getElementById('log').innerHTML += '<h6 id="nada">' +
-                            '¡Nada! ¡Tengo todo lo que necesito!' + '<br>' + '<br>' +
-                            '<i class="far fa-smile-wink" id="smile"></i>' + '</h6>';
                     })
-                </script>
-                <script type='text/javascript' src="/js/userValidator.js"></script>
+
+                    // CAMBIAR CORAZÓN EN FAVORITO
+                    let corazon = document.querySelector('#corazon')
+                    corazon.addEventListener('click', function() {
+                        if (corazon.classList.contains('far')) {
+                            corazon.classList.remove('far')
+                            corazon.classList.add('fas')
+                        } else {
+                            corazon.classList.remove('fas')
+                            corazon.classList.add('far')
+                        }
+                        // corazon.classList.toggle('fas')
+                        console.log('click')
+                    })
+
+                    //  AGREGAR A LA LISTA DE COMPRAS
+
+                    document.getElementById('log').innerHTML = '<h4 id="Ineed">' +
+                        'Para esta receta necesito comprar:' + '</h4><br>';
+
+                    for (var i = 0; i < sessionStorage.length; i++) {
+                        var key = sessionStorage.key(i);
+                        var numero = i + 1
+                        document.getElementById(key).checked = 1;
+                        document.getElementById('log').innerHTML += '<li class="itemList">' + '<p class="itemRecipe">' + '<span class="numberItemRecipe" style="color: #219653; font-weight: var(--fontweightTituloSeccion); font-family: var(--fuenteTituloSeccion);">' +  numero + '- ' + '</span>' + sessionStorage.getItem(
+                            key) + '</p>' + '</li>';
+                    }
+
+                    if (!i) document.getElementById('log').innerHTML += '<h6 id="nada">' +
+                        '¡Nada! ¡Tengo todo lo que necesito!' + '<br>' + '<br>' +
+                        '<i class="far fa-smile-wink" id="smile"></i>' + '</h6>';
+                })
+            </script>
+            <script type='text/javascript' src="/js/userValidator.js"></script>
 
 </body>
 

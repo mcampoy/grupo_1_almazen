@@ -33,13 +33,13 @@ const controller = {
     offers: async(req, res) => {
 
         try {
-            let offers = await db.Product.findAll({
+            const offers = await db.Product.findAll({
                 where: {
                     discount: {
-                        enabled: 1,
-                        stock: {[Sequelize.Op.gte]: 1 },
                         [Sequelize.Op.gte]: 1
-                    }
+                    },
+                    enabled: 1,
+                    stock: {[Sequelize.Op.gte]: 1 },
                 }
             })
             return res.render('offers', {

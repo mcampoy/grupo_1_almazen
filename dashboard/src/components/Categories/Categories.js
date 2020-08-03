@@ -3,38 +3,69 @@ import  './Categories.css'
 
 
 class Categories extends Component {
-   
-    render(){
-        return(
+    constructor(){
+        super();
+        this.state = {
+            categories:[]
+        }
+    }
+
+    apiCall(url, handler) {
+        fetch(url)
+        .then((response) => {
+            return response.json();
+        })
+        .then(data =>{
+            handler(data)
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
+    componentDidMount(){
+
+        this.apiCall("http://localhost:3030/api/products/byCategory", this.showCategories)
+
+                    }
+
+    showCategories = (data) => {
+        this.setState(
+            {
+                categories: data.data.categories
+            }
+            )
+        }
+
+        render(){
+
+            return(
             <div className="Category d-flex flex-column flex-wrap col-lg-6">
-                    <h5 className="headcard">Productos por categoría</h5>
-                    <div className="contenido-card ">
+                <h5 className="headcard">Productos por categoría</h5>
+                <div className="contenido-card ">
                         <table className="table table-borderless col">
                             <thead>
                                 <tr>
-                                <th scope="col">PRODUCTO</th>
-                                <th scope="col">STOCK</th>
+                                    <th scope="col">CATEGORÍA</th>
+                                    <th scope="col">CANT. PROD.</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody >
+                                {
+                                    this.state.categories.map((category, i) => {
+                                return(
                                 <tr>
-                                <td>10</td>
-                                <td>10</td>
-                                </tr>
-                                <tr>
-                                <td>10</td>
-                                <td>5</td>
-                                </tr>
-                                <tr>
-                                <td>10</td>
-                                <td>200</td>
-                                </tr>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Total de categorías</th>
-                                    <th scope="col">5</th>
-                                </tr>
-                            </thead>
+                                  <td key={i} className="categoryName"> {category.name } </td> 
+                                  <td> {category.products.length} </td> 
+                                </tr>)
+                                })
+                                }
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Total de categorías</th>
+                                        <th scope="col"> {this.state.categories.length} </th>
+                                    </tr>
+                                </thead> 
                             </tbody>
                         </table>
                 </div>

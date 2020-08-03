@@ -142,3 +142,8 @@ color: #AE2D11;
     letter-spacing: 0.005em;
     color: #494949;
 }
+
+.categoryName {
+    text-align: start;
+    text-transform: capitalize;
+}

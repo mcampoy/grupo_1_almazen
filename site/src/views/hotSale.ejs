@@ -6,7 +6,6 @@
 
 <head>
     <%- include("partials/head", {title: "Nuestros productos"}) %>
-
 </head>
 
 <body>
@@ -17,7 +16,7 @@
     <!-- Redes Sociales Flotantes-->
     <%-include('partials/redesSociales') %>
 
-   
+
     <div class="row rowContainer caja mb-3">
 
         <div class="container col-12 col-md-10 container-tarjetas-productos mt-5" id="tarjetas">
@@ -29,6 +28,7 @@
                 <a href="/product/details/<%= product.id %>">
                     <figure class="img-tarjeta-receta" id="img-tarjeta-prod">
                         <img src="/images/imgProductos/<%= product.image %>" alt="Imagen de <%= product.name %>">
+                        <img class="tagHotSale" src="/images/hotSale2.jpeg" alt="hot sale">
                     </figure>
                 </a>
 
