@@ -59,7 +59,10 @@
                                 <div class="col-5 titulo_producto">TOTAL</div>
                                 <div class="col-7 text-right precio_producto precio_carrito precio_total"></div>
                             </div>
-                            <button onclick="confirmPurchase()" class="btn-finalizar-compra col">CONFIRMAR COMPRA</button>
+                            <form method="post" action="/cart/createOrder" id="createOrderForm">
+                                <input name="id_user" type="number" value="<%= usuarioLogueado.id %>" style="display:none">
+                                <button type="submit" onclick="confirmPurchase()" class="btn-finalizar-compra col">CONFIRMAR COMPRA</button>
+                            </form>
                         </div>
 
                     </div>

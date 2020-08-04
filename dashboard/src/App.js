@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import './styles.css';
 import Header from './components/Header';
+import Unstocked from './components/unstocked/Unstocked';
 
 import Info from './components/Info/Info'
 import Categories from './components/Categories/Categories'
@@ -14,12 +15,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-
       <Info/>
-
       {/* <LastProducts /> */}
       <Categories />
-      <Unstocked /> 
+      <Unstocked />
       <Footer />
   </div>
   );

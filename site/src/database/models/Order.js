@@ -1,10 +1,14 @@
 module.exports = (sequelize, dataTypes) => {
-    const Cart = sequelize.define("Cart", {
+    const Order = sequelize.define("Order", {
         id: {
             type: dataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
+        },
+        order_number: {
+            type: dataTypes.INTEGER,
+            allowNull: false,
         },
         id_user: {
             type: dataTypes.INTEGER,
@@ -37,9 +41,9 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         }
     }, {
-        tableName: 'cart', //Si el nombre de la tabla no coincide con el del modelo
+        tableName: 'orders', //Si el nombre de la tabla no coincide con el del modelo
         timestamps: true, //Si no tengo timestamps
     });
 
-    return Cart; // Este retorno es lo que exporto
+    return Order; // Este retorno es lo que exporto
 }

@@ -151,5 +151,5 @@ function showTotalItemsAndPrices() {
 function confirmPurchase() {
     alert("Tu compra fue realizada con éxito. ¡Muchas gracias!");
     CART.empty();
-    window.location.href = '/';
+
 }
