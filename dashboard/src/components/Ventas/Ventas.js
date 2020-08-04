@@ -1,40 +1,41 @@
 import React, { Component } from 'react';
 
 class Ventas extends Component {
-    // constructor(){
-    //     super();
-    //     this.state = {
-    //         ventas: 5000
-    //     }
-    // }
+    constructor(){
+        super();
+        this.state = {
+            ventas: 0
+        }
+    }
 
-    // apiCall(url, handler) {
-    //     fetch(url)
-    //     .then((response) => {
-    //         return response.json();
-    //     })
-    //     .then(data =>{
-    //         console.log(data)
-    //         handler(data)
-    //     })
-    //     .catch(error => {
-    //         console.log(error);
-    //     })
-    // }
+    apiCall(url, handler) {
+        fetch(url)
+        .then((response) => {
+            return response.json();
+        })
+        .then(data =>{
+            console.log(data)
+            handler(data)
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
 
-    // componentDidMount(){
+    componentDidMount(){
 
-    //     // this.apiCall("http://localhost:3030/api/products/ventas", this.showventas)
+        this.apiCall("http://localhost:3030/api/products/orders", this.showVentas)
 
-    //                 }
+                    }
 
-    // showVentas = (data) => {
-    //     // this.setState(
-    //     //     {
-    //     //         ventas: data.data.ventas
-    //     //     }
-    //     //     )
-    //     }
+    showVentas = (data) => {
+        console.log(data)
+        this.setState(
+            {
+                ventas: data.data.total
+            }
+            )
+        }
 
         render(){
 
@@ -45,7 +46,7 @@ class Ventas extends Component {
             return(
             <div id="card" className="ladofrente col-4">
                 <h6 className="headcard ventas">Ventas</h6>
-                <h5> {toThousand(5000)} </h5>
+                <h5> {toThousand(this.state.ventas)} </h5>
                
             </div>
         )

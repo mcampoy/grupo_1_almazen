@@ -7,5 +7,6 @@ router.get('/recent', apiProductsControllers.recent);
 router.get('/unstocked', apiProductsControllers.unstocked);
 router.get('/byCategory', apiProductsControllers.byCategory);
 router.get('/capital', apiProductsControllers.capital);
+router.get('/orders', apiProductsControllers.orders);
 
 module.exports = router;
