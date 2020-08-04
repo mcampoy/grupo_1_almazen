@@ -41,7 +41,7 @@ class Enabled extends Component {
             console.log(this.state.total)
 
             return(
-                <div id="card" className="ladofrente col-4">
+                <div id="card" className="ladofrente col-3">
                 <h6 className="headcard ene">Total de productos habilitados</h6>
                 <h5>{this.state.total}</h5>
                

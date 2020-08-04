@@ -44,7 +44,7 @@ class Ventas extends Component {
               };
 
             return(
-            <div id="card" className="ladofrente col-4">
+            <div id="card" className="ladofrente col-3">
                 <h6 className="headcard ventas">Ventas</h6>
                 <h5> {toThousand(this.state.ventas)} </h5>
                

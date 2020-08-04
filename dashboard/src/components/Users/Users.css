@@ -1,0 +1,17 @@
+.headUsers {
+    color: rgb(255, 187, 0) !important;
+    font-weight: 500;
+}
+
+.lineaUsers {
+    border-bottom: 2px solid rgb(255, 187, 0);
+}
+
+.title {
+    padding-left: 5%;
+}
+
+.prod {
+    text-align: start;
+    padding-left: 5% !important;
+}

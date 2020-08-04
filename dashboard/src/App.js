@@ -3,8 +3,9 @@ import React from 'react';
 import './App.css';
 import './styles.css';
 import Header from './components/Header';
-import Info from './components/Info/Info'
-import Categories from './components/Categories/Categories'
+import Info from './components/Info/Info';
+import Categories from './components/Categories/Categories';
+import Users from './components/Users/Users'
 import LastProducts from './components/Recents/Recents';
 import Unstocked from './components/Unstocked/Unstocked';
 import Footer from './components/Footer';
@@ -15,8 +16,11 @@ function App() {
         <Header />
 
       <div className="wrapper col-12">
-        <Info/>
+        <div className="col-12">
+          <Info/>
+        </div>
         <LastProducts />
+        <Users />
         <Unstocked />
         <Categories />
       </div>
