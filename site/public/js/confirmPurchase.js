@@ -4,8 +4,6 @@ window.addEventListener("load", function() {
 });
 
 
-
-
 function showCart() {
     let cartList = document.getElementById('cartList');
 
@@ -59,33 +57,6 @@ function showCart() {
 
         cartItem.appendChild(titleAndDescripDiv);
 
-        // let controls = document.createElement('div');
-        // //controls.className = 'controls col mr-sm-2 select-cart';
-        // controls.className = 'controls col-4 col-lg-1 select-cart';
-        // cartItem.appendChild(controls);
-
-
-        // let minus = document.createElement('span');
-        // minus.textContent = '-';
-        // minus.setAttribute('data-id', item.id)
-        // controls.appendChild(minus);
-        // minus.addEventListener('click', decrementCart)
-
-        // let qty = document.createElement('span');
-        // qty.textContent = item.qty;
-        // controls.appendChild(qty);
-
-        // let plus = document.createElement('span');
-        // plus.textContent = '+';
-        // plus.setAttribute('data-id', item.id)
-        // controls.appendChild(plus);
-        // plus.addEventListener('click', incrementCart)
-
-
-        // cartItem.appendChild(controls);
-        //PRECIO PRODUCTO CARRITO
-
-
         let precioDiv = document.createElement('div');
         precioDiv.className = 'col-4 col-md-3 text-right precio_producto-carrito';
         let qtytCost = new Intl.NumberFormat('en-CA', {
@@ -95,17 +66,7 @@ function showCart() {
         precioDiv.innerText = qtytCost;
         cartItem.appendChild(precioDiv);
 
-        // //ÍCONO ELIMINAR PRODUCTO CARRITO
-        // let eliminarDiv = document.createElement('div');
-        // eliminarDiv.className = 'col';
-        // //eliminarDiv.innerHTML = '<a href="CART.remove(item.id)"><i class="far fa-times-circle eliminar"></i></a>';
-        // let eliminarButton = document.createElement('button');
-        // eliminarButton.setAttribute("onclick", `removeItem(${item.id})`);
-        // let eliminarI = document.createElement('i');
-        // eliminarI.className = 'far fa-times-circle eliminar';
-        // eliminarButton.appendChild(eliminarI);
-        // eliminarDiv.appendChild(eliminarButton);
-        // cartItem.appendChild(eliminarDiv);
+
         cartList.appendChild(cartItem);
 
     });
@@ -132,7 +93,6 @@ function showTotalItemsAndPrices() {
         style: 'currency',
         currency: 'CAD'
     }).format(totalPriceProducts);
-    //document.querySelector(".precio_carrito").innerText = "$ " + totalPriceProducts;
     document.querySelector(".precio_productos").innerText = cost;
 
     document.querySelector(".precio_total").innerText = cost;

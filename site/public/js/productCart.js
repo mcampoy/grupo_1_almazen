@@ -96,7 +96,6 @@ function showCart() {
         //ÍCONO ELIMINAR PRODUCTO CARRITO
         let eliminarDiv = document.createElement('div');
         eliminarDiv.className = 'col-1';
-        //eliminarDiv.innerHTML = '<a href="CART.remove(item.id)"><i class="far fa-times-circle eliminar"></i></a>';
         let eliminarButton = document.createElement('button');
         eliminarButton.setAttribute("onclick", `removeItem(${item.id})`);
         let eliminarI = document.createElement('i');
@@ -130,9 +129,7 @@ function showTotalItemsAndPrices() {
         style: 'currency',
         currency: 'CAD'
     }).format(totalPriceProducts);
-    //document.querySelector(".precio_carrito").innerText = "$ " + totalPriceProducts;
     document.querySelector(".precio_productos").innerText = cost;
-
     document.querySelector(".precio_total").innerText = cost;
     if (totalItems > 1) {
         document.querySelector(".Items").innerHTML = totalItems + " items";
@@ -141,8 +138,6 @@ function showTotalItemsAndPrices() {
         document.querySelector(".Items").innerHTML = totalItems + " item";
         document.querySelector(".qtyItems").innerHTML = totalItems + " item";
     }
-
-
 }
 
 function emptyCart() {
@@ -155,9 +150,6 @@ function removeItem(id) {
     document.querySelector(".item" + id).remove();
     CART.remove(id);
     showTotalItemsAndPrices();
-
-    //showCart();
-    //window.location.href = window.location.href;
 }
 
 function incrementCart(ev) {
@@ -219,94 +211,3 @@ function confirmPurchase(usuarioLogueado) {
         document.getElementById('btn-login-header').click();
     }
 }
-
-
-
-// function addItem(ev) {
-//     ev.preventDefault();
-//     let id = parseInt(ev.target.getAttribute('data-id'));
-//     //CART.add(id, 1);
-//     CART.add(id);
-//     showCart();
-// }
-
-// function errorMessage(err) {
-//     //display the error message to the user
-//     console.error(err);
-// }
-
-
-
-//     let title = document.createElement('h3');
-//     title.textContent = item.title;
-//     title.className = 'title'
-//     cartitem.appendChild(title);
-
-//     let controls = document.createElement('div');
-//     controls.className = 'controls';
-//     cartitem.appendChild(controls);
-
-//     let plus = document.createElement('span');
-//     plus.textContent = '+';
-//     plus.setAttribute('data-id', item.id)
-//     controls.appendChild(plus);
-//     plus.addEventListener('click', incrementCart)
-
-//     let qty = document.createElement('span');
-//     qty.textContent = item.qty;
-//     controls.appendChild(qty);
-
-//     let minus = document.createElement('span');
-//     minus.textContent = '-';
-//     minus.setAttribute('data-id', item.id)
-//     controls.appendChild(minus);
-//     minus.addEventListener('click', decrementCart)
-
-//     let price = document.createElement('div');
-//     price.className = 'price';
-//     let cost = new Intl.NumberFormat('en-CA', {
-//         style: 'currency',
-//         currency: 'CAD'
-//     }).format(item.qty * item.itemPrice);
-//     price.textContent = cost;
-//     cartitem.appendChild(price);
-
-//     cartList.appendChild(cartitem);
-// })
-
-// var productData = '<div class="row main d-flex align-items-center justify-content-center">';
-// //IMAGEN PRODUCTO CARRITO
-// productData += '  <div class="col-3 img-carrito">';
-// productData += '      <img class="img-fluid" src="/images/imgProductos/curcuma en polvo.jpg" alt="">';
-// productData += '  </div>';
-
-// productData += '  <div class="col-6 col-md-3">';
-
-// //TÍTULO PRODUCTO CARRITO
-// productData += '      <div class="row text-muted">';
-// productData += '          <h3 class="titulo_producto mb-2">Cúrcuma</h3>';
-// productData += '      </div>';
-
-// //DESCRIPCIÓN PRODUCTO CARRITO
-// productData += '          <div class="row">';
-// productData += '              <p class="descripcion_producto_carrito">Cúrcuma en polvo<br> Peso neto: 100 gr.</p>';
-// productData += '          </div>';
-// productData += '  </div>';
-
-// //SELECTOR CANTIDAD PRODUCTO CARRITO
-// productData += '  <select class="col custom-select mr-sm-2 select-cart" id="inlineFormCustomSelect">';
-// productData += '      <option selected value="1">1 unidad</option>';
-// productData += '      <option value="2">2 unidades</option>';
-// productData += '      <option value="3">3 unidades</option>';
-// productData += '      <option value="4">4 unidades</option>';
-// productData += '  </select>';
-
-// //PRECIO PRODUCTO CARRITO
-// productData += '  <div class="col-4 col-md-3 text-right precio_producto-carrito">$ 44.<sup>00</sup></div>';
-// //ÍCONO ELIMINAR PRODUCTO CARRITO
-// productData += '  <div class="col"><a href="#"><i class="far fa-times-circle eliminar"></i></a></div>';
-// productData += '</div>';
-
-// var productList = document.querySelector(".productList");
-// productList.innerHTML += productData;
-// }
