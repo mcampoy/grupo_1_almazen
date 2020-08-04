@@ -55,8 +55,7 @@ class Users extends Component {
                                 </tr>
                             </thead>
                             <tbody >
-                               
-                                
+
                                 <tr key={'nameCat'} className="resaltar">
                                   <td key={'name'} className="categoryName"> Administradores </td> 
                                   <td key={'products'} className="categoryQuantity"> {this.state.users.adminRole} </td> 
