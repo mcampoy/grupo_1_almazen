@@ -53,6 +53,15 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /* overflow: hidden; */
+}
+
+.wrapper {
+    background-color: #f6f6f6;
+    padding-bottom: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .col-12 {

@@ -40,13 +40,13 @@ class Categories extends Component {
         render(){
 
             return(
-            <div className="Category d-flex flex-column flex-wrap col-lg-6">
-                <h5 className="headcard">Productos por categoría</h5>
-                <div className="contenido-card ">
+            <div id="cards" className="Category ladofrente d-flex flex-column flex-wrap col-lg-5">
+                <h5 className="headcard headCat title">Productos por categoría</h5>
+                <div className="contenido-card">
                         <table className="table table-borderless col">
                             <thead>
-                                <tr>
-                                    <th scope="col">CATEGORÍA</th>
+                                <tr className="lineaCat">
+                                    <th className="prod" scope="col">CATEGORÍA</th>
                                     <th scope="col">CANT. PROD.</th>
                                 </tr>
                             </thead>
@@ -62,8 +62,8 @@ class Categories extends Component {
                                 }
                                 <thead>
                                     <tr>
-                                        <th >Total de categorías</th>
-                                        <th >{this.state.categories.length}</th>
+                                        <th >Total de categorías:</th>
+                                        <th className="headCat">{this.state.categories.length}</th>
                                     </tr>
                                 </thead>
                             </tbody>

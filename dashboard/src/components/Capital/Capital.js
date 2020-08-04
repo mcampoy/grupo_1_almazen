@@ -42,8 +42,8 @@ class Capital extends Component {
               };
 
             return(
-            <div className="enabled">
-                <h6 className="headcard">Bienes de cambio</h6>
+                <div id="card" className="ladofrente col-4">
+                <h6 className="headcard capital">Bienes de cambio</h6>
                 <h5> $ { toThousand(this.state.capital) }</h5>
                
             </div>

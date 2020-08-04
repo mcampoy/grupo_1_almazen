@@ -43,8 +43,8 @@ class Ventas extends Component {
               };
 
             return(
-            <div className="enabled">
-                <h6 className="headcard">Ventas</h6>
+            <div id="card" className="ladofrente col-4">
+                <h6 className="headcard ventas">Ventas</h6>
                 <h5> {toThousand(5000)} </h5>
                
             </div>

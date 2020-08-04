@@ -2,8 +2,7 @@ import React from 'react';
 import Enabled from '../Enabled/Enabled';
 import Capital from '../Capital/Capital';
 import Ventas from '../Ventas/Ventas';
-
-import './info.css'
+import './Info.css'
 
 
 function Info() {
