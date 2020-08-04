@@ -3,6 +3,9 @@ import  './Categories.css'
 
 
 class Categories extends Component {
+
+   
+
     constructor(){
         super();
         this.state = {
@@ -26,6 +29,7 @@ class Categories extends Component {
     componentDidMount(){
 
         this.apiCall("http://localhost:3030/api/products/byCategory", this.showCategories)
+
 
                     }
 
@@ -54,7 +58,7 @@ class Categories extends Component {
                                 {
                                     this.state.categories.map((category, i) => {
                                 return(
-                                <tr key={'nameCat'+i}>
+                                <tr key={'nameCat'+i} className="resaltar">
                                   <td key={'name'+i} className="categoryName"> {category.name } </td> 
                                   <td key={'products'+i} className="categoryQuantity"> {category.products.length} </td> 
                                 </tr>)

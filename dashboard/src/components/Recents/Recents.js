@@ -40,7 +40,7 @@ showRecent = (data) => {
 
         return(
 
-          <div id="cards" className="Category ladofrente d-flex flex-column flex-wrap col-lg-5">
+          <div id="cards" className="Recent ladofrente d-flex flex-column flex-wrap col-lg-5">
           <h5 className="headcard headRec title">Últimos productos cargados</h5>
           <div className="contenido-card">
                   <table className="table table-borderless col">
