@@ -62,10 +62,10 @@ class Categories extends Component {
                                 }
                                 <thead>
                                     <tr>
-                                        <th scope="col">Total de categorías</th>
-                                        <th scope="col"> {this.state.categories.length} </th>
+                                        <th >Total de categorías</th>
+                                        <th >{this.state.categories.length}</th>
                                     </tr>
-                                </thead> 
+                                </thead>
                             </tbody>
                         </table>
                 </div>

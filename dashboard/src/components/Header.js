@@ -5,7 +5,7 @@ function Header(){
         <header className="container-fluid">
             <nav className="navbar navbar-expand-lg mobile d-flex flex-wrap align-items-center">
                 <div className="col-8 col-md-6 col-lg-2 marca">
-                    <a href="https://localhost:3030/" role="button" className="logo">
+                    <a href="http://localhost:3030/" role="button" className="logo">
                         <img src="assets/images/Logo.svg" alt="marca almazen" width="" className="logoImg" />
                     </a>
                 </div>
@@ -29,24 +29,24 @@ function Header(){
                     <ul className="col-12 col-md-12 col-lg-12 col-xl-12 align-items-center justify-content-between navbar-nav">
 
                         <li className="col-12 col-md-12 col-lg-2 mt-1 d-flex  justify-content-center align-items-center">
-                            <a className="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="https://localhost:3030/product/" type="button" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+                            <a className="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="http://localhost:3030/product/" type="button" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
                                 PRODUCTOS
                             </a>
                         </li>
 
                         <li className="col-12 col-md-12 col-lg-1 mt-1 d-flex justify-content-center align-items-center">
-                            <a className="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="https://localhost:3030/recetas/">
+                            <a className="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="http://localhost:3030/recetas/">
                                 RECETAS
                             </a>
                         </li>
 
                         <li className="col-12 col-md-12 col-lg-1 mt-1 d-flex justify-content-center align-items-center">
-                            <a className="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="https://localhost:3030/product/details">
+                            <a className="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="http://localhost:3030/product/details">
                                 DIETAS
                             </a>
                         </li>
                         <li className="col-12 col-md-12 col-lg-1 mt-1 d-flex justify-content-center align-items-center">
-                            <a className="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="https://localhost:3030/tips/tips">
+                            <a className="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="http://localhost:3030/tips/tips">
                                 TIPS
                             </a>
                         </li>
