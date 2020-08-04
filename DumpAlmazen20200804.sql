@@ -4,7 +4,7 @@ USE `almazen_db`;
 --
 -- Host: 127.0.0.1    Database: almazen_db
 -- ------------------------------------------------------
--- Server version	5.6.20
+-- Server version	5.6.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,6 +16,39 @@ USE `almazen_db`;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `cart`
+--
+
+DROP TABLE IF EXISTS `cart`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) DEFAULT NULL,
+  `id_product` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `price` decimal(10,0) DEFAULT NULL,
+  `discount` decimal(10,0) DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_user_idx` (`id_user`),
+  KEY `id_product_idx` (`id_product`),
+  CONSTRAINT `id_product` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cart`
+--
+
+LOCK TABLES `cart` WRITE;
+/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `categories`
@@ -96,6 +129,40 @@ LOCK TABLES `ingredients` WRITE;
 /*!40000 ALTER TABLE `ingredients` DISABLE KEYS */;
 INSERT INTO `ingredients` VALUES (1,1,1,250,'gr','de harina'),(2,1,2,2,'','bananas'),(3,1,3,125,'gr','de nueces picadas'),(4,1,4,125,'gr','de azúcar'),(5,1,5,50,'ml','de aceite vegetal'),(6,1,6,10,'gr','de leche en polvo'),(7,1,7,1,'','huevo'),(8,1,8,5,'gr','de bicarbonato'),(9,1,9,3,'gr','de sal'),(10,1,10,10,'gr',' de canela'),(11,1,11,3,'ml','de esencia de vainilla'),(12,3,1,500,'gr','de garbanzos'),(13,3,2,50,'gr','de sésamo o ajonjoli'),(14,3,3,2,'dientes','de ajo'),(15,3,4,150,'ml','jugo de limón'),(16,3,5,25,'ml','de aceite de oliva'),(17,3,6,8,'gr','de sal (opcional)'),(18,3,7,10,'gr','de comino'),(19,3,8,10,'gr','de pimentón dulce'),(20,2,1,350,'gr','de harina integral'),(21,2,2,200,'gr','de avena arrollada'),(22,2,3,125,'gr','de azúcar'),(23,2,4,50,'ml','de aceite de girasol'),(24,2,5,1,NULL,'banana madura'),(25,2,6,2,NULL,'peras a punto'),(26,2,7,5,'gr','de bicarbonato'),(27,2,8,3,'gr','de sal'),(28,2,9,100,'ml','de jugo de limón'),(29,2,10,15,NULL,'almendras');
 /*!40000 ALTER TABLE `ingredients` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_number` int(11) DEFAULT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `id_product` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `price` decimal(10,0) DEFAULT NULL,
+  `discount` decimal(10,0) DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idUser_idx` (`id_user`),
+  KEY `idProduct_idx` (`id_product`),
+  CONSTRAINT `idProduct` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `idUser` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -336,6 +403,14 @@ LOCK TABLES `users` WRITE;
 INSERT INTO `users` VALUES (14,'Matías','mati@almazen.com','$2b$10$Q4USxX6CwSdHu2QNgjGXGOw92VQV4yQB4YPuXE2Geg8YDBcD4WD5i','avatar-1595606039415.jpg',0,1),(15,'Admin','admin@almazen.com','$2b$10$/435ANFig0ruW916E.D0bubQC9rp0lyzST3PiZBwcFHzVBCGzV9l.','avatar-1595864112455.png',2,1),(16,'Hernán','hernan@almazen.com','$2b$10$j1njSkO.mqhdKaG00nnZN.zL5DF8plyCV/ysDYPcrzY8kW.lB.eGC','avatar-1595690249485.jpg',0,1),(17,'Agustín','agustin@almazen.com','$2b$10$yT6PSWsqLA7eTYZMMlz5Du1HYF2S8SAo8MMlFDOxAjSEqJUC6TAUS','avatar-1595864510076.jpg',0,1),(18,'Rafael','rafa@almazen.com','$2b$10$S4v03G5f4dLC4ZQKPy9PBukSmzCSENY7qdzaXX4KIRVZ69RNQbs4e','avatar-1595870646078.png',0,1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'almazen_db'
+--
+
+--
+-- Dumping routines for database 'almazen_db'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -346,4 +421,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-27 14:28:53
+-- Dump completed on 2020-08-04  6:14:12
