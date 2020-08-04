@@ -40,8 +40,12 @@ const controller = {
                         ],
                         limit: 1,
                     })
-                    var orderNumber = lastOrderNumber.order_number + 1;
 
+                    if (lastOrderNumber) {
+                        var orderNumber = lastOrderNumber.order_number + 1;
+                    } else {
+                        var orderNumber = 1;
+                    }
 
                     //Guardo cada item del carrito en la orden
                     cartItems.forEach(item => {
