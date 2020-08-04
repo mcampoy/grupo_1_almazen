@@ -246,6 +246,7 @@ addEventListener('load', function() {
             if (!regExp.test(passLogContentM) && passLogContentM != '') {
                 event.preventDefault();
                 invalidPassM.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita' + '</p>';
+                iconoKeyM.style.backgroundColor = "#CF664F";
                 passLogM.style.border = "1px solid #CF664F";
             } else {
                 invalidPassM.innerHTML = '';
