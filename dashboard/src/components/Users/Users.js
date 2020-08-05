@@ -56,15 +56,15 @@ class Users extends Component {
                             </thead>
                             <tbody >
 
-                                <tr key={'nameCat'} className="resaltar">
+                                <tr>
                                   <td key={'name'} className="categoryName"> Administradores </td> 
                                   <td key={'products'} className="categoryQuantity"> {this.state.users.adminRole} </td> 
                                 </tr>
-                                <tr key={'nameCat'} className="resaltar">
+                                <tr >
                                   <td key={'name'} className="categoryName"> Usuarios registrados </td> 
                                   <td key={'products'} className="categoryQuantity"> {this.state.users.users} </td> 
                                 </tr>
-                                <tr key={'nameCat'} className="resaltar">
+                                <tr>
                                   <td key={'name'} className="categoryName"> Editores </td> 
                                   <td key={'products'} className="categoryQuantity"> {this.state.users.editRole} </td> 
                                 </tr>

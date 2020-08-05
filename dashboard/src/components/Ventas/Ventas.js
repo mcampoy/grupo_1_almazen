@@ -14,7 +14,6 @@ class Ventas extends Component {
             return response.json();
         })
         .then(data =>{
-            console.log(data)
             handler(data)
         })
         .catch(error => {
@@ -29,7 +28,6 @@ class Ventas extends Component {
                     }
 
     showVentas = (data) => {
-        console.log(data)
         this.setState(
             {
                 ventas: data.data.total
@@ -47,7 +45,6 @@ class Ventas extends Component {
             <div id="card" className="ladofrente col-3">
                 <h6 className="headcard ventas">Ventas</h6>
                 <h5> {toThousand(this.state.ventas)} </h5>
-               
             </div>
         )
     }

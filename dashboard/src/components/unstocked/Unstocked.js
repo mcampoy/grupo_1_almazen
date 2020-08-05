@@ -11,7 +11,6 @@ class Unstocked extends Component {
         }
     }
 
-
     apiCall(url, handler) {
         fetch(url)
         .then((response) => {
@@ -32,7 +31,7 @@ class Unstocked extends Component {
     showCategories = (data) => {
             this.setState({
                 total: data.data.unstokedTotal,
-                 products:data.data.unstoked,
+                products:data.data.unstoked,
             });
     }
 
@@ -52,8 +51,8 @@ class Unstocked extends Component {
                     <tbody>
                     {this.state.products.map((product,i)=>{return(
                             <tr key={'trUnstock'+i}>
-                                <td scope="row" className="categoryName" key={'thUnstockName'+i}>{product.name}</td>
-                                <td scope="row" className="categoryQuantity headStock" key={'thUnstockStock'+i}>{product.stock}</td>
+                                <td className="categoryName" key={'thUnstockName'+i}>{product.name}</td>
+                                <td className="categoryQuantity headStock" key={'thUnstockStock'+i}>{product.stock}</td>
                             </tr>
                         )}
                         )

@@ -29,7 +29,6 @@ componentDidMount(){
                 }
 
 showRecent = (data) => {
-  console.log(data)
     this.setState(
         {
             recents: data.data
@@ -57,8 +56,8 @@ showRecent = (data) => {
                         return(
                         <tr key={'nameCat'+i}>
                           <td key={'name'+i} className="categoryName"> {recent.name } </td> 
-                          <td key={'products'+i} className="categoryQuantity"> {recent.stock} </td> 
-                          <td key={'products'+i} className="categoryQuantity"> {recent.price} </td> 
+                          <td key={'product'+i} className="categoryQuantity"> {recent.stock} </td> 
+                          <td key={'produc'+i} className="categoryQuantity"> {recent.price} </td> 
                         </tr>)
                         })
                       }
@@ -72,12 +71,7 @@ showRecent = (data) => {
                   </table>
           </div>
       </div>
-            
-          
-                        
-        
-        
-            );
+      );
     };
 }
 export default LastProducts;

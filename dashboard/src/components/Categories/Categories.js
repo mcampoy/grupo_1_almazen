@@ -4,8 +4,6 @@ import  './Categories.css'
 
 class Categories extends Component {
 
-   
-
     constructor(){
         super();
         this.state = {

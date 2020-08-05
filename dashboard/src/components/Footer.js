@@ -38,11 +38,11 @@ function Footer(){
             </div>
 
 
-            <div class="col-12 col-lg-12 d-flex justify-content-center align-items-center copyright">
-                <h6 class="d-flex justify-content-center copy">© 2020 Almazen. Todos los derechos reservados</h6>
+            <div className="col-12 col-lg-12 d-flex justify-content-center align-items-center copyright">
+                <h6 className="d-flex justify-content-center copy">© 2020 Almazen. Todos los derechos reservados</h6>
             </div>
         </div>
-        <div class="col-11 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-around flex-wrap">
+        <div className="col-11 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-around flex-wrap">
 
     </div>
 
