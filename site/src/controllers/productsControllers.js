@@ -61,7 +61,7 @@ const controller = {
                 where: {
                     enabled: 1,
                     stock: {[Sequelize.Op.gte]: 5 },
-                    discount: {[Sequelize.Op.gte]: 5 }
+                    hot_discount: {[Sequelize.Op.gte]: 1 }
                 }
             })
 

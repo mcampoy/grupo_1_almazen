@@ -44,6 +44,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.DECIMAL(10, 0),
             allowNull: false,
         },
+        hot_discount: {
+            type: dataTypes.DECIMAL(10, 0),
+            allowNull: false,
+        },
         stock: {
             type: dataTypes.INTEGER(11),
             allowNull: false,
