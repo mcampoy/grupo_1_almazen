@@ -20,7 +20,9 @@ var recetasRouter = require('./routes/recetas');
 var tipsRouter = require('./routes/tips');
 var usersRouter = require('./routes/users');
 var cartRouter = require('./routes/cart');
-const { cart } = require('./controllers/productsControllers');
+var apiCartRouter = require('./routes/api/cart');
+
+//const { cart } = require('./controllers/productsControllers');
 
 
 var app = express();
@@ -29,7 +31,7 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-  });
+});
 
 
 // view engine setup
@@ -58,6 +60,8 @@ app.use('/api/search', apiSearch);
 app.use('/recetas', recetasRouter);
 app.use('/tips', tipsRouter);
 app.use('/cart', cartRouter);
+app.use('/api/cart', apiCartRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

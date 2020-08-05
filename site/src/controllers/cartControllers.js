@@ -29,8 +29,8 @@ const controller = {
                         id_user: userId
                     }
                 })
-
-
+                console.log("cartItems Create Order");
+                console.log(cartItems);
                 if (cartItems.length) {
 
                     //busco el último número de orden en la DB

@@ -64,19 +64,19 @@
                 <div class="row info d-flex align-items-center justify-content-center">
                     <div class="mb-2 col-12 col-md-4 col-lg-4 d-flex align-items-center elemento-info">
                         <!-- PAGO ASEGURADO -->
-                        <img src="/images/seguridad.svg" class="col-3 col-lg-3 iconInfo">
+                        <img src="/images/seguridad.svg" class="col-3 col-md-4 col-lg-3 iconInfo">
                         <p class="col-9 col-md-12 col-lg-8"><b>Seguridad en tu compra</b></br><span>Tus datos son
                         resguardados</span></p>
                     </div>
                     <div class="mb-2 col-12 col-md-4 col-lg-4 d-flex align-items-center elemento-info">
                         <!-- ENVIO GRATUITO -->
-                        <img src="/images/envio.svg" class="col-3 col-lg-3 iconInfo">
+                        <img src="/images/envio.svg" class="col-3 col-md-4 col-lg-3 iconInfo">
                         <p class="col-9 col-md-12 col-lg-8 "><b>Envío Gratuito</b></br><span>Los gastos corren por
                         nuestra cuenta</span></p>
                     </div>
                     <div class="mb-2 col-12 col-md-4 col-lg-4 d-flex align-items-center elemento-info">
                         <!-- TODOS LOS MEDIOS DE PAGO -->
-                        <img src="/images/mediopago.svg" class="col-3 col-lg-3 iconInfo">
+                        <img src="/images/mediopago.svg" class="col-3 col-md-4 col-lg-3 iconInfo">
                         <p class="col-9 col-md-12 col-lg-8"><b>Todos los medios de pago</b></br><span>Elegí el medio de pago mas
                         conveniente para vos</span></p>
                     </div>
@@ -89,7 +89,7 @@
                     <!-- OFERTAS -->
                     <% for ( let productSale of sales ) { %>
 
-                        <div class="mb-3 col-12 col-sm-6 col-md-6 col-lg-4  justify-content-center">
+                        <div class="mb-3 col-12 col-sm-6 col-md-4 col-lg-4  justify-content-center">
                             <section class="col-12 col-md-11 col-lg-11 product-box">
                                 <a href="/product/details/<%= productSale.id %> " class="col-12 col-lg-12">
                                     <figure class="col-12 col-lg-12 product-box_image">
@@ -125,12 +125,12 @@
 
 
                 </div>
-                <!-- PRODUCTOS -->
+                <!-- PRODUCTOS RECIENTES -->
                 <section id="productos" class="row container-fluid destacados">
-                    <h5 class="col-12 mt-5 mb-5 d-flex justify-content-center titulo_receta">Nuestros productos destacados</h5>
+                    <h5 class="col-12 mt-5 mb-5 d-flex justify-content-center titulo_receta">Nuestras novedades</h5>
                     <% for ( let product of products ) { %>
 
-                        <div class="mb-3 col-12 col-sm-6 col-md-6 col-lg-4  justify-content-center">
+                        <div class="mb-3 col-12 col-sm-6 col-md-4 col-lg-4  justify-content-center">
                             <section class="col-12 col-md-11 col-lg-11 product-box">
                                 <a href="/product/details/<%= product.id %> " class="col-12 col-lg-12">
                                     <figure class="col-12 col-lg-12 product-box_image">

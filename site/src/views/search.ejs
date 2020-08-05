@@ -35,7 +35,7 @@
                                 <h3 class="col-12 titulo_seccion">Productos relacionados con tu búsqueda</h3>
 
                                 <% for (let product of products) { %>
-                                    <div id="<%= product.id %>" class="ladofrente col-md-3 tarjeta-recetas tarjetaProd prodFound">
+                                    <div id="<%= product.id %>" class="ladofrente col-md-5 col-lg-3 tarjeta-recetas tarjetaProd tarjeHot">
                                         <a href="/product/details/<%= product.id %>">
                                             <figure class="img-tarjeta-receta" id="img-tarjeta-prod">
                                                 <img src="/images/imgProductos/<%= product.image %>" alt="Imagen de <%= product.name %>">

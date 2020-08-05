@@ -19,11 +19,11 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
         },
         price: {
-            type: dataTypes.DECIMAL,
+            type: dataTypes.DECIMAL(10, 0),
             allowNull: false,
         },
         discount: {
-            type: dataTypes.DECIMAL,
+            type: dataTypes.DECIMAL(10, 0),
             allowNull: false,
         },
         createdAt: {
@@ -40,6 +40,16 @@ module.exports = (sequelize, dataTypes) => {
         tableName: 'cart', //Si el nombre de la tabla no coincide con el del modelo
         timestamps: true, //Si no tengo timestamps
     });
+
+
+
+    // Cart.associate = function(models) {
+    //     Cart.belongsTo(models.Product, {
+    //         as: 'products',
+    //         foreignKey: 'id_product'
+    //     });
+    // }
+
 
     return Cart; // Este retorno es lo que exporto
 }

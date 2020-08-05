@@ -70,7 +70,7 @@ function showCart() {
         minus.addEventListener('click', decrementCart)
 
         let qty = document.createElement('span');
-        qty.textContent = item.qty;
+        qty.textContent = item.quantity;
         controls.appendChild(qty);
 
         let plus = document.createElement('span');
@@ -89,7 +89,7 @@ function showCart() {
         let qtytCost = new Intl.NumberFormat('en-CA', {
             style: 'currency',
             currency: 'CAD'
-        }).format(item.price * (1 - item.discount / 100) * item.qty);
+        }).format(item.price * (1 - item.discount / 100) * item.quantity);
         precioDiv.innerText = qtytCost;
         cartItem.appendChild(precioDiv);
 
@@ -119,8 +119,8 @@ function showTotalItemsAndPrices() {
     let totalItems = 0;
     cartProducts.forEach(item => {
 
-        totalItems += item.qty;
-        totalPriceProducts += item.price * (1 - item.discount / 100) * item.qty;
+        totalItems += item.quantity;
+        totalPriceProducts += item.price * (1 - item.discount / 100) * item.quantity;
 
     })
 
@@ -160,12 +160,12 @@ function incrementCart(ev) {
     let qty = controls.querySelector('span:nth-child(2)');
     let item = CART.find(id);
     if (item) {
-        qty.textContent = item.qty;
+        qty.textContent = item.quantity;
 
         let qtytCost = new Intl.NumberFormat('en-CA', {
             style: 'currency',
             currency: 'CAD'
-        }).format(item.price * (1 - item.discount / 100) * item.qty);
+        }).format(item.price * (1 - item.discount / 100) * item.quantity);
 
         let precioDiv = controls.parentElement.querySelector('.precio_producto-carrito');
         precioDiv.innerText = qtytCost;
@@ -174,8 +174,6 @@ function incrementCart(ev) {
     } else {
         document.getElementById('cartList').removeChild(controls.parentElement);
     }
-
-
 }
 
 function decrementCart(ev) {
@@ -186,13 +184,13 @@ function decrementCart(ev) {
     let qty = controls.querySelector('span:nth-child(2)');
     let item = CART.find(id);
     if (item) {
-        qty.textContent = item.qty;
+        qty.textContent = item.quantity;
 
 
         let qtytCost = new Intl.NumberFormat('en-CA', {
             style: 'currency',
             currency: 'CAD'
-        }).format(item.price * (1 - item.discount / 100) * item.qty);
+        }).format(item.price * (1 - item.discount / 100) * item.quantity);
 
         let precioDiv = controls.parentElement.querySelector('.precio_producto-carrito');
         precioDiv.innerText = qtytCost;

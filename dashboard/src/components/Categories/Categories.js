@@ -3,6 +3,7 @@ import  './Categories.css'
 
 
 class Categories extends Component {
+
     constructor(){
         super();
         this.state = {
@@ -27,6 +28,7 @@ class Categories extends Component {
 
         this.apiCall("http://localhost:3030/api/products/byCategory", this.showCategories)
 
+
                     }
 
     showCategories = (data) => {
@@ -40,13 +42,13 @@ class Categories extends Component {
         render(){
 
             return(
-            <div className="Category d-flex flex-column flex-wrap col-lg-6">
-                <h5 className="headcard">Productos por categoría</h5>
-                <div className="contenido-card ">
+            <div id="cards" className="Category ladofrente d-flex flex-column flex-wrap col-lg-5">
+                <h5 className="headcard headCat title">Productos por categoría</h5>
+                <div className="contenido-card">
                         <table className="table table-borderless col">
                             <thead>
-                                <tr>
-                                    <th scope="col">CATEGORÍA</th>
+                                <tr className="lineaCat">
+                                    <th className="prod" scope="col">CATEGORÍA</th>
                                     <th scope="col">CANT. PROD.</th>
                                 </tr>
                             </thead>
@@ -54,7 +56,7 @@ class Categories extends Component {
                                 {
                                     this.state.categories.map((category, i) => {
                                 return(
-                                <tr key={'nameCat'+i}>
+                                <tr key={'nameCat'+i} className="resaltar">
                                   <td key={'name'+i} className="categoryName"> {category.name } </td> 
                                   <td key={'products'+i} className="categoryQuantity"> {category.products.length} </td> 
                                 </tr>)
@@ -62,10 +64,10 @@ class Categories extends Component {
                                 }
                                 <thead>
                                     <tr>
-                                        <th scope="col">Total de categorías</th>
-                                        <th scope="col"> {this.state.categories.length} </th>
+                                        <th >Total de categorías:</th>
+                                        <th className="headCat">{this.state.categories.length}</th>
                                     </tr>
-                                </thead> 
+                                </thead>
                             </tbody>
                         </table>
                 </div>

@@ -44,6 +44,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.DECIMAL(10, 0),
             allowNull: false,
         },
+        hot_discount: {
+            type: dataTypes.DECIMAL(10, 0),
+            allowNull: false,
+        },
         stock: {
             type: dataTypes.INTEGER(11),
             allowNull: false,
@@ -82,6 +86,14 @@ module.exports = (sequelize, dataTypes) => {
             through: 'product_recipe',
             foreignKey: 'id_product',
             otherKey: 'id_recipe',
+            timestamps: false,
+        });
+
+        Product.belongsToMany(models.User, {
+            as: 'users',
+            through: 'cart',
+            foreignKey: 'id_product',
+            otherKey: 'id_user',
             timestamps: false,
         });
 

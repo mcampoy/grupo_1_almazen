@@ -1,4 +1,4 @@
-.componentes{
+.componentes {
     display: flex;
     width: 100%;
     justify-content: space-around;
@@ -9,74 +9,18 @@
     margin-left: 1rem;
 
 }
+
 *{
     margin:0px;
     padding: 0px; 
 }
-body{
+body {
     height: 100vh;
     width: 100vw;
     margin:0px;
     padding: 0px;
 }
-ul li{
-    text-decoration: none;
-    list-style:none
-}
-.maincontent{
-    width: 100vw;
-    min-width: 100%;
-    min-height: 100%;
-    overflow-x: hidden;
-}
-.sidebar{
-    color: #fff;
-    width: 241px;
-    min-height:100% ;
-    left: 0px;
-    background: #5F9557;
-    display: flex;
-    min-height: 100%;
-    max-width: 100%;
-    
-}
-.sidebar li{
-    margin-bottom: 2%;
-    margin-top: 5%;
-    text-decoration: none;
-    list-style:none
-}
-.sidebar li a{
-    color: #ffffff;
-    border: 1px solid #fff;
-    border-radius: 6px;
-    font-family: var(--fuenteMenuBtn);
-    font-size: 0.8em;
-    font-weight: var(--fontweightMenuBtn);
-    margin: 8%;
-    padding: 2% 4%;
-    position: relative;
-    z-index: 2;
-}
 
-.contenedor{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.tarjetas-header{
-    justify-content: center;
-    align-items: center;
-    height: 20vh;
-}
-.tarjetas{
-    height: 100%;
-    background: #C3EAD3;
-    border-radius: 4px;
-    margin: 1%;
-    
-}
 .componentes{
     display: flex;
     width: 100%;
@@ -86,8 +30,8 @@ ul li{
     flex-wrap: wrap;
     margin-right: 1rem;
     margin-left: 1rem;
-
 }
+
 .lastProduct, .UserRol, .Category, .Stock{
     
     border-radius: 4px;
@@ -116,6 +60,7 @@ align-items: center;
 letter-spacing: 0.005em;
 color: #5F9557;
 }
+
 .headcardred{
 font-family: Poppins;
 font-style: normal;
@@ -146,4 +91,39 @@ color: #AE2D11;
 .categoryName {
     text-align: start;
     text-transform: capitalize;
+    padding-left: 5% !important;
+}
+
+#cards {
+    color: #2b2b2b;
+    margin-bottom: 5%;
+    border: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 20px;
+    transition: all 0.25s;
+    padding: 10px;
+    border-radius: 5%;
+    background-color: white;
+    font-family: Poppins;
+    color: #2b2b2b;
+    padding: 2% 0 1% 2%;
+}
+
+.headCat {
+    color: #219653 !important;
+    font-weight: 500;
+}
+
+.lineaCat {
+    border-bottom: 2px solid #219653 !important;
+}
+
+.title {
+    padding-left: 5%;
+}
+
+.prod {
+    text-align: start;
+    padding-left: 5% !important;
 }

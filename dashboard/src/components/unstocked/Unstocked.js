@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./Unstocked.css";
+
 class Unstocked extends Component {
 
     constructor(){
@@ -9,7 +10,6 @@ class Unstocked extends Component {
         products:[],
         }
     }
-
 
     apiCall(url, handler) {
         fetch(url)
@@ -31,34 +31,38 @@ class Unstocked extends Component {
     showCategories = (data) => {
             this.setState({
                 total: data.data.unstokedTotal,
-                 products:data.data.unstoked,
+                products:data.data.unstoked,
             });
     }
 
     render(){
 
         return(
-        <div classname="Stock d-flex flex-column flex-wrap col-lg-6">
-            <h5 classname="headcardred">Productos con poco stock ({this.state.total})</h5>
-            <div classname="contenido-card ">
-                <table classname="table table-borderless col">
+            <div id="cards" className="Stock ladofrente d-flex flex-column flex-wrap col-lg-5">
+            <h5 className="headcard headStock title">Productos con poco stock</h5>
+            <div className="contenido-card ">
+                <table className="table table-borderless col">
                     <thead>
-                        <tr>
-                            <th scope="col">PRODUCTO</th>
+                        <tr className="lineaStock">
+                            <th className="prod" scope="col">PRODUCTO</th>
                             <th scope="col">STOCK</th>
                         </tr>
                     </thead>
                     <tbody>
                     {this.state.products.map((product,i)=>{return(
                             <tr key={'trUnstock'+i}>
-                                <th scope="row" key={'thUnstockName'+i}>{product.name}</th>
-                                <td key={'tdUnstockStock'+i}>
-                                    <th scope="row" key={'thUnstockStock'+i}>{product.stock}</th>
-                                </td>
+                                <td className="categoryName" key={'thUnstockName'+i}>{product.name}</td>
+                                <td className="categoryQuantity headStock" key={'thUnstockStock'+i}>{product.stock}</td>
                             </tr>
                         )}
                         )
                     }
+                    <thead>
+                        <tr>
+                            <th >Total de productos:</th>
+                            <th className="headStock" >{this.state.total}</th>
+                        </tr>
+                    </thead>
                     </tbody>
                 </table>
             </div>

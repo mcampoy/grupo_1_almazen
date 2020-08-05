@@ -3,22 +3,29 @@ import React from 'react';
 import './App.css';
 import './styles.css';
 import Header from './components/Header';
-import Unstocked from './components/unstocked/Unstocked';
-import Info from './components/Info/Info'
-import Categories from './components/Categories/Categories'
-// import LastProducts from './components/LastProducts';
+import Info from './components/Info/Info';
+import Categories from './components/Categories/Categories';
+import Users from './components/Users/Users'
+import LastProducts from './components/Recents/Recents';
 import Unstocked from './components/Unstocked/Unstocked';
 import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Info/>
-      {/* <LastProducts /> */}
-      <Categories />
-      <Unstocked />
-      <Footer />
+        <Header />
+
+      <div className="wrapper col-12">
+        <div className="col-12">
+          <Info/>
+        </div>
+        <LastProducts />
+        <Users />
+        <Unstocked />
+        <Categories />
+      </div>
+
+        <Footer />
   </div>
   );
   }

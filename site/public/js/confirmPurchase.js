@@ -57,24 +57,34 @@ function showCart() {
 
         cartItem.appendChild(titleAndDescripDiv);
 
+
+        let controls = document.createElement('div');
+        controls.className = 'controls col mr-sm-2 select-cart';
+        //controls.className = 'controls col-4 col-lg-1 select-cart';
+        cartItem.appendChild(controls);
+        let qty = document.createElement('span');
+        qty.textContent = item.quantity;
+        controls.appendChild(qty);
+        cartItem.appendChild(controls);
+
+
+        //PRECIO PRODUCTO CARRITO
+
         let precioDiv = document.createElement('div');
         precioDiv.className = 'col-4 col-md-3 text-right precio_producto-carrito';
         let qtytCost = new Intl.NumberFormat('en-CA', {
             style: 'currency',
             currency: 'CAD'
-        }).format(item.price * (1 - item.discount / 100) * item.qty);
+        }).format(item.price * (1 - item.discount / 100) * item.quantity);
         precioDiv.innerText = qtytCost;
         cartItem.appendChild(precioDiv);
-
 
         cartList.appendChild(cartItem);
 
     });
 
     showTotalItemsAndPrices();
-
 }
-
 
 
 function showTotalItemsAndPrices() {
@@ -82,12 +92,9 @@ function showTotalItemsAndPrices() {
     let totalPriceProducts = 0;
     let totalItems = 0;
     cartProducts.forEach(item => {
-
-        totalItems += item.qty;
-        totalPriceProducts += item.price * (1 - item.discount / 100) * item.qty;
-
+        totalItems += item.quantity;
+        totalPriceProducts += item.price * (1 - item.discount / 100) * item.quantity;
     })
-
 
     let cost = new Intl.NumberFormat('en-CA', {
         style: 'currency',
@@ -111,5 +118,4 @@ function showTotalItemsAndPrices() {
 function confirmPurchase() {
     alert("Tu compra fue realizada con éxito. ¡Muchas gracias!");
     CART.empty();
-
 }

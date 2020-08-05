@@ -196,7 +196,7 @@ header {
 
 .drop {
     padding-top: .5em;
-    /*text-align: right;*/
+   
 }
 
 
@@ -226,7 +226,7 @@ header {
     font-weight: var(--fontweightMenuBtn);
     padding: 2% 4%;
     margin-top: 3.5%;
-    /* width: 15%; */
+
 }
 
 .user button.register:hover {
@@ -246,7 +246,7 @@ header {
     font-size: 0.8em;
     font-weight: var(--fontweightMenuBtn);
     padding: 2% 4%;
-    /* width: 15%; */
+    
 }
 
 .user button.login:hover {
@@ -261,15 +261,20 @@ header {
 
 .qtyItemsIcon {
     color:#fff;
-   background-color:#5F9557;
-    padding: 5px;
+    background-color:#5F9557;
+    padding: 4px;
     font-size: 0.8em;
     margin-bottom: 20px;
     border-radius: 50%;
     width: 20px;
+    min-width: 20px;
     height: 20px;
+    min-height: 20px;
     line-height: 18px;
     text-align: center;
+    position: absolute;
+    margin-right: -12px;
+    
 }
 
 
@@ -2354,6 +2359,7 @@ input#password.form-control {
     margin-top: 3%;
     color: var(--colorMenu);
     font-weight: 400;
+    margin-right: 3px;
 }
 
 

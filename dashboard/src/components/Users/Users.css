@@ -1,10 +1,10 @@
-.headStock {
-    color: #CF664F !important;
+.headUsers {
+    color: rgb(255, 187, 0) !important;
     font-weight: 500;
 }
 
-.lineaStock {
-    border-bottom: 2px solid #CF664F;
+.lineaUsers {
+    border-bottom: 2px solid rgb(255, 187, 0);
 }
 
 .title {
