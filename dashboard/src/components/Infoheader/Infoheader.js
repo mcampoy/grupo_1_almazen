@@ -2,10 +2,10 @@ import React from 'react';
 import Enabled from '../Enabled/Enabled';
 import Capital from '../Capital/Capital';
 import Ventas from '../Ventas/Ventas';
-import './Info.css'
+import './infoheader.css'
 
 
-function Info() {
+function Infoheader() {
     return (
         <div className="col-12 info justify-content: space-around">
             <Enabled />
@@ -15,4 +15,4 @@ function Info() {
     )
 }
 
-export default Info
+export default Infoheader
