@@ -5,7 +5,7 @@ module.exports = (sequelize, dataTypes) => {
             id: {
                 type: dataTypes.INTEGER,
                 allowNull: false,
-                primaryKey:true,
+                primaryKey: true,
                 autoIncrement: true
             },
 
@@ -17,12 +17,12 @@ module.exports = (sequelize, dataTypes) => {
 
             email: {
                 type: dataTypes.STRING,
-                 allowNull: false,
+                allowNull: false,
             },
 
             password: {
                 type: dataTypes.STRING,
-                 allowNull: false,
+                allowNull: false,
             },
 
             avatar: {
@@ -46,16 +46,15 @@ module.exports = (sequelize, dataTypes) => {
             timestamps: false, //Si no tengo timestamps
 
         });
-       
-        User.associate = function(models) {
-            User.belongsToMany(models.Product, {
-                as: 'product',
-                through: 'user_product',
-                foreignKey: 'id_products',
-                otherKey:'id_users',
-                timestamps: false,
-            })
-        };
-            
+
+    User.associate = function(models) {
+        User.belongsToMany(models.Product, {
+            as: 'products',
+            through: 'cart',
+            foreignKey: 'id_user',
+            otherKey: 'id_product',
+            timestamps: false,
+        });
+    };
     return User; // Este retorno es lo que exporto
 }

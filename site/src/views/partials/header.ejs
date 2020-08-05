@@ -27,6 +27,7 @@
                         <%= usuarioLogueado.name %>
                     </div>-->
 
+
                     <% } else { %>
 
                         <img src="/images/profile.png" class="dropdown-toggle userLogImage imgProfile" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,50" width="35px" alt="Imagen de usuario">
@@ -46,6 +47,10 @@
                     </button>
 
                                     <% } else {%>
+
+                                        <div id="logUserId" style="display:none">
+                                            <%= usuarioLogueado.id %>
+                                        </div>
 
                                         <% if (usuarioLogueado.role==2) { %>
                                             <!-- /* MENÚ DE ADMINISTRADOR */ -->
@@ -282,4 +287,3 @@
         </ul>
     </div>
     <% } %>
-    
