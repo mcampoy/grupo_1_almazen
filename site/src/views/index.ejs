@@ -99,6 +99,10 @@
                                         <h2 class="titulo_producto">
                                             <%= productSale.name %>
                                         </h2>
+                                        <p class="quantityIndex">
+                                                <%= productSale.quantity %>
+                                                <%= productSale.unit %>
+                                        </p>
                                         <% if (productSale.discount > 0) { %>
                                             <span class="ml-auto precio_producto">$ <%= productSale.price %> </span>
                                             <span class="discountTagPosition">
@@ -109,9 +113,7 @@
                                                 <span class="ml-auto precio_producto">$ <%= productSale.price %> </span>
                                                 <% } %>
                                                     <p class="descripcion_producto">
-                                                        <%= productSale.description_short %> <br>
-                                                            <%= productSale.quantity %>
-                                                                <%= productSale.unit %>
+                                                        <%= productSale.description_short %>
                                                     </p>
                                     </article>
                                 </a>
@@ -140,6 +142,10 @@
                                         <h2 class="titulo_producto">
                                             <%= product.name %>
                                         </h2>
+                                        <p class="quantityIndex">
+                                            <%= product.quantity %>
+                                            <%= product.unit %>
+                                        </p>
                                         <% if (product.discount > 0) { %>
                                             <span class="ml-auto precio_producto">$ <%= product.price %> </span>
                                             <span class="discountTagPosition">
@@ -150,9 +156,7 @@
                                                 <span class="ml-auto precio_producto">$ <%= product.price %> </span>
                                                 <% } %>
                                                     <p class="descripcion_producto">
-                                                        <%= product.description_short %> <br>
-                                                            <%= product.quantity %>
-                                                                <%= product.unit %>
+                                                        <%= product.description_short %>
                                                     </p>
                                     </article>
                                 </a>

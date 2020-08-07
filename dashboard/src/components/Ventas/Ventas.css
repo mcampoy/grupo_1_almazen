@@ -1,0 +1,8 @@
+.recaudacion {
+    position: relative;
+    left: 50%;
+}
+
+.reca {
+    display: flex;
+}
