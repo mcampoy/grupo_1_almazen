@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import './Ventas.css'
 
 class Ventas extends Component {
     constructor(){
         super();
         this.state = {
-            ventas: 0
+            ventas: 0,
+            recaudacion: 0
         }
     }
 
@@ -30,7 +32,8 @@ class Ventas extends Component {
     showVentas = (data) => {
         this.setState(
             {
-                ventas: data.data.total
+                ventas: data.data.total,
+                recaudacion: data.data.recaudacion
             }
             )
         }
@@ -44,7 +47,10 @@ class Ventas extends Component {
             return(
             <div id="card" className="ladofrente col-3">
                 <h6 className="headcard ventas">Ventas</h6>
-                <h5> {toThousand(this.state.ventas)} </h5>
+                <div className="reca">
+                    <h5> {toThousand(this.state.ventas)}  </h5>
+                    <h5 className="recaudacion"> $ {toThousand(this.state.recaudacion)} </h5>
+                </div>
             </div>
         )
     }

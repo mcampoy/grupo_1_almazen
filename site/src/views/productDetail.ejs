@@ -38,14 +38,16 @@
                             <section class="col-12 product-details">
                                 <div class="short-description-detalles">
 
-                                    <h3 class="titulo_producto mb-2">
+                                    <h3 id="ProdNameDetail" class="titulo_producto mb-2">
                                         <%= product.name %>
                                     </h3>
+                                    <p id="CantProdDetail" class="cantidad descripcion_producto_detalles"> <strong> <%= product.quantity %>
+                                        <%= product.unit %> </strong> </p>
                                     <p class="descripcion_producto_detalles">
                                         <%= product.description %>
                                     </p>
-                                    <p class="cantidad descripcion_producto_detalles"> <strong> <%= product.quantity %>
-                                    <%= product.unit %> </strong> </p>
+                                    <!-- <p class="cantidad descripcion_producto_detalles"> Cantidad <strong> <%= product.quantity %>
+                                    <%= product.unit %> </strong> </p> -->
                                 </div>
                                 <form action="" class="forumlario_compra-detalles mb-4">
 

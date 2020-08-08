@@ -21,6 +21,7 @@ var tipsRouter = require('./routes/tips');
 var usersRouter = require('./routes/users');
 var cartRouter = require('./routes/cart');
 var apiCartRouter = require('./routes/api/cart');
+var dietsRouter = require("./routes/diets")
 
 //const { cart } = require('./controllers/productsControllers');
 
@@ -61,6 +62,7 @@ app.use('/recetas', recetasRouter);
 app.use('/tips', tipsRouter);
 app.use('/cart', cartRouter);
 app.use('/api/cart', apiCartRouter);
+app.use('/diets', dietsRouter);
 
 
 // catch 404 and forward to error handler

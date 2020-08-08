@@ -55,6 +55,9 @@
                                         <% if (usuarioLogueado.role==2) { %>
                                             <!-- /* MENÚ DE ADMINISTRADOR */ -->
                                             <!-- /* PRODUCTOS */ -->
+                                            <a type="button" class="btn btn-primary btn-login-header" href='http://localhost:3000'>
+                        DASHBOARD
+                    </a>
                                             <button type="button" class="btn btn-primary btn-login-header" onclick="location.href='/product/admin/'">
                         PRODUCTOS
                     </button>
@@ -259,7 +262,7 @@
                 </li>
                 <!-- BOTON DIETAS -->
                 <li class="col-12 col-md-12 col-lg-1 mt-1 d-flex justify-content-center align-items-center">
-                    <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/product/details">DIETAS</a>
+                    <a class="col-12 col-lg-1 col-xl-1 d-flex justify-content-center" href="/diets/">DIETAS</a>
                 </li>
                 <!-- BOTON TIPS -->
                 <li class="col-12 col-md-12 col-lg-1 mt-1 d-flex justify-content-center align-items-center">

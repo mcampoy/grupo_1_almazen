@@ -176,17 +176,23 @@ const controller = {
     orders: async (req, res) => {
         try {
 
+            const prices = await db.Order.findAll()
+            let recaudacion = 0;
+            for (let price of prices){
+                recaudacion += price.price - (price.price/100 * price.discount)
+            }
+
             const orders = await db.Order.findAll({
                 group: 'order_number'
             })
-
 
             let results = {
                 meta: {
                     status: 200
                 },
                 data: {
-                    total: orders.length
+                    total: orders.length,
+                    recaudacion: recaudacion
                 }
             }
 

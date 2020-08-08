@@ -372,6 +372,14 @@ section a {
     margin-bottom: 0px;
 }
 
+/* CANTIDAD */
+
+.quantityIndex {
+    margin: 0;
+    font-family: var(--fontSizeDescripcionProducto);
+    color: var(--colorDescripcionProducto);
+}
+
 
 /* PRECIO DEL PRODUCTO */
 
@@ -1053,6 +1061,7 @@ label {
 .short-description-detalles h3 {
     font-size: 1.8em;
 }
+
 
 .short-description-detalles p {
     text-align: justify;
