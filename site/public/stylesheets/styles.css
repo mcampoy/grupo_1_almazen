@@ -320,7 +320,9 @@ header {
 .info p {
     font-size: 0.9em;
 }
-
+.img-index{
+    border-radius: 3px;
+}
 
 /* * * * * * SECCION PRODUCTOS DESTACADOS * * * * * */
 
@@ -1403,6 +1405,7 @@ label {
 
 .titulo_seccion {
     color: var(--colorTituloProducto);
+    text-align: center;
     
 }
 
@@ -1507,7 +1510,7 @@ img.singlutenLogo-recetas.logoSG-index {
 
 .imagen-receta {
     width: 100%;
-    border-radius: 2%;
+    border-radius: 7px;
     margin: 5% 0;
     position: relative;
 }
@@ -1873,7 +1876,7 @@ figure img.sg-logo-receta {
     text-align: center;
     transition: all 0.25s;
     padding: 10px;
-    border-radius: 5%;
+    border-radius: 7px;
     background-color: white;
 }
 
@@ -1886,7 +1889,7 @@ figure img.sg-logo-receta {
     width: 320px;
     height: 220px;
     margin-bottom: 25px;
-    border-radius: 5%;
+    border-radius: 7px;
 }
 
 .tituloscard {
@@ -2655,8 +2658,9 @@ abbr[data-title]:focus::after {
 
 .tituloProd {
     margin-left: 0px;
-    padding-left: 8%;
+    /*padding-left: 8%;*/
     text-transform: capitalize;
+    text-align: center;
 }
 
 .products_categories {
@@ -2672,6 +2676,7 @@ abbr[data-title]:focus::after {
     font-family: var(--fuenteGeneral);
     color: var(--colorBtnRegister);
     font-size: 1.5em;
+    text-align: center;
 }
 
 .categoryList {

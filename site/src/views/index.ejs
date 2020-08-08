@@ -93,7 +93,7 @@
                             <section class="col-12 col-md-11 col-lg-11 product-box">
                                 <a href="/product/details/<%= productSale.id %> " class="col-12 col-lg-12">
                                     <figure class="col-12 col-lg-12 product-box_image">
-                                        <img src="/images/imgProductos/<%= productSale.image %>" alt="imagen de <%= productSale.name %>" class="col-12">
+                                        <img src="/images/imgProductos/<%= productSale.image %>" alt="imagen de <%= productSale.name %>" class="col-12 img-index">
                                     </figure>
                                     <article class="col-12 product-box_data">
                                         <h2 class="titulo_producto">
@@ -134,7 +134,7 @@
                             <section class="col-12 col-md-11 col-lg-11 product-box">
                                 <a href="/product/details/<%= product.id %> " class="col-12 col-lg-12">
                                     <figure class="col-12 col-lg-12 product-box_image">
-                                        <img src="/images/imgProductos/<%= product.image %>" alt="imagen de <%= product.name %>" class="col-12">
+                                        <img src="/images/imgProductos/<%= product.image %>" alt="imagen de <%= product.name %>" class="col-12 img-index">
                                     </figure>
                                     <article class="col-12 product-box_data">
                                         <h2 class="titulo_producto">
@@ -174,12 +174,12 @@
                     <figure class="col-11 col-md-12 col-lg-5 imagen_receta ">
                         <% if (receta.diet == "sin gluten") { %>
                             <!-- Sin es sin gluten añade el logo de sin tacc -->
-                            <img src="/images/recetas/<%= receta.image %>" alt="imagen de <%= receta.name %> " class="col-12">
+                            <img src="/images/recetas/<%= receta.image %>" alt="imagen de <%= receta.name %> " class="col-12 img-index">
                             <img class="singlutenLogo-recetas logoSG-index" src="/images/logos/sintaccLogo.png" alt="Logo de productos sin gluten">
 
                             <% } else { %>
 
-                                <img src="/images/recetas/<%= receta.image %>" alt="imagen de <%= receta.name %> " class="col-12">
+                                <img src="/images/recetas/<%= receta.image %>" alt="imagen de <%= receta.name %> " class="col-12 img-index">
                                 <% } %>
                     </figure>
                     <article class="col-11 col-md-12 col-lg-6 d-sm-block">
