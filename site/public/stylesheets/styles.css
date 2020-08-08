@@ -720,6 +720,22 @@ footer .menu-newsletter button {
     background-color: var(--colorBtnLoginHover);
     font-family: var(--fuenteMenuBtn);
 }
+.input-group-text{
+    background-color: var(--colorBtnLoginHover);
+    font-family: var(--fuenteMenuBtn);
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: .375rem .75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    text-align: center;
+    white-space: nowrap;
+    border-radius:  0 .25rem .25rem 0;
+}
 
 .center-column img {
     width: 200px;

@@ -16,7 +16,7 @@ function checkProductWithSameCode(code, id, callback) {
     return productoIgualCodigo.then(function(results) {
         return results[0];
     }).catch(function(err) {
-        console.log("Error verifiando código.");
+        console.log("Error verificando código.");
         console.log(err);
         throw err;
     });
@@ -32,7 +32,7 @@ function findByid(id, callback) {
     return producto.then(function(results) {
         return results[0];
     }).catch(function(err) {
-        console.log("Error verifiando id.");
+        console.log("Error verificando id.");
         console.log(err);
         throw err;
     });
@@ -75,6 +75,10 @@ let productsMiddlewares = {
         .isNumeric().withMessage("El precio debe ser un número positivo"),
 
         check('discount')
+        .trim()
+        .isNumeric().withMessage("El descuento debe ser un número"),
+
+        check('hot_discount')
         .trim()
         .isNumeric().withMessage("El descuento debe ser un número"),
 

@@ -72,6 +72,8 @@
                                             </div>
                                             <input name="price" type="number" min="0" class="form-control text-right" id="price" required placeholder="0" value="<%= product.price %>" <% if (edit !='1' && edit !='2' ) { %> readonly
                                             <% } %>>
+                                            
+                                            
                                         </div>
                                     </div>
                                     <div class="form-group col-6 pr-0">
@@ -111,6 +113,19 @@
                                         <input name="stock" type="number" min="0" class="form-control d-inline-block col-6" id="stock" placeholder="0" value="<%=product.stock %>" <% if (edit !='1' && edit !='2' ) { %> readonly
                                         <% } %>>
                                     </div>
+                                    <!-- HOT DISCOUNT-->
+                                    <div class="form-group col-12">
+                                        <label class="titulo_carga_producto" for="discount">Descuento HOT SALE</label>
+                                        <div class="input-group">
+                                            <input name="hot_discount" type="number" min="0" class="form-control text-right d-inline-block col-9" id="hot_discount" placeholder="0" value="<%= product.hot_discount %>" <% if (edit !='1' && edit !='2' ) { %> readonly
+                                            <% } %>>
+                                                <div class="input-group-apend">
+                                                    <span class="input-group-text">%</span>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <!-- / HOT DISCOUNT -->
+
                                     <label class="titulo_carga_producto d-inline-block col-12" for="quantity">Presentación</label>
 
                                     <div class="form-group col-12">

@@ -168,6 +168,7 @@ const controller = {
             product.unit = "gr.";
             product.price = 0;
             product.discount = 0;
+            product.hot_discount = 0;
             product.stock = 0;
             product.image = "defaultProduct.jpg";
             product.enabled = true;
@@ -205,6 +206,7 @@ const controller = {
             unit: req.body.unit,
             price: parseInt(req.body.price),
             discount: parseInt(req.body.discount),
+            hot_discount : parseInt(req.body.hot_discount),
             stock: parseInt(req.body.stock),
             id_category: parseInt(req.body.id_category),
             recipes: req.body.recipes,
@@ -256,6 +258,7 @@ const controller = {
                 unit: product.unit,
                 price: parseInt(product.price),
                 discount: parseInt(product.discount),
+                hot_discount: parseInt(product.hot_discount),
                 stock: parseInt(product.stock),
                 image: product.image,
                 id_category: parseInt(product.id_category),
@@ -337,6 +340,7 @@ const controller = {
             unit: req.body.unit,
             price: parseInt(req.body.price),
             discount: parseInt(req.body.discount),
+            hot_discount: parseInt(req.body.hot_discount),
             stock: parseInt(req.body.stock),
             category: req.body.id_category,
             recipes: req.body.recipes,
@@ -385,6 +389,7 @@ const controller = {
                 unit: product.unit,
                 price: product.price,
                 discount: product.discount,
+                hot_discount: product.hot_discount,
                 stock: product.stock,
                 image: product.image,
                 id_category: product.category,
