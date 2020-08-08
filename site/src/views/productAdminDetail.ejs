@@ -63,14 +63,14 @@
                                         <div id="emptyDescription" class="logErrors"></div>
                                         <div id="invalidDescription" class="logErrors"></div>
                                     </div>
-
+                                 
                                     <div class="form-group col-6 pl-0">
                                         <label class="titulo_carga_producto" for="price">Precio <span class="asterisco">*</span></label>
                                         <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">$</span>
+                                            <div class="input-group-prepend-precio">
+                                                <span class="input-group-text-precio">$</span>
                                             </div>
-                                            <input name="price" type="number" min="0" class="form-control text-right" id="price" required placeholder="0" value="<%= product.price %>" <% if (edit !='1' && edit !='2' ) { %> readonly
+                                            <input name="price" type="number" min="0" class="form-control text-right" id="price"  required placeholder="0" value="<%= product.price %>" <% if (edit !='1' && edit !='2' ) { %> readonly
                                             <% } %>>
                                             
                                             

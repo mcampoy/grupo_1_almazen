@@ -680,6 +680,10 @@ footer .menu-newsletter button {
 
 .carga_producto .form-control {
     font-family: var(--fuenteMenuBtn);
+    order:-2;
+}
+.input-group-prepend-precio{
+order:-5;
 }
 
 .carga_producto button {
@@ -735,6 +739,22 @@ footer .menu-newsletter button {
     text-align: center;
     white-space: nowrap;
     border-radius:  0 .25rem .25rem 0;
+}
+.input-group-text-precio{
+    background-color: var(--colorBtnLoginHover);
+    font-family: var(--fuenteMenuBtn);
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: .374rem .75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    text-align: center;
+    white-space: nowrap;
+    border-radius:    .25rem 0 0 .25rem;
 }
 
 .center-column img {
@@ -1416,6 +1436,7 @@ label {
     }
     .elemento-info p {
         text-align: left;
+        font-size: 1.08em;
     }
     .elemento-info span {
         display: block;
