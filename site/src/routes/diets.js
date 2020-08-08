@@ -7,7 +7,7 @@ const recetasControllers = require('../controllers/recetasController');
 //var dietsMiddlewares = require('../middlewares/dietsMiddlewares');
 
 router.get('/', dietsControllers.Diets);
-router.get('/category/', dietsControllers.Diets);
+router.get('/category/:id', dietsControllers.category);
 router.get('/details/:id', productsControllers.details);
 router.get('/receta/:id', recetasControllers.receta);
 router.get('/search', productsControllers.search)
