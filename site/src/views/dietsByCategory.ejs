@@ -22,41 +22,64 @@
 
                 <div class="row rowContainer caja mb-3">
                     <!-- menú de categorías -->
-                    <div class="col-12 col-md-12 col-lg-2 products_categories byCategory">
+                    <!-- MENÚ POR CATEGORÍA -->
+                    <div class="col-12 col-md-12 col-lg-2 products_categories">
                         <h3 class="categories_title">Dietas</h3>
                         <ul class="categoryList">
-                            <li class="categories-items itemsall">
-                                <a href="/diets/" class="categories_names">
-                                    <!-- <img src="/images/imgCategory/todos.png"> Todos </a> -->
-                            </li>
                             <% for( let i = 0; i < dietas.length; i++ ) { %>
                                 <li class="categories-items">
-
+                                    <!-- <img src="/images/imgCategory/<%= dietas[i].img_category %>"> -->
                                     <a href="/diets/category/<%= dietas[i].id %>" class="categories_names">
-                                    <!-- <img src="/images/imgCategory/<%= dietas[i].img_category %>"><%= dietas[i].name %> -->
-                                </a>
+                                        <%= dietas[i].name %>
+                                    </a>
                                 </li>
                                 <% } %>
                         </ul>
                     </div>
 
-
                     <div class="container col-12 col-md-12 col-lg-10 container-tarjetas-productos mt-5" id="tarjetas">
 
                         <h3 class="col-12 titulo_seccion tituloProd">
-                            <%= dietas.name %>
+                            <%= diets.name %>
                         </h3>
-                        <h4 class="col-12 titulo_seccion tituloProd">
+                        <h3 class="col-12 titulo_seccion tituloProd">
                             Productos
-                        </h4>
+                        </h3>
 
 
-                        <% for (let product of category.products) { %>
+                        <% for (let product of diets.products) { %>
                             <% if (product.stock > 0 && product.enabled == 1) { %>
                                 <%- include('partials/productCard', {product}) %>
                                     <% } %>
                                         <% } %>
+                                            <div class="caja mb-3">
+
+                                                <div class="container container-tarjetas-recetas mt-5" id="tarjetas">
+                                                    <!-- Sitemap -->
+                                                    <!-- <div class="siteMap col-12" style="margin-left: 10%">
+                                                    <span>Volver al listado | </span> <a href="/">Home</a> <span> > </span><a href="/recetas/">Recetas</a>
+                                                    <span> <br><br>
+                                                </div> -->
+
+
+                                                    <!-- Título de la sección -->
+                                                    <h3 class="col-12 titulo_seccion tituloProd">
+                                                        Recetas
+                                                    </h3>
+                                                    <!-- Tarjeta -->
+                                                    <% for( let receta of recipe ) { %>
+
+                                                        <% if (receta.diet == diets.name){ %>
+
+                                                            <%- include("partials/tarjetaReceta", {receta}) %>
+                                                                <% } %>
+
+                                                                    <% } %>
+
+                                                </div>
+                                            </div>
                     </div>
+
                 </div>
 
                 <!-- FOOTER -->

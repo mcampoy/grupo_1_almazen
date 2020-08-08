@@ -29,6 +29,28 @@ const controller = {
             })
             .catch((err) => console.error(err));
 
+    },
+    category: async(req, res) => {
+        try {
+            let recipe = await db.Recipe.findAll()
+            let dietas = await db.Diet.findAll();
+            let products = await db.ProductDiet.findAll()
+            let diets = await db.Diet.findByPk(req.params.id, {
+                include: ["products"]
+            })
+
+            return res.render('dietsByCategory', {
+                recipe,
+                products,
+                dietas,
+                diets,
+                usuarioLogueado: req.session.usuarioLogueado
+            })
+
+        } catch (err) {
+
+            console.error(err)
+        }
     }
 }
 
