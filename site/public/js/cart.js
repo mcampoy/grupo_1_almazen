@@ -50,11 +50,15 @@ const CART = {
         document.querySelector('.qtyItemsIcon').innerHTML = itemsQty;
 
         var btnConfirm = document.querySelector('.btn-finalizar-compra');
+        var emptyCartMsg = document.querySelector('.emptyCartMsg');
         if (btnConfirm) {
             if (itemsQty == 0) {
                 btnConfirm.style.display = 'none';
+                emptyCartMsg.style.display = 'block';
+
             } else {
                 btnConfirm.style.display = 'block';
+                emptyCartMsg.style.display = 'none';
             }
         }
 

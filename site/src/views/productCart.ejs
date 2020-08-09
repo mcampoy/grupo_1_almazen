@@ -13,78 +13,71 @@
 
         <!-- HEADER -->
         <%- include("partials/header", {usuarioLogueado: usuarioLogueado}) %>
-        <!-- /HEADER -->
+            <!-- /HEADER -->
 
-        <!--MAIN -->
+            <!--MAIN -->
 
-        <!-- Content -->
+            <!-- Content -->
 
-        <!-- Container -->
-        <div class="caja mb-3">
-            <div class="cardCarrito">
-                <div class="row">
-                    <div class="col-md-8 cartCarrito">
-                        <div class="title">
-                            <div class="row">
-                                <div class="col">
-                                    <h3 class="col-12 titulo_seccion">Carrito</h3>
+            <!-- Container -->
+            <div class="caja mb-3">
+                <div class="cardCarrito">
+                    <div class="row">
+                        <div class="col-md-8 cartCarrito">
+                            <div class="title">
+                                <div class="row">
+                                    <div class="col">
+                                        <h3 class="col-12 titulo_seccion">Carrito</h3>
+                                    </div>
+                                    <div class="col align-self-center text-right text-muted qtyItems"></div>
                                 </div>
-                                <div class="col align-self-center text-right text-muted qtyItems"></div>
                             </div>
-                        </div>
-                        <div id="cartList" class="row">
+                            <div id="cartList" class="row">
+                                <div class="emptyCartMsg">Carrito vacío</div>
+                            </div>
 
+
+                            <div class="back-to-shop align-self-center d-flex justify-content-center primary col-6 mx-auto mb-1 p-2"><a href="/product/" class="volver">Volver a la tienda</a><span class="align-self-center text-muted"></span>
+                            </div>
+                            <button class="btn-vaciar-carrito col-6 mx-auto p-2 secondary ui-button ui-button--secondary d-flex justify-content-center" onclick="emptyCart()">VACIAR CARRITO</button>
+                        </div>
+                        <div class="col-md-4 summary">
+                            <div>
+                                <h3 class="titulo_seccion">Orden</h3>
+                            </div>
+                            <hr>
+                            <div class="row">
+
+                                <div class="col-5 titulo_producto Items"></div>
+                                <div class="col-7 text-right precio_producto precio_carrito precio_productos"></div>
+                            </div>
+
+                            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                                <div class="col-5 titulo_producto">TOTAL</div>
+                                <div class="col-7 text-right precio_producto precio_carrito precio_total"></div>
+                            </div>
+                            <button onclick="confirmPurchase('<%=usuarioLogueado%>')" class="btn-finalizar-compra col">FINALIZAR COMPRA</button>
                         </div>
 
-
-                        <div class="back-to-shop align-self-center d-flex justify-content-center primary col-6 mx-auto mb-1 p-2"><a href="/product/"
-                                class="volver">Volver a la tienda</a><span class="align-self-center text-muted"></span>
-                        </div>
-                        <button
-                            class="btn-vaciar-carrito col-6 mx-auto p-2 secondary ui-button ui-button--secondary d-flex justify-content-center"
-                            onclick="emptyCart()">VACIAR CARRITO</button>
                     </div>
-                    <div class="col-md-4 summary">
-                        <div>
-                            <h3 class="titulo_seccion">Orden</h3>
-                        </div>
-                        <hr>
-                        <div class="row">
-
-                            <div class="col-5 titulo_producto Items"></div>
-                            <div class="col-7 text-right precio_producto precio_carrito precio_productos"></div>
-                        </div>
-
-                        <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                            <div class="col-5 titulo_producto">TOTAL</div>
-                            <div class="col-7 text-right precio_producto precio_carrito precio_total"></div>
-                        </div>
-                        <button onclick="confirmPurchase('<%=usuarioLogueado%>')"
-                            class="btn-finalizar-compra col">FINALIZAR COMPRA</button>
-                    </div>
-
                 </div>
+
             </div>
 
-        </div>
-
-        <!-- FOOTER -->
-        <%- include("partials/footer") %>
-        <!-- /FOOTER -->
+            <!-- FOOTER -->
+            <%- include("partials/footer") %>
+                <!-- /FOOTER -->
 
     </div>
 
     <script type='text/javascript' src="/js/cart.js"></script>
     <script type='text/javascript' src="/js/productCart.js">
     </script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
     <script type='text/javascript' src="/js/userValidator.js"></script>
 </body>
