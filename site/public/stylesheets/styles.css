@@ -3137,3 +3137,12 @@ img.tagHotSale {
     left: 3%;
 }
 
+.emptyCartMsg {
+display: flex;
+margin-top: 10%;
+text-align: center;
+color: var(--colorMenu);
+font-family: var(--fuenteGeneral);
+font-size: 1.5em;
+font-weight: 500;
+}
