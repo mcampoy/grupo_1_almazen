@@ -15,6 +15,7 @@ const controller = {
     },
 
     create: (req, res, next) => {
+        const url = req.headers.referer
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
@@ -51,7 +52,7 @@ const controller = {
                             let expiracion = new Date(Date.now() + 900000); //15 minutos
                             res.cookie('recordarme', user.id, { expires: expiracion });
                         }
-                        return res.redirect('/');
+                        return res.redirect(`${url}`);
                     });
                 }
             });
@@ -70,6 +71,8 @@ const controller = {
     },
 
     access: (req, res) => {
+        const url = req.headers.referer
+
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             let user = {
@@ -90,7 +93,7 @@ const controller = {
                             let expiracion = new Date(Date.now() + 900000); //15 minutos
                             res.cookie('recordarme', usuario.id, { expires: expiracion });
                         };
-                        return res.redirect(`/`);
+                        return res.redirect(`${url}`);
                     };
                 }
 
