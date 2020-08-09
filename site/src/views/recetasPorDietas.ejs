@@ -33,11 +33,13 @@
 
 
             <!-- Título de la sección -->
-            <% if (recetas.diet !== "vegana" && recetas.diet !== "vegetariana") { %>
+            
+            <% if (recetas[0].diet !== "vegana" && recetas[0].diet !== "vegetariana") { %>
             <h3 class="col-12 titulo_seccion">Recetas <%= recetas[0].diet %> </h3>
             <% }else { %>
             <h3 class="col-12 titulo_seccion">Recetas <%= recetas[0].diet %>s </h3>
             <% } %>
+            
 
 
             <!-- Tarjeta -->

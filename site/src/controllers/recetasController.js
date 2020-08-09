@@ -26,7 +26,10 @@ const controller = {
                         association: "ingredients"
                     }, {
                         association: "steps"
-                    }]
+                    }],
+                    where: {
+                        enabled: 1
+                    }
                 })
                     if (receta == null) {
                         return res.redirect('/');
@@ -44,6 +47,7 @@ const controller = {
         try {
             const recetas = await db.Recipe.findAll({
                     where: {
+                        enabled: 1,
                         diet: req.params.dieta
                     }
                 })
