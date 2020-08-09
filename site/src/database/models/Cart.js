@@ -43,12 +43,12 @@ module.exports = (sequelize, dataTypes) => {
 
 
 
-    // Cart.associate = function(models) {
-    //     Cart.belongsTo(models.Product, {
-    //         as: 'products',
-    //         foreignKey: 'id_product'
-    //     });
-    // }
+    Cart.associate = function(models) {
+        Cart.belongsTo(models.Product, {
+            as: 'products',
+            foreignKey: 'id_product'
+        });
+    }
 
 
     return Cart; // Este retorno es lo que exporto

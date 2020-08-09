@@ -1,10 +1,12 @@
+let usuarioLogueadoId = 0;
+
 document.addEventListener('DOMContentLoaded', () => {
     //when the page is ready
     //get the cart items from localStorage
     CART.init();
     var _usuarioLogueadoId = document.getElementById('logUserId');
     if (_usuarioLogueadoId) {
-        var usuarioLogueadoId = parseInt(_usuarioLogueadoId.innerText);
+        usuarioLogueadoId = parseInt(_usuarioLogueadoId.innerText);
         if (usuarioLogueadoId) {
             CART.syncDB(usuarioLogueadoId);
         }
@@ -31,10 +33,14 @@ const CART = {
         CART.sync();
 
     },
+
+    //Sincroniza el carrito de local storage con la variable CART
     sync() {
         console.log("Sync");
         let _cart = JSON.stringify(CART.contents);
         localStorage.setItem(CART.KEY, _cart);
+
+        //Calcula cantidad total de ítems en carrito y modifica el número en el header
         let itemsQty = 0;
         CART.contents.forEach(element => {
             itemsQty += element.quantity;
@@ -61,12 +67,14 @@ const CART = {
             }
         }
 
-
         // } else {
         //     document.querySelector('.qtyItemsIcon').innerHTML = '';
         // }
 
+        //Si el usuario está logueado sincronizo también con la base de datos
+
     },
+
     find(id) {
         //find an item in the cart by its id
         let match = CART.contents.filter(item => {
@@ -76,6 +84,7 @@ const CART = {
         if (match && match[0])
             return match[0];
     },
+
     add(id, name, description_short, weight, unit, price, discount, image, quantity = 1) {
         //add a new item to the cart
         //check that it is not in the cart already
@@ -99,6 +108,7 @@ const CART = {
 
         }
     },
+
     increase(id, quantity = 1) {
         //increase the quantity of an item in the cart
         CART.contents = CART.contents.map(item => {
@@ -108,7 +118,9 @@ const CART = {
         });
         //update localStorage
         CART.sync()
+        CART.syncItemDB(id);
     },
+
     reduce(id, quantity = 1) {
         //reduce the quantity of an item in the cart
         CART.contents = CART.contents.map(item => {
@@ -118,6 +130,7 @@ const CART = {
         });
         CART.sync()
     },
+
     remove(id) {
         //remove an item entirely from CART.contents based on its id
         CART.contents = CART.contents.filter(item => {
@@ -127,12 +140,14 @@ const CART = {
         //update localStorage
         CART.sync()
     },
+
     empty() {
         //empty whole cart
         CART.contents = [];
         //update localStorage
         CART.sync()
     },
+
     sort(field = 'name') {
         //sort by field - title, price
         //return a sorted shallow copy of the CART.contents array
@@ -148,6 +163,7 @@ const CART = {
         return sorted;
         //NO impact on localStorage
     },
+
     syncDB(userId) {
         console.log(userId);
         let cartItems = localStorage.getItem(CART.KEY);
@@ -173,23 +189,98 @@ const CART = {
                     return data.json()
                 })
                 .then(resp => {
-                    // console.log("resp");
-                    // console.log(resp);
+                    console.log("resp");
+                    console.log(resp);
 
-                    // console.log("CART.contents")
-                    // console.log(CART.contents)
-                    // CART.empty();
-                    // console.log("CART.contents")
-                    // console.log(CART.contents)
+                    console.log("CART.contents")
+                    console.log(CART.contents)
+                    CART.empty();
+                    console.log("CART.contents")
+                    console.log(CART.contents)
 
-                    // CART.contents = resp;
-                    // CART.sync();
+                    CART.contents = resp;
+                    CART.sync();
                 })
                 .catch(error => console.log(error))
         }
     },
-};
 
+    syncItemDB(itemId) {
+        console.log("usuarioLogueadoId");
+
+        console.log(usuarioLogueadoId);
+        console.log(itemId);
+
+
+        if (usuarioLogueadoId) {
+
+            console.log(usuarioLogueadoId);
+
+            console.log("CART.contents");
+            console.log(CART.contents);
+
+            // let _contents = localStorage.getItem(CART.KEY);
+            // if (_contents) {
+            //     CART.contents = JSON.parse(_contents);
+            //     console.log("CART.contents2");
+            //     console.log(CART.contents);
+            //}
+            if (CART.contents) {
+                console.log("typeof(CART.contents)");
+                console.log(typeof(CART.contents));
+                var syncItem = CART.contents.filter((item) => {
+                    console.log("item");
+                    console.log(item);
+                    if (item.id == itemId) {
+                        return true;
+                    }
+                });
+                console.log("syncItem");
+                console.log(syncItem);
+
+
+                if (syncItem) {
+                    let cartData = JSON.stringify({ userId: usuarioLogueadoId, cartItem: syncItem[0] });
+                    //let cartData = JSON.stringify({ userId: usuarioLogueadoId, syncItem });
+                    //let cartData = '[{ "id": 1, "name": "Cúrcuma", "description_short": "Cúrcuma en polvo para darle sabor y color a tus comidas", "weight": "100", "unit": "gr", "price": 60, "discount": 12, "image": "curcuma en polvo.jpg", "quantity": 2 }, { "id": 2, "name": "Cacao", "description_short": "Cacao en polvo para darle sabor y color a tus preparaciones", "weight": "250", "unit": "gr", "price": 300, "discount": 10, "image": "Cacao - 22-6-2020 11_0_56.jpg", "quantity": 2 }]';
+                    console.log("cartData");
+                    console.log(cartData);
+                    const url = '/api/cart/update';
+                    const params = {
+                        headers: {
+                            "content-type": "application/json"
+                        },
+                        body: cartData,
+                        method: "POST"
+                    };
+
+                    fetch(url, params)
+                        .then(data => {
+                            console.log("data");
+                            console.log(data);
+                            return data.json()
+                        })
+                        .then(resp => {
+                            console.log("resp");
+                            console.log(resp);
+
+                            // console.log("CART.contents")
+                            // console.log(CART.contents)
+                            // CART.empty();
+                            // console.log("CART.contents")
+                            // console.log(CART.contents)
+
+                            // CART.contents = resp;
+                            // CART.sync();
+                        })
+                        .catch(error => console.log(error))
+
+                }
+            }
+        }
+    }
+
+}
 
 
 
