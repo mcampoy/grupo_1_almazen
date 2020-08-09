@@ -2974,7 +2974,6 @@ h6 {
     font-size: 18px;
     display: flex;
     background-color: #fff;
-    margin-top: -8%;
     padding: 1%;
 }
 
@@ -3138,11 +3137,11 @@ img.tagHotSale {
 }
 
 .emptyCartMsg {
-display: flex;
-margin-top: 10%;
-text-align: center;
-color: var(--colorMenu);
-font-family: var(--fuenteGeneral);
-font-size: 1.5em;
-font-weight: 500;
+    display: flex;
+    margin-top: 10%;
+    text-align: center;
+    color: var(--colorMenu);
+    font-family: var(--fuenteGeneral);
+    font-size: 1.5em;
+    font-weight: 500;
 }
