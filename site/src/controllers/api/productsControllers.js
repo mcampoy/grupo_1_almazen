@@ -81,6 +81,9 @@ const controller = {
                     },
                 },
                 limit: 5,
+                order: [
+                    ['name', "DESC"]
+                ]
             })
 
             let unstokedTotal = await db.Product.findAll({
