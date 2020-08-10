@@ -161,7 +161,6 @@ let productsMiddlewares = {
         // chequea que el código no sea igual al de otro producto
         body('code').custom((value, { req }) => {
             return checkProductWithSameCode(value, req.body.id).then(function(product) {
-                console.log(product);
                 if (product) {
                     throw new Error('No se puede agregar el producto porque ya existe. Pruebe con otro código.');
                 }

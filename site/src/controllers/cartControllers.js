@@ -19,9 +19,7 @@ const controller = {
     createOrder: async(req, res) => {
         if (req.session.usuarioLogueado) {
 
-            console.log(req.body);
             userId = req.body.id_user;
-            console.log(userId);
 
             try {
                 var cartItems = await db.Cart.findAll({
@@ -29,8 +27,6 @@ const controller = {
                         id_user: userId
                     }
                 })
-                console.log("cartItems Create Order");
-                console.log(cartItems);
                 if (cartItems.length) {
 
                     //busco el último número de orden en la DB
@@ -59,15 +55,40 @@ const controller = {
                         })
                     })
 
+                    //Descuento las cantidades del stock
+                    cartItems.forEach(item => {
+                        //Me fijo stock actual
+                        db.Product.findAll({
+                            where: {
+                                id: item.id_product,
+                            }
+                        }).then((productDB) => {
+                            //Actualizo stock descontando lo vendido
+                            console.log("productDB[0]");
+                            console.log(productDB[0]);
+                            let newQuantity = productDB[0].stock - item.quantity;
+                            if (newQuantity < 0) {
+                                newQuantity = 0;
+                            }
+
+                            db.Product.update({
+                                stock: newQuantity
+                            }, {
+                                where: {
+                                    id: item.id_product,
+                                }
+                            })
+                        })
+                    })
+
+
+
                     //Borro el carrito del usuario
                     db.Cart.destroy({
                         where: {
                             id_user: userId
                         }
                     })
-
-
-
                 }
                 res.redirect("/")
 

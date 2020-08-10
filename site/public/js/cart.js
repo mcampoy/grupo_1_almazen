@@ -203,7 +203,6 @@ const CART = {
                 })
                 .then(resp => {
                     CART.contents = resp;
-
                     CART.sync();
                 })
                 .catch(error => console.log(error))
@@ -211,38 +210,20 @@ const CART = {
     },
 
     syncItemDB(itemId) {
-        console.log("usuarioLogueadoId");
-
-        console.log(usuarioLogueadoId);
-        console.log(itemId);
-
 
         if (usuarioLogueadoId) {
 
-            console.log(usuarioLogueadoId);
-
-            console.log("CART.contents");
-            console.log(CART.contents);
-
             if (CART.contents) {
-                console.log("typeof(CART.contents)");
-                console.log(typeof(CART.contents));
                 var syncItem = CART.contents.filter((item) => {
-                    console.log("item");
-                    console.log(item);
                     if (item.id == itemId) {
                         return true;
                     }
                 });
-                console.log("syncItem");
-                console.log(syncItem);
 
 
                 if (syncItem[0]) { cartItem = JSON.stringify(syncItem[0]) } else { cartItem = `{"id":${itemId},"quantity":0}` }
 
                 let cartData = JSON.stringify({ userId: usuarioLogueadoId, cartItem: cartItem });
-                console.log("cartData");
-                console.log(cartData);
                 const url = '/api/cart/update';
                 const params = {
                     headers: {
@@ -254,26 +235,13 @@ const CART = {
 
                 fetch(url, params)
                     .then(data => {
-                        console.log("data");
-                        console.log(data);
                         return data.json()
                     })
                     .then(resp => {
-                        console.log("resp");
-                        console.log(resp);
                         CART.contents = JSON.parse(resp);
                         CART.sync();
                     })
                     .catch(error => console.log(error))
-
-
-
-
-
-
-
-
-
             }
         }
     },
@@ -294,20 +262,14 @@ const CART = {
 
             fetch(url, params)
                 .then(data => {
-                    console.log("data");
-                    console.log(data);
                     return data.json()
                 })
                 .then(resp => {
-                    console.log("resp");
-                    console.log(resp);
                     //  CART.empty();
                     //  CART.contents = resp;
                     //  CART.sync();
                 })
                 .catch(error => console.log(error))
-
-
         }
     }
 
@@ -316,8 +278,6 @@ const CART = {
 function logout() {
     localStorage.removeItem("prodFavs");
     localStorage.removeItem(CART.KEY);
-
-    //localStorage.setItem(CART.KEY, []);
     location.href = '/users/logout'
 }
 

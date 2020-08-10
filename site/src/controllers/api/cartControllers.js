@@ -160,7 +160,6 @@ const controller = {
                                     return res.status(500).json({ ok: false, error })
                                 })
                         } else {
-                            console.log("no está en la base");
                             db.Cart.create({
                                 id_user: userId,
                                 id_product: cartItem.id,
