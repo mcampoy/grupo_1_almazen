@@ -92,7 +92,7 @@
                                                 <% }%>
 
                                                     <!-- /* CERRAR SESIÓN */ -->
-                                                    <button type="button" class="btn btn-primary btn-login-header hoverlogout" onclick="location.href='/users/logout'">
+                                                    <button type="button" class="btn btn-primary btn-login-header hoverlogout" onclick=logout()>
                         CERRAR SESIÓN
                     </button>
 
@@ -275,6 +275,7 @@
     </nav>
 </header>
 <script type='text/javascript' src="/js/search.js"></script>
+
 
 <% if (typeof errors != 'undefined') { %>
     <div class="col-12 users-errors ">

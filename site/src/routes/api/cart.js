@@ -8,6 +8,6 @@ var jsonParser = bodyParser.json()
 
 router.post('/sync', jsonParser, apiCartControllers.syncDBCart);
 router.post('/update', jsonParser, apiCartControllers.updateDBItem);
-
+router.post('/empty', jsonParser, apiCartControllers.emptyCart);
 
 module.exports = router;

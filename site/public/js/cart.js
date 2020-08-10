@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
             CART.syncDB(usuarioLogueadoId);
         }
     }
+
+    //Si está en la página de carrito carga los items
+    if (document.getElementById('cartList')) showCart();
 });
 
 
@@ -36,8 +39,8 @@ const CART = {
 
     //Sincroniza el carrito de local storage con la variable CART
     sync() {
-        console.log("Sync");
         let _cart = JSON.stringify(CART.contents);
+
         localStorage.setItem(CART.KEY, _cart);
 
         //Calcula cantidad total de ítems en carrito y modifica el número en el header
@@ -109,6 +112,8 @@ const CART = {
             CART.contents.push(obj);
             //update localStorage
             CART.sync();
+            CART.syncItemDB(id);
+
 
         }
     },
@@ -118,6 +123,7 @@ const CART = {
         CART.contents = CART.contents.map(item => {
             if (item.id === id)
                 item.quantity = item.quantity + quantity;
+            var newQuantity = item.quantity;
             return item;
         });
         //update localStorage
@@ -133,6 +139,8 @@ const CART = {
             return item;
         });
         CART.sync()
+        CART.syncItemDB(id);
+
     },
 
     remove(id) {
@@ -143,6 +151,8 @@ const CART = {
         });
         //update localStorage
         CART.sync()
+        CART.syncItemDB(id);
+
     },
 
     empty() {
@@ -150,6 +160,8 @@ const CART = {
         CART.contents = [];
         //update localStorage
         CART.sync()
+        CART.emptyCartDB();
+
     },
 
     sort(field = 'name') {
@@ -169,14 +181,9 @@ const CART = {
     },
 
     syncDB(userId) {
-        console.log(userId);
         let cartItems = localStorage.getItem(CART.KEY);
-        console.log("cartItems en LocalStorage");
-        console.log(cartItems);
         if (cartItems) {
             var cartData = JSON.stringify({ userId: userId, cartItems: cartItems });
-            console.log("cartData");
-            console.log(cartData);
             const url = '/api/cart/sync';
             const params = {
                 headers: {
@@ -188,21 +195,15 @@ const CART = {
 
             fetch(url, params)
                 .then(data => {
-                    console.log("data");
-                    console.log(data);
+                    // if (data.status == "200") {
                     return data.json()
+                        // } else {
+                        //     return [];
+                        // }
                 })
                 .then(resp => {
-                    console.log("resp");
-                    console.log(resp);
-
-                    console.log("CART.contents")
-                    console.log(CART.contents)
-                    CART.empty();
-                    console.log("CART.contents")
-                    console.log(CART.contents)
-
                     CART.contents = resp;
+
                     CART.sync();
                 })
                 .catch(error => console.log(error))
@@ -223,12 +224,6 @@ const CART = {
             console.log("CART.contents");
             console.log(CART.contents);
 
-            // let _contents = localStorage.getItem(CART.KEY);
-            // if (_contents) {
-            //     CART.contents = JSON.parse(_contents);
-            //     console.log("CART.contents2");
-            //     console.log(CART.contents);
-            //}
             if (CART.contents) {
                 console.log("typeof(CART.contents)");
                 console.log(typeof(CART.contents));
@@ -243,48 +238,89 @@ const CART = {
                 console.log(syncItem);
 
 
-                if (syncItem) {
-                    let cartData = JSON.stringify({ userId: usuarioLogueadoId, cartItem: syncItem[0] });
-                    //let cartData = JSON.stringify({ userId: usuarioLogueadoId, syncItem });
-                    //let cartData = '[{ "id": 1, "name": "Cúrcuma", "description_short": "Cúrcuma en polvo para darle sabor y color a tus comidas", "weight": "100", "unit": "gr", "price": 60, "discount": 12, "image": "curcuma en polvo.jpg", "quantity": 2 }, { "id": 2, "name": "Cacao", "description_short": "Cacao en polvo para darle sabor y color a tus preparaciones", "weight": "250", "unit": "gr", "price": 300, "discount": 10, "image": "Cacao - 22-6-2020 11_0_56.jpg", "quantity": 2 }]';
-                    console.log("cartData");
-                    console.log(cartData);
-                    const url = '/api/cart/update';
-                    const params = {
-                        headers: {
-                            "content-type": "application/json"
-                        },
-                        body: cartData,
-                        method: "POST"
-                    };
+                if (syncItem[0]) { cartItem = JSON.stringify(syncItem[0]) } else { cartItem = `{"id":${itemId},"quantity":0}` }
 
-                    fetch(url, params)
-                        .then(data => {
-                            console.log("data");
-                            console.log(data);
-                            return data.json()
-                        })
-                        .then(resp => {
-                            console.log("resp");
-                            console.log(resp);
+                let cartData = JSON.stringify({ userId: usuarioLogueadoId, cartItem: cartItem });
+                console.log("cartData");
+                console.log(cartData);
+                const url = '/api/cart/update';
+                const params = {
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: cartData,
+                    method: "POST"
+                };
 
-                            // console.log("CART.contents")
-                            // console.log(CART.contents)
-                            // CART.empty();
-                            // console.log("CART.contents")
-                            // console.log(CART.contents)
+                fetch(url, params)
+                    .then(data => {
+                        console.log("data");
+                        console.log(data);
+                        return data.json()
+                    })
+                    .then(resp => {
+                        console.log("resp");
+                        console.log(resp);
+                        CART.contents = JSON.parse(resp);
+                        CART.sync();
+                    })
+                    .catch(error => console.log(error))
 
-                            // CART.contents = resp;
-                            // CART.sync();
-                        })
-                        .catch(error => console.log(error))
 
-                }
+
+
+
+
+
+
+
             }
+        }
+    },
+
+    emptyCartDB() {
+
+        if (usuarioLogueadoId) {
+
+            let cartData = JSON.stringify({ userId: usuarioLogueadoId });
+            const url = '/api/cart/empty';
+            const params = {
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: cartData,
+                method: "POST"
+            };
+
+            fetch(url, params)
+                .then(data => {
+                    console.log("data");
+                    console.log(data);
+                    return data.json()
+                })
+                .then(resp => {
+                    console.log("resp");
+                    console.log(resp);
+                    //  CART.empty();
+                    //  CART.contents = resp;
+                    //  CART.sync();
+                })
+                .catch(error => console.log(error))
+
+
         }
     }
 
 }
+
+function logout() {
+    localStorage.removeItem("prodFavs");
+    localStorage.removeItem(CART.KEY);
+
+    //localStorage.setItem(CART.KEY, []);
+    location.href = '/users/logout'
+}
+
 
 
 

@@ -1,8 +1,8 @@
-window.addEventListener("load", function() {
+// window.addEventListener("load", function() {
 
-    showCart();
+//     showCart();
 
-});
+// });
 
 function showCart() {
     let cartList = document.getElementById('cartList');

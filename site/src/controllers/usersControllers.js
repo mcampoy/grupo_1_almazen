@@ -120,6 +120,7 @@ const controller = {
             if (req.cookies.recordarme != undefined) {
                 res.clearCookie("recordarme"); //eliminamos la cookie
             }
+
             mensaje = "Se cerró la sesión exitosamente";
             return res.redirect('/');
         });
@@ -180,7 +181,7 @@ const controller = {
     //             return res.render("login",{ usuarioLogueado: undefined});
     //          });
     //     })
-    
+
     // }
 };
 
