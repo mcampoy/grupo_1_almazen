@@ -8,6 +8,9 @@ const controller = {
     Diets(req, res) {
 
         let recetas = db.Recipe.findAll();
+        let diets = db.Diet.findByPk(req.params.id, {
+            include: ["products"]
+        })
         let products = db.Product.findAll({
             where: {
                 enabled: 1,
@@ -18,12 +21,13 @@ const controller = {
         });
         let dietas = db.Diet.findAll();
 
-        Promise.all([recetas, products, dietas])
+        Promise.all([recetas, products, dietas, diets])
             .then((results) => {
                 return res.render('diets', {
                     recetas: results[0],
                     products: results[1],
                     dietas: results[2],
+                    diets: results[3],
                     usuarioLogueado: req.session.usuarioLogueado
                 })
             })

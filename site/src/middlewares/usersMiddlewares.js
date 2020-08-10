@@ -3,6 +3,19 @@ let bcrypt = require('bcrypt');
 let db = require('../database/models');
 var { check, validationResult, body } = require('express-validator');
 
+function validateEmail(email, res) {
+    let validacionEmail = db.User.findOne({
+        where: {
+            email: email
+        }
+    }).then((usuario) => {
+
+        if (usuario != undefined) {
+            return res.render("register", { errors: [{ msg: 'El email con el que intenta registrarse pertenece a un/a usuario/a ya registrado/a' }], usuarioLogueado: undefined });
+        }
+    })
+}
+
 // MIDDLEWARES USUARIOS
 let usersMiddlewares = {
     middlewareGenerico: function(req, res, next) {
@@ -26,7 +39,10 @@ let usersMiddlewares = {
                 return false
             }
             return true
-        }).withMessage('Revisá que las contraseñas coincidan')
+        }).withMessage('Revisá que las contraseñas coincidan'),
+        /*body('email').custom((value) => {
+            return validateEmail(value, null)
+        })*/
     ],
 
     loginValidation: [

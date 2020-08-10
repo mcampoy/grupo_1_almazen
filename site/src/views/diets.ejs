@@ -37,25 +37,30 @@
                         </ul>
                     </div>
 
-
                     <div class="container col-12 col-md-12 col-lg-10 container-tarjetas-productos mt-5" id="tarjetas">
                         <h3 class="col-12 titulo_seccion tituloProd">Nuestros productos</h3>
 
                         <% for (let product of products) { %>
                             <!-- Verifico que haya stock y que esté habilitado -->
+                            <% if (product.stock > 0 && product.enabled == 1) { %>
 
-                            <%- include('partials/productCard', {product}) %>
+                                <%- include('partials/productCard', {product}) %>
 
-                                <% } %>
-                                    <div class="caja mb-3">
-                                        <div class="container container-tarjetas-recetas " id="tarjetas">
-                                            <h3 class="col-12 titulo_seccion tituloProd">Recetas que inspiran</h3>
+                                    <% } %>
 
-                                            <% for( let receta of recetas) { %>
-                                                <%- include("partials/tarjetaReceta", {receta}) %>
-                                                    <% } %>
-                                        </div>
-                                    </div>
+                                        <% } %>
+                                            <div class="caja mb-3">
+                                                <div class="container container-tarjetas-recetas " id="tarjetas">
+                                                    <h3 class="col-12 titulo_seccion tituloProd">Recetas que inspiran</h3>
+
+                                                    <% for( let receta of recetas) { %>
+
+                                                        <%- include("partials/tarjetaReceta", {receta}) %>
+
+                                                            <% } %>
+
+                                                </div>
+                                            </div>
                     </div>
                     <!-- Título de la sección -->
 
