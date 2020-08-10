@@ -54,8 +54,10 @@ const controller = {
                 meta: {
                     status: 200,
                 },
+                data:{
                 length: recentProd.length,
-                data: recentProd
+                recent: recentProd
+                }
             }
             return res.json(resultsRecent)
 

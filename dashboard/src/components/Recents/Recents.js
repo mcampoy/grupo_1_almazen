@@ -31,7 +31,7 @@ componentDidMount(){
 showRecent = (data) => {
     this.setState(
         {
-            recents: data.data
+            recents: data.data.recent
         }
         )
       }
