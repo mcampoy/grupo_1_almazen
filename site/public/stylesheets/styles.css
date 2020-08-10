@@ -2974,11 +2974,48 @@ h6 {
     font-size: 18px;
     display: flex;
     background-color: #fff;
+    margin-top: -6%;
     padding: 1%;
 }
 
 #ulSearch li:first-child {
-    margin-top: 7%;
+    margin-top: 6%;
+}
+
+@media (max-width: 1300px) {
+    #ulSearch li a {
+        margin-top: -8%;
+    }
+}
+
+@media (max-width: 1000px) {
+    #ulSearch li a {
+        margin-top: -4%;
+    }
+    #ulSearch li:first-child {
+        margin-top: 4%;
+    }
+}
+
+@media (max-width: 750px) {
+    #ulSearch li a {
+        margin-top: -7.5%;
+    }
+    #ulSearch li:first-child {
+        margin-top: 8%;
+    }
+}
+
+@media (max-width: 400px) {
+
+    @media (max-width: 3700px) {
+    #ulSearch li a {
+        margin-top: -10%;
+        }
+        #ulSearch li:first-child {
+            margin-top: 10%;
+        }
+    }
 }
 
 .searchImg {
@@ -3043,7 +3080,6 @@ h6 {
 }
 
 .searchQuantity {
-    /* display: block; */
     font-family: var(--fuenteGeneral);
     font-weight: 400;
     color: var(--colorTituloGeneral);
